@@ -1,8 +1,6 @@
-## Welcome to GitHub Pages
+## 欢迎来到胡经纬的GitHub主页
 
-You can use the [editor on GitHub](https://github.com/davidhoo1988/davidhu.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+这个网页主要记录自己在科研当中的所学所思所得。特别是那些个人觉得有意思有价值的部分。
 
 ### Markdown
 
