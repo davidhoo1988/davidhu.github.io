@@ -2,9 +2,9 @@
 
 这个网页主要记录自己在科研当中的所学所思所得。特别是那些个人觉得有意思有价值的部分。
 
-### Markdown
+### 个人简介
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+本人本科毕业于大连海事大学(211工程大学)电子科学与技术专业，硕士毕业于天津大学(985工程大学)计算机科学与技术专业，在香港城市大学电子工程学系取得博士学位。目前在新加坡南洋理工大学数学系从事博士后研究工作。
 
 ```markdown
 Syntax highlighted code block
