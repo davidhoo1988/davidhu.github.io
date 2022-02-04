@@ -4,7 +4,7 @@
 
 ### 个人简介
 
-本人本科毕业于大连海事大学(211工程大学)电子科学与技术专业，硕士毕业于天津大学(985工程大学)计算机科学与技术专业，在香港城市大学电子工程学系取得博士学位。目前在新加坡南洋理工大学数学系从事博士后研究工作。
+本人本科毕业于大连海事大学(211工程大学)电子科学与技术专业，硕士毕业于天津大学(985工程大学)计算机科学与技术专业，在香港城市大学电子工程学系取得博士学位。目前在新加坡南洋理工大学数学系从事博士后研究工作。这里可以查看我的[个人简历](./jingweihu_cv.pdf)。
 
 ```markdown
 Syntax highlighted code block
@@ -26,7 +26,9 @@ Syntax highlighted code block
 
 For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
 
-### Jekyll Themes
+### 文章目录
+
+# 全同态加密方案 FHEW
 
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/davidhoo1988/davidhu.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
