@@ -7,23 +7,24 @@
 本人本科毕业于大连海事大学(211工程大学)电子科学与技术专业，硕士毕业于天津大学(985工程大学)计算机科学与技术专业，在香港城市大学电子工程学系取得博士学位。目前在新加坡南洋理工大学数学系从事博士后研究工作。这里可以查看我的[个人简历(英文版)](./cv_jingweihu.pdf)。
 
 ### 文章目录
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
 
 - 全同态加密(Fully Homomorphic Encryption)
     1. [FHEW介绍](./pages/FHEW/main.md)
     2. TFHE
 - 后量子密码(Post Quantum Cryptography)
 
+```markdown
+Syntax highlighted code block
+
+# Header 1
+## Header 2
+### Header 3
+```
 
 **Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
-```
+
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/davidhoo1988/davidhu.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
