@@ -10,7 +10,7 @@ FHEW是开启第三代FHE的标志性方案。该方案主要是Leo Ducas he Dan
 
 
 #### Modular Switching 和 Key Switching
-这里引入FHE方案中的两个重要基本操作Modular Switching和Key Switching。我们不加证明的使用如下结论：
+这里引入FHE方案中的两个重要基本操作Modular Switching和Key Switching。它们会反复的出现在FHE系列的文章中。我们不加证明的使用如下结论：
 
 ### FHEW顶层结构
 
