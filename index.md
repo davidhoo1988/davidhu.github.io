@@ -11,6 +11,10 @@
 - 全同态加密(Fully Homomorphic Encryption)
     1. [FHEW介绍](./pages/FHEW/main.md)
     2. TFHE
+    3. BGV
+    4. (B)FV
+    5. CKKS
+   
 - 后量子密码(Post Quantum Cryptography)
     1. ROLLO
     2. BIKE
