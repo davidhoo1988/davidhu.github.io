@@ -5,3 +5,5 @@ FHEW是开启第三代FHE的标志性方案。该方案主要是Leo Ducas he Dan
 ### 预备知识
 #### Learning With Errors (LWE) 对称加密
 这里将对明文m的LWE加密标注成![equation](https://latex.codecogs.com/svg.image?LWE_{\vec{s}}(m)=(\vec{a},b)). 其中![equation](https://latex.codecogs.com/svg.image?b&space;=&space;<\vec{a},\vec{s}>&plus;e&plus;\frac{q}{t}\cdot&space;m）
+
+已知，则可以对进行![equation](https://latex.codecogs.com/svg.image?LWE_{\vec{s}}(m)=(\vec{a},b))解密操作，算法如下：
