@@ -4,4 +4,4 @@ FHEW是开启第三代FHE的标志性方案。该方案主要是Leo Ducas he Dan
 
 ### 预备知识
 #### Learning With Errors (LWE)
-![formula](https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1)
+$$ 5 + 5 $$
