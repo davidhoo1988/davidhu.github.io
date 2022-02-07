@@ -9,7 +9,7 @@
 ### 文章目录
 
 - 全同态加密(Fully Homomorphic Encryption)
-    1. [FHEW介绍](./pages/FHEW/main.md)
+    1. [FHEW](./pages/FHEW/main.md)
     2. TFHE
     3. BGV
     4. (B)FV
