@@ -15,3 +15,5 @@ FHEW是开启第三代FHE的标志性方案。该方案主要是Leo Ducas he Dan
 ### FHEW顶层结构
 
 ### 同态与门逻辑(Homomorphic AND gate)
+
+### 同态累加器(Homomorphic Accumulator)
