@@ -10,7 +10,7 @@ FHEW是开启第三代FHE的标志性方案。该方案主要是Leo Ducas he Dan
 
 已知密钥![equation](https://latex.codecogs.com/svg.image?\vec{s})，则可以对![equation](https://latex.codecogs.com/svg.image?LWE_{\vec{s}}(m)=(\vec{a},b))做解密操作，算法如下：
 
-![equation](https://latex.codecogs.com/svg.image?\lfloor&space;t(b-<\mathbf{a},\mathbf{s}>/q)\rceil&space;) 
+![equation](https://latex.codecogs.com/svg.image?\lfloor&space;t(b-<\mathbf{a},\mathbf{s}>/q)\rceil&space;=" title="\lfloor t(b-<\mathbf{a},\mathbf{s}>/q)\rceil =) 
 
 #### Modular Switching 和 Key Switching
 这里引入FHE方案中的两个重要基本操作Modular Switching(M.S.) 和 Key Switching(K.S.)。它们会反复地出现在FHE系列的文章中。我们不加证明的使用如下结论：
