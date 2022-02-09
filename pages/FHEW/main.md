@@ -12,8 +12,19 @@ FHEW是开启第三代FHE的标志性方案。该方案主要是Leo Ducas he Dan
 <img src="https://latex.codecogs.com/svg.image?\left\lfloor&space;t(b-\mathbf{a}\cdot&space;\mathbf{s})/q\right\rceil&space;\bmod&space;t&space;=&space;\left\lfloor&space;\frac{t}{q}\cdot&space;(\frac{q}{t}m&plus;e)\right\rceil&space;=&space;\left\lfloor&space;m&plus;\frac{t}{q}e\right\rceil&space;=&space;m\bmod&space;t" title="\left\lfloor t(b-\mathbf{a}\cdot \mathbf{s})/q\right\rceil \bmod t = \left\lfloor \frac{t}{q}\cdot (\frac{q}{t}m+e)\right\rceil = \left\lfloor m+\frac{t}{q}e\right\rceil = m\bmod t" />
 </p>
 
-#### Modular Switching 和 Key Switching
+#### 模数变换（Modular Switching） 和 密钥变换 （Key Switching）
 这里引入FHE方案中的两个重要基本操作Modular Switching(M.S.) 和 Key Switching(K.S.)。它们会反复地出现在FHE系列的文章中。我们不加证明的使用如下结论：
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?LWE^{t/Q}_{\mathbf{s}}(m)&space;\xrightarrow[]{\text{Modular&space;Switching}}LWE^{t/q}_{\mathbf{s}}(m)&space;" title="LWE^{t/Q}_{\mathbf{s}}(m) \xrightarrow[]{\text{Modular Switching}}LWE^{t/q}_{\mathbf{s}}(m) " />
+</p>
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?LWE^{t/q}_{\mathbf{z}}(m)&space;\xrightarrow[]{\text{Key&space;Switching}}LWE^{t/q}_{\mathbf{s}}(m)&space;" title="LWE^{t/q}_{\mathbf{z}}(m) \xrightarrow[]{\text{Key Switching}}LWE^{t/q}_{\mathbf{s}}(m) " />
+</p>
+
+也就是说模数变换可以把LWE instance的大模数Q变换成小模数q(Q>q)，而不改变加密的明文m以及密钥s；
+密钥变换则把LWE instance的密钥从原先的向量z变成向量s，而不改变模数q和明文m。
 
 ### FHEW顶层逻辑结构
 
