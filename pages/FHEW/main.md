@@ -27,7 +27,19 @@ FHEW是开启第三代FHE的标志性方案。该方案主要是Leo Ducas和Dani
 密钥变换则把LWE instance的密钥从原先的向量z变成向量s，而不改变模数q和明文m。
 
 ### FHEW顶层逻辑结构
+FHEW方案的输入是两个比特的密文<img src="https://latex.codecogs.com/svg.image?LWE(m_0)=c_0=(\mathbf{a_0},b_0),&space;LWE(m_1)=c_1=(\mathbf{a_1},b_1)&space;" title="LWE(m_0)=c_0=(\mathbf{a_0},b_0), LWE(m_1)=c_1=(\mathbf{a_1},b_1) " />，输出的是对这两个加密比特进行一次同态门运算得到相应比特的密文。
 
-### 同态与门逻辑(Homomorphic AND gate)
+#### 同态与非门逻辑(Homomorphic NAND gate)
+特别地，与非门逻辑是研究的重点。因为实现了与非门，实际上等同于实现了其他所有逻辑(universal logic)。话句话说，我们希望构造这样的同态与非逻辑实现如下运算:
 
-### 同态累加器(Homomorphic Accumulator)
+这里我们忽略[原始论文](https://eprint.iacr.org/2014/816.pdf)中的相关描述，转而使用[论文](https://eprint.iacr.org/2020/086.pdf)中关于同态查找表(look-up table, LUT)的描述，该表述更富有直觉性，同时也被后续研究发展成functional bootstrap。
+(a,b) | a+b  | NAND(a,b)
+----  | ---- | ----
+(0,0) | 0    | 1
+(0,1) | 1    | 1
+(1,0) | 1    | 1
+(1,1) | 2    | 0
+
+也就是说，我们需要同态的构造这样的LUT function，可以把0映射成1，1映射成1，2映射成0。
+
+#### 同态累加器(Homomorphic Accumulator)
