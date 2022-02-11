@@ -27,12 +27,19 @@ FHEW是开启第三代FHE的标志性方案。该方案主要是Leo Ducas和Dani
 密钥变换则把LWE instance的密钥从原先的向量z变成向量s，而不改变模数q和明文m。
 
 ### FHEW顶层逻辑结构
-FHEW方案的输入是两个比特的密文<img src="https://latex.codecogs.com/svg.image?LWE(m_0)=c_0=(\mathbf{a_0},b_0),&space;LWE(m_1)=c_1=(\mathbf{a_1},b_1)&space;" title="LWE(m_0)=c_0=(\mathbf{a_0},b_0), LWE(m_1)=c_1=(\mathbf{a_1},b_1) " />，输出的是对这两个加密比特进行一次同态门运算得到相应比特的密文。
+FHEW方案的输入是两个比特的密文<img src="https://bit.ly/3BcPw7P" align="center" border="0" alt="LWE(m_0)=c_0=(\mathbf{a_0},b_0),  LWE(m_1)=c_1=(\mathbf{a_1},b_1)" width="375" height="19" />，输出的是对这两个加密比特进行一次同态门运算得到相应比特的密文。
 
 #### 同态与非门逻辑(Homomorphic NAND gate)
 特别地，与非门逻辑是研究的重点。因为实现了与非门，实际上等同于实现了其他所有逻辑(universal logic)。话句话说，我们希望构造这样的同态与非逻辑实现如下运算:
 
+<p align="center">
+<img src="http://www.sciweavers.org/tex2img.php?eq=LWE%5E%7Bt%2Fq%7D_%7B%5Cmathbf%7Bs%7D%7D%28m_0%29%2C%20LWE%5E%7Bt%2Fq%7D_%7B%5Cmathbf%7Bs%7D%7D%28m_1%29%20%5Cxrightarrow%5B%5D%7B%5Ctext%7BHomoNAND%7D%7DLWE%5E%7Bt%2Fq%7D_%7B%5Cmathbf%7Bs%7D%7D%28%5Coverline%7Bm_0%5Cwedge%20m_1%7D%29&bc=White&fc=Black&im=jpg&fs=12&ff=modern&edit=0" align="center" border="0" alt="LWE^{t/q}_{\mathbf{s}}(m_0), LWE^{t/q}_{\mathbf{s}}(m_1) \xrightarrow[]{\text{HomoNAND}}LWE^{t/q}_{\mathbf{s}}(\overline{m_0\wedge m_1})" width="408" height="24" />
+</p>
+
 这里我们忽略[原始论文](https://eprint.iacr.org/2014/816.pdf)中的相关描述，转而使用[论文](https://eprint.iacr.org/2020/086.pdf)中关于同态查找表(look-up table, LUT)的描述，该表述更富有直觉性，同时也被后续研究发展成functional bootstrap。
+
+基本思路如下，首先我们应该知道同态加法是容易做的，即 <img src="http://www.sciweavers.org/tex2img.php?eq=LWE%5E%7Bt%2Fq%7D_%7B%5Cmathbf%7Bs%7D%7D%28m_0%29%2BLWE%5E%7Bt%2Fq%7D_%7B%5Cmathbf%7Bs%7D%7D%28m_1%29%3DLWE%5E%7Bt%2Fq%7D_%7B%5Cmathbf%7Bs%7D%7D%28m_0%2Bm_1%29%20&bc=White&fc=Black&im=jpg&fs=12&ff=modern&edit=0" align="center" border="0" alt="LWE^{t/q}_{\mathbf{s}}(m_0)+LWE^{t/q}_{\mathbf{s}}(m_1)=LWE^{t/q}_{\mathbf{s}}(m_0+m_1) " width="361" height="22" />。接下来的目标是同态地将<img src="http://www.sciweavers.org/tex2img.php?eq=m_0%2Bm_1&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="m_0+m_1" width="72" height="15" />映射成<img src="http://www.sciweavers.org/tex2img.php?eq=%5Coverline%7Bm_0%5Cwedge%20m_1%7D&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="\overline{m_0\wedge m_1}" width="75" height="18" />，该映射可以用下面表格表示：
+
 (a,b) | a+b  | NAND(a,b)
 ----  | ---- | ----
 (0,0) | 0    | 1
@@ -40,6 +47,7 @@ FHEW方案的输入是两个比特的密文<img src="https://latex.codecogs.com/
 (1,0) | 1    | 1
 (1,1) | 2    | 0
 
-也就是说，我们需要同态的构造这样的LUT function，可以把0映射成1，1映射成1，2映射成0。
+也就是说，这里的重难点是如何同态地构造这样的LUT function，可以把0映射成1，1映射成1，2映射成0。
+
 
 #### 同态累加器(Homomorphic Accumulator)
