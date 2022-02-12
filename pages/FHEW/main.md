@@ -4,7 +4,7 @@ FHEW是开启第三代FHE的标志性方案。该方案主要是Leo Ducas和Dani
 
 ### 预备知识
 #### Learning With Errors (LWE) 对称加密
-这里将对明文m的LWE加密标注成![equation](https://latex.codecogs.com/svg.image?LWE_{\vec{s}}(m)=(\vec{a},b)). 其中 <img src="https://latex.codecogs.com/svg.image?\mathbf{b}=<\mathbf{a},\mathbf{s}>&plus;e&plus;\frac{q}{t}m&space;\bmod&space;q" title="\mathbf{b}=<\mathbf{a},\mathbf{s}>+e+\frac{q}{t}m \bmod q" />
+这里将对明文m的LWE加密标注成![equation](https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)=(\mathbf{a},b)). 其中 <img src="https://latex.codecogs.com/svg.image?\mathbf{b}=<\mathbf{a},\mathbf{s}>&plus;e&plus;\frac{q}{t}m&space;\bmod&space;q" title="\mathbf{b}=<\mathbf{a},\mathbf{s}>+e+\frac{q}{t}m \bmod q" />
 
 已知密钥![equation](https://latex.codecogs.com/svg.image?\vec{s})，则可以对![equation](https://latex.codecogs.com/svg.image?LWE_{\vec{s}}(m)=(\vec{a},b))做解密操作，算法如下：
 
@@ -47,7 +47,23 @@ FHEW方案的输入是两个比特的密文<img src="https://bit.ly/3BcPw7P" ali
 (1,0) | 1    | 1
 (1,1) | 2    | 0
 
-也就是说，这里的重难点是如何同态地构造这样的LUT function，可以把0映射成1，1映射成1，2映射成0。
+也就是说，这里的重难点是如何同态地构造这样的LUT函数f，可以把0映射成1，1映射成1，2映射成0。
 
 
 #### 同态累加器(Homomorphic Accumulator)
+这里定义累加器ACC的三个基本操作如下：
+1. Initialize: <img src="https://latex.codecogs.com/svg.image?ACC\gets&space;b" title="ACC\gets b" />,将ACC存储内容初始化成一个已知数值b
+2. Update: <img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{&plus;}&space;c\cdot&space;E(s)" title="ACC \xleftarrow[]{+} c\cdot E(s)" />, 以累加的方式对ACC进行更新，即将<img src="https://latex.codecogs.com/svg.image?ACC[v]" title="ACC[v]" />变换为<img src="https://latex.codecogs.com/svg.image?ACC[v&plus;c\cdot&space;s]" title="ACC[v+c\cdot s]" />
+3. Extract: <img src="https://latex.codecogs.com/svg.image?f(ACC)" title="f(ACC)" />, 若当前ACC存的是v,即ACC[v]，那么f(ACC)表示的对f(v)的加密，即<img src="https://latex.codecogs.com/svg.image?&space;\tilde{E}&space;(f(v))" title=" \tilde{E} (f(v))" />。
+
+注意到Update操作中的s是LWE密钥不可以暴露，否则整个密码系统安全性就回崩溃。因此需要对s进行一次加密变换成E(s)后发布。这个对s进行加密生成的密文在FHE语境里称之为bootstrapping key（有的文章称之为evaluation key或者refreshing key）
+
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?ek&space;=&space;E(\mathbf{s})=(E(s_1),\cdots,E(s_n))" title="ek = E(\mathbf{s})=(E(s_1),\cdots,E(s_n))" />
+ </p>
+ 
+ 接着，我们尝试理解“ACC的三个操作为什么可以完成bootstrapping？”这个问题。Bootstrapping的本质是同态地做LWE解密。注意到LWE解密操作的第一步需要做一次这样的线性操作使得：
+ <p align="center">
+  <img src="https://latex.codecogs.com/svg.image?\widetilde{m}=b-\mathbf{a}\cdot&space;\mathbf{s}=\frac{q}{t}m&plus;e\approx&space;\frac{q}{t}m" title="\widetilde{m}=b-\mathbf{a}\cdot \mathbf{s}=\frac{q}{t}m+e\approx \frac{q}{t}m" />
+   </p>
+  因此ACC的首要目标是同态地做这个线性操作，这个目标可以利用Initialize和Update操作完成：首先调用Initialize操作1次做<img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{}&space;b" title="ACC \xleftarrow[]{} b" /> 将ACC初始化成b; 接着调用Update操作n次做<img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{&plus;}&space;a_i\cdot&space;E(s_i)" title="ACC \xleftarrow[]{+} a_i\cdot E(s_i)" />，此时可得<img src="https://latex.codecogs.com/svg.image?ACC[b-\sum_i&space;a_is_i]=ACC[\widetilde{m}]" title="ACC[b-\sum_i a_is_i]=ACC[\widetilde{m}]" />
