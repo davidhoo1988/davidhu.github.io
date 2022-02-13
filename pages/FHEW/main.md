@@ -83,3 +83,8 @@ FHEW方案的输入是两个比特的密文<img src="https://bit.ly/3BcPw7P" ali
     <p align="center">
   <img src="https://latex.codecogs.com/svg.image?f(ACC(\widetilde{m}))\to&space;ACC(f(\widetilde{m}))" title="f(ACC(\widetilde{m}))\to ACC(f(\widetilde{m}))" />
     </p>
+    
+  利用同态累加器ACC,我们用下面这个算法([算法1](fig/alg1.png))来描述FHEW bootstrapping的整个过程：
+  <p align="center">
+  <img src="fig/alg1.png" alt="animated" />
+   </p>
