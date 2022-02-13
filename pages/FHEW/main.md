@@ -72,7 +72,7 @@ FHEW方案的输入是两个比特的密文<img src="https://bit.ly/3BcPw7P" ali
   </p>
   将ACC初始化成b; 接着调用Update操作n次做:
   <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{&plus;}&space;a_i\cdot&space;E(s_i)" title="ACC \xleftarrow[]{+} a_i\cdot E(s_i)" />
+  <img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{&plus;}&space;-a_i\cdot&space;E(s_i)" title="ACC \xleftarrow[]{+} -a_i\cdot E(s_i)" />
   </p>
   此时可得我们想要的形式，即：
   <p align="center">
