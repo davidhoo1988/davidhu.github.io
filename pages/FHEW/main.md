@@ -33,12 +33,12 @@ FHEW方案的输入是两个比特的密文<img src="https://bit.ly/3BcPw7P" ali
 特别地，与非门逻辑是研究的重点。因为实现了与非门，实际上等同于实现了其他所有逻辑(universal logic)。话句话说，我们希望构造这样的同态与非逻辑实现如下运算:
 
 <p align="center">
-<img src="http://www.sciweavers.org/tex2img.php?eq=LWE%5E%7Bt%2Fq%7D_%7B%5Cmathbf%7Bs%7D%7D%28m_0%29%2C%20LWE%5E%7Bt%2Fq%7D_%7B%5Cmathbf%7Bs%7D%7D%28m_1%29%20%5Cxrightarrow%5B%5D%7B%5Ctext%7BHomoNAND%7D%7DLWE%5E%7Bt%2Fq%7D_%7B%5Cmathbf%7Bs%7D%7D%28%5Coverline%7Bm_0%5Cwedge%20m_1%7D%29&bc=White&fc=Black&im=jpg&fs=12&ff=modern&edit=0" align="center" border="0" alt="LWE^{t/q}_{\mathbf{s}}(m_0), LWE^{t/q}_{\mathbf{s}}(m_1) \xrightarrow[]{\text{HomoNAND}}LWE^{t/q}_{\mathbf{s}}(\overline{m_0\wedge m_1})" width="408" height="24" />
+<img src="https://latex.codecogs.com/svg.image?LWE^{t/q}_{\mathbf{s}}(m_0),&space;LWE^{t/q}_{\mathbf{s}}(m_1)&space;\xrightarrow[]{\text{HomoNAND}}LWE^{t/q}_{\mathbf{s}}(\overline{m_0\wedge&space;m_1})" title="LWE^{t/q}_{\mathbf{s}}(m_0), LWE^{t/q}_{\mathbf{s}}(m_1) \xrightarrow[]{\text{HomoNAND}}LWE^{t/q}_{\mathbf{s}}(\overline{m_0\wedge m_1})" />
 </p>
 
 这里我们忽略[原始论文](https://eprint.iacr.org/2014/816.pdf)中的相关描述，转而使用[论文](https://eprint.iacr.org/2020/086.pdf)中关于同态查找表(look-up table, LUT)的描述，该表述更富有直觉性，同时也被后续研究发展成functional bootstrap。
 
-基本思路如下，首先我们应该知道同态加法是容易做的，即 <img src="http://www.sciweavers.org/tex2img.php?eq=LWE%5E%7Bt%2Fq%7D_%7B%5Cmathbf%7Bs%7D%7D%28m_0%29%2BLWE%5E%7Bt%2Fq%7D_%7B%5Cmathbf%7Bs%7D%7D%28m_1%29%3DLWE%5E%7Bt%2Fq%7D_%7B%5Cmathbf%7Bs%7D%7D%28m_0%2Bm_1%29%20&bc=White&fc=Black&im=jpg&fs=12&ff=modern&edit=0" align="center" border="0" alt="LWE^{t/q}_{\mathbf{s}}(m_0)+LWE^{t/q}_{\mathbf{s}}(m_1)=LWE^{t/q}_{\mathbf{s}}(m_0+m_1) " width="361" height="22" />。接下来的目标是同态地将<img src="http://www.sciweavers.org/tex2img.php?eq=m_0%2Bm_1&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="m_0+m_1" width="72" height="15" />映射成<img src="http://www.sciweavers.org/tex2img.php?eq=%5Coverline%7Bm_0%5Cwedge%20m_1%7D&bc=White&fc=Black&im=jpg&fs=12&ff=arev&edit=0" align="center" border="0" alt="\overline{m_0\wedge m_1}" width="75" height="18" />，该映射可以用下面表格表示：
+基本思路如下，首先我们应该知道同态加法是容易做的，即<img src="https://latex.codecogs.com/svg.image?LWE^{t/q}_{\mathbf{s}}(m_0)&plus;LWE^{t/q}_{\mathbf{s}}(m_1)=LWE^{t/q}_{\mathbf{s}}(m_0&plus;m_1)" title="LWE^{t/q}_{\mathbf{s}}(m_0)+LWE^{t/q}_{\mathbf{s}}(m_1)=LWE^{t/q}_{\mathbf{s}}(m_0+m_1)" />。接下来的目标是同态地将<img src="https://latex.codecogs.com/svg.image?m_0&plus;m_1" title="m_0+m_1" /> 映射成 <img src="https://latex.codecogs.com/svg.image?\overline{m_0\wedge&space;m_1}" title="\overline{m_0\wedge m_1}" />，该映射可以用下面表格表示：
 
 (a,b) | a+b  | NAND(a,b)
 ----  | ---- | ----
@@ -66,4 +66,20 @@ FHEW方案的输入是两个比特的密文<img src="https://bit.ly/3BcPw7P" ali
  <p align="center">
   <img src="https://latex.codecogs.com/svg.image?\widetilde{m}=b-\mathbf{a}\cdot&space;\mathbf{s}=\frac{q}{t}m&plus;e\approx&space;\frac{q}{t}m" title="\widetilde{m}=b-\mathbf{a}\cdot \mathbf{s}=\frac{q}{t}m+e\approx \frac{q}{t}m" />
    </p>
-  因此ACC的首要目标是同态地做这个线性操作，这个目标可以利用Initialize和Update操作完成：首先调用Initialize操作1次做<img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{}&space;b" title="ACC \xleftarrow[]{} b" /> 将ACC初始化成b; 接着调用Update操作n次做<img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{&plus;}&space;a_i\cdot&space;E(s_i)" title="ACC \xleftarrow[]{+} a_i\cdot E(s_i)" />，此时可得<img src="https://latex.codecogs.com/svg.image?ACC[b-\sum_i&space;a_is_i]=ACC[\widetilde{m}]" title="ACC[b-\sum_i a_is_i]=ACC[\widetilde{m}]" />
+  因此ACC的首要目标是同态地做这个线性操作，这个目标可以利用Initialize和Update操作完成：首先调用Initialize操作1次做:
+  <p align="center">
+  <img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{}&space;b" title="ACC \xleftarrow[]{} b" /> 
+  </p>
+  将ACC初始化成b; 接着调用Update操作n次做:
+  <p align="center">
+  <img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{&plus;}&space;a_i\cdot&space;E(s_i)" title="ACC \xleftarrow[]{+} a_i\cdot E(s_i)" />
+  </p>
+  此时可得我们想要的形式，即：
+  <p align="center">
+  <img src="https://latex.codecogs.com/svg.image?ACC[b-\sum_i&space;a_is_i]=ACC[\widetilde{m}]" title="ACC[b-\sum_i a_is_i]=ACC[\widetilde{m}]" />
+  </p>
+  
+  到了这一步，假如我们可以同态的计算映射函数f（f也被称之为rounding function,如何构造它是FHEW方案中的难点部分，会在稍微章节介绍),那么就完成了整个同态异或的运算，即:
+    <p align="center">
+  <img src="https://latex.codecogs.com/svg.image?f(ACC(\widetilde{m}))\to&space;ACC(f(\widetilde{m}))" title="f(ACC(\widetilde{m}))\to ACC(f(\widetilde{m}))" />
+    </p>
