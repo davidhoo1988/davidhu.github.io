@@ -25,4 +25,4 @@ Bloom Filter是一种数据结构，用来记录某个对象(object)是否已经
 简单地说，在Bloom Filter容量一定的条件下，增加哈希函数个数k可以显著的降低伪阳率，下表显示了当m=8KB=65536bits，n=500时，参数k对伪阳率的影响规律：
 <table class="wp-block-table"><tbody><tr><td><em>k</em></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr><tr><td>预期伪阳率</td><td>0.00760</td><td>0.000229</td><td>1.16e-5</td><td>8.16e-7</td><td>7.35e-8</td><td>8.02e-9</td></tr><tr><td>实测伪阳率</td><td>0.00822</td><td>0.000155</td><td>2.22e-5</td><td>0</td><td>0</td><td>0</td></tr></tbody></table>
 
-注意表中实测的结果是以MD5做哈希函数得到得结果。为了尽可能达到伪阳率公式预期结果，需要选用性能好的哈希函数，即哈希函数的输出尽可能服从均匀分布。
+注意表中实测的结果是以MD5做哈希函数得到得结果。为了尽可能达到伪阳率公式预期结果，需要选用性能好的哈希函数，即哈希函数的输出尽可能服从均匀分布。Bloom filter的c++实现可以参考[这里](https://github.com/ArashPartow/bloom)
