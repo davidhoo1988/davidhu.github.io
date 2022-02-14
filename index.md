@@ -22,6 +22,7 @@
 
 - 多方安全计算(Secure Multi-Party Computation)
     1. [Private Set Intersection](./pages/PSI/main.md)
+    2. Private Information Retrieval
 
 <!---```markdown
 Syntax highlighted code block
