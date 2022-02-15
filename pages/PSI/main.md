@@ -38,4 +38,11 @@ Bloom Filter是一种数据结构，用来记录某个对象(object)是否已经
 <img src="https://latex.codecogs.com/svg.image?((C,|S|),&space;(S,&space;|C|))&space;\mapsto&space;\left&space;\{\begin{aligned}(C\cap&space;S,\bot)&space;&&space;\text{&space;if&space;}&space;|C\cap&space;S|\leq&space;t&space;\\(\bot,&space;\bot)&space;&&space;\text{&space;otherwise&space;}\end{aligned}\right&space;." title="((C,|S|), (S, |C|)) \mapsto \left \{\begin{aligned}(C\cap S,\bot) & \text{ if } |C\cap S|\leq t \\(\bot, \bot) & \text{ otherwise }\end{aligned}\right ." />
 </p>
 
-
+#### Encrypted PSI Cardinality (ePSI-CA)
+为了构造Below-Threshold PSI,引入一个关键的元操作ePSI-CA，形式化地定义如下：
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?((C,|S|,pk_1,sk_1),(S,|C|,pk_1))\mapsto&space;(\bot,&space;Enc(pk_1,|C\cap&space;S|))" title="((C,|S|,pk_1,sk_1),(S,|C|,pk_1))\mapsto (\bot, Enc(pk_1,|C\cap S|))" />
+</p>
+<div><span>这里P1生成密钥对</span><img src="https://latex.codecogs.com/svg.image?(pk_1,sk_1)" title="(pk_1,sk_1)"/>
+<div><span>P2获得P1的公钥</span><img src="https://latex.codecogs.com/svg.image?pk_1" title="pk_1"/></div>
+ePSI-CA协议的计算结果是P1得到<img src="https://latex.codecogs.com/svg.image?\bot" title="\bot" style="float: right;"/>
