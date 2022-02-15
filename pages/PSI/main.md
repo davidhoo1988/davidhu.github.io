@@ -26,3 +26,16 @@ Bloom Filter是一种数据结构，用来记录某个对象(object)是否已经
 <table class="wp-block-table"><tbody><tr><td><em>k</em></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr><tr><td>预期伪阳率</td><td>0.00760</td><td>0.000229</td><td>1.16e-5</td><td>8.16e-7</td><td>7.35e-8</td><td>8.02e-9</td></tr><tr><td>实测伪阳率</td><td>0.00822</td><td>0.000155</td><td>2.22e-5</td><td>0</td><td>0</td><td>0</td></tr></tbody></table>
 
 注意表中实测的结果是以MD5做哈希函数得到得结果。为了尽可能达到伪阳率公式预期结果，需要选用性能好的哈希函数，即哈希函数的输出尽可能服从均匀分布。Bloom filter的c++实现可以参考[这里](https://github.com/ArashPartow/bloom)
+
+
+### Threshold PSI
+本篇文章侧重介绍PSI的一个变种形式，称之为Threshold PSI。这里阈值(threshold)指代的是，两个集合的交集大小(set cardinality)大于(或者小于)某个阈值t时才进行标准PSI操作；否则不进行标准PSI操作(不泄露交集内容)。大于阈值进行PSI操作的形式我们称之为over-threshold PSI; 小于阈值进行PSI操作的形式称之为below-threshold PSI。我主要参考这篇[论文](https://eprint.iacr.org/2018/184)中的相关描述。不失一般性地，下面我们仅讨论below-threshold PSI。
+
+#### Below-Threshold PSI
+首先理清一些PSI语境下的定义。在两个计算方参与的PSI协议中，第一个计算方P1通常作为客户端(client)拥有集合C,第二个计算方P2通常作为服务器端(server)拥有集合S。P1的输出始终是<img src="https://latex.codecogs.com/svg.image?\bot" title="\bot" />，它在整个协议过程中都不知道交集大小是不是小于阈值t。对P2而言，如果它的输出不是<img src="https://latex.codecogs.com/svg.image?\bot" title="\bot" />，那么它知道交集大小是否满足阈值条件；如果它的输出是<img src="https://latex.codecogs.com/svg.image?\bot" title="\bot" />，那么它不清楚究竟是因为两个集合是空集还是没有满足阈值条件导致的。这里我们假设计算双方并不知道对方集合的内容，但是知道对方集合的大小(即P1知道(C,|S|),P2知道(S,|C|))。综上所述，below-threshold可以形式化地定义如下：
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?((C,|S|),&space;(S,&space;|C|))&space;\mapsto&space;\left&space;\{\begin{aligned}(C\cap&space;S,\bot)&space;&&space;\text{&space;if&space;}&space;|C\cap&space;S|\leq&space;t&space;\\(\bot,&space;\bot)&space;&&space;\text{&space;otherwise&space;}\end{aligned}\right&space;." title="((C,|S|), (S, |C|)) \mapsto \left \{\begin{aligned}(C\cap S,\bot) & \text{ if } |C\cap S|\leq t \\(\bot, \bot) & \text{ otherwise }\end{aligned}\right ." />
+</p>
+
+
