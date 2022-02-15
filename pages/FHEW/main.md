@@ -1,9 +1,9 @@
-## FHEW介绍
+# FHEW介绍
 
 FHEW是开启第三代FHE的标志性方案。该方案主要是Leo Ducas和Daniele Micciancio在2014年提出并设计。原始论文参考[这里](https://eprint.iacr.org/2014/816.pdf)。与第二代FHE方案相比，bootstrapping的性能得到大幅度提升，在常见的台式机平台上速度可以达到毫秒级别；但同时因为缺少第二代FHE的SIMD特性，FHEW只能处理若干比特的加法和乘法操作，也就是说同态乘法的性能较差。
 
-### 预备知识
-#### Learning With Errors (LWE) 对称加密
+## 预备知识
+### Learning With Errors (LWE) 对称加密
 这里将对明文m的LWE加密标注成![equation](https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)=(\mathbf{a},b)). 其中 <img src="https://latex.codecogs.com/svg.image?\mathbf{b}=<\mathbf{a},\mathbf{s}>&plus;e&plus;\frac{q}{t}m&space;\bmod&space;q" title="\mathbf{b}=<\mathbf{a},\mathbf{s}>+e+\frac{q}{t}m \bmod q" />
 
 已知密钥![equation](https://latex.codecogs.com/svg.image?\vec{s})，则可以对![equation](https://latex.codecogs.com/svg.image?LWE_{\vec{s}}(m)=(\vec{a},b))做解密操作，算法如下：
@@ -12,7 +12,7 @@ FHEW是开启第三代FHE的标志性方案。该方案主要是Leo Ducas和Dani
 <img src="https://latex.codecogs.com/svg.image?\left\lfloor&space;t(b-\mathbf{a}\cdot&space;\mathbf{s})/q\right\rceil&space;\bmod&space;t&space;=&space;\left\lfloor&space;\frac{t}{q}\cdot&space;(\frac{q}{t}m&plus;e)\right\rceil&space;=&space;\left\lfloor&space;m&plus;\frac{t}{q}e\right\rceil&space;=&space;m\bmod&space;t" title="\left\lfloor t(b-\mathbf{a}\cdot \mathbf{s})/q\right\rceil \bmod t = \left\lfloor \frac{t}{q}\cdot (\frac{q}{t}m+e)\right\rceil = \left\lfloor m+\frac{t}{q}e\right\rceil = m\bmod t" />
 </p>
 
-#### 模数变换（Modular Switching） 和 密钥变换 （Key Switching）
+### 模数变换（Modular Switching） 和 密钥变换 （Key Switching）
 这里引入FHE方案中的两个重要基本操作Modular Switching(M.S.) 和 Key Switching(K.S.)。它们会反复地出现在FHE系列的文章中。我们不加证明的使用如下结论：
 
 <p align="center">
@@ -26,10 +26,10 @@ FHEW是开启第三代FHE的标志性方案。该方案主要是Leo Ducas和Dani
 也就是说模数变换可以把LWE instance的大模数Q变换成小模数q(Q>q)，而不改变加密的明文m以及密钥s；
 密钥变换则把LWE instance的密钥从原先的向量z变成向量s，而不改变模数q和明文m。
 
-### FHEW顶层逻辑结构
+## FHEW顶层逻辑结构
 FHEW方案的输入是两个比特的密文<img src="https://bit.ly/3BcPw7P" align="center" border="0" alt="LWE(m_0)=c_0=(\mathbf{a_0},b_0),  LWE(m_1)=c_1=(\mathbf{a_1},b_1)" width="375" height="19" />，输出的是对这两个加密比特进行一次同态门运算得到相应比特的密文。
 
-#### 同态与非门逻辑(Homomorphic NAND gate)
+### 同态与非门逻辑(Homomorphic NAND gate)
 特别地，与非门逻辑是研究的重点。因为实现了与非门，实际上等同于实现了其他所有逻辑(universal logic)。话句话说，我们希望构造这样的同态与非逻辑实现如下运算:
 
 <p align="center">
@@ -50,7 +50,7 @@ FHEW方案的输入是两个比特的密文<img src="https://bit.ly/3BcPw7P" ali
 也就是说，这里的重难点是如何同态地构造这样的LUT函数f，可以把0映射成1，1映射成1，2映射成0。
 
 
-#### 同态累加器(Homomorphic Accumulator)
+### 同态累加器(Homomorphic Accumulator)
 这里定义累加器ACC的三个基本操作如下：
 1. Initialize: <img src="https://latex.codecogs.com/svg.image?ACC\gets&space;b" title="ACC\gets b" />,将ACC存储内容初始化成一个已知数值b
 2. Update: <img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{&plus;}&space;c\cdot&space;E(s)" title="ACC \xleftarrow[]{+} c\cdot E(s)" />, 以累加的方式对ACC进行更新，即将<img src="https://latex.codecogs.com/svg.image?ACC[v]" title="ACC[v]" />变换为<img src="https://latex.codecogs.com/svg.image?ACC[v&plus;c\cdot&space;s]" title="ACC[v+c\cdot s]" />
@@ -88,3 +88,13 @@ FHEW方案的输入是两个比特的密文<img src="https://bit.ly/3BcPw7P" ali
   <p align="center">
   <img src="fig/alg1.png" alt="animated" />
    </p>
+   至此，我们从顶层描述了FHEW bootstrapping的原理。下面对ACC的三个基本操作initialize, update, 和 extract做更详细的阐述。
+   
+   
+   #### 初始化 Initialize
+   在初始化过程中，需要将LUT函数f也编码进去，即<img src="https://latex.codecogs.com/svg.image?ACC_f&space;\gets&space;v" title="ACC_f \gets v" />。
+   这里使用无噪声的RLWE加密m，即
+    <p align="center">
+   <img src="https://latex.codecogs.com/svg.image?ACC_f&space;=&space;RLWE(m)=(0,m(X))=(0,&space;\sum_{i=0}^{q/2-1}f(v-i)\cdot&space;X^i)" title="ACC_f = RLWE(m)=(0,m(X))=(0, \sum_{i=0}^{q/2-1}f(v-i)\cdot X^i)" />
+    </p>
+  <div>注意这里<img src="https://latex.codecogs.com/svg.image?m\in&space;\mathbb{Z}_Q[X]/(X^{q/2}&plus;1)" title="m\in \mathbb{Z}_Q[X]/(X^{q/2}+1)" />,但实际上FHEW将m定义在一个更大的整数多项式环<img src="https://latex.codecogs.com/svg.image?\mathbb{Z}_Q[X]/(X^{N}&plus;1)" title="\mathbb{Z}_Q[X]/(X^{N}+1)" />使得<img src="https://latex.codecogs.com/svg.image?\mathbb{Z}_Q[X]/(X^{q/2}&plus;1)" title="\mathbb{Z}_Q[X]/(X^{q/2}+1)" />是它的子环。使用更大的环的原因是安全性考虑。只有环足够大才能使得相应的RLWE问题足够难从而达到相应的安全级别。</div>
