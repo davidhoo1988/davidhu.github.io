@@ -43,6 +43,12 @@ Bloom Filter是一种数据结构，用来记录某个对象(object)是否已经
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?((C,|S|,pk_1,sk_1),(S,|C|,pk_1))\mapsto&space;(\bot,&space;Enc(pk_1,|C\cap&space;S|))" title="((C,|S|,pk_1,sk_1),(S,|C|,pk_1))\mapsto (\bot, Enc(pk_1,|C\cap S|))" />
 </p>
-<div><span>这里P1生成密钥对</span><img src="https://latex.codecogs.com/svg.image?(pk_1,sk_1)" title="(pk_1,sk_1)"/>
-<div><span>P2获得P1的公钥</span><img src="https://latex.codecogs.com/svg.image?pk_1" title="pk_1"/></div>
-ePSI-CA协议的计算结果是P1得到<img src="https://latex.codecogs.com/svg.image?\bot" title="\bot" style="float: right;"/>
+<div>
+<span>这里P1生成密钥对</span><img src="https://latex.codecogs.com/svg.image?(pk_1,sk_1)," title="(pk_1,sk_1)"/> 
+<span>P2获得P1的公钥</span><img src="https://latex.codecogs.com/svg.image?pk_1" title="pk_1"/>
+<span>。ePSI-CA协议的计算结果是P1得到</span><img src="https://latex.codecogs.com/svg.image?\bot" title="\bot" style="float: right;"/>
+<span>，P2得到加密状态下的交集大小</span><img src="https://latex.codecogs.com/svg.image?Enc(pk_1,|C\cap&space;S|)" title="Enc(pk_1,|C\cap S|)" />
+</div>
+关于ePSI-CA的构造细节，请参考这个页面。
+
+
