@@ -98,3 +98,5 @@ FHEW方案的输入是两个比特的密文<img src="https://bit.ly/3BcPw7P" ali
    <img src="https://latex.codecogs.com/svg.image?ACC_f&space;=&space;RLWE(m)=(0,m(X))=(0,&space;\sum_{i=0}^{q/2-1}f(v-i)\cdot&space;X^i)" title="ACC_f = RLWE(m)=(0,m(X))=(0, \sum_{i=0}^{q/2-1}f(v-i)\cdot X^i)" />
     </p>
   <div>注意这里<img src="https://latex.codecogs.com/svg.image?m\in&space;\mathbb{Z}_Q[X]/(X^{q/2}&plus;1)" title="m\in \mathbb{Z}_Q[X]/(X^{q/2}+1)" />,但实际上FHEW将m定义在一个更大的整数多项式环<img src="https://latex.codecogs.com/svg.image?\mathbb{Z}_Q[X]/(X^{N}&plus;1)" title="\mathbb{Z}_Q[X]/(X^{N}+1)" />使得<img src="https://latex.codecogs.com/svg.image?\mathbb{Z}_Q[X]/(X^{q/2}&plus;1)" title="\mathbb{Z}_Q[X]/(X^{q/2}+1)" />是它的子环。使用更大的环的原因是安全性考虑。只有环足够大才能使得相应的RLWE问题足够难从而达到相应的安全级别。</div>
+  
+  #### 更新 Update
