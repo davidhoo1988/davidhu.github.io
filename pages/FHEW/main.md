@@ -103,7 +103,7 @@ FHEW方案的输入是两个比特的密文<img src="https://bit.ly/3BcPw7P" ali
 Update操作的核心是同态乘法算法（<img src="https://latex.codecogs.com/svg.image?RLWE\times&space;RGSW\to&space;RLWE" title="RLWE\times RGSW\to RLWE" />）。
 对LWE密钥向量中的每一个元素，即<img src="https://latex.codecogs.com/svg.image?s\in&space;\mathbb{Z}_q&space;\overset{element-select}{\leftarrow}\mathbf{s}\in&space;\mathbb{Z}_q^n" title="s\in \mathbb{Z}_q \overset{element-select}{\leftarrow}\mathbf{s}\in \mathbb{Z}_q^n" />, 进行GSW加密得到:
  <p align="center">
-<img src="https://latex.codecogs.com/svg.image?E(s)=\{\mathbf{Z_{j,v}}=RGSW(X^{vB_r^j\cdot&space;s})|i<log_{B_r}q,v\in&space;\mathbb{Z}_{B_r}\}" title="E(s)=\{\mathbf{Z_{j,v}}=RGSW(X^{vB_r^j\cdot s})|i<log_{B_r}q,v\in \mathbb{Z}_{B_r}\}" />
+<img src="https://latex.codecogs.com/svg.image?E(s)=\{\mathbf{Z_{j,v}}=RGSW(X^{vB_r^j\cdot&space;s})|j<log_{B_r}q,v\in&space;\mathbb{Z}_{B_r}\}" title="E(s)=\{\mathbf{Z_{j,v}}=RGSW(X^{vB_r^j\cdot s})|j<log_{B_r}q,v\in \mathbb{Z}_{B_r}\}" />
  </p>
 那么，Update操作<img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{&plus;}&space;c\cdot&space;E(s)" title="ACC \xleftarrow[]{+} c\cdot E(s)" />可以按以下流程计算得到：
 
