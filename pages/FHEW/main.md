@@ -101,11 +101,11 @@ FHEW方案的输入是两个比特的密文<img src="https://bit.ly/3BcPw7P" ali
   
   #### 更新 Update
 Update操作的核心是同态乘法算法（<img src="https://latex.codecogs.com/svg.image?RLWE\times&space;RGSW\to&space;RLWE" title="RLWE\times RGSW\to RLWE" />）。
-对LWE密钥向量中的每一个元素，即<img src="https://latex.codecogs.com/svg.image?s\in&space;\mathbb{Z}_q&space;\overset{element-select}{\leftarrow}\mathbf{s}\in&space;\mathbb{Z}_q^n" title="s\in \mathbb{Z}_q \overset{element-select}{\leftarrow}\mathbf{s}\in \mathbb{Z}_q^n" />, 进行GSW加密得到:
+注意bootstrapping key的实质是对LWE密钥进行加密。更具体地说，对LWE密钥向量中的每一个元素，即<img src="https://latex.codecogs.com/svg.image?s\in&space;\mathbb{Z}_q&space;\overset{element-select}{\leftarrow}\mathbf{s}\in&space;\mathbb{Z}_q^n" title="s\in \mathbb{Z}_q \overset{element-select}{\leftarrow}\mathbf{s}\in \mathbb{Z}_q^n" />, 进行GSW加密得到:
  <p align="center">
 <img src="https://latex.codecogs.com/svg.image?E(s)=\{\mathbf{Z_{j,v}}=RGSW(X^{vB_r^j\cdot&space;s})|j<log_{B_r}q,v\in&space;\mathbb{Z}_{B_r}\}" title="E(s)=\{\mathbf{Z_{j,v}}=RGSW(X^{vB_r^j\cdot s})|j<log_{B_r}q,v\in \mathbb{Z}_{B_r}\}" />
  </p>
-那么，Update操作<img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{&plus;}&space;c\cdot&space;E(s)" title="ACC \xleftarrow[]{+} c\cdot E(s)" />可以按以下流程计算得到：
+<div>那么，Update操作<img src="https://latex.codecogs.com/svg.image?ACC&space;\xleftarrow[]{&plus;}&space;c\cdot&space;E(s)" title="ACC \xleftarrow[]{+} c\cdot E(s)" />可以按以下流程计算得到：</div>
 
 1. <div>将c"扁平化"得到<img src="https://latex.codecogs.com/svg.image?c=\sum_i&space;B_r^ic_i" title="c=\sum_i B_r^ic_i" /></div>
 2. 依次对所有的j,做同态乘法操作<img src="https://latex.codecogs.com/svg.image?ACC\gets&space;ACC&space;\diamond&space;\mathbf{Z}_{j,c_j}" title="ACC\gets ACC \diamond \mathbf{Z}_{j,c_j}" />
