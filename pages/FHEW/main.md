@@ -110,4 +110,7 @@ Update操作的核心是同态乘法算法（<img src="https://latex.codecogs.co
 1. <div>将c"扁平化"得到<img src="https://latex.codecogs.com/svg.image?c=\sum_i&space;B_r^ic_i" title="c=\sum_i B_r^ic_i" /></div>
 2. 依次对所有的j,做同态乘法操作<img src="https://latex.codecogs.com/svg.image?ACC\gets&space;ACC&space;\diamond&space;\mathbf{Z}_{j,c_j}" title="ACC\gets ACC \diamond \mathbf{Z}_{j,c_j}" />
 
-算法2形式化地描述Update操作。
+[算法2](fig/alg2.png)形式化地描述Update操作如下图所示。
+  <p align="center">
+  <img src="fig/alg2.png" alt="animated" />
+   </p>
