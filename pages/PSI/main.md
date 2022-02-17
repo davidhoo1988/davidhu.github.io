@@ -54,10 +54,22 @@ Bloom Filter是一种数据结构，用来记录某个对象(object)是否已经
 ePSI-CA的第一个构造(也是目前唯一一个)是基于OPE(oblivious polynomial evaluation)，这里我介绍一种借助FHE的新构造。
 
 构造的核心部分是Bloom Filter和Homomorphic LUT。如上文描述，Bloom Filter(内置k个哈希函数)可以有效的编码一个集合S，记为<img src="https://latex.codecogs.com/svg.image?BF_s" title="BF_s" />。判断某个元素x是否在集合S中，需要将x哈希成k个地址索引，如果这k个地址对应的<img src="https://latex.codecogs.com/svg.image?BF_s[\cdot]" title="BF_s[\cdot]" />都是‘1’，说明x在S中；否则x不在S中。现在，我们形式化地定义这样的判定器P:若元素x在集合S中，输出1；否则输出0，即：
-
 <p align="center">
+<img src="https://latex.codecogs.com/svg.image?P(x,BF_s)=&space;\begin{cases}&space;&space;&space;&space;&space;&space;&space;1&space;&&space;\text{if&space;exactly&space;k&space;'1's&space;in&space;}\{BF_s(h_1(x)),&space;\cdots,&space;BF_s(h_k(x))\}&space;\\0&space;&&space;\text{if&space;less&space;than&space;k&space;'1's&space;in&space;}\{BF_s(h_1(x)),&space;\cdots,&space;BF_s(h_k(x))\}&space;\end{cases}" title="P(x,BF_s)= \begin{cases} 1 & \text{if exactly k '1's in }\{BF_s(h_1(x)), \cdots, BF_s(h_k(x))\} \\0 & \text{if less than k '1's in }\{BF_s(h_1(x)), \cdots, BF_s(h_k(x))\} \end{cases}" />
+</p>
+  
+<div>注意这里需要同态地计算该BF判定器。方法如下：P2首先将自己的Bloom Filter加密成<img src="https://latex.codecogs.com/svg.image?Enc(pk_2,&space;BF_s)" title="Enc(pk_2, BF_s)" />发送给P1。 接着，P1将自己集合中的每个元素<img src="https://latex.codecogs.com/svg.image?x\in&space;C" title="x\in C" />哈希成k个地址索引<img src="https://latex.codecogs.com/svg.image?\{h_1(x),\cdots&space;,&space;h_k(x)\}" title="\{h_1(x),\cdots , h_k(x)\}" />, 最后同态地将k个对应的加密状态下的BF状态位相加，即:</div>
+
+<p align="center">  
+<img src="https://latex.codecogs.com/svg.image?\sum_i&space;Enc(BF_s(h_i(x)))=Enc(\sum_i&space;BF_s(h_i(x)))=\begin{cases}Enc(k)&space;&&space;\text{if&space;}&space;x\in&space;S\\Enc(\ell),0\leq\ell\leq&space;k-1&space;&&space;\text{if&space;}&space;x\notin&space;S\end{cases}&space;" title="\sum_i Enc(BF_s(h_i(x)))=Enc(\sum_i BF_s(h_i(x)))=\begin{cases}Enc(k) & \text{if } x\in S\\Enc(\ell),0\leq\ell\leq k-1 & \text{if } x\notin S\end{cases} " />
+</p>
+
+到了这一步，需要调用functional bootstrapping将上面的结果同态转换成相应的0/1加密，即：
+<p align="center">  
 <img src="https://latex.codecogs.com/svg.image?Enc(\sum_i&space;BF_s(h_i(x)))&space;\xrightarrow[]{Func.&space;Bootstrap}&space;\begin{cases}&space;&space;&space;&space;&space;&space;&space;Enc(1)&space;&&space;\text{if&space;}\sum_i&space;BF_s(h_i(x))&space;==&space;k&space;\\Enc(0)&space;&&space;\text{if&space;}\sum_i&space;BF_s(h_i(x))&space;<&space;k&space;\end{cases}" title="Enc(\sum_i BF_s(h_i(x))) \xrightarrow[]{Func. Bootstrap} \begin{cases} Enc(1) & \text{if }\sum_i BF_s(h_i(x)) == k \\Enc(0) & \text{if }\sum_i BF_s(h_i(x)) < k \end{cases}" />
 </p>
+
+至此，我们描述了如何在P1端同态地判定“任意一个元素x是否在集合S”这个问题。如果对P1集合的每个元素都应用该方法，我们会得到一连串的0/1加密。对这些0/1加密做同态加法就能得到<img src="https://latex.codecogs.com/svg.image?Enc(|C\cap&space;S|)" title="Enc(|C\cap S|)" />
 
 ### 构造 Below-Threshold PSI
 构造的核心是需要同态地计算这样的if-else结构： 
