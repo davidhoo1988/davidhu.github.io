@@ -55,6 +55,9 @@ ePSI-CA的第一个构造(也是目前唯一一个)是基于OPE(oblivious polyno
 
 构造的核心部分是Bloom Filter和Homomorphic LUT。如上文描述，Bloom Filter(内置k个哈希函数)可以有效的编码一个集合S，记为<img src="https://latex.codecogs.com/svg.image?BF_s" title="BF_s" />。判断某个元素x是否在集合S中，需要将x哈希成k个地址索引，如果这k个地址对应的<img src="https://latex.codecogs.com/svg.image?BF_s[\cdot]" title="BF_s[\cdot]" />都是‘1’，说明x在S中；否则x不在S中。现在，我们形式化地定义这样的判定器P:若元素x在集合S中，输出1；否则输出0，即：
 
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?Enc(\sum_i&space;BF_s(h_i(x)))&space;\xrightarrow[]{Func.&space;Bootstrap}&space;\begin{cases}&space;&space;&space;&space;&space;&space;&space;Enc(1)&space;&&space;\text{if&space;}\sum_i&space;BF_s(h_i(x))&space;==&space;k&space;\\Enc(0)&space;&&space;\text{if&space;}\sum_i&space;BF_s(h_i(x))&space;<&space;k&space;\end{cases}" title="Enc(\sum_i BF_s(h_i(x))) \xrightarrow[]{Func. Bootstrap} \begin{cases} Enc(1) & \text{if }\sum_i BF_s(h_i(x)) == k \\Enc(0) & \text{if }\sum_i BF_s(h_i(x)) < k \end{cases}" />
+</p>
 
 ### 构造 Below-Threshold PSI
 构造的核心是需要同态地计算这样的if-else结构： 
