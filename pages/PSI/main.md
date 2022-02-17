@@ -53,6 +53,9 @@ Bloom Filter是一种数据结构，用来记录某个对象(object)是否已经
 
 ePSI-CA的第一个构造(也是目前唯一一个)是基于OPE(oblivious polynomial evaluation)，这里我介绍一种借助FHE的新构造。
 
+构造的核心部分是Bloom Filter和Homomorphic LUT。如上文描述，Bloom Filter(内置k个哈希函数)可以有效的编码一个集合S，记为<img src="https://latex.codecogs.com/svg.image?BF_s" title="BF_s" />。判断某个元素x是否在集合S中，需要将x哈希成k个地址索引，如果这k个地址对应的<img src="https://latex.codecogs.com/svg.image?BF_s[\cdot]" title="BF_s[\cdot]" />都是‘1’，说明x在S中；否则x不在S中。现在，我们形式化地定义这样的判定器P:若元素x在集合S中，输出1；否则输出0，即：
+
+
 ### 构造 Below-Threshold PSI
 构造的核心是需要同态地计算这样的if-else结构： 
 <p align="center">
