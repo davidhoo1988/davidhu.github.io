@@ -69,6 +69,34 @@ ePSI-CA的第一个构造(也是目前唯一一个)是基于OPE(oblivious polyno
 <img src="https://latex.codecogs.com/svg.image?Enc(\sum_i&space;BF_s(h_i(x)))&space;\xrightarrow[]{Func.&space;Bootstrap}&space;\begin{cases}&space;&space;&space;&space;&space;&space;&space;Enc(1)&space;&&space;\text{if&space;}\sum_i&space;BF_s(h_i(x))&space;==&space;k&space;\\Enc(0)&space;&&space;\text{if&space;}\sum_i&space;BF_s(h_i(x))&space;<&space;k&space;\end{cases}" title="Enc(\sum_i BF_s(h_i(x))) \xrightarrow[]{Func. Bootstrap} \begin{cases} Enc(1) & \text{if }\sum_i BF_s(h_i(x)) == k \\Enc(0) & \text{if }\sum_i BF_s(h_i(x)) < k \end{cases}" />
 </p>
 
+换一种方式说，我们需要同态地计算如下查找表(Look-Up Table, LUT)，使得
+<table>
+<thead>
+  <tr>
+    <th><img src="https://latex.codecogs.com/svg.image?\sum_i&space;BF_s(h_i(x))" title="\sum_i BF_s(h_i(x))" /></th>
+    <th>LUT Output</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td>0</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>...</td>
+    <td>...</td>
+  </tr>
+  <tr>
+    <td>k-1</td>
+    <td>0</td>
+  </tr>
+  <tr>
+    <td>k</td>
+    <td>1</td>
+  </tr>
+</tbody>
+</table>
+
 至此，我们描述了如何在P1端同态地判定“任意一个元素x是否在集合S”这个问题。如果对P1集合的每个元素都应用该方法，我们会得到一连串的0/1加密。对这些0/1加密做同态加法就能得到<img src="https://latex.codecogs.com/svg.image?Enc(|C\cap&space;S|)" title="Enc(|C\cap S|)" />
 
 ### 构造 Below-Threshold PSI
