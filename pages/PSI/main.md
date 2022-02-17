@@ -50,7 +50,8 @@ Bloom Filter是一种数据结构，用来记录某个对象(object)是否已经
 <span>。ePSI-CA协议的计算结果是P1得到</span><img src="https://latex.codecogs.com/svg.image?\bot" title="\bot" style="float: right;"/>
 <span>，P2得到加密状态下的交集大小</span><img src="https://latex.codecogs.com/svg.image?Enc(pk_1,|C\cap&space;S|)" title="Enc(pk_1,|C\cap S|)" />
 </div>
-关于ePSI-CA的构造细节，请参考这个页面。
+
+ePSI-CA的第一个构造(也是目前唯一一个)是基于OPE(oblivious polynomial evaluation)，这里我介绍一种借助FHE的新构造。
 
 ### 构造 Below-Threshold PSI
 构造的核心是需要同态地计算这样的if-else结构： 
@@ -101,4 +102,4 @@ Bloom Filter是一种数据结构，用来记录某个对象(object)是否已经
 1. 客户端P1输入<img src="https://latex.codecogs.com/svg.image?(C,|S|,(pk_1,sk_1))" title="(C,|S|,(pk_1,sk_1))" />，服务器端P2输入<img src="https://latex.codecogs.com/svg.image?(S,|C|,pk_1)" title="(S,|C|,pk_1)" />。接着调用ePSI-CA使得P2得到输出<img src="https://latex.codecogs.com/svg.image?Enc(pk_1,|C\cap&space;S|)" title="Enc(pk_1,|C\cap S|)" />
 2. 服务器端P2准备会话密钥<img src="https://latex.codecogs.com/svg.image?K" title="K" />和随机数<img src="https://latex.codecogs.com/svg.image?r_i" title="r_i" />，接着调用homo LUT协议得到<img src="https://latex.codecogs.com/svg.image?Enc(pk_1,K')" title="Enc(pk_1,K')" />并发送给P1。这里，若<img src="https://latex.codecogs.com/svg.image?|C\cap&space;S|&space;\leq&space;t" title="|C\cap S| \leq t" />，则<img src="https://latex.codecogs.com/svg.image?K'=K" title="K'=K" />；若<img src="https://latex.codecogs.com/svg.image?|C\cap&space;S|&space;>&space;t" title="|C\cap S| > t" />， 则<img src="https://latex.codecogs.com/svg.image?K'=r_i" title="K'=r_i" />。然后P2更新自己的集合S为<img src="https://latex.codecogs.com/svg.image?S^{K}=\{s_i||K\}" title="S^{K}=\{s_i||K\}" />（也就是将密钥K附加到集合S中的每一个成员si的尾端）
 3. P1解密<img src="https://latex.codecogs.com/svg.image?Enc(pk_1,K')" title="Enc(pk_1,K')" />得到<img src="https://latex.codecogs.com/svg.image?K'" title="K'" />,然后P1更新自己的集合C得到<img src="https://latex.codecogs.com/svg.image?C^{K'}=\{c_i||K'\}" title="C^{K'}=\{c_i||K'\}" />
-4. 最后P1和P2执行一次标准PSI操作(这里P1的输入是<img src="https://latex.codecogs.com/svg.image?(C^{K'},|S|)" title="(C^{K'},|S|)" />，P2的输入是<img src="https://latex.codecogs.com/svg.image?(S^{K},|C|)" title="(S^{K},|C|)" />)。容易知道当K=K'（既threshold条件满足）时，可得P1集合和P2集合的交集<img src="https://latex.codecogs.com/svg.image?C^{K'}\cap&space;S^{K}" title="C^{K'}\cap S^{K}" />，进而最终得到<img src="https://latex.codecogs.com/svg.image?C\cap&space;S" title="C\cap S" />；否则得到空集合。
+4. 最后P1和P2执行一次标准PSI操作(这里P1的输入是<img src="https://latex.codecogs.com/svg.image?(C^{K'},|S|)" title="(C^{K'},|S|)" />，P2的输入是<img src="https://latex.codecogs.com/svg.image?(S^{K},|C|)" title="(S^{K},|C|)" />)。容易知道当K=K'（即threshold条件满足）时，可得P1集合和P2集合的交集<img src="https://latex.codecogs.com/svg.image?C^{K'}\cap&space;S^{K}" title="C^{K'}\cap S^{K}" />，进而最终得到<img src="https://latex.codecogs.com/svg.image?C\cap&space;S" title="C\cap S" />；否则得到空集合。
