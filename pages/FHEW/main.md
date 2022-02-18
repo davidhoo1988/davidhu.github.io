@@ -120,8 +120,12 @@ Update操作的核心是同态乘法算法（<img src="https://latex.codecogs.co
   
   同态NAND逻辑的输入是上面形式的两个LWE密文，即 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{4/q}(m_0)=(\mathbf{a_0},b_0)" title="LWE_{\mathbf{s}}^{4/q}(m_0)=(\mathbf{a_0},b_0)" /> 和 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{4/q}(m_1)=(\mathbf{a_1},b_1)" title="LWE_{\mathbf{s}}^{4/q}(m_1)=(\mathbf{a_1},b_1)" />。首先将两端密文相加得 
    <p align="center">
-  <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{4/q}(m_0&plus;m_1)=(\mathbf{a},b)=(\mathbf{a_0}&plus;\mathbf{a_1},b_0&plus;b_1),|e|=|e_0&plus;e_1|<q/8,&space;m_0&plus;m_1\in\{0,1,2\}" title="LWE_{\mathbf{s}}^{4/q}(m_0+m_1)=(\mathbf{a},b)=(\mathbf{a_0}+\mathbf{a_1},b_0+b_1),|e|=|e_0+e_1|<q/8, m_0+m_1\in\{0,1,2\}" />
+  <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{4/q}(m_0&plus;m_1)=(\mathbf{a},b)=(\mathbf{a_0}&plus;\mathbf{a_1},b_0&plus;b_1),\\|e|=|e_0&plus;e_1|<q/8,&space;\\m_0&plus;m_1\in\{0,1,2\}" title="LWE_{\mathbf{s}}^{4/q}(m_0+m_1)=(\mathbf{a},b)=(\mathbf{a_0}+\mathbf{a_1},b_0+b_1),\\|e|=|e_0+e_1|<q/8, \\m_0+m_1\in\{0,1,2\}" />
    </p>
    
+   那么rounding function f需满足
+   1. <img src="https://latex.codecogs.com/svg.image?\frac{q}{4}(m_0&plus;m_1)&plus;e&space;\\" title="\frac{q}{4}(m_0+m_1)+e \\" /> 舍入到最近的 <img src="https://latex.codecogs.com/svg.image?\frac{q}{4}" title="\frac{q}{4}" /> 的整数倍
+   2. 映射规律：<img src="https://latex.codecogs.com/svg.image?0\mapsto&space;1,&space;1\mapsto&space;1,&space;2\mapsto&space;0,(3\mapsto&space;0)" title="0\mapsto 1, 1\mapsto 1, 2\mapsto 0,(3\mapsto 0)" />
+   3. 隐射之后得到的一比特信息缩放 <img src="https://latex.codecogs.com/svg.image?Q/4" title="Q/4" /> 倍（这是因为extraction最终得到<img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}^{Q/4}(\cdot)" title="LWE_{\mathbf{z}}^{Q/4}(\cdot)" /> 这样的形式，需要做一次Key-Switching和一次Modular-Switching 恢复成 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{q/4}(\cdot)" title="LWE_{\mathbf{s}}^{q/4}(\cdot)" /> ）
    
    
