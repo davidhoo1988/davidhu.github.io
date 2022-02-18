@@ -114,3 +114,8 @@ Update操作的核心是同态乘法算法（<img src="https://latex.codecogs.co
   <p align="center">
   <img src="fig/alg2.png" alt="animated" />
    </p>
+   
+  #### 提取 Extraction
+  在提取过程中，LUT function（也称之为rounding function）是至关重要的。现在考虑FHEW的输入密文的具体形式。它满足 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{4/q}(m)=(\mathbf{a},b),&space;|e|=|b-\mathbf{a}\cdot&space;\mathbf{s}-\frac{q}{4}m|<q/16,&space;m\in\{0,1\}" title="LWE_{\mathbf{s}}^{4/q}(m)=(\mathbf{a},b), |e|=|b-\mathbf{a}\cdot \mathbf{s}-\frac{q}{4}m|<q/16, m\in\{0,1\}" />
+  
+  同态NAND逻辑的输入是上面形式的两个LWE密文，即 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{4/q}(m_0)=(\mathbf{a_0},b_0)" title="LWE_{\mathbf{s}}^{4/q}(m_0)=(\mathbf{a_0},b_0)" /> 和 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{4/q}(m_1)=(\mathbf{a_1},b_1)" title="LWE_{\mathbf{s}}^{4/q}(m_1)=(\mathbf{a_1},b_1)" />。首先将两端密文相加得 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{4/q}(m_0&plus;m_1)=(\mathbf{a},b)=(\mathbf{a_0}&plus;\mathbf{a_1},b_0&plus;b_1),|e|=|e_0&plus;e_1|<q/8,&space;m_0&plus;m_1\in\{0,1,2\}" title="LWE_{\mathbf{s}}^{4/q}(m_0+m_1)=(\mathbf{a},b)=(\mathbf{a_0}+\mathbf{a_1},b_0+b_1),|e|=|e_0+e_1|<q/8, m_0+m_1\in\{0,1,2\}" />
