@@ -137,3 +137,4 @@ Update操作的核心是同态乘法算法（<img src="https://latex.codecogs.co
   <p align="center">
   <img src="fig/alg3.PNG" alt="animated" />
    </p>
+关于算法3的注释：
