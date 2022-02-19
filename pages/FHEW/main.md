@@ -133,4 +133,4 @@ Update操作的核心是同态乘法算法（<img src="https://latex.codecogs.co
 <img src="https://latex.codecogs.com/svg.image?LWE(\frac{q}{8}(2m-1))&plus;&space;LWE(\frac{q}{8})=LWE(\frac{q}{4}m)" title="LWE(\frac{q}{8}(2m-1))+ LWE(\frac{q}{8})=LWE(\frac{q}{4}m)" />
  </p>
 
-到这里我们可以完整地给出详细的FHEW bootstrapping[算法3](./fig/alg3.png)如下
+到这里我们可以完整地给出详细的FHEW bootstrapping[算法3](./fig/alg3.PNG)如下
