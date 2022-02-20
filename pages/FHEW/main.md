@@ -143,3 +143,5 @@ Update操作的核心是同态乘法算法（<img src="https://latex.codecogs.co
   <p align="center">
 <img src="https://latex.codecogs.com/svg.image?c\cdot&space;E(s)=E(c\cdot&space;s)=&space;E(\sum_j&space;c_jB_r^j\cdot&space;s)=\sum_jE(c_jB_r^j\cdot&space;s)" title="c\cdot E(s)=E(c\cdot s)= E(\sum_j c_jB_r^j\cdot s)=\sum_jE(c_jB_r^j\cdot s)" />
  </p>
+ 
+ <div>  最后我们讨论NAND()。这部分最值得关系的内容是如何初始化 <img src="https://latex.codecogs.com/svg.image?m(X)\in&space;\mathbb{Z}_{Q}[x]/(X^N&plus;1)" title="m(X)\in \mathbb{Z}_{Q}[x]/(X^N+1)" />, 也就是算法描述当中(b-j) mod q这部分。
