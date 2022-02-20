@@ -149,3 +149,7 @@ Update操作的核心是同态乘法算法（<img src="https://latex.codecogs.co
   <p align="center">
 <img src="https://latex.codecogs.com/svg.image?rotP(X)=\frac{Q}{8}&space;&plus;&space;\cdots&space;&plus;&space;\frac{Q}{8}X^{q/8-1}-&space;\frac{Q}{8}X^{q/8}&space;-&space;\cdots&space;-&space;\frac{Q}{8}X^{5q/8}&space;&plus;&space;\frac{Q}{8}X^{5q/8&plus;1}&space;&plus;&space;\cdots&space;&plus;&space;\frac{Q}{8}X^{q/2-1}" title="rotP(X)=\frac{Q}{8} + \cdots + \frac{Q}{8}X^{q/8-1}- \frac{Q}{8}X^{q/8} - \cdots - \frac{Q}{8}X^{5q/8} + \frac{Q}{8}X^{5q/8+1} + \cdots + \frac{Q}{8}X^{q/2-1}" />
    </p>
+容易知道, 给定一个RLWE instance，我们可以同态地提取(extract)出它明文多项式任意一个系数作为LWE instance。所以下面的关系式可以达成：  
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?rotP&space;\cdot&space;E(X^{\widetilde{m}})=E(rotP\cdot&space;X^{\widetilde{m}})\xrightarrow[]{LWE-extract}&space;\begin{cases}LWE(Q/8)&space;&&space;\text{&space;if&space;}&space;\widetilde{m}\in&space;[3q/8,&space;7q/8]&space;\\LWE(-Q/8)&space;&&space;\text{&space;otherwise&space;}&space;&space;\end{cases}" title="rotP \cdot E(X^{\widetilde{m}})=E(rotP\cdot X^{\widetilde{m}})\xrightarrow[]{LWE-extract} \begin{cases}LWE(Q/8) & \text{ if } \widetilde{m}\in [3q/8, 7q/8] \\LWE(-Q/8) & \text{ otherwise } \end{cases}" />
+ </p>
