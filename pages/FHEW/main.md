@@ -153,3 +153,4 @@ Update操作的核心是同态乘法算法（<img src="https://latex.codecogs.co
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?rotP&space;\cdot&space;E(X^{\widetilde{m}})=E(rotP\cdot&space;X^{\widetilde{m}})\xrightarrow[]{LWE-extract}&space;\begin{cases}LWE(Q/8)&space;&&space;\text{&space;if&space;}&space;\widetilde{m}\in&space;[3q/8,&space;7q/8]&space;\\LWE(-Q/8)&space;&&space;\text{&space;otherwise&space;}&space;&space;\end{cases}" title="rotP \cdot E(X^{\widetilde{m}})=E(rotP\cdot X^{\widetilde{m}})\xrightarrow[]{LWE-extract} \begin{cases}LWE(Q/8) & \text{ if } \widetilde{m}\in [3q/8, 7q/8] \\LWE(-Q/8) & \text{ otherwise } \end{cases}" />
  </p>
+由此可得算法描述初始化m(X)的步骤本质上是在准备<div> <img src="https://latex.codecogs.com/svg.image?rotP\cdot&space;X^b" title="rotP\cdot X^b" />  </div>
