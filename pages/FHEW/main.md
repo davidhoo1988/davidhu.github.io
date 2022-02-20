@@ -137,4 +137,4 @@ Update操作的核心是同态乘法算法（<img src="https://latex.codecogs.co
   <p align="center">
   <img src="fig/alg3.PNG" alt="animated" />
    </p>
-关于算法3的注释：
+<div>   关于算法3的注释：首先讨论EvalKeyGen()。Evaluation Key的本质是用密钥z对密钥s进行加密。因为Bootstrapping中需要做形如 <img src="https://latex.codecogs.com/svg.image?c\cdot&space;E(s)" title="c\cdot E(s)" /> 的计算。为了更好的控制噪声增长，需要对c扁平化，即做 <img src="https://latex.codecogs.com/svg.image?c=\sum_i&space;c_iB_r^i" title="c=\sum_i c_iB_r^i" />。相应的需要存储 <img src="https://latex.codecogs.com/svg.image?E(c_jB_r^j\cdot&space;s)" title="E(c_jB_r^j\cdot s)" />。</div>
