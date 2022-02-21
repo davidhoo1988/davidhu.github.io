@@ -3,8 +3,11 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 
 ## 预备知识
 ### RLWE 的基本结构和同态运算
-首先，我们回顾RLWE(Learning With Errors over Rings)的代数构造。
-
+首先，我们回顾RLWE(Learning With Errors over Rings)的代数构造。这里注意区别两个概念：加密(encrypt)和编码(encode)。 RLWE加密有如下形式：
+<p align="center">
+  <img src="https://latex.codecogs.com/svg.image?RLWE_s(\widetilde{m})=(a,as&plus;e&plus;\widetilde{m})" title="RLWE_s(\widetilde{m})=(a,as+e+\widetilde{m})" />
+</p>
+<div>这里, <img src="https://latex.codecogs.com/svg.image?\widetilde{m}\in&space;R_q=R/qR=\mathbb{Z}_q[X]/(X^n&plus;1)" title="\widetilde{m}\in R_q=R/qR=\mathbb{Z}_q[X]/(X^n+1)" /> 是编码之后的明文；<img src="https://latex.codecogs.com/svg.image?s\in&space;R=\mathbb{Z}[X]/(X^n&plus;1)" title="s\in R=\mathbb{Z}[X]/(X^n+1)" /> 是密钥。</div>
 
 接着，我们回顾RLWE密文的同态加法操作。
 
