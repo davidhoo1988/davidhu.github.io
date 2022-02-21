@@ -5,4 +5,9 @@ GSW是公认的第一个第三代FHE方案。最初的论文发表在[CRYPTO13](
 ### RLWE 的基本结构和同态运算
 首先，我们回顾RLWE(Learning With Errors over Rings)的代数构造。
 
+
+接着，我们回顾RLWE密文的同态加法操作。
+
+最后，我们试着构造RLWE密文的同态乘法操作。
+
 ### GSW 密码方案
