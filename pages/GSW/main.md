@@ -7,7 +7,13 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <p align="center">
   <img src="https://latex.codecogs.com/svg.image?RLWE_s(\widetilde{m})=(a,as&plus;e&plus;\widetilde{m})" title="RLWE_s(\widetilde{m})=(a,as+e+\widetilde{m})" />
 </p>
-<div>这里, <img src="https://latex.codecogs.com/svg.image?\widetilde{m}\in&space;R_q=R/qR=\mathbb{Z}_q[X]/(X^n&plus;1)" title="\widetilde{m}\in R_q=R/qR=\mathbb{Z}_q[X]/(X^n+1)" /> 是编码之后的明文；<img src="https://latex.codecogs.com/svg.image?s\in&space;R=\mathbb{Z}[X]/(X^n&plus;1)" title="s\in R=\mathbb{Z}[X]/(X^n+1)" /> 是密钥。</div>
+<div>这里, <img src="https://latex.codecogs.com/svg.image?\widetilde{m}\in&space;R_q=R/qR=\mathbb{Z}_q[X]/(X^n&plus;1)" title="\widetilde{m}\in R_q=R/qR=\mathbb{Z}_q[X]/(X^n+1)" /> 是编码之后的明文(假定明文 <img src="https://latex.codecogs.com/svg.image?m\in&space;R_t&space;(t\ll&space;q)" title="m\in R_t (t\ll q)" /> , 编码则可以表示为 <img src="https://latex.codecogs.com/svg.image?\widetilde{m}=(q/t)m" title="\widetilde{m}=(q/t)m" /> )；<img src="https://latex.codecogs.com/svg.image?s\in&space;R=\mathbb{Z}[X]/(X^n&plus;1)" title="s\in R=\mathbb{Z}[X]/(X^n+1)" /> 是密钥。具体地，随机均匀地选取 <img src="https://latex.codecogs.com/svg.image?a\gets&space;R_q" title="a\gets R_q" /> ; 随机从离散高斯分布(均值为0，方差为 <img src="https://latex.codecogs.com/svg.image?\sigma" title="\sigma" /> ) 选取 <img src="https://latex.codecogs.com/svg.image?e\gets&space;\chi_{\sigma}^n" title="e\gets \chi_{\sigma}^n" /> ; 随机从某个离散‘窄’分布选取密钥（比如 <img src="https://latex.codecogs.com/svg.image?s\gets&space;\chi_{\sigma}^n" title="s\gets \chi_{\sigma}^n" /> 或 <img src="https://latex.codecogs.com/svg.image?s\gets&space;\{0,1,-1\}^n" title="s\gets \{0,1,-1\}^n" /> ）</div>
+
+
+相应地，给定一个RLWE密文 <img src="https://latex.codecogs.com/svg.image?(a,b)\in&space;R_q^2" title="(a,b)\in R_q^2" /> ，它的解密形式可以用下式表达
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?RLWE_s^{-1}(a,b)=b-as=\widetilde{m}&plus;e" title="RLWE_s^{-1}(a,b)=b-as=\widetilde{m}+e" />
+</p>
 
 接着，我们回顾RLWE密文的同态加法操作。
 
