@@ -23,7 +23,7 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?LWE_s(m_0)&plus;LWE_s(m_1)=(a_0,b_0)&plus;(a_1,b_1)=(a_0&plus;a_1,b_0&plus;b_1)=LWE_s(m_0&plus;m_1)" title="LWE_s(m_0)+LWE_s(m_1)=(a_0,b_0)+(a_1,b_1)=(a_0+a_1,b_0+b_1)=LWE_s(m_0+m_1)" />
 </p>
-类似地，可得和同态标量乘法操作。
+类似地，可得同态标量乘法操作。
 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?d\cdot&space;LWE_s(m_0)=d\cdot&space;(a_0,b_0)=(d\cdot&space;a_0,d\cdot&space;b_0)=LWE_s(d\cdot&space;m_0)" title="d\cdot LWE_s(m_0)=d\cdot (a_0,b_0)=(d\cdot a_0,d\cdot b_0)=LWE_s(d\cdot m_0)" />
