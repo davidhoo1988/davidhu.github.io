@@ -36,7 +36,12 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?Err_s(d\cdot&space;\mathbf{c_0})=d\cdot&space;Err_s(\mathbf{c_0})" title="Err_s(d\cdot \mathbf{c_0})=d\cdot Err_s(\mathbf{c_0})" />
 </p>
-最后，我们试着构造RLWE密文的同态乘法操作。
+注意到上面的标量乘操作要求d是一个较小的数，否则噪声增长超出允许的上界就会出现解密错误。显然，一个自然的问题是: 我们可不可以构造更好的标量乘操作使得对任何大小的d都适用呢？
+为了解决该问题，我们定义一个新的LWE加密形式:
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?RLWE'_s(m)=\left(RLWE_s(m),RLWE_s(Bm),RLWE_s(B^2m),\cdots,RLWE_s(B^{B^{k-1}}m)\right)" title="RLWE'_s(m)=\left(RLWE_s(m),RLWE_s(Bm),RLWE_s(B^2m),\cdots,RLWE_s(B^{B^{k-1}}m)\right)" />
+</p>
 
 ### GSW 密码方案
 #### 直觉
