@@ -29,8 +29,13 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <img src="https://latex.codecogs.com/svg.image?d\cdot&space;LWE_s(m_0)=d\cdot&space;(a_0,b_0)=(d\cdot&space;a_0,d\cdot&space;b_0)=LWE_s(d\cdot&space;m_0)" title="d\cdot LWE_s(m_0)=d\cdot (a_0,b_0)=(d\cdot a_0,d\cdot b_0)=LWE_s(d\cdot m_0)" />
 </p>
 
-分析一下加法操作和标量乘操作的噪声增长。
-
+令 <img src="https://latex.codecogs.com/svg.image?\mathbf{c_0}&space;=&space;(a_0,b_0)=LWE_s(m_0),\mathbf{c_1}&space;=&space;(a_1,b_1)=LWE_s(m_1)" title="\mathbf{c_0} = (a_0,b_0)=LWE_s(m_0),\mathbf{c_1} = (a_1,b_1)=LWE_s(m_1)" /> 分析一下加法操作和标量乘操作的噪声增长如下:
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?Err_s(\mathbf{c_0}&plus;\mathbf{c_1})=Err_s(\mathbf{c_0})&plus;Err_s(\mathbf{c_1})" title="Err_s(\mathbf{c_0}+\mathbf{c_1})=Err_s(\mathbf{c_0})+Err_s(\mathbf{c_1})" />
+</p>
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?Err_s(d\cdot&space;\mathbf{c_0})=d\cdot&space;Err_s(\mathbf{c_0})" title="Err_s(d\cdot \mathbf{c_0})=d\cdot Err_s(\mathbf{c_0})" />
+</p>
 最后，我们试着构造RLWE密文的同态乘法操作。
 
 ### GSW 密码方案
