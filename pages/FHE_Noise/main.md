@@ -26,4 +26,6 @@
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?1-\text{erf}(\frac{q}{2t\sigma\cdot&space;\sqrt{2}})\leq&space;2^{-i}" title="1-\text{erf}(\frac{q}{2t\sigma\cdot \sqrt{2}})\leq 2^{-i}" /> </p>
 
-实践表明上面的分析方法是悲观的，即实际FHEW的解密错误概率通常比上式得到的概率要小的多。因此FHEW论文提供另外一种分析方法。这里我们避开分析单个FHE密文可解密的概率，转而分析两个(独立)FHE密文的噪声之和。假定单个FHE密文 <img src="https://latex.codecogs.com/svg.image?\mathbf{c_i}" title="\mathbf{c_i}" /> 的噪声满足 <img src="https://latex.codecogs.com/svg.image?|e_i|&space;=&space;|err(\mathbf{c_i})|<q/2t" title="|e_i| = |err(\mathbf{c_i})|<q/2t" /> 。那么两个独立FHE密文的噪声之和应满足 <img src="https://latex.codecogs.com/svg.image?|e_1&plus;e_2|=|err(\mathbf{c_1})&plus;err(\mathbf{c_2})|<q/t" title="|e_1+e_2|=|err(\mathbf{c_1})+err(\mathbf{c_2})|<q/t" /> 。
+实践表明上面的分析方法是悲观的，即实际FHEW的解密错误概率通常比上式得到的概率要小的多。因此FHEW论文提供另外一种分析方法。这里我们避开分析单个FHE密文可解密的概率，转而分析两个(独立)FHE密文的噪声之和。假定单个FHE密文 <img src="https://latex.codecogs.com/svg.image?\mathbf{c_i}" title="\mathbf{c_i}" /> 的噪声满足 <img src="https://latex.codecogs.com/svg.image?|e_i|&space;=&space;|err(\mathbf{c_i})|<q/2t" title="|e_i| = |err(\mathbf{c_i})|<q/2t" /> 。那么两个独立FHE密文的噪声之和应满足 <img src="https://latex.codecogs.com/svg.image?|e_1&plus;e_2|=|err(\mathbf{c_1})&plus;err(\mathbf{c_2})|<q/t" title="|e_1+e_2|=|err(\mathbf{c_1})+err(\mathbf{c_2})|<q/t" /> 。因此FHEW用下式来估算解密的出错概率：
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?1-\text{erf}(\frac{q}{2\sigma\cdot&space;\sqrt{2}})\leq&space;2^{-i}" title="1-\text{erf}(\frac{q}{t\sigma\cdot \sqrt{2}})\leq 2^{-i}" /> </p>
