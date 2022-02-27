@@ -12,3 +12,8 @@
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\Phi(x)=\frac{1}{2}&plus;\frac{1}{2}\text{&space;erf}(\frac{x}{\sqrt{2}})&space;" title="\Phi(x)=\frac{1}{2}+\frac{1}{2}\text{ erf}(\frac{x}{\sqrt{2}}) " />
  </p>
+ 
+ 对上式做一些简单变换，可得：
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\text{&space;erf}(\frac{x}{\sqrt{2}})&space;=&space;2(\Phi(\sqrt{2}x)-\Phi(0))" title="\text{ erf}(\frac{x}{\sqrt{2}}) = 2(\Phi(\sqrt{2}x)-\Phi(0))" />
+</p>
