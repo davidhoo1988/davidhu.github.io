@@ -15,6 +15,7 @@
     4. BGV
     5. (B)FV
     6. CKKS
+    7. FHE噪声增长分析
    
 - 后量子密码(Post Quantum Cryptography)
     1. ROLLO
