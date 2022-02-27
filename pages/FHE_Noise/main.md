@@ -15,5 +15,13 @@
  
  对上式做一些简单变换，可得：
 <p align="center">
-<img src="https://latex.codecogs.com/svg.image?\text{&space;erf}(\frac{x}{\sqrt{2}})&space;=&space;2(\Phi(\sqrt{2}x)-\Phi(0))" title="\text{ erf}(\frac{x}{\sqrt{2}}) = 2(\Phi(\sqrt{2}x)-\Phi(0))" />
+<img src="https://latex.codecogs.com/svg.image?\text{&space;erf}(\frac{x}{\sqrt{2}})&space;=&space;2(\Phi(x)-\Phi(0))" title="\text{ erf}(\frac{x}{\sqrt{2}}) = 2(\Phi(x)-\Phi(0))" />
 </p>
+也就是说，一个服从高斯分布的随机变量出现在区间[-x,+x]的概率可以用erf函数直接计算。
+
+### 高斯分布的叠加性
+
+## FHE密文被正确解密的概率
+我们回到FHE噪声分析的核心问题，那就是“给定FHE密文噪声分布(通常是均值为0，方差为 <img src="https://latex.codecogs.com/svg.image?\sigma^2" title="\sigma^2" /> 的高斯分布)，那么该密文可以被正确解密的概率是多少？” 注意这里正确解密的含义是 |e|<\frac{q}{2t}。这就表明噪声随机变量e应该以大概率出现在区间 <img src="https://latex.codecogs.com/svg.image?[-\frac{q}{2t},&space;\frac{q}{2t}]" title="[-\frac{q}{2t}, \frac{q}{2t}]" /> 。等价的表述方式是e落在区间 <img src="https://latex.codecogs.com/svg.image?[-\frac{q}{2t},&space;\frac{q}{2t}]" title="[-\frac{q}{2t}, \frac{q}{2t}]" /> 之外的概率是可忽略的(例如概率为 <img src="https://latex.codecogs.com/svg.image?2^{-30}" title="2^{-30}" /> ):
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?1-\text{erf}(\frac{q}{2t\sigma\cdot&space;\sqrt{2}})\leq&space;2^{-i}" title="1-\text{erf}(\frac{q}{2t\sigma\cdot \sqrt{2}})\leq 2^{-i}" /> </p>
