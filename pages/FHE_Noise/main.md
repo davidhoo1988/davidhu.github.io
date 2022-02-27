@@ -7,3 +7,8 @@
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?erf(x)=\frac{1}{\sqrt{\pi}}\int_{-x}^{x}e^{-t^2}dt=\frac{2}{\sqrt{\pi}}\int_{0}^{x}e^{-t^2}dt" title="erf(x)=\frac{1}{\sqrt{\pi}}\int_{-x}^{x}e^{-t^2}dt=\frac{2}{\sqrt{\pi}}\int_{0}^{x}e^{-t^2}dt" />
  </p>
+ 
+引入erf函数的一个重要性质，该性质沟通了erf函数和高斯分布:
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\Phi(x)=\frac{1}{2}&plus;\frac{1}{2}\text{&space;erf}(\frac{x}{\sqrt{2}})&space;" title="\Phi(x)=\frac{1}{2}+\frac{1}{2}\text{ erf}(\frac{x}{\sqrt{2}}) " />
+ </p>
