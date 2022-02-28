@@ -33,6 +33,6 @@
 ## 密钥变换/模数变换对FHEW密文解密错误率的影响
 
 ### 模数变换
-给定一个LWE密文 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{Q/t}(m)" title="LWE_{\mathbf{s}}^{Q/t}(m)" /> ,
+给定一个LWE密文 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{Q/t}(m)" title="LWE_{\mathbf{s}}^{Q/t}(m)" /> , 定义LWE模数变换如下：
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?ModSwitch(\mathbf{a},b)=(\mathbf{a'},b')=((\lfloor&space;qa_0/Q\rceil,\cdots,\lfloor&space;qa_{n-1}/Q\rceil),&space;\lfloor&space;qb/Q\rceil&space;)" title="ModSwitch(\mathbf{a},b)=(\mathbf{a'},b')=((\lfloor qa_0/Q\rceil,\cdots,\lfloor qa_{n-1}/Q\rceil), \lfloor qb/Q\rceil )" /></p>
