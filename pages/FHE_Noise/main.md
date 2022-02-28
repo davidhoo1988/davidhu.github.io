@@ -39,3 +39,5 @@
 
 引理: 那么 <img src="https://latex.codecogs.com/svg.image?ModSwitch(\mathbf{a},b)" title="ModSwitch(\mathbf{a},b)" /> 输出的LWE密文(高斯)噪声方差为 <img src="https://latex.codecogs.com/svg.image?\sqrt{(q\sigma/Q)^2&space;&plus;&space;(||\mathbf{s}||^2&plus;1)/12}" title="\sqrt{(q\sigma/Q)^2 + (||\mathbf{s}||^2+1)/12}" />, 这里
 <img src="https://latex.codecogs.com/svg.image?||s||=\sqrt{\sum_{i=0}^{n-1}s_i^2}" title="||s||=\sqrt{\sum_{i=0}^{n-1}s_i^2}" />
+
+*证明*
