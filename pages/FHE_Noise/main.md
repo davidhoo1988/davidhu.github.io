@@ -33,11 +33,11 @@
 ## 密钥变换/模数变换对FHEW密文解密错误率的影响
 
 ### 模数变换
-给定一个LWE密文 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{Q/t}(m)" title="LWE_{\mathbf{s}}^{Q/t}(m)" /> , 定义LWE模数变换如下：
+给定一个LWE密文 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{Q/t}(m)=(\mathbf{a},b)" title="LWE_{\mathbf{s}}^{Q/t}(m)=(\mathbf{a},b)" /> , 定义LWE模数变换如下：
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?ModSwitch(\mathbf{a},b)=(\mathbf{a'},b')=((\lfloor&space;qa_0/Q\rceil,\cdots,\lfloor&space;qa_{n-1}/Q\rceil),&space;\lfloor&space;qb/Q\rceil&space;)" title="ModSwitch(\mathbf{a},b)=(\mathbf{a'},b')=((\lfloor qa_0/Q\rceil,\cdots,\lfloor qa_{n-1}/Q\rceil), \lfloor qb/Q\rceil )" /></p>
 
-引理: 那么 <img src="https://latex.codecogs.com/svg.image?ModSwitch(\mathbf{a},b)" title="ModSwitch(\mathbf{a},b)" /> 输出的LWE密文(高斯)噪声方差为 <img src="https://latex.codecogs.com/svg.image?\sqrt{(q\sigma/Q)^2&space;&plus;&space;(||\mathbf{s}||^2&plus;1)/12}" title="\sqrt{(q\sigma/Q)^2 + (||\mathbf{s}||^2+1)/12}" />, 这里
+引理: 如果输入的LWE密文(高斯)噪声 <img src="https://latex.codecogs.com/svg.image?err((\mathbf{a},b))" title="err((\mathbf{a},b))" /> 标准差为 <img src="https://latex.codecogs.com/svg.image?\sigma" title="\sigma" /> ，那么 <img src="https://latex.codecogs.com/svg.image?ModSwitch(\mathbf{a},b)" title="ModSwitch(\mathbf{a},b)" /> 输出的LWE密文(高斯)噪声标准差为 <img src="https://latex.codecogs.com/svg.image?\sqrt{(q\sigma/Q)^2&space;&plus;&space;(||\mathbf{s}||^2&plus;1)/12}" title="\sqrt{(q\sigma/Q)^2 + (||\mathbf{s}||^2+1)/12}" />, 这里
 <img src="https://latex.codecogs.com/svg.image?||s||=\sqrt{\sum_{i=0}^{n-1}s_i^2}" title="||s||=\sqrt{\sum_{i=0}^{n-1}s_i^2}" />
 
 *证明*
