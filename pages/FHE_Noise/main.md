@@ -58,3 +58,4 @@
  <img src="https://latex.codecogs.com/svg.image?KeySwitch((\mathbf{a},b),\{\mathbf{k}_{i,j,v}\})=(\mathbf{0},b)-\sum_{i,j}\mathbf{k}_{i,j,a_{i,j}}"  title="KeySwitch((\mathbf{a},b),\{\mathbf{k}_{i,j,v}\})=(\mathbf{0},b)-\sum_{i,j}\mathbf{k}_{i,j,a_{i,j}}" />
 </p>
 
+引理：假定LWE的输入密文的噪声服从 <img src="https://latex.codecogs.com/svg.image?err(LWE_{\mathbf{z}}^{q/t}(m))\sim&space;\mathcal{N}(0,\sigma^2)" title="err(LWE_{\mathbf{z}}^{q/t}(m))\sim \mathcal{N}(0,\sigma^2)" />
