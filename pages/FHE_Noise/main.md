@@ -47,11 +47,11 @@
 ### 密钥变换
 给定一个LWE密文 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}^{q/t}(m)=(\mathbf{a},b)" title="LWE_{\mathbf{z}}^{q/t}(m)=(\mathbf{a},b)" /> ，定义Key-Switching Key 
 <p align="center">
-<img src="https://latex.codecogs.com/svg.image?\mathbf{k}_{i,j,v}=LWE_{\mathbf{s}}^{q/q}(vz_iB_{ks}^j),i=0,\cdots,N-1,&space;j=0,\cdots,d_{ks}-1,&space;v\in&space;\{0,\cdots,B_{ks}\},&space;d_{ks}=\lceil&space;log_{B_{ks}}q\rceil" title="\mathbf{k}_{i,j,v}=LWE_{\mathbf{s}}^{q/q}(vz_iB_{ks}^j),i=0,\cdots,N-1, j=0,\cdots,d_{ks}-1, v\in \{0,\cdots,B_{ks}\}, d_{ks}=\lceil log_{B_{ks}}q\rceil" /> 。 
+<img src="https://latex.codecogs.com/svg.image?\mathbf{k}_{i,j,v}=LWE_{\mathbf{s}}^{q/q}(vz_iB_{ks}^j),i=0,\cdots,N-1,&space;j=0,\cdots,d_{ks}-1,&space;v\in&space;\{0,\cdots,B_{ks}\},&space;d_{ks}=\lceil&space;log_{B_{ks}}q\rceil" title="\mathbf{k}_{i,j,v}=LWE_{\mathbf{s}}^{q/q}(vz_iB_{ks}^j),i=0,\cdots,N-1, j=0,\cdots,d_{ks}-1, v\in \{0,\cdots,B_{ks}\}, d_{ks}=\lceil log_{B_{ks}}q\rceil" /> 
  </p>
 对向量a中的每一个元素施加扁平化操作 
 <p align="center">
- <img src="https://latex.codecogs.com/svg.image?a_i=\sum_j&space;a_{i,j}B_{ks}^j" title="a_i=\sum_j a_{i,j}B_{ks}^j" /> 。
+ <img src="https://latex.codecogs.com/svg.image?a_i=\sum_j&space;a_{i,j}B_{ks}^j" title="a_i=\sum_j a_{i,j}B_{ks}^j" /> 
  </p>
  那么KeySwtich操作定义如下：
 <p align="center">
