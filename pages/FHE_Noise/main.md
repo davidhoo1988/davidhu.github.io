@@ -67,3 +67,7 @@
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?b'=b-\sum_{i,j}(\mathbf{a'}_{i,j,a_{i,j}}\cdot&space;\mathbf{s}&plus;a_{i,j}z_iB_{ks}^j&plus;e_{i,j,a_{i,j}})=b-\mathbf{a}\cdot\mathbf{z}&plus;\mathbf{a'}\cdot\mathbf{s}-\sum_{i,j}e_{i,j,a_{i,j}}" title="b'=b-\sum_{i,j}(\mathbf{a'}_{i,j,a_{i,j}}\cdot \mathbf{s}+a_{i,j}z_iB_{ks}^j+e_{i,j,a_{i,j}})=b-\mathbf{a}\cdot\mathbf{z}+\mathbf{a'}\cdot\mathbf{s}-\sum_{i,j}e_{i,j,a_{i,j}}" />
  </p>
+因此，
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\begin{align*}err(\mathbf{a'},b')&=&space;b'-\mathbf{a'}\cdot\mathbf{s}-\frac{qm}{t}\\&=b-\mathbf{a}\cdot\mathbf{z}-\sum_{i,j}e_{i,j,a_{i,j}}-\frac{qm}{t}\\&=err(\mathbf{a,}b)-\sum_{i,j}e_{i,j,a_{i,j}}\end{align*}&space;" title="\begin{align*}err(\mathbf{a'},b')&= b'-\mathbf{a'}\cdot\mathbf{s}-\frac{qm}{t}\\&=b-\mathbf{a}\cdot\mathbf{z}-\sum_{i,j}e_{i,j,a_{i,j}}-\frac{qm}{t}\\&=err(\mathbf{a,}b)-\sum_{i,j}e_{i,j,a_{i,j}}\end{align*} " />
+ </p>
