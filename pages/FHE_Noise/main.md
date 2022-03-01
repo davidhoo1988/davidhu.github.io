@@ -45,7 +45,11 @@
 经过计算可得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b)=b'-\mathbf{a'}\cdot&space;\mathbf{s'}-\frac{qm}{t}=\frac{qerr(\mathbf{a},b)}{Q}&plus;r_{n}-\sum_{i=0}^{n-1}s_ir_i" title="err(\mathbf{a'},b)=b'-\mathbf{a'}\cdot \mathbf{s'}-\frac{qm}{t}=\frac{qerr(\mathbf{a},b)}{Q}+r_{n}-\sum_{i=0}^{n-1}s_ir_i" /> 。依据中心极限定理和高斯分布叠加性容易得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b)\sim&space;\mathcal{N}(0,(\frac{q\sigma}{Q})^2&plus;\frac{||\mathbf{s}||^2&plus;1}{12})" title="err(\mathbf{a'},b)\sim \mathcal{N}(0,(\frac{q\sigma}{Q})^2+\frac{||\mathbf{s}||^2+1}{12})" /> 。
 
 ### 密钥变换
-给定一个LWE密文 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}^{q/t}(m)=(\mathbf{a},b)" title="LWE_{\mathbf{z}}^{q/t}(m)=(\mathbf{a},b)" /> ，定义Key-Switching Key <img src="https://latex.codecogs.com/svg.image?\mathbf{k}_{i,j,v}=LWE_{\mathbf{s}}^{q/q}(vz_iB_{ks}^j),i=0,\cdots,N-1,&space;j=0,\cdots,d_{ks}-1,&space;v\in&space;\{0,\cdots,B_{ks}\},&space;d_{ks}=\lceil&space;log_{B_{ks}}q\rceil" title="\mathbf{k}_{i,j,v}=LWE_{\mathbf{s}}^{q/q}(vz_iB_{ks}^j),i=0,\cdots,N-1, j=0,\cdots,d_{ks}-1, v\in \{0,\cdots,B_{ks}\}, d_{ks}=\lceil log_{B_{ks}}q\rceil" /> 。 对向量a中的每一个元素施加扁平化操作 
+给定一个LWE密文 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}^{q/t}(m)=(\mathbf{a},b)" title="LWE_{\mathbf{z}}^{q/t}(m)=(\mathbf{a},b)" /> ，定义Key-Switching Key 
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\mathbf{k}_{i,j,v}=LWE_{\mathbf{s}}^{q/q}(vz_iB_{ks}^j),i=0,\cdots,N-1,&space;j=0,\cdots,d_{ks}-1,&space;v\in&space;\{0,\cdots,B_{ks}\},&space;d_{ks}=\lceil&space;log_{B_{ks}}q\rceil" title="\mathbf{k}_{i,j,v}=LWE_{\mathbf{s}}^{q/q}(vz_iB_{ks}^j),i=0,\cdots,N-1, j=0,\cdots,d_{ks}-1, v\in \{0,\cdots,B_{ks}\}, d_{ks}=\lceil log_{B_{ks}}q\rceil" /> 。 
+ </p>
+对向量a中的每一个元素施加扁平化操作 
 <p align="center">
  <img src="https://latex.codecogs.com/svg.image?a_i=\sum_j&space;a_{i,j}B_{ks}^j" title="a_i=\sum_j a_{i,j}B_{ks}^j" /> 。
  </p>
