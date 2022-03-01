@@ -53,7 +53,7 @@
 <p align="center">
  <img src="https://latex.codecogs.com/svg.image?a_i=\sum_j&space;a_{i,j}B_{ks}^j" title="a_i=\sum_j a_{i,j}B_{ks}^j" /> 
  </p>
- 那么KeySwtich操作定义如下：
+ 那么KeySwitch操作定义如下：
 <p align="center">
  <img src="https://latex.codecogs.com/svg.image?KeySwitch((\mathbf{a},b),\{\mathbf{k}_{i,j,v}\})=(\mathbf{0},b)-\sum_{i,j}\mathbf{k}_{i,j,a_{i,j}}"  title="KeySwitch((\mathbf{a},b),\{\mathbf{k}_{i,j,v}\})=(\mathbf{0},b)-\sum_{i,j}\mathbf{k}_{i,j,a_{i,j}}" />
 </p>
