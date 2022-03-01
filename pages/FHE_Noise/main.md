@@ -31,6 +31,7 @@
 <img src="https://latex.codecogs.com/svg.image?1-\text{erf}(\frac{q}{t\sigma\cdot&space;\sqrt{2}})\leq&space;2^{-i}" title="1-\text{erf}(\frac{q}{t\sigma\cdot \sqrt{2}})\leq 2^{-i}" /> </p>
 
 ## 密钥变换/模数变换对FHEW密文解密错误率的影响
+这里分析一下密钥变换和模数变换的正确性和噪声增长。
 
 ### 模数变换
 给定一个LWE密文 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{Q/t}(m)=(\mathbf{a},b)" title="LWE_{\mathbf{s}}^{Q/t}(m)=(\mathbf{a},b)" /> , 定义LWE模数变换如下：
@@ -41,4 +42,6 @@
 <img src="https://latex.codecogs.com/svg.image?||s||=\sqrt{\sum_{i=0}^{n-1}s_i^2}" title="||s||=\sqrt{\sum_{i=0}^{n-1}s_i^2}" />
 
 *证明* 首先我们有 <img src="https://latex.codecogs.com/svg.image?a_i'=\frac{q}{Q}a_i&plus;r_i,&space;b'=\frac{q}{Q}b&plus;r_0" title="a_i'=\frac{q}{Q}a_i+r_i, b'=\frac{q}{Q}b+r_0" /> 。这里 <img src="https://latex.codecogs.com/svg.image?r_i&space;\sim&space;Unif(-\frac{1}{2},\frac{1}{2})" title="r_i \sim Unif(-\frac{1}{2},\frac{1}{2})" /> 。
-经过计算可得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b)=b'-\mathbf{a'}\cdot&space;\mathbf{s'}-\frac{qm}{t}=\frac{qerr(\mathbf{a},b)}{Q}&plus;r_{n}-\sum_{i=0}^{n-1}s_ir_i" title="err(\mathbf{a'},b)=b'-\mathbf{a'}\cdot \mathbf{s'}-\frac{qm}{t}=\frac{qerr(\mathbf{a},b)}{Q}+r_{n}-\sum_{i=0}^{n-1}s_ir_i" /> 。
+经过计算可得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b)=b'-\mathbf{a'}\cdot&space;\mathbf{s'}-\frac{qm}{t}=\frac{qerr(\mathbf{a},b)}{Q}&plus;r_{n}-\sum_{i=0}^{n-1}s_ir_i" title="err(\mathbf{a'},b)=b'-\mathbf{a'}\cdot \mathbf{s'}-\frac{qm}{t}=\frac{qerr(\mathbf{a},b)}{Q}+r_{n}-\sum_{i=0}^{n-1}s_ir_i" /> 。依据中心极限定理和高斯分布叠加性容易得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b)\sim&space;\mathcal{N}(0,(\frac{q\sigma}{Q})^2&plus;\frac{||\mathbf{s}||^2&plus;1}{12})" title="err(\mathbf{a'},b)\sim \mathcal{N}(0,(\frac{q\sigma}{Q})^2+\frac{||\mathbf{s}||^2+1}{12})" /> 。
+
+### 
