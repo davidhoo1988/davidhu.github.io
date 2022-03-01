@@ -64,3 +64,6 @@
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\mathbf{a'}&space;=&space;-\sum_{i,j}\mathbf{a'}_{i,j,a_{ij}}" title="\mathbf{a'} = -\sum_{i,j}\mathbf{a'}_{i,j,a_{ij}}" />
 </p>
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?b'=b-\sum_{i,j}(\mathbf{a'}_{i,j,a_{i,j}}\cdot&space;\mathbf{s}&plus;a_{i,j}z_iB_{ks}^j&plus;e_{i,j,a_{i,j}})=b-\mathbf{a}\cdot\mathbf{z}&plus;\mathbf{a'}\cdot\mathbf{s}-\sum_{i,j}e_{i,j,a_{i,j}}" title="b'=b-\sum_{i,j}(\mathbf{a'}_{i,j,a_{i,j}}\cdot \mathbf{s}+a_{i,j}z_iB_{ks}^j+e_{i,j,a_{i,j}})=b-\mathbf{a}\cdot\mathbf{z}+\mathbf{a'}\cdot\mathbf{s}-\sum_{i,j}e_{i,j,a_{i,j}}" />
+ </p>
