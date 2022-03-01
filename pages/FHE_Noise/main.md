@@ -30,7 +30,7 @@
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?1-\text{erf}(\frac{q}{t\sigma\cdot&space;\sqrt{2}})\leq&space;2^{-i}" title="1-\text{erf}(\frac{q}{t\sigma\cdot \sqrt{2}})\leq 2^{-i}" /> </p>
 
-## 密钥变换/模数变换对FHEW密文解密错误率的影响
+## 密钥变换/模数变换对FHEW密文噪声的影响
 这里分析一下密钥变换和模数变换的正确性和噪声增长。
 
 ### 模数变换
