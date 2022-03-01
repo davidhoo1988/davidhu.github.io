@@ -40,4 +40,5 @@
 引理: 如果输入的LWE密文(高斯)噪声 <img src="https://latex.codecogs.com/svg.image?err((\mathbf{a},b))" title="err((\mathbf{a},b))" /> 标准差为 <img src="https://latex.codecogs.com/svg.image?\sigma" title="\sigma" /> ，那么 <img src="https://latex.codecogs.com/svg.image?ModSwitch(\mathbf{a},b)" title="ModSwitch(\mathbf{a},b)" /> 输出的LWE密文(高斯)噪声标准差为 <img src="https://latex.codecogs.com/svg.image?\sqrt{(q\sigma/Q)^2&space;&plus;&space;(||\mathbf{s}||^2&plus;1)/12}" title="\sqrt{(q\sigma/Q)^2 + (||\mathbf{s}||^2+1)/12}" />, 这里
 <img src="https://latex.codecogs.com/svg.image?||s||=\sqrt{\sum_{i=0}^{n-1}s_i^2}" title="||s||=\sqrt{\sum_{i=0}^{n-1}s_i^2}" />
 
-*证明*
+*证明* 首先我们有 <img src="https://latex.codecogs.com/svg.image?a_i'=\frac{q}{Q}a_i&plus;r_i,&space;b'=\frac{q}{Q}b&plus;r_0" title="a_i'=\frac{q}{Q}a_i+r_i, b'=\frac{q}{Q}b+r_0" /> 。这里 <img src="https://latex.codecogs.com/svg.image?r_i&space;\sim&space;Unif(-\frac{1}{2},\frac{1}{2})" title="r_i \sim Unif(-\frac{1}{2},\frac{1}{2})" /> 。
+经过计算可得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b)=b'-\mathbf{a'}\cdot&space;\mathbf{s'}-\frac{qm}{t}=\frac{qerr(\mathbf{a},b)}{Q}&plus;r_{n}-\sum_{i=0}^{n-1}s_ir_i" title="err(\mathbf{a'},b)=b'-\mathbf{a'}\cdot \mathbf{s'}-\frac{qm}{t}=\frac{qerr(\mathbf{a},b)}{Q}+r_{n}-\sum_{i=0}^{n-1}s_ir_i" /> 。
