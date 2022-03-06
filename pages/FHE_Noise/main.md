@@ -72,3 +72,7 @@
 <img src="https://latex.codecogs.com/svg.image?\begin{align*}err(\mathbf{a'},b')&=&space;b'-\mathbf{a'}\cdot\mathbf{s}-\frac{qm}{t}\\&=b-\mathbf{a}\cdot\mathbf{z}-\sum_{i,j}e_{i,j,a_{i,j}}-\frac{qm}{t}\\&=err(\mathbf{a,}b)-\sum_{i,j}e_{i,j,a_{i,j}}\end{align*}&space;" title="\begin{align*}err(\mathbf{a'},b')&= b'-\mathbf{a'}\cdot\mathbf{s}-\frac{qm}{t}\\&=b-\mathbf{a}\cdot\mathbf{z}-\sum_{i,j}e_{i,j,a_{i,j}}-\frac{qm}{t}\\&=err(\mathbf{a,}b)-\sum_{i,j}e_{i,j,a_{i,j}}\end{align*} " />
  </p>
 <div>依据高斯分布叠加性最终得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b')\sim&space;\mathcal{N}(0,\alpha^2&plus;Nd_{ks}\sigma^2)" title="err(\mathbf{a'},b')\sim \mathcal{N}(0,\alpha^2+Nd_{ks}\sigma^2)" /></div>
+
+## Blind Rotation 对FHEW/TFHE密文噪声的影响
+FHEW/TFHE bootstrapping算法中的核心操作是blind rotation (也就是homomorphic accumulator的核心操作)。 该操作可以抽象的表示成:
+
