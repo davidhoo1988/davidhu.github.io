@@ -40,8 +40,15 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 为了解决该问题，我们定义一个新的LWE加密形式:
 
 <p align="center">
-<img src="https://latex.codecogs.com/svg.image?RLWE'_s(m)=\left(RLWE_s(m),RLWE_s(Bm),RLWE_s(B^2m),\cdots,RLWE_s(B^{B^{k-1}}m)\right)" title="RLWE'_s(m)=\left(RLWE_s(m),RLWE_s(Bm),RLWE_s(B^2m),\cdots,RLWE_s(B^{B^{k-1}}m)\right)" />
+<img src="https://latex.codecogs.com/svg.image?RLWE'_s(m)=\left(RLWE_s(m),RLWE_s(Bm),RLWE_s(B^2m),\cdots,RLWE_s(B^{k-1}m)\right)" title="RLWE'_s(m)=\left(RLWE_s(m),RLWE_s(Bm),RLWE_s(B^2m),\cdots,RLWE_s(B^{B^{k-1}}m)\right)" />
 </p>
+<div>接着，对标量d进行基于B的扁平化操作 <img src="http://latex.codecogs.com/svg.latex?d=\sum_iB^id_i" title="http://latex.codecogs.com/svg.latex?d=\sum_iB^id_i" />。令 <img src="http://latex.codecogs.com/svg.latex?RLWE(B^im)=\mathbf{c}_i" title="http://latex.codecogs.com/svg.latex?RLWE(B^im)=\mathbf{c}_i" /> , 定义新的标量乘法运算如下: </div>
+
+<p align="center">
+<img src="http://latex.codecogs.com/svg.latex?d\odot&space;(\mathbf{c_0},\cdots,\mathbf{c_{k-1}})=\sum_id_i\cdot\mathbf{c_i}" title="http://latex.codecogs.com/svg.latex?d\odot (\mathbf{c_0},\cdots,\mathbf{c_{k-1}})=\sum_id_i\cdot\mathbf{c_i}" />
+</p>
+<div>也就是说，与旧的标量乘法操作 <img src="http://latex.codecogs.com/svg.latex?R\times&space;RLWE" title="http://latex.codecogs.com/svg.latex?R\times RLWE" /> 相比，新的标量乘法操作 <img src="http://latex.codecogs.com/svg.latex?\odot:&space;R\times&space;RLWE'\to&space;RLWE" title="http://latex.codecogs.com/svg.latex?\odot: R\times RLWE'\to RLWE" /> 拥有更好的噪声增长控制。</div>
+
 
 ### GSW 密码方案
 #### 直觉
