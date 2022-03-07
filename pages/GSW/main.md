@@ -56,7 +56,9 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?RGSW_s(m)=(RLWE'_s(-s\cdot&space;m),RLWE'(m))" title="http://latex.codecogs.com/svg.latex?RGSW_s(m)=(RLWE'_s(-s\cdot m),RLWE'(m))" /></p>
 定义GSW乘法操作如下
-![GSW直觉构造](./fig/GSW.PNG)
+ <p align="center">
+  <img src="./fig/GSW.PNG" alt="animated" />
+   </p>
 
 #### 正式的构造
 上述的是GSW的直觉式构造方法，GSW论文给出的实际构造有一些不同。
