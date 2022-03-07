@@ -45,6 +45,7 @@
 经过计算可得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b)=b'-\mathbf{a'}\cdot&space;\mathbf{s'}-\frac{qm}{t}=\frac{qerr(\mathbf{a},b)}{Q}&plus;r_{n}-\sum_{i=0}^{n-1}s_ir_i" title="err(\mathbf{a'},b)=b'-\mathbf{a'}\cdot \mathbf{s'}-\frac{qm}{t}=\frac{qerr(\mathbf{a},b)}{Q}+r_{n}-\sum_{i=0}^{n-1}s_ir_i" /> 。依据中心极限定理和高斯分布叠加性容易得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b)\sim&space;\mathcal{N}(0,(\frac{q\sigma}{Q})^2&plus;\frac{||\mathbf{s}||^2&plus;1}{12})" title="err(\mathbf{a'},b)\sim \mathcal{N}(0,(\frac{q\sigma}{Q})^2+\frac{||\mathbf{s}||^2+1}{12})" /> 。
 
 ### 密钥变换
+#### 首先讨论FHEW论文中的形式
 给定一个LWE密文 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}^{q/t}(m)=(\mathbf{a},b)" title="LWE_{\mathbf{z}}^{q/t}(m)=(\mathbf{a},b)" /> ，定义Key-Switching Key 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\mathbf{k}_{i,j,v}=LWE_{\mathbf{s}}^{q/q}(vz_iB_{ks}^j),i=0,\cdots,N-1,&space;j=0,\cdots,d_{ks}-1,&space;v\in&space;\{0,\cdots,B_{ks}\},&space;d_{ks}=\lceil&space;log_{B_{ks}}q\rceil" title="\mathbf{k}_{i,j,v}=LWE_{\mathbf{s}}^{q/q}(vz_iB_{ks}^j),i=0,\cdots,N-1, j=0,\cdots,d_{ks}-1, v\in \{0,\cdots,B_{ks}\}, d_{ks}=\lceil log_{B_{ks}}q\rceil" /> 
@@ -72,6 +73,8 @@
 <img src="https://latex.codecogs.com/svg.image?\begin{align*}err(\mathbf{a'},b')&=&space;b'-\mathbf{a'}\cdot\mathbf{s}-\frac{qm}{t}\\&=b-\mathbf{a}\cdot\mathbf{z}-\sum_{i,j}e_{i,j,a_{i,j}}-\frac{qm}{t}\\&=err(\mathbf{a,}b)-\sum_{i,j}e_{i,j,a_{i,j}}\end{align*}&space;" title="\begin{align*}err(\mathbf{a'},b')&= b'-\mathbf{a'}\cdot\mathbf{s}-\frac{qm}{t}\\&=b-\mathbf{a}\cdot\mathbf{z}-\sum_{i,j}e_{i,j,a_{i,j}}-\frac{qm}{t}\\&=err(\mathbf{a,}b)-\sum_{i,j}e_{i,j,a_{i,j}}\end{align*} " />
  </p>
 <div>依据高斯分布叠加性最终得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b')\sim&space;\mathcal{N}(0,\alpha^2&plus;Nd_{ks}\sigma^2)" title="err(\mathbf{a'},b')\sim \mathcal{N}(0,\alpha^2+Nd_{ks}\sigma^2)" /></div>
+
+#### 接着讨论TFHE论文中的形式
 
 ## Blind Rotation 对FHEW/TFHE密文噪声的影响
 FHEW/TFHE bootstrapping算法中的核心操作是blind rotation (也就是homomorphic accumulator的核心操作)。 该操作可以抽象的表示成:
