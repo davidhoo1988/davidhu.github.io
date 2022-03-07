@@ -59,7 +59,7 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
  <p align="center">
   <img src="./fig/GSW.PNG" alt="animated" />
    </p>
-注意RGSW除了对m加密，还对sm加密。因此某种意义上说，RGSW可以同态地做解密操作(和bootstrapping概念类似)
+<div>注意RGSW除了对m加密，还对sm加密。因此某种意义上说，RGSW可以同态地做解密操作(和bootstrapping概念类似) <img src="http://latex.codecogs.com/svg.latex?b-as=qm_0/t&plus;e=\widetilde{m_0}&plus;e\approx&space;\widetilde{m_0}" title="http://latex.codecogs.com/svg.latex?b-as=qm_0/t+e=\widetilde{m_0}+e\approx \widetilde{m_0}" /></div>
 
 #### 正式的构造
 上述的是GSW的直觉式构造方法，GSW论文给出的实际构造有一些不同。
