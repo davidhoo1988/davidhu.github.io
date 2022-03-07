@@ -63,3 +63,6 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 #### 正式的构造
 上述的是GSW的直觉式构造方法，GSW论文给出的实际构造有一些不同。
 
+
+#### RGSW的噪声增长分析
+
