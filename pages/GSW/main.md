@@ -47,7 +47,7 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?d\odot&space;(\mathbf{c_0},\cdots,\mathbf{c_{k-1}})=\sum_id_i\cdot\mathbf{c_i}" title="http://latex.codecogs.com/svg.latex?d\odot (\mathbf{c_0},\cdots,\mathbf{c_{k-1}})=\sum_id_i\cdot\mathbf{c_i}" />
 </p>
-<div>也就是说，与旧的标量乘法操作 <img src="http://latex.codecogs.com/svg.latex?R\times&space;RLWE" title="http://latex.codecogs.com/svg.latex?R\times RLWE" /> 相比，新的标量乘法操作 <img src="http://latex.codecogs.com/svg.latex?\odot:&space;R\times&space;RLWE'\to&space;RLWE" title="http://latex.codecogs.com/svg.latex?\odot: R\times RLWE'\to RLWE" /> 拥有更好的噪声增长控制。</div>
+<div>容易发现，与旧的标量乘法操作 <img src="http://latex.codecogs.com/svg.latex?R\times&space;RLWE" title="http://latex.codecogs.com/svg.latex?R\times RLWE" /> 相比，新的标量乘法操作 <img src="http://latex.codecogs.com/svg.latex?\odot:&space;R\times&space;RLWE'\to&space;RLWE" title="http://latex.codecogs.com/svg.latex?\odot: R\times RLWE'\to RLWE" /> 拥有更好的噪声增长控制。</div>
 
 
 ### GSW 密码方案
@@ -55,6 +55,7 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 基于上述的RLWE和RLWE'方法，我们现在介绍(R)GSW。直觉上讲， RGSW构造如下:
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?RGSW_s(m)=(RLWE'_s(-s\cdot&space;m),RLWE'(m))" title="http://latex.codecogs.com/svg.latex?RGSW_s(m)=(RLWE'_s(-s\cdot m),RLWE'(m))" /></p>
+
 #### 正式的构造
 上述的是GSW的直觉式构造方法，GSW论文给出的实际构造有一些不同。
 
