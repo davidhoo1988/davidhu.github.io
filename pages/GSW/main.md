@@ -78,4 +78,4 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <div> 容易看出，上式就是GSW的直觉构造式 <img src="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)=(RLWE'_z(-z\cdot&space;X^m),RLWE'_z(X^m))" title="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)=(RLWE'_z(-z\cdot X^m),RLWE'_z(X^m))" /> 。</div>
 
 #### RGSW的噪声增长分析
-
+这里我们试着分析RGSW加法操作和乘法操作的噪声变化情况。
