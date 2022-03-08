@@ -51,21 +51,30 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 
 
 ### GSW 密码方案
-#### 直觉
+#### 直觉概念
 基于上述的RLWE和RLWE'方法，我们现在介绍(R)GSW。直觉上讲， RGSW构造如下:
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?RGSW_s(m)=(RLWE'_s(-s\cdot&space;m),RLWE'(m))" title="http://latex.codecogs.com/svg.latex?RGSW_s(m)=(RLWE'_s(-s\cdot m),RLWE'(m))" /></p>
 <div>定义GSW乘法操作 <img src="http://latex.codecogs.com/svg.latex?\diamond:&space;RLWE\times&space;RGSW\to&space;RLWE" title="http://latex.codecogs.com/svg.latex?\diamond: RLWE\times RGSW\to RLWE" /> 如下</div>
  <p align="center">
   <img src="./fig/GSW.PNG" alt="animated" />
-   </p>
+ </p>
 <div>注意RGSW除了对m加密，还对sm加密。因此某种意义上说，RGSW可以同态地做解密操作(和bootstrapping概念类似) <img src="http://latex.codecogs.com/svg.latex?RLWE(b-as)=RLWE(qm_0/t&plus;e)=RLWE(\widetilde{m_0}&plus;e)\approx&space;RLWE(\widetilde{m_0})" title="http://latex.codecogs.com/svg.latex?RLWE(b-as)=RLWE(qm_0/t+e)=RLWE(\widetilde{m_0}+e)\approx RLWE(\widetilde{m_0})" />
   
 另外注意到为了保证RGSW乘法运算中的噪声足够小，m1一般会取较小值，比如 <img src="http://latex.codecogs.com/svg.latex?m_1=X^v&space;s.t.&space;||e_0m_1||_{\infty}&space;=&space;||e_0||_{\infty}" title="http://latex.codecogs.com/svg.latex?m_1=X^v s.t. ||e_0m_1||_{\infty} = ||e_0||_{\infty}" />。因此最终可得 <img src="http://latex.codecogs.com/svg.latex?RLWE(m_0m_1&plus;e_0m_1)\approx&space;RLWE(m_0m_1)" title="http://latex.codecogs.com/svg.latex?RLWE(m_0m_1+e_0m_1)\approx RLWE(m_0m_1)" /> 。</div>
 
-#### 正式的构造
+#### 正式构造
 上述的是GSW的直觉式构造方法，GSW论文给出的实际构造有一些不同。
+<p align="center">
+<img src="http://latex.codecogs.com/svg.latex?\begin{align*}RGSW_z(X^m)&space;&=&space;\begin{vmatrix}&space;RLWE_z(0)\\&space;RLWE_z(0)\\&space;\vdots\\&space;RLWE_z(0)\\&space;RLWE_z(0)\\\end{vmatrix}&plus;&space;X^m\cdot&space;\begin{vmatrix}&space;1&space;&&space;0\\&space;0&space;&&space;1\\&space;\vdots\\&space;B_g^{d_g-1}&space;&&space;0\\&space;0&space;&&space;B_g^{d_g-1}\\\end{vmatrix}\\&space;\end{align}" title="http://latex.codecogs.com/svg.latex?\begin{align*}RGSW_z(X^m) &= \begin{vmatrix} RLWE_z(0)\\ RLWE_z(0)\\ \vdots\\ RLWE_z(0)\\ RLWE_z(0)\\\end{vmatrix}+ X^m\cdot \begin{vmatrix} 1 & 0\\ 0 & 1\\ \vdots\\ B_g^{d_g-1} & 0\\ 0 & B_g^{d_g-1}\\\end{vmatrix}\\ \end{align}" /></p>
 
+容易证明下面两个恒等式
+<p align="center">
+<img src="http://latex.codecogs.com/svg.latex?\begin{align*}RLWE_z(0)&plus;X^m\cdot&space;(0,B_g^{k})&=&space;RLWE_z(X^m\cdot&space;B_g^k)\\RLWE_z(0)&plus;X^m\cdot&space;(B_g^k,0)&space;&=&space;RLWE_z(-z\cdot&space;X^m\cdot&space;B_g^k)\end{align*}&space;" title="http://latex.codecogs.com/svg.latex?\begin{align*}RLWE_z(0)+X^m\cdot (0,B_g^{k})&= RLWE_z(X^m\cdot B_g^k)\\RLWE_z(0)+X^m\cdot (B_g^k,0) &= RLWE_z(-z\cdot X^m\cdot B_g^k)\end{align*} " /></p>
+
+据此，RGSW的定义式可以改写成
+<p align="center">
+<img src="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)&space;=&space;\begin{vmatrix}&space;RLWE_z(\color{red}{-zX^m})\\&space;RLWE_z(X^m)\\&space;\vdots\\&space;RLWE_z(\color{red}{-zX^mB_g^{d_g-1}})\\&space;RLWE_z(X^mB_g^{d_g-1})\\\end{vmatrix}" title="http://latex.codecogs.com/svg.latex?RGSW_z(X^m) = \begin{vmatrix} RLWE_z(\color{red}{-zX^m})\\ RLWE_z(X^m)\\ \vdots\\ RLWE_z(\color{red}{-zX^mB_g^{d_g-1}})\\ RLWE_z(X^mB_g^{d_g-1})\\\end{vmatrix}" /></p>
 
 #### RGSW的噪声增长分析
 
