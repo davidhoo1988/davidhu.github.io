@@ -67,6 +67,7 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 上述的是GSW的直觉式构造方法，GSW论文给出的实际构造有一些不同。
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?\begin{align*}RGSW_z(X^m)&space;&=&space;\begin{vmatrix}&space;RLWE_z(0)\\&space;RLWE_z(0)\\&space;\vdots\\&space;RLWE_z(0)\\&space;RLWE_z(0)\\\end{vmatrix}&plus;&space;X^m\cdot&space;\begin{vmatrix}&space;1&space;&&space;0\\&space;0&space;&&space;1\\&space;\vdots\\&space;B_g^{d_g-1}&space;&&space;0\\&space;0&space;&&space;B_g^{d_g-1}\\\end{vmatrix}\\&space;\end{align}" title="http://latex.codecogs.com/svg.latex?\begin{align*}RGSW_z(X^m) &= \begin{vmatrix} RLWE_z(0)\\ RLWE_z(0)\\ \vdots\\ RLWE_z(0)\\ RLWE_z(0)\\\end{vmatrix}+ X^m\cdot \begin{vmatrix} 1 & 0\\ 0 & 1\\ \vdots\\ B_g^{d_g-1} & 0\\ 0 & B_g^{d_g-1}\\\end{vmatrix}\\ \end{align}" /></p>
+定义式中的第一个大矩阵(一系列对0加密的LWE密文)和随机矩阵在计算上不可区分，因此RGSW密文在计算上和随机矩阵不可区分，这个特征揭示了RGSW密文的安全性（建立在RLWE密文的安全性之上）。
 
 容易证明下面两个恒等式
 <p align="center">
