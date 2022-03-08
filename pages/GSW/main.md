@@ -75,7 +75,7 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 据此，RGSW的定义式可以改写成
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)&space;=&space;\begin{vmatrix}&space;RLWE_z(\color{red}{-zX^m})\\&space;RLWE_z(X^m)\\&space;\vdots\\&space;RLWE_z(\color{red}{-zX^mB_g^{d_g-1}})\\&space;RLWE_z(X^mB_g^{d_g-1})\\\end{vmatrix}" title="http://latex.codecogs.com/svg.latex?RGSW_z(X^m) = \begin{vmatrix} RLWE_z(\color{red}{-zX^m})\\ RLWE_z(X^m)\\ \vdots\\ RLWE_z(\color{red}{-zX^mB_g^{d_g-1}})\\ RLWE_z(X^mB_g^{d_g-1})\\\end{vmatrix}" /></p>
-<div> 容易看出，上式就是GSW的直觉构造式 <img src="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)=(RLWE'_z(-z\cdot&space;X^m),RLWE'_z(X^m))" title="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)=(RLWE'_z(-z\cdot X^m),RLWE'_z(X^m))" /> </div>。
+<div> 容易看出，上式就是GSW的直觉构造式 <img src="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)=(RLWE'_z(-z\cdot&space;X^m),RLWE'_z(X^m))" title="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)=(RLWE'_z(-z\cdot X^m),RLWE'_z(X^m))" /> 。</div>
 
 #### RGSW的噪声增长分析
 
