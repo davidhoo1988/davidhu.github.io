@@ -63,7 +63,7 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
   
 另外注意到为了保证RGSW乘法运算中的噪声足够小，m1一般会取较小值，比如 <img src="http://latex.codecogs.com/svg.latex?m_1=X^v&space;s.t.&space;||e_0m_1||_{\infty}&space;=&space;||e_0||_{\infty}" title="http://latex.codecogs.com/svg.latex?m_1=X^v s.t. ||e_0m_1||_{\infty} = ||e_0||_{\infty}" />。因此最终可得 <img src="http://latex.codecogs.com/svg.latex?RLWE(m_0m_1&plus;e_0m_1)\approx&space;RLWE(m_0m_1)" title="http://latex.codecogs.com/svg.latex?RLWE(m_0m_1+e_0m_1)\approx RLWE(m_0m_1)" /> 。</div>
 
-#### 正式构造
+#### 正式构造（外积，external product）
 上述的是GSW的直觉式构造方法，GSW论文给出的实际构造在形式上有一些不同。
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?\begin{align*}RGSW_z(X^m)&space;&=&space;\begin{vmatrix}&space;RLWE_z(0)\\&space;RLWE_z(0)\\&space;\vdots\\&space;RLWE_z(0)\\&space;RLWE_z(0)\\\end{vmatrix}&plus;&space;X^m\cdot&space;\begin{vmatrix}&space;1&space;&&space;0\\&space;0&space;&&space;1\\&space;\vdots\\&space;B_g^{d_g-1}&space;&&space;0\\&space;0&space;&&space;B_g^{d_g-1}\\\end{vmatrix}\\&space;\end{align}" title="http://latex.codecogs.com/svg.latex?\begin{align*}RGSW_z(X^m) &= \begin{vmatrix} RLWE_z(0)\\ RLWE_z(0)\\ \vdots\\ RLWE_z(0)\\ RLWE_z(0)\\\end{vmatrix}+ X^m\cdot \begin{vmatrix} 1 & 0\\ 0 & 1\\ \vdots\\ B_g^{d_g-1} & 0\\ 0 & B_g^{d_g-1}\\\end{vmatrix}\\ \end{align}" /></p>
