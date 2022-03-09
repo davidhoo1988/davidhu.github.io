@@ -92,6 +92,9 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 </p>
 
 那么可以构造GSW乘法如下所示：
+<p align="center">
+<img src="http://latex.codecogs.com/svg.latex?\begin{align*}Gadget\_Decompose(RLWE(m_0))\cdot&space;GSW(m_1)&=(a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\cdot&space;(Z&plus;m_1\cdot&space;G)\\&=&space;RLWE(0)&plus;m_1\cdot&space;RLWE(m_0)\\&=&space;RLWE(0)&plus;m_1\cdot(RLWE(0)&plus;(0,m_0))\\&=&space;RLWE(0)&plus;(0,m_0\cdot&space;m_1)\\&=&space;RLWE(m_0\cdot&space;m_1)\end{align*}" title="http://latex.codecogs.com/svg.latex?\begin{align*}Gadget\_Decompose(RLWE(m_0))\cdot GSW(m_1)&=(a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\cdot (Z+m_1\cdot G)\\&= RLWE(0)+m_1\cdot RLWE(m_0)\\&= RLWE(0)+m_1\cdot(RLWE(0)+(0,m_0))\\&= RLWE(0)+(0,m_0\cdot m_1)\\&= RLWE(m_0\cdot m_1)\end{align*}" />
+</p>
 
 #### 进一步扩展(内积，internal product)
 注意到上一节介绍的是非对称形式的GSW乘法，即一个操作数是RLWE，另一个操作数是RGSW。这种形式的乘法最早在TFHE论文中引入，现在称之为external product。那么一个自然的问题是 “是否存在对称形式的GSW乘法，即乘法的两个操作数都是GSW密文呢？”。这个问题最早在GSW论文里讨论，现在通常称之为internal product <img src="http://latex.codecogs.com/svg.latex?\diamond&space;:&space;RGSW\times&space;RGSW\to&space;RGSW" title="http://latex.codecogs.com/svg.latex?\diamond : RGSW\times RGSW\to RGSW" /> 。
