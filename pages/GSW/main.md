@@ -96,8 +96,15 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 #### RGSW的噪声增长分析
 这里我们试着分析RGSW加法操作和乘法操作的噪声变化情况。
 
-首先，讨论内积的噪声变化。令Gadget matrix为G, 定义Gadget decompose操作如下：
+首先，讨论内积的噪声变化。令Gadget matrix为G,即
 <p align="center">
-<img src="http://latex.codecogs.com/svg.latex?(a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\xleftarrow[]{\text{Gadget&space;Decompose}}RLWE(m_0)=(a,b)&space;&space;" title="http://latex.codecogs.com/svg.latex?(a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\xleftarrow[]{\text{Gadget Decompose}}RLWE(m_0)=(a,b) " />
+<img src="http://latex.codecogs.com/svg.latex?G&space;=&space;\begin{vmatrix}&space;1&space;&&space;0\\&space;0&space;&&space;1\\&space;\vdots\\&space;B_g^{d_g-1}&space;&&space;0\\&space;0&space;&&space;B_g^{d_g-1}\\\end{vmatrix}" title="http://latex.codecogs.com/svg.latex?G = \begin{vmatrix} 1 & 0\\ 0 & 1\\ \vdots\\ B_g^{d_g-1} & 0\\ 0 & B_g^{d_g-1}\\\end{vmatrix}" />
 </p>
 
+定义Gadget decompose操作如下：
+<p align="center">
+<img src="http://latex.codecogs.com/svg.latex?(a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\xleftarrow[]{\text{Gadget&space;Decompose}}RLWE(m_0)=(a,b)&space;&space;" title="http://latex.codecogs.com/svg.latex?(a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\xleftarrow[]{\text{Gadget Decompose}}RLWE(m_0)=(a,b) " />
+</p> 使得
+<p align="center">
+<img src="http://latex.codecogs.com/svg.latex?Gadget\_Decompose(a,b)\cdot&space;G&space;=&space;(a,b)\in&space;R_{n,q}\times&space;R_{n,q}" title="http://latex.codecogs.com/svg.latex?Gadget\_Decompose(a,b)\cdot G = (a,b)\in R_{n,q}\times R_{n,q}" />
+</p>
