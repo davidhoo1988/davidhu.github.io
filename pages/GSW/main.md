@@ -87,5 +87,9 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 </p>
 
 <div>借助这个中间态，我们最终构造internal product：<img src="http://latex.codecogs.com/svg.latex?\diamond&space;:&space;RGSW\times&space;RGSW\to&space;RGSW" title="http://latex.codecogs.com/svg.latex?\diamond : RGSW\times RGSW\to RGSW" /> </div>
+<p align="center">
+<img src="http://latex.codecogs.com/svg.latex?\begin{align*}RGSW(m_0)\diamond&space;RGSW(m_1)&=(RLWE'(-sm_0),&space;RLWE'(m_0))\diamond&space;RGSW(m_1)\\&=(RLWE'(-sm_0)\diamond&space;RGSW(m_1),&space;RLWE'(m_0)\diamond&space;RGSW(m_1))\\&=&space;(RLWE'(-sm_0m_1),&space;RLWE'(m_0m_1))\\&=&space;RGSW(m_0m_1)\end{align*}&space;" title="http://latex.codecogs.com/svg.latex?\begin{align*}RGSW(m_0)\diamond RGSW(m_1)&=(RLWE'(-sm_0), RLWE'(m_0))\diamond RGSW(m_1)\\&=(RLWE'(-sm_0)\diamond RGSW(m_1), RLWE'(m_0)\diamond RGSW(m_1))\\&= (RLWE'(-sm_0m_1), RLWE'(m_0m_1))\\&= RGSW(m_0m_1)\end{align*} " />
+</p>
+
 #### RGSW的噪声增长分析
 这里我们试着分析RGSW加法操作和乘法操作的噪声变化情况。
