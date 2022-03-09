@@ -95,4 +95,5 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 
 #### RGSW的噪声增长分析
 这里我们试着分析RGSW加法操作和乘法操作的噪声变化情况。
-首先，讨论内积的噪声变化。
+
+首先，讨论内积的噪声变化。令Gadget matrix为G。
