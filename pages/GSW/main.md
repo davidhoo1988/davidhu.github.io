@@ -117,4 +117,4 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?\begin{align*}(a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\cdot&space;Z&space;=&space;(a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\cdot&space;(RLWE(0),\cdots,RLWE(0))^T\\\end{align*}&space;" title="http://latex.codecogs.com/svg.latex?\begin{align*}(a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\cdot Z = (a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\cdot (RLWE(0),\cdots,RLWE(0))^T\\\end{align*} " />
 </p>
-这一项的噪声积累为 <img src="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i&plus;\sum_{i=0}^{d_g-1}b_ie_i'&space;\\\end{align*}&space;" title="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i+\sum_{i=0}^{d_g-1}b_ie_i' \\\end{align*} " />
+<div>这一项的噪声积累为 <img src="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i&plus;\sum_{i=0}^{d_g-1}b_ie_i'&space;\\\end{align*}&space;" title="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i+\sum_{i=0}^{d_g-1}b_ie_i' \\\end{align*} " /></div>
