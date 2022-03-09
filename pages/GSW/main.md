@@ -123,7 +123,9 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 
 综上所述，GSW乘法总的噪声积累表达式是
 <p align="center">
-<img src="https://latex.codecogs.com/svg.image?\sum_{i=0}^{d_g-1}a_ie_i&plus;\sum_{i=0}^{d_g-1}b_ie_i'&space;&plus;&space;m_1e&space;" title="https://latex.codecogs.com/svg.image?\sum_{i=0}^{d_g-1}a_ie_i+\sum_{i=0}^{d_g-1}b_ie_i' + m_1e " />
+<img src="https://latex.codecogs.com/svg.image?Error(RLWE(m_0)\diamond&space;RGSW(m_1))=\sum_{i=0}^{d_g-1}a_ie_i&plus;\sum_{i=0}^{d_g-1}b_ie_i'&space;&plus;&space;m_1e&space;" title="https://latex.codecogs.com/svg.image?Error(RLWE(m_0)\diamond RGSW(m_1))=\sum_{i=0}^{d_g-1}a_ie_i+\sum_{i=0}^{d_g-1}b_ie_i' + m_1e " />
 </p>
-
+为了方便分析，我们假定统计独立性，得到噪声方差的上界为
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\inline&space;Var(Error(RGSW(m_0m_1)))\leq&space;2\cdot&space;d_g\cdot&space;n\cdot&space;(\frac{B_g}{2})^2\cdot&space;Var(e_i)&plus;&space;||m_1||_2\cdot&space;Var(e)" title="https://latex.codecogs.com/svg.image?\inline Var(Error(RGSW(m_0m_1)))\leq 2\cdot d_g\cdot n\cdot (\frac{B_g}{2})^2\cdot Var(e_i)+ ||m_1||_2\cdot Var(e)" /></p>
 
