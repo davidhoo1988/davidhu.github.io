@@ -83,7 +83,8 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 
 为了解决这个问题，首先引入中间状态下的GSW乘法 <img src="http://latex.codecogs.com/svg.latex?\diamond&space;:&space;RLWE'\times&space;RGSW\to&space;RLWE'" title="http://latex.codecogs.com/svg.latex?\diamond : RLWE'\times RGSW\to RLWE'" /> 如下所示
 <p align="center">
-<img src="http://latex.codecogs.com/svg.latex?\begin{align*}RLWE'(m_0)\diamond&space;RGSW(m_1)&=(RLWE(m_0),\cdots,RLWE(m_0B^{k-1}))\diamond&space;RGSW(m_1)\\&=(RLWE(m_0)\diamond&space;RGSW(m_1),\cdots,&space;RLWE(m_0B^{k-1})\diamond&space;RGSW(m_1))\\&=&space;(RLWE(m_0m_1),\cdots,RLWE(m_0m_1B^{k-1}))\\&=&space;RLWE'(m_0m_1)\end{align*}&space;" title="http://latex.codecogs.com/svg.latex?\begin{align*}RLWE'(m_0)\diamond RGSW(m_1)&=(RLWE(m_0),\cdots,RLWE(m_0B^{k-1}))\diamond RGSW(m_1)\\&=(RLWE(m_0)\diamond RGSW(m_1),\cdots, RLWE(m_0B^{k-1})\diamond RGSW(m_1))\\&= (RLWE(m_0m_1),\cdots,RLWE(m_0m_1B^{k-1}))\\&= RLWE'(m_0m_1)\end{align*} " /></p>
+<img src="http://latex.codecogs.com/svg.latex?\begin{align*}RLWE'(m_0)\diamond&space;RGSW(m_1)&=(RLWE(m_0),\cdots,RLWE(m_0B^{k-1}))\diamond&space;RGSW(m_1)\\&=(RLWE(m_0)\diamond&space;RGSW(m_1),\cdots,&space;RLWE(m_0B^{k-1})\diamond&space;RGSW(m_1))\\&=&space;(RLWE(m_0m_1),\cdots,RLWE(m_0m_1B^{k-1}))\\&=&space;RLWE'(m_0m_1)\end{align*}&space;" title="http://latex.codecogs.com/svg.latex?\begin{align*}RLWE'(m_0)\diamond RGSW(m_1)&=(RLWE(m_0),\cdots,RLWE(m_0B^{k-1}))\diamond RGSW(m_1)\\&=(RLWE(m_0)\diamond RGSW(m_1),\cdots, RLWE(m_0B^{k-1})\diamond RGSW(m_1))\\&= (RLWE(m_0m_1),\cdots,RLWE(m_0m_1B^{k-1}))\\&= RLWE'(m_0m_1)\end{align*} " />
+</p>
 
 #### RGSW的噪声增长分析
 这里我们试着分析RGSW加法操作和乘法操作的噪声变化情况。
