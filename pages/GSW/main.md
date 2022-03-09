@@ -78,5 +78,7 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <img src="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)&space;=&space;\begin{vmatrix}&space;RLWE_z(\color{red}{-zX^m})\\&space;RLWE_z(X^m)\\&space;\vdots\\&space;RLWE_z(\color{red}{-zX^mB_g^{d_g-1}})\\&space;RLWE_z(X^mB_g^{d_g-1})\\\end{vmatrix}" title="http://latex.codecogs.com/svg.latex?RGSW_z(X^m) = \begin{vmatrix} RLWE_z(\color{red}{-zX^m})\\ RLWE_z(X^m)\\ \vdots\\ RLWE_z(\color{red}{-zX^mB_g^{d_g-1}})\\ RLWE_z(X^mB_g^{d_g-1})\\\end{vmatrix}" /></p>
 <div> 容易看出，上式就是GSW的直觉构造式 <img src="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)=(RLWE'_z(-z\cdot&space;X^m),RLWE'_z(X^m))" title="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)=(RLWE'_z(-z\cdot X^m),RLWE'_z(X^m))" /> 。</div>
 
+#### 进一步扩展(内积，internal product)
+注意到上一节介绍的是非对称形式的GSW乘法，即一个操作数是RLWE，另一个操作数是RGSW。这种形式的乘法最早在TFHE论文中引入，现在称之为external product。那么一个自然的问题是“是否存在对称形式的”
 #### RGSW的噪声增长分析
 这里我们试着分析RGSW加法操作和乘法操作的噪声变化情况。
