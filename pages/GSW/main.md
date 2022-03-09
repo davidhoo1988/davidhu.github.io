@@ -106,7 +106,6 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 
 <div>借助这个中间态，我们最终构造internal product：<img src="http://latex.codecogs.com/svg.latex?\diamond&space;:&space;RGSW\times&space;RGSW\to&space;RGSW" title="http://latex.codecogs.com/svg.latex?\diamond : RGSW\times RGSW\to RGSW" /> </div>
 
-
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?\begin{align*}RGSW(m_0)\diamond&space;RGSW(m_1)&=(RLWE'(-sm_0),&space;RLWE'(m_0))\diamond&space;RGSW(m_1)\\&=(RLWE'(-sm_0)\diamond&space;RGSW(m_1),&space;RLWE'(m_0)\diamond&space;RGSW(m_1))\\&=&space;(RLWE'(-sm_0m_1),&space;RLWE'(m_0m_1))\\&=&space;RGSW(m_0m_1)\end{align*}&space;" title="http://latex.codecogs.com/svg.latex?\begin{align*}RGSW(m_0)\diamond RGSW(m_1)&=(RLWE'(-sm_0), RLWE'(m_0))\diamond RGSW(m_1)\\&=(RLWE'(-sm_0)\diamond RGSW(m_1), RLWE'(m_0)\diamond RGSW(m_1))\\&= (RLWE'(-sm_0m_1), RLWE'(m_0m_1))\\&= RGSW(m_0m_1)\end{align*} " />
 </p>
@@ -114,4 +113,8 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 #### RGSW的噪声增长分析
 这里我们试着分析RGSW乘法操作的噪声变化情况。
 
-首先，讨论内积的噪声变化。
+首先，讨论内积的噪声变化。注意观察GSW乘法运算的第一项为
+<p align="center">
+<img src="http://latex.codecogs.com/svg.latex?\begin{align*}(a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\cdot&space;Z&space;=&space;(a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\cdot&space;(RLWE(0),\cdots,RLWE(0))^T\\\end{align*}&space;" title="http://latex.codecogs.com/svg.latex?\begin{align*}(a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\cdot Z = (a_0,\cdots,a_{d_g-1},b_0,\cdots,b_{d_g-1})\cdot (RLWE(0),\cdots,RLWE(0))^T\\\end{align*} " />
+</p>
+这一项的噪声积累为 <img src="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i&plus;\sum_{i=0}^{d_g-1}b_ie_i'&space;\\\end{align*}&space;" title="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i+\sum_{i=0}^{d_g-1}b_ie_i' \\\end{align*} " />
