@@ -129,4 +129,4 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\inline&space;Var(Error(RGSW(m_0m_1)))\leq&space;2\cdot&space;d_g\cdot&space;n\cdot&space;(\frac{B_g}{2})^2\cdot&space;Var(e_i)&plus;&space;||m_1||_2\cdot&space;Var(e)" title="https://latex.codecogs.com/svg.image?\inline Var(Error(RGSW(m_0m_1)))\leq 2\cdot d_g\cdot n\cdot (\frac{B_g}{2})^2\cdot Var(e_i)+ ||m_1||_2\cdot Var(e)" /></p>
 
-同理可以分析internal product中的噪声，结论和external product是一致的。
+同理可以分析internal product中的噪声，结论和external product是一致的。通过分析GSW乘法的噪声，可以看出GSW构造中最核心的部分是Gadget_Decompose。
