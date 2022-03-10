@@ -78,7 +78,11 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <img src="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)&space;=&space;\begin{vmatrix}&space;RLWE_z(\color{red}{-zX^m})\\&space;RLWE_z(X^m)\\&space;\vdots\\&space;RLWE_z(\color{red}{-zX^mB_g^{d_g-1}})\\&space;RLWE_z(X^mB_g^{d_g-1})\\\end{vmatrix}" title="http://latex.codecogs.com/svg.latex?RGSW_z(X^m) = \begin{vmatrix} RLWE_z(\color{red}{-zX^m})\\ RLWE_z(X^m)\\ \vdots\\ RLWE_z(\color{red}{-zX^mB_g^{d_g-1}})\\ RLWE_z(X^mB_g^{d_g-1})\\\end{vmatrix}" /></p>
 <div> 容易看出，上式就是GSW的直觉构造式 <img src="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)=(RLWE'_z(-z\cdot&space;X^m),RLWE'_z(X^m))" title="http://latex.codecogs.com/svg.latex?RGSW_z(X^m)=(RLWE'_z(-z\cdot X^m),RLWE'_z(X^m))" /> 。</div>
 
-接着正式介绍GSW乘法。令Gadget matrix为G,即
+接着正式介绍GSW乘法。令一系列RLWE(0)构成的随机矩阵为Z,即
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\begin{vmatrix}&space;RLWE_z(0)\\&space;RLWE_z(0)\\&space;\vdots\\&space;RLWE_z(0)\\\end{vmatrix}_{2d_g\times&space;2}" title="https://latex.codecogs.com/svg.image?\begin{vmatrix} RLWE_z(0)\\ RLWE_z(0)\\ \vdots\\ RLWE_z(0)\\\end{vmatrix}_{2d_g\times 2}" />
+</p>
+令Gadget matrix为G，即
 <p align="center">
 <img src="http://latex.codecogs.com/svg.latex?G&space;=&space;\begin{vmatrix}&space;1&space;&&space;0\\&space;0&space;&&space;1\\&space;\vdots\\&space;B_g^{d_g-1}&space;&&space;0\\&space;0&space;&&space;B_g^{d_g-1}\\\end{vmatrix}" title="http://latex.codecogs.com/svg.latex?G = \begin{vmatrix} 1 & 0\\ 0 & 1\\ \vdots\\ B_g^{d_g-1} & 0\\ 0 & B_g^{d_g-1}\\\end{vmatrix}" />
 </p>
