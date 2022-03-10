@@ -125,9 +125,11 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?Error(RLWE(m_0)\diamond&space;RGSW(m_1))=\sum_{i=0}^{d_g-1}a_ie_i&plus;\sum_{i=0}^{d_g-1}b_ie_i'&space;&plus;&space;m_1e&space;" title="https://latex.codecogs.com/svg.image?Error(RLWE(m_0)\diamond RGSW(m_1))=\sum_{i=0}^{d_g-1}a_ie_i+\sum_{i=0}^{d_g-1}b_ie_i' + m_1e " />
 </p>
-为了方便分析，我们假定统计独立性，分两种情况讨论噪声方差的上界。
-情况1：
-<p align="center">
-<img src="https://latex.codecogs.com/svg.image?\inline&space;Var(Error(RGSW(m_0m_1)))\leq&space;2\cdot&space;d_g\cdot&space;n\cdot&space;(\frac{B_g}{2})^2\cdot&space;Var(e_i)&plus;&space;||m_1||_2\cdot&space;Var(e)" title="https://latex.codecogs.com/svg.image?\inline Var(Error(RGSW(m_0m_1)))\leq 2\cdot d_g\cdot n\cdot (\frac{B_g}{2})^2\cdot Var(e_i)+ ||m_1||_2\cdot Var(e)" /></p>
+<div>为了方便分析，我们假定统计独立性且利用恒等式 <img src="https://latex.codecogs.com/svg.image?E(XY)=Var(X)\cdot&space;E^2(Y)&plus;&space;Var(Y)\cdot&space;E^2(X)&space;&plus;&space;Var(X)\cdot&space;Var(Y)" title="https://latex.codecogs.com/svg.image?E(XY)=Var(X)\cdot E^2(Y)+ Var(Y)\cdot E^2(X) + Var(X)\cdot Var(Y)" />， 分两种情况讨论噪声方差的上界。</div>
 
+<div>情况1，<img src="https://latex.codecogs.com/svg.image?a_i\sim&space;Unif(-\frac{B_g}{2},\frac{B_g}{2})" title="https://latex.codecogs.com/svg.image?a_i\sim Unif(-\frac{B_g}{2},\frac{B_g}{2})" />：</div>
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?Var(Error(RGSW(m_0m_1)))\leq&space;2\cdot&space;d_g\cdot&space;n\cdot&space;(\frac{B_g^2}{12})\cdot&space;Var(e_i)&plus;&space;||m_1||_2\cdot&space;Var(e)" title="https://latex.codecogs.com/svg.image?Var(Error(RGSW(m_0m_1)))\leq 2\cdot d_g\cdot n\cdot (\frac{B_g^2}{12})\cdot Var(e_i)+ ||m_1||_2\cdot Var(e)" /></p>
+
+<div>情况2， <img src="https://latex.codecogs.com/svg.image?e_i\sim&space;Unif(0,B_g-1)" title="https://latex.codecogs.com/svg.image?e_i\sim Unif(0,B_g-1)" />：</div>
 同理可以分析internal product中的噪声，结论和external product是一致的。通过分析GSW乘法的噪声，可以看出GSW控制噪声最核心的部件是Gadget_Decompose。Gadget_Decompose将RLWE(m0)分解成小系数形式的 <img src="https://latex.codecogs.com/svg.image?\{a_i\},\{b_i\}" title="https://latex.codecogs.com/svg.image?\{a_i\},\{b_i\}" />, 这些小系数与矩阵Z作用形成RLWE(0)。正因为 <img src="https://latex.codecogs.com/svg.image?\{a_i\},\{b_i\}" title="https://latex.codecogs.com/svg.image?\{a_i\},\{b_i\}" /> 幅值小，所以形成的Error(RLWE(0))也较小，这样就顺利抑制住噪声增长。
