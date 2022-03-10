@@ -119,7 +119,7 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 </p>
 <div>这一项的噪声积累为 <img src="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i&plus;\sum_{i=0}^{d_g-1}b_ie_i'&space;\\\end{align*}&space;" title="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i+\sum_{i=0}^{d_g-1}b_ie_i' \\\end{align*} " /></div>
 
-<div>观察GSW乘法运算的第二项为 <img src="https://latex.codecogs.com/svg.image?\begin{align*}m_1\cdot&space;RLWE(0)&space;\\\end{align*}&space;" title="https://latex.codecogs.com/svg.image?\begin{align*}m_1\cdot RLWE(0) \\\end{align*} " />, 这一部分的噪声积累为 <img src="https://latex.codecogs.com/svg.image?m_1\cdot&space;e&space;" title="https://latex.codecogs.com/svg.image?m_1\cdot e " /> </div>
+<div>观察GSW乘法运算的第二项为 <img src="https://latex.codecogs.com/svg.image?\begin{align*}m_1\cdot&space;RLWE(0)&space;\\\end{align*}&space;" title="https://latex.codecogs.com/svg.image?\begin{align*}m_1\cdot RLWE(0) \\\end{align*} " />, 这一部分的噪声积累为 <img src="https://latex.codecogs.com/svg.image?m_1\cdot&space;e&space;" title="https://latex.codecogs.com/svg.image?m_1\cdot e " />, 这里 <img src="https://latex.codecogs.com/svg.image?\large&space;e=Error(RLWE(m_0))" title="https://latex.codecogs.com/svg.image?\large e=Error(RLWE(m_0))" /> </div>
 
 综上所述，GSW乘法总的噪声积累表达式是
 <p align="center">
