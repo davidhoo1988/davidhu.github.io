@@ -80,7 +80,7 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 
 接着正式介绍GSW乘法。令一系列RLWE(0)构成的随机矩阵为Z，令Gadget matrix为G，即
 <p align="center">
-<img src="https://latex.codecogs.com/svg.image?Z&space;=&space;\begin{vmatrix}&space;RLWE_z(0)\\&space;RLWE_z(0)\\&space;\vdots\\&space;RLWE_z(0)\\\end{vmatrix}_{2d_g\times&space;2}G&space;=&space;\begin{vmatrix}&space;1&space;&&space;0\\&space;0&space;&&space;1\\&space;\vdots\\&space;B_g^{d_g-1}&space;&&space;0\\&space;0&space;&&space;B_g^{d_g-1}\\\end{vmatrix}_{2d_g\times&space;2}&space;" title="https://latex.codecogs.com/svg.image?Z = \begin{vmatrix} RLWE_z(0)\\ RLWE_z(0)\\ \vdots\\ RLWE_z(0)\\\end{vmatrix}_{2d_g\times 2}G = \begin{vmatrix} 1 & 0\\ 0 & 1\\ \vdots\\ B_g^{d_g-1} & 0\\ 0 & B_g^{d_g-1}\\\end{vmatrix}_{2d_g\times 2} " />
+<img src="https://latex.codecogs.com/svg.image?Z&space;=&space;\begin{vmatrix}&space;RLWE_z(0)\\&space;RLWE_z(0)\\&space;\vdots\\&space;RLWE_z(0)\\RLWE_z(0)\\\end{vmatrix}_{2d_g\times&space;2}G&space;=&space;\begin{vmatrix}&space;1&space;&&space;0\\&space;0&space;&&space;1\\&space;\vdots\\&space;B_g^{d_g-1}&space;&&space;0\\&space;0&space;&&space;B_g^{d_g-1}\\\end{vmatrix}_{2d_g\times&space;2}&space;" title="https://latex.codecogs.com/svg.image?Z = \begin{vmatrix} RLWE_z(0)\\ RLWE_z(0)\\ \vdots\\ RLWE_z(0)\\RLWE_z(0)\\\end{vmatrix}_{2d_g\times 2}G = \begin{vmatrix} 1 & 0\\ 0 & 1\\ \vdots\\ B_g^{d_g-1} & 0\\ 0 & B_g^{d_g-1}\\\end{vmatrix}_{2d_g\times 2} " />
 </p>
 
 定义Gadget decompose操作如下：
