@@ -77,8 +77,11 @@
 #### 接着讨论TFHE论文中的形式
 
 ## Blind Rotation 对FHEW/TFHE密文噪声的影响
-在讨论Blind Rotation之前，我们先讨论Cmux，令，定义Cmux如下：
-
+在讨论Blind Rotation之前，我们先讨论Cmux，令 https://latex.codecogs.com/svg.image?&space;\mathbf{C_{2d_g\times&space;2}}=RGSW(C),&space;&space;&space;\mathbf{d_i}=RLWE(m_i),&space;C\in\{0,1\},&space;m_i\in&space;R_{n,q}，定义Cmux如下：
+<p align="center">
+https://latex.codecogs.com/svg.image?CMux(\mathbf{C},\mathbf{d_0},\mathbf{d_1})=\mathbf{C}\diamond&space;(\mathbf{d_1}-\mathbf{d_0})&plus;\mathbf{d_0}
+ </p>
+ 
 TFHE bootstrapping算法中的核心操作是blind rotation (也就是homomorphic accumulator的核心操作)。 该操作可以抽象的表示成:
 
 这里总共调用了p次CMux，已知单次Cmux的噪声增加量是，那么Blind Rotation的噪声增加总量应该是p倍的单次Cmux噪声增加量：
