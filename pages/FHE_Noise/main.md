@@ -85,8 +85,15 @@ https://latex.codecogs.com/svg.image?CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0})=
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\small&space;Gadget\_Decompose(\mathbf{d_1}-\mathbf{d_0})\cdot&space;\mathbf{Z_C}&space;&plus;&space;(\mathbf{z_{d_0}}&plus;C(\mathbf{z_{d_1}-z_{d_0})})&plus;&space;(0,m_0&plus;C(m_1-m_0))" title="https://latex.codecogs.com/svg.image?\small Gadget\_Decompose(\mathbf{d_1}-\mathbf{d_0})\cdot \mathbf{Z_C} + (\mathbf{z_{d_0}}+C(\mathbf{z_{d_1}-z_{d_0})})+ (0,m_0+C(m_1-m_0))" />
  </p>
-<div> 第一项的噪声部分为 <img src="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i&plus;\sum_{i=0}^{d_g-1}b_ie_i'&space;\\\end{align*}&space;" title="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i+\sum_{i=0}^{d_g-1}b_ie_i' \\\end{align*} " />，其中 <img src="https://latex.codecogs.com/svg.image?\{e_i\},\{e_i'\}\gets&space;Error(RGSW(m_1))" title="https://latex.codecogs.com/svg.image?\{e_i\},\{e_i'\}\gets Error(RGSW(m_1))" /> </div>
+<div> 第一项的噪声部分为 <img src="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i&plus;\sum_{i=0}^{d_g-1}b_ie_i'&space;\\\end{align*}&space;" title="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i+\sum_{i=0}^{d_g-1}b_ie_i' \\\end{align*} " />，其中 <img src="https://latex.codecogs.com/svg.image?\{e_i\},\{e_i'\}\gets&space;Error(RGSW(m_1))" title="https://latex.codecogs.com/svg.image?\{e_i\},\{e_i'\}\gets Error(RGSW(m_1))" />
  
+第二项的噪声部分为 <img src="https://latex.codecogs.com/svg.image?Err(\mathbf{d_0})&plus;C\cdot(Err(\mathbf{d_1})-Err(\mathbf{d_0}))=Err(\mathbf{d_C})" title="https://latex.codecogs.com/svg.image?Err(\mathbf{d_0})+C\cdot(Err(\mathbf{d_1})-Err(\mathbf{d_0}))=Err(\mathbf{d_C})" />
+第三项的噪声部分为零。</div>
+综上所述，可以得到Cmux噪声增长方差的上界为：
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?Var(CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0}))\leq&space;2d_gn\frac{B_g^2}{3}Err(\mathbf{C})&plus;max(Err(\mathbf{d_0}),Err(\mathbf{d_1}))" title="https://latex.codecogs.com/svg.image?Var(CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0}))\leq 2d_gn\frac{B_g^2}{3}Err(\mathbf{C})+max(Err(\mathbf{d_0}),Err(\mathbf{d_1}))" />
+</p>
+
 TFHE bootstrapping算法中的核心操作是blind rotation (也就是homomorphic accumulator的核心操作)。 该操作可以抽象的表示成:
 
 这里总共调用了p次CMux，已知单次Cmux的噪声增加量是，那么Blind Rotation的噪声增加总量应该是p倍的单次Cmux噪声增加量：
