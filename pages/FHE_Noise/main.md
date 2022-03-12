@@ -83,7 +83,7 @@ https://latex.codecogs.com/svg.image?CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0})=
  </p>
 从Cmux的定义式可以看出噪声增长主要是RGSW乘法引起的。具体地，展开Cmux的定义式可得：
 <p align="center">
-<img src="https://latex.codecogs.com/svg.image?\small&space;Gadget\_Decompose(\mathbf{d_1}-\mathbf{d_0})\cdot&space;Z_C&space;&plus;&space;(z_{d_0}&plus;C(z_{d_1}-z_{d_0}))&plus;&space;(0,m_0&plus;C(m_1-m_0))" title="https://latex.codecogs.com/svg.image?\small Gadget\_Decompose(\mathbf{d_1}-\mathbf{d_0})\cdot Z_C + (z_{d_0}+C(z_{d_1}-z_{d_0}))+ (0,m_0+C(m_1-m_0))" />
+<img src="https://latex.codecogs.com/svg.image?\small&space;Gadget\_Decompose(\mathbf{d_1}-\mathbf{d_0})\cdot&space;\mathbf{Z_C}&space;&plus;&space;(\mathbf{z_{d_0}}&plus;C(\mathbf{z_{d_1}-z_{d_0})})&plus;&space;(0,m_0&plus;C(m_1-m_0))" title="https://latex.codecogs.com/svg.image?\small Gadget\_Decompose(\mathbf{d_1}-\mathbf{d_0})\cdot \mathbf{Z_C} + (\mathbf{z_{d_0}}+C(\mathbf{z_{d_1}-z_{d_0})})+ (0,m_0+C(m_1-m_0))" />
  </p>
  
 TFHE bootstrapping算法中的核心操作是blind rotation (也就是homomorphic accumulator的核心操作)。 该操作可以抽象的表示成:
