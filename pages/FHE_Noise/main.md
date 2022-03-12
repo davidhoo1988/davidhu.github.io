@@ -77,7 +77,7 @@
 #### 接着讨论TFHE论文中的形式
 
 ## Blind Rotation 对FHEW/TFHE密文噪声的影响
-在讨论Blind Rotation之前，我们先讨论Cmux，令 https://latex.codecogs.com/svg.image?&space;\mathbf{C_{2d_g\times&space;2}}=RGSW(C),&space;&space;&space;\mathbf{d_i}=RLWE(m_i),&space;C\in\{0,1\},&space;m_i\in&space;R_{n,q}，定义Cmux如下：
+在讨论Blind Rotation之前，我们先讨论Cmux，令 <img src="https://latex.codecogs.com/svg.image?&space;\mathbf{C_{2d_g\times&space;2}}=RGSW(C),&space;&space;&space;\mathbf{d_i}=RLWE(m_i),&space;C\in\{0,1\},&space;m_i\in&space;R_{n,q}" title="https://latex.codecogs.com/svg.image? \mathbf{C_{2d_g\times 2}}=RGSW(C), \mathbf{d_i}=RLWE(m_i), C\in\{0,1\}, m_i\in R_{n,q}" />，定义Cmux如下：
 <p align="center">
 https://latex.codecogs.com/svg.image?CMux(\mathbf{C},\mathbf{d_0},\mathbf{d_1})=\mathbf{C}\diamond&space;(\mathbf{d_1}-\mathbf{d_0})&plus;\mathbf{d_0}
  </p>
