@@ -85,6 +85,7 @@ https://latex.codecogs.com/svg.image?CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0})=
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\small&space;Gadget\_Decompose(\mathbf{d_1}-\mathbf{d_0})\cdot&space;\mathbf{Z_C}&space;&plus;&space;(\mathbf{z_{d_0}}&plus;C(\mathbf{z_{d_1}-z_{d_0})})&plus;&space;(0,m_0&plus;C(m_1-m_0))" title="https://latex.codecogs.com/svg.image?\small Gadget\_Decompose(\mathbf{d_1}-\mathbf{d_0})\cdot \mathbf{Z_C} + (\mathbf{z_{d_0}}+C(\mathbf{z_{d_1}-z_{d_0})})+ (0,m_0+C(m_1-m_0))" />
  </p>
+ 第一项的噪声部分为 <img src="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i&plus;\sum_{i=0}^{d_g-1}b_ie_i'&space;\\\end{align*}&space;" title="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i+\sum_{i=0}^{d_g-1}b_ie_i' \\\end{align*} " />，其中 <img src="https://latex.codecogs.com/svg.image?\{e_i\},\{e_i'\}\gets&space;Error(RGSW(m_1))" title="https://latex.codecogs.com/svg.image?\{e_i\},\{e_i'\}\gets Error(RGSW(m_1))" />
  
 TFHE bootstrapping算法中的核心操作是blind rotation (也就是homomorphic accumulator的核心操作)。 该操作可以抽象的表示成:
 
