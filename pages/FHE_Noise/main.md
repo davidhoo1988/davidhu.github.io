@@ -91,7 +91,7 @@ https://latex.codecogs.com/svg.image?CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0})=
 第三项的噪声部分为零。</div>
 综上所述，可以得到Cmux噪声增长方差的上界为：
 <p align="center">
-<img src="https://latex.codecogs.com/svg.image?Var(CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0}))\leq&space;2d_gn\frac{B_g^2}{3}Err(\mathbf{C})&plus;max(Err(\mathbf{d_0}),Err(\mathbf{d_1}))" title="https://latex.codecogs.com/svg.image?Var(CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0}))\leq 2d_gn\frac{B_g^2}{3}Err(\mathbf{C})+max(Err(\mathbf{d_0}),Err(\mathbf{d_1}))" />
+<img src="https://latex.codecogs.com/svg.image?Var(CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0}))\leq&space;2d_gn\frac{B_g^2}{3}\cdot&space;Var(Err(\mathbf{C}))&plus;max(Var(Err(\mathbf{d_0})),Var(Err(\mathbf{d_1})))" title="https://latex.codecogs.com/svg.image?Var(CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0}))\leq 2d_gn\frac{B_g^2}{3}\cdot Var(Err(\mathbf{C}))+max(Var(Err(\mathbf{d_0})),Var(Err(\mathbf{d_1})))" />
 </p>
 
 TFHE bootstrapping算法中的核心操作是blind rotation (也就是homomorphic accumulator的核心操作)。 该操作可以抽象的表示成:
