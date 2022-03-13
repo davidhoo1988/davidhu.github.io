@@ -94,7 +94,7 @@
 <img src="https://latex.codecogs.com/svg.image?Var(CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0}))\leq&space;2d_gn\frac{B_g^2}{3}\cdot&space;Var(Err(\mathbf{C}))&plus;max(Var(Err(\mathbf{d_0})),Var(Err(\mathbf{d_1})))" title="https://latex.codecogs.com/svg.image?Var(CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0}))\leq 2d_gn\frac{B_g^2}{3}\cdot Var(Err(\mathbf{C}))+max(Var(Err(\mathbf{d_0})),Var(Err(\mathbf{d_1})))" />
 </p>
 
-TFHE bootstrapping算法中的核心操作是blind rotation (也就是homomorphic accumulator的核心操作)。 该操作可以抽象的表示成:
+现在讨论blind rotation, 它是TFHE bootstrapping算法中的核心操作(也就是homomorphic accumulator的核心操作)。 单次blind rotation可以抽象的表示成:
 
 这里总共调用了p次CMux，已知单次Cmux的噪声增加量是，那么Blind Rotation的噪声增加总量应该是p倍的单次Cmux噪声增加量：
 
