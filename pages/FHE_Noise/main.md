@@ -105,4 +105,8 @@
  <p align="center">
   <img src="./fig/blind_rotate2.PNG" alt="animated" />
  </p>
+ <div>因此整个blind rotation的噪声增加量为</div>
+  <p align="center">
+ <img src="https://latex.codecogs.com/svg.image?BlindRotate(\cdots)\leq&space;Var(Err(\mathbf{acc}))&plus;|U|\cdot&space;p\cdot&space;\left(2d_gn\frac{B_g^2}{3}\cdot&space;Var(Err(\mathbf{Z_u}))\right)" title="https://latex.codecogs.com/svg.image?BlindRotate(\cdots)\leq Var(Err(\mathbf{acc}))+|U|\cdot p\cdot \left(2d_gn\frac{B_g^2}{3}\cdot Var(Err(\mathbf{Z_u}))\right)" />
+  </p>
 
