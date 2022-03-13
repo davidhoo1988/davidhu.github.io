@@ -98,6 +98,8 @@
  <p align="center">
   <img src="./fig/blind_rotate.PNG" alt="animated" />
  </p>
-这里总共调用了p次CMux，已知单次Cmux的噪声增加量是，那么Blind Rotation的噪声增加总量应该是p倍的单次Cmux噪声增加量：
+<div>注意到 <img src="https://latex.codecogs.com/svg.image?\textbf{acc}&plus;(X^{u\cdot&space;c}-1)(\textbf{acc}\diamond&space;\mathbf{Z}_u)=CMux(\mathbf{Z}_u,&space;X^{u\cdot&space;c}\cdot&space;\textbf{acc},&space;\textbf{acc})" title="https://latex.codecogs.com/svg.image?\textbf{acc}+(X^{u\cdot c}-1)(\textbf{acc}\diamond \mathbf{Z}_u)=CMux(\mathbf{Z}_u, X^{u\cdot c}\cdot \textbf{acc}, \textbf{acc})" /> 因此单次blind rotation就是一次Cmux操作。</div>
+
+完整的blind rotation操作需要做|U|n次Cmux，如下图所示
 
 
