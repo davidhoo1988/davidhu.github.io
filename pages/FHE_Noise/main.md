@@ -95,7 +95,9 @@
 </p>
 
 现在讨论blind rotation, 它是TFHE bootstrapping算法中的核心操作(也就是homomorphic accumulator的核心操作)。 单次blind rotation可以抽象的表示成:
-
+ <p align="center">
+  <img src="./fig/blind_rotate.PNG" alt="animated" />
+ </p>
 这里总共调用了p次CMux，已知单次Cmux的噪声增加量是，那么Blind Rotation的噪声增加总量应该是p倍的单次Cmux噪声增加量：
 
 
