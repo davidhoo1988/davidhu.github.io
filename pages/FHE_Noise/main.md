@@ -88,6 +88,7 @@
 <div> 第一项的噪声部分为 <img src="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i&plus;\sum_{i=0}^{d_g-1}b_ie_i'&space;\\\end{align*}&space;" title="https://latex.codecogs.com/svg.image?\begin{align*}\sum_{i=0}^{d_g-1}a_ie_i+\sum_{i=0}^{d_g-1}b_ie_i' \\\end{align*} " />，其中 <img src="https://latex.codecogs.com/svg.image?\{e_i\},\{e_i'\}\gets&space;Error(RGSW(m_1))" title="https://latex.codecogs.com/svg.image?\{e_i\},\{e_i'\}\gets Error(RGSW(m_1))" />
  
 第二项的噪声部分为 <img src="https://latex.codecogs.com/svg.image?Err(\mathbf{d_0})&plus;C\cdot(Err(\mathbf{d_1})-Err(\mathbf{d_0}))=Err(\mathbf{d_C})" title="https://latex.codecogs.com/svg.image?Err(\mathbf{d_0})+C\cdot(Err(\mathbf{d_1})-Err(\mathbf{d_0}))=Err(\mathbf{d_C})" />
+ 
 第三项的噪声部分为零。</div>
 综上所述，可以得到Cmux噪声增长方差的上界为：
 <p align="center">
@@ -101,5 +102,7 @@
 <div>注意到 <img src="https://latex.codecogs.com/svg.image?\textbf{acc}&plus;(X^{u\cdot&space;c}-1)(\textbf{acc}\diamond&space;\mathbf{Z}_u)=CMux(\mathbf{Z}_u,&space;X^{u\cdot&space;c}\cdot&space;\textbf{acc},&space;\textbf{acc})" title="https://latex.codecogs.com/svg.image?\textbf{acc}+(X^{u\cdot c}-1)(\textbf{acc}\diamond \mathbf{Z}_u)=CMux(\mathbf{Z}_u, X^{u\cdot c}\cdot \textbf{acc}, \textbf{acc})" /> 因此单次blind rotation就是一次Cmux操作。</div>
 
 完整的blind rotation操作需要做|U|n次Cmux，如下图所示
-
+ <p align="center">
+  <img src="./fig/blind_rotate2.PNG" alt="animated" />
+ </p>
 
