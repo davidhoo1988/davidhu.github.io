@@ -90,10 +90,11 @@
 第二项的噪声部分为 <img src="https://latex.codecogs.com/svg.image?Err(\mathbf{d_0})&plus;C\cdot(Err(\mathbf{d_1})-Err(\mathbf{d_0}))=Err(\mathbf{d_C})" title="https://latex.codecogs.com/svg.image?Err(\mathbf{d_0})+C\cdot(Err(\mathbf{d_1})-Err(\mathbf{d_0}))=Err(\mathbf{d_C})" />
  
 第三项的噪声部分为零。</div>
-综上所述，可以得到Cmux噪声增长方差的上界为：
+综上所述，可以得到Cmux噪声增长方差的上界公式为：
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?Var(CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0}))\leq&space;2d_gn\frac{B_g^2}{3}\cdot&space;Var(Err(\mathbf{C}))&plus;max(Var(Err(\mathbf{d_0})),Var(Err(\mathbf{d_1})))" title="https://latex.codecogs.com/svg.image?Var(CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0}))\leq 2d_gn\frac{B_g^2}{3}\cdot Var(Err(\mathbf{C}))+max(Var(Err(\mathbf{d_0})),Var(Err(\mathbf{d_1})))" />
 </p>
+<div>换句话说，Cmux的输入噪声为 <img src="https://latex.codecogs.com/svg.image?max(Var(Err(\mathbf{d_0})),Var(Err(\mathbf{d_1})))" title="https://latex.codecogs.com/svg.image?max(Var(Err(\mathbf{d_0})),Var(Err(\mathbf{d_1})))" /> 输出噪声为 <img src="https://latex.codecogs.com/svg.image?2d_gn\frac{B_g^2}{3}\cdot&space;Var(Err(\mathbf{C}))" title="https://latex.codecogs.com/svg.image?2d_gn\frac{B_g^2}{3}\cdot Var(Err(\mathbf{C}))" /> 。</div>
 
 现在讨论blind rotation, 它是TFHE bootstrapping算法中的核心操作(也就是homomorphic accumulator的核心操作)。 单次blind rotation可以抽象的表示成:
  <p align="center">
