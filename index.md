@@ -11,7 +11,7 @@
 - 全同态加密(Fully Homomorphic Encryption)
 -   1. [GSW](./pages/GSW/main.md)
     2. [FHEW](./pages/FHEW/main.md)
-    3. TFHE
+    3. [TFHE](./pages/TFHE/main.md)
     4. BGV
     5. (B)FV
     6. CKKS
