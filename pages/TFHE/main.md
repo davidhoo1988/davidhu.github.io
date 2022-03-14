@@ -43,7 +43,8 @@
 <div>综上所述，TFHE需要的特定形式的旋转多项式 <img src="https://latex.codecogs.com/svg.image?rotP(X)\in&space;R_{Q,q/2}=\mathbb{Z}_Q[X]/(X^{q/2}&plus;1)" title="https://latex.codecogs.com/svg.image?rotP(X)\in R_{Q,q/2}=\mathbb{Z}_Q[X]/(X^{q/2}+1)" /> 为： </div>
   <p align="center">
 <img src="https://latex.codecogs.com/svg.image?rotP(X)=\frac{Q}{8}&space;&plus;&space;\cdots&space;&plus;&space;\frac{Q}{8}X^{q/8-1}-&space;\frac{Q}{8}X^{q/8}&space;-&space;\cdots&space;-&space;\frac{Q}{8}X^{5q/8}&space;&plus;&space;\frac{Q}{8}X^{5q/8&plus;1}&space;&plus;&space;\cdots&space;&plus;&space;\frac{Q}{8}X^{q/2-1}" title="rotP(X)=\frac{Q}{8} + \cdots + \frac{Q}{8}X^{q/8-1}- \frac{Q}{8}X^{q/8} - \cdots - \frac{Q}{8}X^{5q/8} + \frac{Q}{8}X^{5q/8+1} + \cdots + \frac{Q}{8}X^{q/2-1}" />
-   </p>
+  </p>
+   
 </div>因此， <img src="https://latex.codecogs.com/svg.image?\frac{q}{4}m&plus;e\in&space;[\frac{3q}{8},\frac{7q}{8}]\to&space;const(rotP\cdot&space;X^{\frac{q}{4}m&plus;e})=-\frac{Q}{8}" title="https://latex.codecogs.com/svg.image?\frac{q}{4}m+e\in [\frac{3q}{8},\frac{7q}{8}]\to const(rotP\cdot X^{\frac{q}{4}m+e})=-\frac{Q}{8}" />，否则 <img src="https://latex.codecogs.com/svg.image?const(rotP\cdot&space;X^{\frac{q}{4}m&plus;e})=\frac{Q}{8}" title="https://latex.codecogs.com/svg.image?const(rotP\cdot X^{\frac{q}{4}m+e})=\frac{Q}{8}" />。<div> 
    
 ### 噪声分析
