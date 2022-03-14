@@ -16,6 +16,9 @@
  </p>
  
 ### 正式构造
-
+这里我们以(同态)与非逻辑为例，正式介绍TFHE bootstrap。给定m0和m1的密文，经过bootstrap输出NAND(m0,m1)的密文，即：
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?LWE_\mathbf{s}(m_0)&plus;LWE_\mathbf{s}(m_1)\xrightarrow[]{bootstrap}&space;LWE_\mathbf{s}(\overline{m_0\wedge&space;m_1&space;})" title="https://latex.codecogs.com/svg.image?LWE_\mathbf{s}(m_0)+LWE_\mathbf{s}(m_1)\xrightarrow[]{bootstrap} LWE_\mathbf{s}(\overline{m_0\wedge m_1 })" />
+</p>
 
 ### 噪声分析
