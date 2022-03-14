@@ -52,7 +52,7 @@
   </p>
    
 <div>因此， <img src="https://latex.codecogs.com/svg.image?\frac{q}{4}m&plus;e\in&space;[\frac{3q}{8},\frac{7q}{8}]\to&space;const(rotP\cdot&space;X^{\frac{q}{4}m&plus;e})=-\frac{Q}{8}" title="https://latex.codecogs.com/svg.image?\frac{q}{4}m+e\in [\frac{3q}{8},\frac{7q}{8}]\to const(rotP\cdot X^{\frac{q}{4}m+e})=-\frac{Q}{8}" />，否则 <img src="https://latex.codecogs.com/svg.image?const(rotP\cdot&space;X^{\frac{q}{4}m&plus;e})=\frac{Q}{8}" title="https://latex.codecogs.com/svg.image?const(rotP\cdot X^{\frac{q}{4}m+e})=\frac{Q}{8}" />。</div> 
- 
+ 但是，我们需要解决这样的问题，因为RLWE安全性的要求，需要rotP定义在一个更大的多项式环上，即
  最后，我们归纳TFHE bootstrap算法步骤如下：
    <p align="center">
   <img src="fig/TFHE_bootstrap.PNG" alt="animated" />
