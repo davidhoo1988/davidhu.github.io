@@ -22,7 +22,7 @@
 <img src="https://latex.codecogs.com/svg.image?LWE_\mathbf{s}^{q/4}(m_0)&plus;LWE_\mathbf{s}^{q/4}(m_1)\xrightarrow[]{bootstrap}&space;LWE_\mathbf{s}^{q/4}(\overline{m_0\wedge&space;m_1&space;})" title="https://latex.codecogs.com/svg.image?LWE_\mathbf{s}^{q/4}(m_0)+LWE_\mathbf{s}^{q/4}(m_1)\xrightarrow[]{bootstrap} LWE_\mathbf{s}^{q/4}(\overline{m_0\wedge m_1 })" />
 </p>
 
-首先,同态加法是容易做的，即<img src="https://latex.codecogs.com/svg.image?LWE^{t/q}_{\mathbf{s}}(m_0)&plus;LWE^{t/q}_{\mathbf{s}}(m_1)=LWE^{t/q}_{\mathbf{s}}(m_0&plus;m_1)" title="LWE^{t/q}_{\mathbf{s}}(m_0)+LWE^{t/q}_{\mathbf{s}}(m_1)=LWE^{t/q}_{\mathbf{s}}(m_0+m_1)" />。接下来的目标是同态地将<img src="https://latex.codecogs.com/svg.image?m_0&plus;m_1" title="m_0+m_1" /> 映射成 <img src="https://latex.codecogs.com/svg.image?\overline{m_0\wedge&space;m_1}" title="\overline{m_0\wedge m_1}" />，该映射可以用下面表格表示：
+首先,同态加法是容易做的，即<img src="https://latex.codecogs.com/svg.image?LWE^{q/4}_{\mathbf{s}}(m_0)&plus;LWE^{q/4}_{\mathbf{s}}(m_1)=LWE^{q/4}_{\mathbf{s}}(m_0&plus;m_1)" title="LWE^{q/4}_{\mathbf{s}}(m_0)+LWE^{q/4}_{\mathbf{s}}(m_1)=LWE^{q/4}_{\mathbf{s}}(m_0+m_1)" />。接下来的目标是同态地将<img src="https://latex.codecogs.com/svg.image?m_0&plus;m_1" title="m_0+m_1" /> 映射成 <img src="https://latex.codecogs.com/svg.image?\overline{m_0\wedge&space;m_1}" title="\overline{m_0\wedge m_1}" />，该映射可以用下面表格表示：
 
 (a,b) | a+b  | NAND(a,b)
 ----  | ---- | ----
@@ -31,7 +31,7 @@
 (1,0) | 1    | 1
 (1,1) | 2    | 0
 
-也就是说，这里的重难点是如何同态地构造这样的LUT函数f，可以把0映射成1，1映射成1，2映射成0。
+也就是说，bootstrap的难点是如何同态地把0映射成1，1映射成1，2映射成0。
 
 ### 噪声分析
 bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确性，一个关键的问题是分析bootstrap算法的噪声，使得噪声幅值大小在可控范围。
