@@ -40,7 +40,7 @@
  <p align="center">
 <img src="https://latex.codecogs.com/svg.image?LWE(\frac{q}{8}(2m-1))&plus;&space;LWE(\frac{q}{8})=LWE(\frac{q}{4}m)" title="LWE(\frac{q}{8}(2m-1))+ LWE(\frac{q}{8})=LWE(\frac{q}{4}m)" />
  </p>
- 综上所述，TFHE需要的特定形式的旋转多项式 <img src="https://latex.codecogs.com/svg.image?rotP(X)\in&space;R_{Q,q/2}=\mathbb{Z}_Q[X]/(X^{q/2}&plus;1)" title="https://latex.codecogs.com/svg.image?rotP(X)\in R_{Q,q/2}=\mathbb{Z}_Q[X]/(X^{q/2}+1)" /> 为
+<div>综上所述，TFHE需要的特定形式的旋转多项式 <img src="https://latex.codecogs.com/svg.image?rotP(X)\in&space;R_{Q,q/2}=\mathbb{Z}_Q[X]/(X^{q/2}&plus;1)" title="https://latex.codecogs.com/svg.image?rotP(X)\in R_{Q,q/2}=\mathbb{Z}_Q[X]/(X^{q/2}+1)" /> 为： </div>
   <p align="center">
 <img src="https://latex.codecogs.com/svg.image?rotP(X)=\frac{Q}{8}&space;&plus;&space;\cdots&space;&plus;&space;\frac{Q}{8}X^{q/8-1}-&space;\frac{Q}{8}X^{q/8}&space;-&space;\cdots&space;-&space;\frac{Q}{8}X^{5q/8}&space;&plus;&space;\frac{Q}{8}X^{5q/8&plus;1}&space;&plus;&space;\cdots&space;&plus;&space;\frac{Q}{8}X^{q/2-1}" title="rotP(X)=\frac{Q}{8} + \cdots + \frac{Q}{8}X^{q/8-1}- \frac{Q}{8}X^{q/8} - \cdots - \frac{Q}{8}X^{5q/8} + \frac{Q}{8}X^{5q/8+1} + \cdots + \frac{Q}{8}X^{q/2-1}" />
    </p>
