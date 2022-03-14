@@ -44,7 +44,7 @@
   <p align="center">
 <img src="https://latex.codecogs.com/svg.image?rotP(X)=\frac{Q}{8}&space;&plus;&space;\cdots&space;&plus;&space;\frac{Q}{8}X^{q/8-1}-&space;\frac{Q}{8}X^{q/8}&space;-&space;\cdots&space;-&space;\frac{Q}{8}X^{5q/8}&space;&plus;&space;\frac{Q}{8}X^{5q/8&plus;1}&space;&plus;&space;\cdots&space;&plus;&space;\frac{Q}{8}X^{q/2-1}" title="rotP(X)=\frac{Q}{8} + \cdots + \frac{Q}{8}X^{q/8-1}- \frac{Q}{8}X^{q/8} - \cdots - \frac{Q}{8}X^{5q/8} + \frac{Q}{8}X^{5q/8+1} + \cdots + \frac{Q}{8}X^{q/2-1}" />
    </p>
-因此， <img src="https://latex.codecogs.com/svg.image?\frac{q}{4}m&plus;e\in&space;[\frac{3q}{8},\frac{7q}{8}]\to&space;const(rotP\cdot&space;X^{\frac{q}{4}m&plus;e})=-\frac{Q}{8}" title="https://latex.codecogs.com/svg.image?\frac{q}{4}m+e\in [\frac{3q}{8},\frac{7q}{8}]\to const(rotP\cdot X^{\frac{q}{4}m+e})=-\frac{Q}{8}" />，否则 <img src="https://latex.codecogs.com/svg.image?const(rotP\cdot&space;X^{\frac{q}{4}m&plus;e})=\frac{Q}{8}" title="https://latex.codecogs.com/svg.image?const(rotP\cdot X^{\frac{q}{4}m+e})=\frac{Q}{8}" />。 
+</div>因此， <img src="https://latex.codecogs.com/svg.image?\frac{q}{4}m&plus;e\in&space;[\frac{3q}{8},\frac{7q}{8}]\to&space;const(rotP\cdot&space;X^{\frac{q}{4}m&plus;e})=-\frac{Q}{8}" title="https://latex.codecogs.com/svg.image?\frac{q}{4}m+e\in [\frac{3q}{8},\frac{7q}{8}]\to const(rotP\cdot X^{\frac{q}{4}m+e})=-\frac{Q}{8}" />，否则 <img src="https://latex.codecogs.com/svg.image?const(rotP\cdot&space;X^{\frac{q}{4}m&plus;e})=\frac{Q}{8}" title="https://latex.codecogs.com/svg.image?const(rotP\cdot X^{\frac{q}{4}m+e})=\frac{Q}{8}" />。<div> 
    
 ### 噪声分析
 bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确性，一个关键的问题是分析bootstrap算法的噪声，使得噪声幅值大小在可控范围。
