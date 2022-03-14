@@ -3,11 +3,12 @@
 
 ## 预备知识
 ### Torus <img src="https://latex.codecogs.com/svg.image?\mathbb{T}" title="https://latex.codecogs.com/svg.image?\mathbb{T}" />
-
-Torus定义成[0,1)的实数，他在正常的实数运算基础上需要mod 1,即取正常运算结构的小数部分，例如:
+Torus就是TFHE中T的由来。Torus定义成[0,1)的实数，他在正常的实数运算基础上需要mod 1,即取正常运算结构的小数部分，例如:
 0.11+0.92=0.03， 10*0.11=0.1
 
-可以证明Torus结构和正常的<img src="https://latex.codecogs.com/svg.image?\mathbb{Z}_p" title="https://latex.codecogs.com/svg.image?\mathbb{Z}_p" /> 结构是等价的。所以这篇文章里避免提及Torus从而使得TFHE方案的表述更简洁。
+在TFHE的软件实现中，实际上用的int32整型来表征Torus。换句话说，Torus事实上被当成 <img src="https://latex.codecogs.com/svg.image?\mathbb{Z}_{2^{32}}" title="https://latex.codecogs.com/svg.image?\mathbb{Z}_{2^{32}}" />。
+
+利用ModSwitch可以证明Torus结构和正常的<img src="https://latex.codecogs.com/svg.image?\mathbb{Z}_p" title="https://latex.codecogs.com/svg.image?\mathbb{Z}_p" /> 结构是等价的。所以这篇文章里避免提及Torus从而使得TFHE方案的表述更简洁。
 
 ### Cmux Gate
 
