@@ -15,7 +15,7 @@ Torus就是TFHE中T的由来。Torus定义成[0,1)的实数，他在正常的实
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0})=\mathbf{C}\diamond&space;(\mathbf{d_1}-\mathbf{d_0})&plus;\mathbf{d_0}" title="https://latex.codecogs.com/svg.image?CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0})=\mathbf{C}\diamond&space;(\mathbf{d_1}-\mathbf{d_0})&plus;\mathbf{d_0}" />
  </p>
- <div>也就是说,CMux的功能是，给定一个加密状态下的比特C，如果C是1，那么输出m1的密文，否则输出m0的密文。这里关键的是GSW乘法运算 <img src="https://latex.codecogs.com/svg.image?\diamond:RGSW\times&space;RLWE&space;\to&space;RLWE" title="https://latex.codecogs.com/svg.image?\diamond:RGSW\times RLWE \to RLWE" /> （关于GSW乘法，可以参考我的这篇[博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/GSW/main.md))</div>
+ <div>也就是说,CMux的功能是，给定一个加密状态下的比特C，如果C是1，那么输出m1的密文，否则输出m0的密文。这里关键的是GSW乘法运算 <img src="https://latex.codecogs.com/svg.image?\diamond:RGSW\times&space;RLWE&space;\to&space;RLWE" title="https://latex.codecogs.com/svg.image?\diamond:RGSW\times RLWE \to RLWE" /> 。关于GSW乘法，可以参考我的这篇[博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/GSW/main.md)。</div>
  
 ### Blind Rotation
 基于上面对CMux的介绍，现在可以引入TFHE bootstrap最核心的运算Blind Rotation。
