@@ -19,7 +19,7 @@
 ### 正式构造
 这里我们以(同态)与非逻辑为例，正式介绍TFHE bootstrap。给定m0和m1的密文，经过bootstrap输出NAND(m0,m1)的密文，即：
 <p align="center">
-<img src="https://latex.codecogs.com/svg.image?LWE_\mathbf{s}^{q/4}(m_0)&plus;LWE_\mathbf{s}^{q/4}(m_1)\xrightarrow[]{bootstrap}&space;LWE_\mathbf{s}^{q/4}(\overline{m_0\wedge&space;m_1&space;})" title="https://latex.codecogs.com/svg.image?LWE_\mathbf{s}^{q/4}(m_0)+LWE_\mathbf{s}^{q/4}(m_1)\xrightarrow[]{bootstrap} LWE_\mathbf{s}^{q/4}(\overline{m_0\wedge m_1 })" />
+<img src="https://latex.codecogs.com/svg.image?LWE_\mathbf{s}^{q/4}(m_0,|e_0|<\frac{q}{16})&plus;LWE_\mathbf{s}^{q/4}(m_1,|e_0|<\frac{q}{16})\xrightarrow[]{bootstrap}&space;LWE_\mathbf{s}^{q/4}(\overline{m_0\wedge&space;m_1&space;})" title="https://latex.codecogs.com/svg.image?LWE_\mathbf{s}^{q/4}(m_0,|e_0|<\frac{q}{16})+LWE_\mathbf{s}^{q/4}(m_1,|e_0|<\frac{q}{16})\xrightarrow[]{bootstrap} LWE_\mathbf{s}^{q/4}(\overline{m_0\wedge m_1 })" />
 </p>
 
 首先,同态加法是容易做的，即<img src="https://latex.codecogs.com/svg.image?LWE^{q/4}_{\mathbf{s}}(m_0)&plus;LWE^{q/4}_{\mathbf{s}}(m_1)=LWE^{q/4}_{\mathbf{s}}(m_0&plus;m_1)" title="LWE^{q/4}_{\mathbf{s}}(m_0)+LWE^{q/4}_{\mathbf{s}}(m_1)=LWE^{q/4}_{\mathbf{s}}(m_0+m_1)" />。接下来的目标是同态地将<img src="https://latex.codecogs.com/svg.image?m_0&plus;m_1" title="m_0+m_1" /> 映射成 <img src="https://latex.codecogs.com/svg.image?\overline{m_0\wedge&space;m_1}" title="\overline{m_0\wedge m_1}" />，该映射可以用下面表格表示：
@@ -32,6 +32,14 @@
 (1,1) | 2    | 0
 
 也就是说，bootstrap的难点是如何同态地把0映射成1，1映射成1，2映射成0。
+那么rounding function f需满足
+   1. <img src="https://latex.codecogs.com/svg.image?\frac{q}{4}(m_0&plus;m_1)&plus;e&space;\\" title="\frac{q}{4}(m_0+m_1)+e \\" /> 舍入到最近的 <img src="https://latex.codecogs.com/svg.image?\frac{q}{4}" title="\frac{q}{4}" /> 的整数倍
+   2. 映射规律：<img src="https://latex.codecogs.com/svg.image?0\mapsto&space;1,&space;1\mapsto&space;1,&space;2\mapsto&space;0,(3\mapsto&space;0)" title="0\mapsto 1, 1\mapsto 1, 2\mapsto 0,(3\mapsto 0)" />
+   3. 映射之后得到的一比特信息缩放 <img src="https://latex.codecogs.com/svg.image?Q/4" title="Q/4" /> 倍（这是因为extraction最终得到<img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}^{Q/4}(\cdot)" title="LWE_{\mathbf{z}}^{Q/4}(\cdot)" /> 这样的形式，需要做一次Key-Switching和一次Modular-Switching 恢复成 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{q/4}(\cdot)" title="LWE_{\mathbf{s}}^{q/4}(\cdot)" /> ）
 
+总而言之，函数f应当将区间 <img src="https://latex.codecogs.com/svg.image?[0,q/4]\pm&space;q/8=(-q/8,3q/8)" title="[0,q/4]\pm q/8=(-q/8,3q/8)" /> 映射到 <img src="https://latex.codecogs.com/svg.image?q/4" title="q/4" />；<img src="https://latex.codecogs.com/svg.image?[2q/4,3q/4]\pm&space;q/8&space;=&space;(3q/8,7q/8)" title="[2q/4,3q/4]\pm q/8 = (3q/8,7q/8)" /> 映射到 <img src="https://latex.codecogs.com/svg.image?0" title="0" />。但这里存在一个问题：旋转多项式rotP必须满足负周期性f(v+q/2)=-f(v)，因此上述映射关系不能直接满足。解决方案是把 <img src="https://latex.codecogs.com/svg.image?[0,q/4]\pm&space;q/8=(-q/8,3q/8)" title="[0,q/4]\pm q/8=(-q/8,3q/8)" /> 映射到 <img src="https://latex.codecogs.com/svg.image?q/8" title="q/8" />，<img src="https://latex.codecogs.com/svg.image?[2q/4,3q/4]\pm&space;q/8&space;=&space;(3q/8,7q/8)" title="[2q/4,3q/4]\pm q/8 = (3q/8,7q/8)" /> 映射到 <img src="https://latex.codecogs.com/svg.image?-q/8" title="-q/8" />，这样得到 <img src="https://latex.codecogs.com/svg.image?LWE(\frac{q}{8}(2m-1))" title="LWE(\frac{q}{8}(2m-1))" /> 。最后加入无噪声的LWE密文 <img src="https://latex.codecogs.com/svg.image?(\mathbf{0},q/8)=LWE(q/8)" title="(\mathbf{0},q/8)=LWE(q/8)" /> 得到目标映射:
+ <p align="center">
+<img src="https://latex.codecogs.com/svg.image?LWE(\frac{q}{8}(2m-1))&plus;&space;LWE(\frac{q}{8})=LWE(\frac{q}{4}m)" title="LWE(\frac{q}{8}(2m-1))+ LWE(\frac{q}{8})=LWE(\frac{q}{4}m)" />
+ </p>
 ### 噪声分析
 bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确性，一个关键的问题是分析bootstrap算法的噪声，使得噪声幅值大小在可控范围。
