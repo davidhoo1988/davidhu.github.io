@@ -1,5 +1,5 @@
 # TFHE介绍
-这里介绍TFHE方案。它是对FHEW方案的拓展，特别是在改进GSW乘法和FHEW bootstrapping性能上做出了重要贡献。可以说TFHE是第三代FHE方案中性能最好的一个。
+这里介绍[TFHE方案](https://eprint.iacr.org/2018/421.pdf?ref=https://githubhelp.com)。它是对FHEW方案的拓展，特别是在改进GSW乘法和FHEW bootstrapping性能上做出了重要贡献。可以说TFHE是第三代FHE方案中性能最好的一个。
 
 ## 预备知识
 ### Torus <img src="https://latex.codecogs.com/svg.image?\mathbb{T}" title="https://latex.codecogs.com/svg.image?\mathbb{T}" />
