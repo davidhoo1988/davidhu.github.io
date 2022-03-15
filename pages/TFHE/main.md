@@ -22,7 +22,7 @@ Torus就是TFHE中T的由来。Torus定义成[0,1)的实数，他在正常的实
 基于上面对CMux的介绍，现在可以引入TFHE bootstrap最核心的运算Blind Rotation。
 
 ### Sample Extraction
-Sample Extraction的目的是从RLWE instance里（同态地）提取需要的明文片段(通常是明文多项式m(X)的常数项)，变换成对应的LWE instance。
+Sample Extraction的目的是从RLWE instance里（同态地）提取需要的明文片段(通常是明文多项式m(X)的常数项)，变换成对应的LWE instance。RLWE密文和LWE密文有下面重要的线性关系式：
 
 ## TFHE bootstrapping
 ### 基本原理
@@ -65,7 +65,7 @@ Sample Extraction的目的是从RLWE instance里（同态地）提取需要的�
   </p>
    
 <div>因此， <img src="https://latex.codecogs.com/svg.image?\frac{q}{4}m&plus;e\in&space;[\frac{3q}{8},\frac{7q}{8}]\to&space;const(rotP\cdot&space;X^{\frac{q}{4}m&plus;e})=-\frac{Q}{8}" title="https://latex.codecogs.com/svg.image?\frac{q}{4}m+e\in [\frac{3q}{8},\frac{7q}{8}]\to const(rotP\cdot X^{\frac{q}{4}m+e})=-\frac{Q}{8}" />，否则 <img src="https://latex.codecogs.com/svg.image?const(rotP\cdot&space;X^{\frac{q}{4}m&plus;e})=\frac{Q}{8}" title="https://latex.codecogs.com/svg.image?const(rotP\cdot X^{\frac{q}{4}m+e})=\frac{Q}{8}" />。</div> 
- 但是，我们需要解决这样的问题，因为RLWE安全性的要求，需要rotP定义在一个更大的多项式环上，即
+ 但是，我们需要解决这样的问题，因为RLWE安全性的要求，需要rotP定义在一个更大的多项式环 <img src="https://latex.codecogs.com/svg.image?\mathbb{Z}[X]/(X^N&plus;1),&space;2N>q" title="https://latex.codecogs.com/svg.image?\mathbb{Z}[X]/(X^N+1), 2N>q" /> 上，即
  最后，我们归纳TFHE bootstrap算法步骤如下：
    <p align="center">
   <img src="fig/TFHE_bootstrap.PNG" alt="animated" />
