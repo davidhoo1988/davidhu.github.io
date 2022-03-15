@@ -23,9 +23,12 @@ Torus就是TFHE中T的由来。Torus定义成[0,1)的实数，他在正常的实
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?&space;RLWE(X^b)&space;\xrightarrow[]{Blind\_Rotate}&space;RLWE(X^{b-\sum_ia_is_i})" title="https://latex.codecogs.com/svg.image? RLWE(X^b) \xrightarrow[]{Blind\_Rotate} RLWE(X^{b-\sum_ia_is_i})" />
  </p>
-这样操作的目的是为了在X的指数位置(同态地)做一次LWE解密操作，最后和旋转多项式配合，把指数位置的解密结果拿出来做成LWE instance，从而完成整个bootstrap步骤。
+这样操作的目的是为了在X的指数位置(同态地)做一次LWE解密操作，最后和旋转多项式配合，把指数位置的解密结果拿出来做成LWE instance，从而完成整个bootstrap步骤。因为LWE的密钥s一定是“0/1”形式，所以借助MUX逻辑，我们可以得到
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?&space;v\cdot&space;X^{-a_i\cdot&space;s_i}&space;=&space;MUX(s_i,&space;v\cdot&space;X^{-a_i},&space;v)" title="https://latex.codecogs.com/svg.image? v\cdot X^{-a_i\cdot s_i} = MUX(s_i, v\cdot X^{-a_i}, v)" />
+</p>
 
-综上所述，Blind Rotation可用下面算法描述。
+<div>反复MUX逻辑n遍即得 <img src="https://latex.codecogs.com/svg.image?&space;v\cdot&space;X^{-\sum_i&space;a_i\cdot&space;s_i}&space;&space;" title="https://latex.codecogs.com/svg.image? v\cdot X^{-\sum_i a_i\cdot s_i} " />，综上所述，Blind Rotation可用下面算法描述：</div>
   <p align="center">
   <img src="fig/BlindRotate.PNG" alt="animated" />
   </p>
