@@ -98,3 +98,6 @@ Sample Extraction的目的是从RLWE instance里（同态地）提取需要的�
    
 ### 噪声分析
 bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确性，一个关键的问题是分析bootstrap算法的噪声，使得噪声幅值大小在可控范围。
+观察Bootstrap算法可知
+
+
