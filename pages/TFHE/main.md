@@ -22,8 +22,9 @@ Torus就是TFHE中T的由来。Torus定义成[0,1)的实数，他在正常的实
 基于上面对CMux的介绍，现在可以引入TFHE bootstrap最核心的运算Blind Rotation。
 
 ### Sample Extraction
-Sample Extraction的目的是从RLWE instance里（同态地）提取需要的明文片段(通常是明文多项式m(X)的常数项)，变换成对应的LWE instance。RLWE密文和LWE密文有下面重要的线性关系式：
+Sample Extraction的目的是从RLWE instance里（同态地）提取需要的明文片段(通常是明文多项式m(X)的常数项)，变换成对应的LWE instance。RLWE密文可以看作是对n个LWE密文的打包。用矩阵描述RLWE密文可得下面重要的线性关系式：
 
+也就是说，给定RLWE密文，我们可以很轻松地从中提取出常数项对应的LWE密文，唯一需要改变的是对向量a做一次“转置”：
 ## TFHE bootstrapping
 ### 基本原理
 首先意识到 <img src="https://latex.codecogs.com/svg.image?R_{N,Q}" title="https://latex.codecogs.com/svg.image?R_{N,Q}" /> 的根构成了阶数为2N的乘性循环群(cyclic multiplicative group) <img src="https://latex.codecogs.com/svg.image?\mathbb{G}=\{1,X,\cdots,X^{N-1},-1,\cdots,-X^{N-1}\}" title="https://latex.codecogs.com/svg.image?\mathbb{G}=\{1,X,\cdots,X^{N-1},-1,\cdots,-X^{N-1}\}" />。 TFHE bootstrapping的输入是一个LWE instance <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{q/t}(m)=(\mathbf{a},\mathbf{a}\cdot&space;\mathbf{s}&plus;e&plus;\frac{qm}{t})=(\mathbf{a},b)" title="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}^{q/t}(m)=(\mathbf{a},\mathbf{a}\cdot \mathbf{s}+e+\frac{qm}{t})=(\mathbf{a},b)" />, 为了表述方便这里假定q=2N。引入一个新概念，即旋转多项式(rotation polynomial) <img src="https://latex.codecogs.com/svg.image?rotP(X)=\frac{Q}{t}\cdot(1-\sum_{i=1}^{N-1}X^i)\in&space;R_Q" title="https://latex.codecogs.com/svg.image?rotP(X)=\frac{Q}{t}\cdot(1-\sum_{i=1}^{N-1}X^i)\in R_Q" />，初始化bootstrap的输入为 <img src="https://latex.codecogs.com/svg.image?acc=rotP\cdot&space;X^b\in&space;R_Q" title="https://latex.codecogs.com/svg.image?acc=rotP\cdot X^b\in R_Q" />, 接着对acc(同态地)乘以<img src="https://latex.codecogs.com/svg.image?X^{-a_i\cdot&space;s_i}" title="https://latex.codecogs.com/svg.image?X^{-a_i\cdot s_i}" /> 的密文（这个概念称之为blind rotation，在正式构造中再详细介绍）最终得到以下形式：
