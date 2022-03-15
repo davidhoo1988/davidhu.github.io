@@ -75,6 +75,10 @@
 <div>依据高斯分布叠加性最终得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b')\sim&space;\mathcal{N}(0,\alpha^2&plus;Nd_{ks}\sigma^2)" title="err(\mathbf{a'},b')\sim \mathcal{N}(0,\alpha^2+Nd_{ks}\sigma^2)" /></div>
 
 #### 接着讨论TFHE论文中的形式
+TFHE的K.S.思路和FHEW是一致的。区别在于ksK不夹带 <img src="https://latex.codecogs.com/svg.image?a_{i,j}" title="https://latex.codecogs.com/svg.image?a_{i,j}" />，即
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\mathbf{ksk}_{i,j}=LWE_{\mathbf{s}}^{q/q}(z_iB_{ks}^j),i=[N],&space;j=[d_{ks}],&space;d_{ks}=\lceil&space;log_{B_{ks}}q\rceil" title="https://latex.codecogs.com/svg.image?\mathbf{ksk}_{i,j}=LWE_{\mathbf{s}}^{q/q}(z_iB_{ks}^j),i=[N], j=[d_{ks}], d_{ks}=\lceil log_{B_{ks}}q\rceil" />
+ </p>
 
 ## Blind Rotation 对FHEW/TFHE密文噪声的影响
 在讨论Blind Rotation之前，我们先讨论Cmux，令 <img src="https://latex.codecogs.com/svg.image?&space;\mathbf{C_{2d_g\times&space;2}}=RGSW(C),&space;&space;&space;\mathbf{d_i}=RLWE(m_i),&space;C\in\{0,1\},&space;m_i\in&space;R_{n,q}" title="https://latex.codecogs.com/svg.image? \mathbf{C_{2d_g\times 2}}=RGSW(C), \mathbf{d_i}=RLWE(m_i), C\in\{0,1\}, m_i\in R_{n,q}" />，定义<img src="https://latex.codecogs.com/svg.image?CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0})=RLWE(m_C)" title="https://latex.codecogs.com/svg.image?CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0})=RLWE(m_C)" /> 如下：
