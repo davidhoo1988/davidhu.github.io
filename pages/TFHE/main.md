@@ -19,8 +19,16 @@ Torus就是TFHE中T的由来。Torus定义成[0,1)的实数，他在正常的实
 
  
 ### Blind Rotation
-基于上面对CMux的介绍，现在引入TFHE bootstrap最核心的运算Blind Rotation。
-
+基于上面对CMux的介绍，现在引入TFHE bootstrap最核心的运算Blind Rotation。抽象地讲，Blind Rotation可以达成这样的目的：
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?&space;RLWE(X^b)&space;\xrightarrow[]{Blind\_Rotate}&space;RLWE(X^{b-\sum_ia_is_i})" title="https://latex.codecogs.com/svg.image? RLWE(X^b) \xrightarrow[]{Blind\_Rotate} RLWE(X^{b-\sum_ia_is_i})" />
+ </p>
+ 
+综上所述，Blind Rotation可用下面算法描述。
+  <p align="center">
+  <img src="fig/BlindRotate.PNG" alt="animated" />
+  </p>
+  
 ### Sample Extraction
 Sample Extraction的目的是从RLWE instance里（同态地）提取需要的明文片段(通常是明文多项式m(X)的常数项)，变换成对应的LWE instance。RLWE密文可以看作是对n个LWE密文的打包。在TFHE bootstrap中，该操作作用于Blind Rotation的输出RLWE密文acc，从而提取出所需要的LWE密文。用矩阵描述RLWE密文可得下面重要的线性关系式：
   <p align="center">
