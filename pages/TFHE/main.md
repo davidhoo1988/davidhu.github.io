@@ -23,7 +23,9 @@ Torus就是TFHE中T的由来。Torus定义成[0,1)的实数，他在正常的实
 
 ### Sample Extraction
 Sample Extraction的目的是从RLWE instance里（同态地）提取需要的明文片段(通常是明文多项式m(X)的常数项)，变换成对应的LWE instance。RLWE密文可以看作是对n个LWE密文的打包。用矩阵描述RLWE密文可得下面重要的线性关系式：
-
+  <p align="center">
+  <img src="fig/SampleExtract.PNG" alt="animated" />
+  </p>
 也就是说，给定RLWE密文，我们可以很轻松地从中提取出常数项对应的LWE密文，唯一需要改变的是对向量a做一次“转置”：
 ## TFHE bootstrapping
 ### 基本原理
