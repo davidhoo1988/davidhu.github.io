@@ -44,7 +44,7 @@
 *证明* 首先我们有 <img src="https://latex.codecogs.com/svg.image?a_i'=\frac{q}{Q}a_i&plus;r_i,&space;b'=\frac{q}{Q}b&plus;r_n" title="a_i'=\frac{q}{Q}a_i+r_i, b'=\frac{q}{Q}b+r_n" /> 。这里 <img src="https://latex.codecogs.com/svg.image?r_i&space;\sim&space;Unif(-\frac{1}{2},\frac{1}{2})" title="r_i \sim Unif(-\frac{1}{2},\frac{1}{2})" /> 。
 经过计算可得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b)=b'-\mathbf{a'}\cdot&space;\mathbf{s'}-\frac{qm}{t}=\frac{qerr(\mathbf{a},b)}{Q}&plus;r_{n}-\sum_{i=0}^{n-1}s_ir_i" title="err(\mathbf{a'},b)=b'-\mathbf{a'}\cdot \mathbf{s'}-\frac{qm}{t}=\frac{qerr(\mathbf{a},b)}{Q}+r_{n}-\sum_{i=0}^{n-1}s_ir_i" /> 。依据中心极限定理和高斯分布叠加性容易得 <img src="https://latex.codecogs.com/svg.image?err(\mathbf{a'},b)\sim&space;\mathcal{N}(0,(\frac{q\sigma}{Q})^2&plus;\frac{||\mathbf{s}||^2&plus;1}{12})" title="err(\mathbf{a'},b)\sim \mathcal{N}(0,(\frac{q\sigma}{Q})^2+\frac{||\mathbf{s}||^2+1}{12})" /> 。
 
-FHEW和TFHE的M.S.是一致的。注意这里的分析假定 <img src="https://latex.codecogs.com/svg.image?s_i\overset{\$}{\leftarrow}\{0,1,-1\}" title="https://latex.codecogs.com/svg.image?s_i\overset{\$}{\leftarrow}\{0,1,-1\}" />。
+FHEW和TFHE的M.S.是一致的。注意这里的分析假定 <img src="https://latex.codecogs.com/svg.image?s_i\overset{\$}{\leftarrow}\{0,1,-1\}" title="https://latex.codecogs.com/svg.image?s_i\overset{\$}{\leftarrow}\{0,1,-1\}" />，<img src="https://latex.codecogs.com/svg.image?HW(\mathbf{s})=||\mathbf{s}||^2" title="https://latex.codecogs.com/svg.image?HW(\mathbf{s})=||\mathbf{s}||^2" /> 。
 
 
 ### 密钥变换
