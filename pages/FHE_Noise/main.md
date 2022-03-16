@@ -88,11 +88,11 @@ TFHE的K.S.思路和FHEW是一致的。区别在于ksK不夹带 <img src="https:
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?Err(KeySwitch(\cdots))=Err(\mathbf{a'},b)=Err(\mathbf{a},b)&plus;\sum_{i,j}a_{ij}\cdot&space;e_{i,j}" title="https://latex.codecogs.com/svg.image?Err(KeySwitch(\cdots))=Err(\mathbf{a'},b)=Err(\mathbf{a},b)+\sum_{i,j}a_{ij}\cdot e_{i,j}" />
 </p>
-<div>假定 <img src="https://latex.codecogs.com/svg.image?a_{i,j}\sim&space;Unif(0,B_{ks})" title="https://latex.codecogs.com/svg.image?a_{i,j}\sim Unif(0,B_{ks})" />，借助这篇关于GSW的博文的分析方法，可以推出KeySwitch的噪声上限为：</div>
+<div>假定 <img src="https://latex.codecogs.com/svg.image?a_{i,j}\sim&space;Unif(0,B_{ks})" title="https://latex.codecogs.com/svg.image?a_{i,j}\sim Unif(0,B_{ks})" />，借助这篇关于GSW的 <a href="https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/GSW/main.md">博文</a> 的分析方法，可以推出KeySwitch的噪声上限为：</div>
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\sigma_{KS}^2\leq&space;\alpha^2&plus;N\cdot&space;d_{ks}\cdot&space;\frac{B_{ks}^2}{3}\cdot&space;\sigma^2" title="https://latex.codecogs.com/svg.image?\sigma_{KS}^2\leq \alpha^2+N\cdot d_{ks}\cdot \frac{B_{ks}^2}{3}\cdot \sigma^2" />
 </p>
-
+和FHEW K.S.相比，TFHE K.S.的 ksk更小，但是噪声控制不如FHEW。
 
 ## Blind Rotation 对FHEW/TFHE密文噪声的影响
 在讨论Blind Rotation之前，我们先讨论Cmux，令 <img src="https://latex.codecogs.com/svg.image?&space;\mathbf{C_{2d_g\times&space;2}}=RGSW(C),&space;&space;&space;\mathbf{d_i}=RLWE(m_i),&space;C\in\{0,1\},&space;m_i\in&space;R_{n,q}" title="https://latex.codecogs.com/svg.image? \mathbf{C_{2d_g\times 2}}=RGSW(C), \mathbf{d_i}=RLWE(m_i), C\in\{0,1\}, m_i\in R_{n,q}" />，定义<img src="https://latex.codecogs.com/svg.image?CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0})=RLWE(m_C)" title="https://latex.codecogs.com/svg.image?CMux(\mathbf{C},\mathbf{d_1},\mathbf{d_0})=RLWE(m_C)" /> 如下：
