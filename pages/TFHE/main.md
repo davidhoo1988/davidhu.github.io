@@ -106,7 +106,7 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
 <img src="https://latex.codecogs.com/svg.image?\sigma_{BR}^2\leq&space;N\cdot&space;2d_gn\frac{B_g^2}{3}\cdot&space;Var(Err(\mathbf{C_i}))" title="https://latex.codecogs.com/svg.image?\sigma_{BR}^2\leq N\cdot 2d_gn\frac{B_g^2}{3}\cdot Var(Err(\mathbf{C_i}))" />
 </p>
 
-接着分析KeySwitch的噪声变换, 根据这篇博文的分析，可知KeySwitch的噪声增长上限为
+接着分析KeySwitch的噪声变换, 根据这篇[博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/FHE_Noise/main.md)的分析，可知KeySwitch的噪声增长上限为
 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\sigma_{KS}^2\leq&space;N\cdot&space;d_{ks}\cdot&space;\frac{B_{ks}^2}{3}\cdot&space;Var(Err(\textbf{ksK}))" title="https://latex.codecogs.com/svg.image?\sigma_{KS}^2\leq N\cdot d_{ks}\cdot \frac{B_{ks}^2}{3}\cdot Var(Err(\textbf{ksK}))" />
