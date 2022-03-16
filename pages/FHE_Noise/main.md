@@ -88,7 +88,7 @@ TFHE的K.S.思路和FHEW是一致的。区别在于ksK不夹带 <img src="https:
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?Err(KeySwitch(\cdots))=Err(\mathbf{a'},b)=Err(\mathbf{a},b)&plus;\sum_{i,j}a_{ij}\cdot&space;e_{i,j}" title="https://latex.codecogs.com/svg.image?Err(KeySwitch(\cdots))=Err(\mathbf{a'},b)=Err(\mathbf{a},b)+\sum_{i,j}a_{ij}\cdot e_{i,j}" />
 </p>
-<div>假定 <img src="https://latex.codecogs.com/svg.image?a_{i,j}\sim&space;Unif(0,B_{ks})" title="https://latex.codecogs.com/svg.image?a_{i,j}\sim Unif(0,B_{ks})" />，借助这篇关于GSW的 <a href="https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/GSW/main.md">博文</a> 的分析方法，可以推出KeySwitch的噪声上限为：</div>
+<div>假定 <img src="https://latex.codecogs.com/svg.image?a_{i,j}\sim&space;Unif(0,B_{ks})" title="https://latex.codecogs.com/svg.image?a_{i,j}\sim Unif(0,B_{ks})" />，借助这篇关于GSW的<a href="https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/GSW/main.md">博文</a>的分析方法，可以推出KeySwitch的噪声上限为：</div>
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\sigma_{KS}^2\leq&space;\alpha^2&plus;N\cdot&space;d_{ks}\cdot&space;\frac{B_{ks}^2}{3}\cdot&space;\sigma^2" title="https://latex.codecogs.com/svg.image?\sigma_{KS}^2\leq \alpha^2+N\cdot d_{ks}\cdot \frac{B_{ks}^2}{3}\cdot \sigma^2" />
 </p>
