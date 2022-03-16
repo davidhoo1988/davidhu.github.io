@@ -117,7 +117,9 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
  <img src="https://latex.codecogs.com/svg.image?\sigma_{MS}^2=\frac{q^2}{Q^2}(\sigma_{BR}^2&plus;\sigma_{KS}^2)&plus;&space;\frac{1}{12}&plus;\frac{HW(\mathbf{s})}{12}" title="https://latex.codecogs.com/svg.image?\sigma_{MS}^2=\frac{q^2}{Q^2}(\sigma_{BR}^2+\sigma_{KS}^2)+ \frac{1}{12}+\frac{HW(\mathbf{s})}{12}" />
  </p>
  
-总而言之，bootstrap的噪声公式为：
+总而言之，bootstrap的噪声公式归纳为：
 <p align="center">
  <img src="https://latex.codecogs.com/svg.image?\sigma_{Bootstrap}^2\leq&space;\frac{q^2}{Q^2}\left(\frac{2}{3}Nnd_gB_g^2\sigma_{evK}^2&plus;\frac{1}{3}Nnd_{ks}B_{ks}^2\sigma_{ksK}^2\right)&plus;\frac{HW(\mathbf{s})&plus;1}{12}" title="https://latex.codecogs.com/svg.image?\sigma_{Bootstrap}^2\leq \frac{q^2}{Q^2}\left(\frac{2}{3}Nnd_gB_g^2\sigma_{evK}^2+\frac{1}{3}Nnd_{ks}B_{ks}^2\sigma_{ksK}^2\right)+\frac{HW(\mathbf{s})+1}{12}" />
 </p>
+
+<div>这里，<img src="https://latex.codecogs.com/svg.image?\sigma_{ksK}^2=Var(Err(\mathbf{ksK})),&space;\sigma_{evK}^2=Var(Err(\mathbf{evK}))=Var(Err(\mathbf{\mathbf{C_i}}))" title="https://latex.codecogs.com/svg.image?\sigma_{ksK}^2=Var(Err(\mathbf{ksK})), \sigma_{evK}^2=Var(Err(\mathbf{evK}))=Var(Err(\mathbf{\mathbf{C_i}}))" /></div>
