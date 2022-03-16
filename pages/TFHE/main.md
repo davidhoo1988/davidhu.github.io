@@ -100,15 +100,19 @@ Sample Extraction的目的是从RLWE instance里（同态地）提取需要的�
 bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确性，一个关键的问题是分析bootstrap算法的噪声，使得噪声幅值大小在可控范围。
 观察Bootstrap算法可知BlindRotate和KeySwitch增加噪声；ModSwitch减小噪声。
 
-首先，分析BlindRotate的噪声变化，BlindRotate一共进行了N次CMux，每次CMux的噪声增长上限为 <img src="https://latex.codecogs.com/svg.image?2d_gn\frac{B_g^2}{3}\cdot&space;Var(Err(\mathbf{C_i}))" title="https://latex.codecogs.com/svg.image?2d_gn\frac{B_g^2}{3}\cdot Var(Err(\mathbf{C_i}))" /> （参考这篇[博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/FHE_Noise/main.md)）。因此，BlindRotate带来的噪声上限为：
+首先，分析BlindRotate的噪声变化。BlindRotate一共进行了N次CMux，每次CMux的噪声增长上限为 <img src="https://latex.codecogs.com/svg.image?2d_gn\frac{B_g^2}{3}\cdot&space;Var(Err(\mathbf{C_i}))" title="https://latex.codecogs.com/svg.image?2d_gn\frac{B_g^2}{3}\cdot Var(Err(\mathbf{C_i}))" /> （参考这篇[博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/FHE_Noise/main.md)）。因此，BlindRotate带来的噪声上限为：
 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\sigma_{BR}^2\leq&space;N\cdot&space;2d_gn\frac{B_g^2}{3}\cdot&space;Var(Err(\mathbf{C_i}))" title="https://latex.codecogs.com/svg.image?\sigma_{BR}^2\leq N\cdot 2d_gn\frac{B_g^2}{3}\cdot Var(Err(\mathbf{C_i}))" />
 </p>
 
-接着分析KeySwitch的噪声变换, 根据这篇[博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/FHE_Noise/main.md)的分析，可知KeySwitch的噪声增长上限为
+接着分析KeySwitch的噪声变化。根据这篇[博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/FHE_Noise/main.md)的分析，可知KeySwitch的噪声增长上限为
 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\sigma_{KS}^2\leq&space;N\cdot&space;d_{ks}\cdot&space;\frac{B_{ks}^2}{3}\cdot&space;Var(Err(\textbf{ksK}))" title="https://latex.codecogs.com/svg.image?\sigma_{KS}^2\leq N\cdot d_{ks}\cdot \frac{B_{ks}^2}{3}\cdot Var(Err(\textbf{ksK}))" />
 </p>
 
+最后分析ModSwitch对噪声的影响。有意思的是，ModSwitch是整个bootstrap过程中唯一可以削减噪声的手段。同样依据这篇[博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/FHE_Noise/main.md)的分析，可知ModSwitch的噪声上限为
+<p align="center">
+ <img src="https://latex.codecogs.com/svg.image?\sigma_{MS}^2=\frac{q^2}{Q^2}(\sigma_{BR}^2&plus;\sigma_{KS}^2)&plus;&space;\frac{1}{12}&plus;\frac{HW(\mathbf{s})}{12}" title="https://latex.codecogs.com/svg.image?\sigma_{MS}^2=\frac{q^2}{Q^2}(\sigma_{BR}^2+\sigma_{KS}^2)+ \frac{1}{12}+\frac{HW(\mathbf{s})}{12}" />
+ </p>
