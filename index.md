@@ -16,6 +16,7 @@
     5. (B)FV
     6. CKKS
     7. [FHE噪声增长分析](./pages/FHE_Noise/main.md)
+    8. LWE问题的困难程度
    
 - 后量子密码(Post Quantum Cryptography)
     1. ROLLO
