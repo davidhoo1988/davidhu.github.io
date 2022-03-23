@@ -1,5 +1,5 @@
 # FHE的安全性
-FHE是基于LWE和RLWE的构造。因此FHE安全性的基石就是LWE问题和RLWE问题。这里我们简要讨论一下LWE问题和RLWE问题。
+FHE是基于LWE和RLWE的构造。因此FHE安全性的基石就是LWE问题和RLWE问题。这里我们简要讨论一下LWE问题和RLWE问题，主要参考了Rachel Player的[博士毕业论文](https://pure.royalholloway.ac.uk/portal/files/29983580/2018playerrphd.pdf)。
 
 
 ## LWE问题的困难程度
