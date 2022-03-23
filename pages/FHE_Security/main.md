@@ -11,3 +11,10 @@ Dual attack解决判定性LWE问题(Decision-LWE problem)的策略是找到一�
 下面分别具体地讨论这三条路径。
 
 ### Dual Attack
+
+
+## RLWE问题的困难程度
+
+
+## LWE问题困难程度评估器(LWE Estimator)
+这里介绍一款目前最流行的评估LWE问题困难的实用方法---LWE Estimator。它是基于SageMath开发的开源软件，基本囊括了LWE问题的各式攻击方式。
