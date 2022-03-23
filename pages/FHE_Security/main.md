@@ -11,7 +11,9 @@ Dual attack解决判定性LWE问题(Decision-LWE problem)的策略是找到一�
 下面分别具体地讨论这三条路径。
 
 ### Dual Attack
-
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?L=\{\mathbf{v}\in&space;\mathbb{Z}_q^m|\mathbf{v}\mathbf{A}=\mathbf{0}\}" title="https://latex.codecogs.com/svg.image?L=\{\mathbf{v}\in \mathbb{Z}_q^m|\mathbf{v}\mathbf{A}=\mathbf{0}\}" />
+</p>
 
 ## RLWE问题的困难程度
 
