@@ -11,7 +11,7 @@ Dual attack解决判定性LWE问题(Decision-LWE problem)的策略是找到一�
 下面分别具体地讨论这三条路径。
 
 ### Dual Attack
-再次申明这里的问题是：给定m个LWE采样 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c})&space;\text{&space;with&space;}&space;\mathbf{c}=\mathbf{A}\mathbf{s}&plus;\mathbf{e}" title="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c}) \text{ with } \mathbf{c}=\mathbf{A}\mathbf{s}+\mathbf{e}" /> ，且 <img src="https://latex.codecogs.com/svg.image?\mathbf{e}\sim&space;\mathcal{N}(0,\sigma^2)" title="https://latex.codecogs.com/svg.image?\mathbf{e}\sim \mathcal{N}(0,\sigma^2)" /> 。现在需要将他们和满足均匀分布的 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A'},\mathbf{c'})" title="https://latex.codecogs.com/svg.image?(\mathbf{A'},\mathbf{c'})" /> 区分开来。
+再次申明这里的问题是Decision-LWE：给定m个LWE采样 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c})&space;\text{&space;with&space;}&space;\mathbf{c}=\mathbf{A}\mathbf{s}&plus;\mathbf{e}" title="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c}) \text{ with } \mathbf{c}=\mathbf{A}\mathbf{s}+\mathbf{e}" /> ，且 <img src="https://latex.codecogs.com/svg.image?\mathbf{e}\sim&space;\mathcal{N}(0,\sigma^2)" title="https://latex.codecogs.com/svg.image?\mathbf{e}\sim \mathcal{N}(0,\sigma^2)" /> 。现在需要将他们和满足均匀分布的 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A'},\mathbf{c'})" title="https://latex.codecogs.com/svg.image?(\mathbf{A'},\mathbf{c'})" /> 区分开来。
 
 Dual attack的攻击思路是寻找这样的短向量 <img src="https://latex.codecogs.com/svg.image?\mathbf{v}\in&space;L" title="https://latex.codecogs.com/svg.image?\mathbf{v}\in L" /> 满足
 <p align="center">
@@ -20,7 +20,10 @@ Dual attack的攻击思路是寻找这样的短向量 <img src="https://latex.co
 <div>容易看出这其实就是SIS(short integer solution problem)问题。接着，做内积运算得 <img src="https://latex.codecogs.com/svg.image?\langle\mathbf{v},\mathbf{c}\rangle&space;=&space;\langle\mathbf{v},\mathbf{e}\rangle&space;\sim&space;\mathcal{N}(0,v_i^2\sigma^2)" title="https://latex.codecogs.com/svg.image?\langle\mathbf{v},\mathbf{c}\rangle = \langle\mathbf{v},\mathbf{e}\rangle \sim \mathcal{N}(0,v_i^2\sigma^2)" /> 也就是说，内积运算的结果服从高斯分布。</div>
 
 <div>另一方面，<img src="https://latex.codecogs.com/svg.image?\langle&space;\mathbf{v},\mathbf{c'}\rangle&space;\sim&space;Unif(0,q-1)" title="https://latex.codecogs.com/svg.image?\langle \mathbf{v},\mathbf{c'}\rangle \sim Unif(0,q-1)" /> . 也就是说，内积的结果服从均匀分布。因此如果我们可以计算向量<img src="https://latex.codecogs.com/svg.image?\mathbf{v}\in&space;L" title="https://latex.codecogs.com/svg.image?\mathbf{v}\in L" /> 就能有效地区分 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c})" title="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c})" /> 和 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A'},\mathbf{c'})" title="https://latex.codecogs.com/svg.image?(\mathbf{A'},\mathbf{c'})" /> 。</div>
-  
+
+### Primal Attack
+再次申明这里的问题是Search-LWE。
+
 ## RLWE问题的困难程度
 
 
