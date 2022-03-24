@@ -11,7 +11,7 @@ Dual attack解决判定性LWE问题(Decision-LWE problem)的策略是找到一�
 下面分别具体地讨论这三条路径。
 
 ### Dual Attack
-给定m个LWE采样 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c})&space;\text{&space;with&space;}&space;\mathbf{c}=\mathbf{A}\mathbf{s}&plus;\mathbf{e}" title="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c}) \text{ with } \mathbf{c}=\mathbf{A}\mathbf{s}+\mathbf{e}" /> ，现在需要将他们和满足均匀分布的 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A'},\mathbf{c'})" title="https://latex.codecogs.com/svg.image?(\mathbf{A'},\mathbf{c'})" /> 区分开来。
+再次申明这里的问题是：给定m个LWE采样 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c})&space;\text{&space;with&space;}&space;\mathbf{c}=\mathbf{A}\mathbf{s}&plus;\mathbf{e}" title="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c}) \text{ with } \mathbf{c}=\mathbf{A}\mathbf{s}+\mathbf{e}" /> ，且 <img src="https://latex.codecogs.com/svg.image?\mathbf{e}\sim&space;\mathcal{N}(0,\sigma^2)" title="https://latex.codecogs.com/svg.image?\mathbf{e}\sim \mathcal{N}(0,\sigma^2)" /> 。现在需要将他们和满足均匀分布的 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A'},\mathbf{c'})" title="https://latex.codecogs.com/svg.image?(\mathbf{A'},\mathbf{c'})" /> 区分开来。
 
 Dual attack的攻击思路是寻找这样的短向量 <img src="https://latex.codecogs.com/svg.image?\mathbf{v}\in&space;L" title="https://latex.codecogs.com/svg.image?\mathbf{v}\in L" /> 满足
 <p align="center">
