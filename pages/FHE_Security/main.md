@@ -21,8 +21,13 @@ Dual attack的攻击思路是寻找这样的短向量 <img src="https://latex.co
 
 <div>另一方面，<img src="https://latex.codecogs.com/svg.image?\langle&space;\mathbf{v},\mathbf{c'}\rangle&space;\sim&space;Unif(0,q-1)" title="https://latex.codecogs.com/svg.image?\langle \mathbf{v},\mathbf{c'}\rangle \sim Unif(0,q-1)" /> . 也就是说，内积的结果服从均匀分布。因此如果我们可以计算向量<img src="https://latex.codecogs.com/svg.image?\mathbf{v}\in&space;L" title="https://latex.codecogs.com/svg.image?\mathbf{v}\in L" /> 就能有效地区分 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c})" title="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c})" /> 和 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A'},\mathbf{c'})" title="https://latex.codecogs.com/svg.image?(\mathbf{A'},\mathbf{c'})" /> 。</div>
 
+
+目前人们已知解决SIS问题的最有效方法是BKZ算法和格约简（lattice reduction）算法，他们是都是指数型的计算复杂度。
+
 ### Primal Attack
 再次申明这里的问题是Search-LWE。给定m个LWE采样 <img src="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c})&space;\text{&space;with&space;}&space;\mathbf{c}=\mathbf{A}\mathbf{s}&plus;\mathbf{e}" title="https://latex.codecogs.com/svg.image?(\mathbf{A},\mathbf{c}) \text{ with } \mathbf{c}=\mathbf{A}\mathbf{s}+\mathbf{e}" />，注意到 <img src="https://latex.codecogs.com/svg.image?\mathbf{c}" title="https://latex.codecogs.com/svg.image?\mathbf{c}" /> 非常接近矩阵 <img src="https://latex.codecogs.com/svg.image?\mathbf{c}" title="https://latex.codecogs.com/svg.image?\mathbf{c}" /> 列构成的某个线性组合。考虑矩阵 <img src="https://latex.codecogs.com/svg.image?\mathbf{c}" title="https://latex.codecogs.com/svg.image?\mathbf{c}" /> 列张成的格(lattice)，那么向量可视为靠近格点(lattice point) <img src="https://latex.codecogs.com/svg.image?\mathbf{w}=\mathbf{As}" title="https://latex.codecogs.com/svg.image?\mathbf{w}=\mathbf{As}" /> 的一个'点'。至此，我们将Search-LWE问题转换成格的BDD(bounded distance decoding problem)问题。
+
+解决BDD问题的基本方法是Babai's Nearest Plane algorithm。基于该方法又发展出了enumeration pruning方法。除此之外，因为BDD问题可规约到 <img src="https://latex.codecogs.com/svg.image?\gamma-" title="https://latex.codecogs.com/svg.image?\gamma-" /> unique Shortest Vector Problem (<img src="https://latex.codecogs.com/svg.image?\gamma-" title="https://latex.codecogs.com/svg.image?\gamma-" /> uSVP)。
 
 ## RLWE问题的困难程度
 
