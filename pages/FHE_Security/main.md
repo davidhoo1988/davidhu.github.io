@@ -17,7 +17,7 @@ Dual attack的攻击思路是寻找这样的短向量 <img src="https://latex.co
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?L=\{\mathbf{v}\in&space;\mathbb{Z}_q^m|\mathbf{v}\mathbf{A}=\mathbf{0}&space;\bmod&space;q\}" title="https://latex.codecogs.com/svg.image?L=\{\mathbf{v}\in \mathbb{Z}_q^m|\mathbf{v}\mathbf{A}=\mathbf{0} \bmod q\}" />
 </p>
-<div>接着，做内积运算得 <img src="https://latex.codecogs.com/svg.image?\langle\mathbf{v},\mathbf{c}\rangle&space;=&space;\langle\mathbf{v},\mathbf{e}\rangle&space;\sim&space;\mathcal{N}(0,v_i^2\sigma^2)" title="https://latex.codecogs.com/svg.image?\langle\mathbf{v},\mathbf{c}\rangle = \langle\mathbf{v},\mathbf{e}\rangle \sim \mathcal{N}(0,v_i^2\sigma^2)" /></div>
+<div>容易看出这其实就是SIS(short integer solution problem)问题。接着，做内积运算得 <img src="https://latex.codecogs.com/svg.image?\langle\mathbf{v},\mathbf{c}\rangle&space;=&space;\langle\mathbf{v},\mathbf{e}\rangle&space;\sim&space;\mathcal{N}(0,v_i^2\sigma^2)" title="https://latex.codecogs.com/svg.image?\langle\mathbf{v},\mathbf{c}\rangle = \langle\mathbf{v},\mathbf{e}\rangle \sim \mathcal{N}(0,v_i^2\sigma^2)" /></div>
 
   
 ## RLWE问题的困难程度
