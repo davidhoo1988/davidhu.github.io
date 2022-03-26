@@ -36,6 +36,14 @@ Dual attack的攻击思路是寻找这样的短向量 <img src="https://latex.co
 这里介绍一款目前最流行的评估LWE问题困难的实用方法---[LWE Estimator](https://lwe-estimator.readthedocs.io/en/latest/)。它是基于SageMath开发的开源软件，基本囊括了LWE问题的各式攻击方式。
 
 ### 攻击LWE的复杂度估算
-
+给定一个具体的LWE密文，需要知道三个系统参数：LWE维度n，模数q，和噪声标准差stddev。得到这三个参数之后调用下面的sage脚本可以得出攻击该LWE密文(usvp attack, decoding attack, dual attack)需要的具体时间复杂度。
+```
+    sage: load("estimator.py")
+    sage: n = 1024; q = 12289; stddev = sqrt(16/2); alpha = alphaf(sigmaf(stddev), q)
+    sage: _ = estimate_lwe(n, alpha, q, reduction_cost_model=BKZ.sieve)
+    usvp: rop: ≈2^313.1,  red: ≈2^313.1,  δ_0: 1.002094,  β:  968,  d: 2096,  m:     1071
+     dec: rop: ≈2^410.0,  m:     1308,  red: ≈2^410.0,  δ_0: 1.001763,  β: 1213,  d: 2332,  babai: ≈2^395.5,  babai_op: ≈2^410.6,  repeat:  ≈2^25.2,  ε: ≈2^-23.0
+    dual: rop: ≈2^355.5,  m:     1239,  red: ≈2^355.5,  δ_0: 1.001884,  β: 1113,  repeat: ≈2^307.0,  d: 2263,  c:        1
+```
 
 ### 攻击RLWE的复杂度估算
