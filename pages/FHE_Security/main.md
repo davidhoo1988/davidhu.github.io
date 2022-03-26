@@ -46,4 +46,15 @@ Dual attack的攻击思路是寻找这样的短向量 <img src="https://latex.co
     dual: rop: ≈2^355.5,  m:     1239,  red: ≈2^355.5,  δ_0: 1.001884,  β: 1113,  repeat: ≈2^307.0,  d: 2263,  c:        1
 ```
 
+特别地，FHE中使用的LWE有它的特殊性：密钥的幅值很小，而且很稀疏。所以这种情况下需要指明secret_distribution。 比如要求密钥只能从{0,1}中选择，且其中1的个数(密钥的汉明重量)为h:
+```python
+    sage: load("estimator.py")
+    sage: n = 700; q = 2**56-286719; stddev = float(2**32); alpha = alphaf(sigmaf(stddev), q); h = 64; secret_distribution=((0,1), h);
+    sage: _ = estimate_lwe(n, alpha, q, secret_distribution, reduction_cost_model=BKZ.sieve)
+    usvp: rop: ≈2^313.1,  red: ≈2^313.1,  δ_0: 1.002094,  β:  968,  d: 2096,  m:     1071
+     dec: rop: ≈2^410.0,  m:     1308,  red: ≈2^410.0,  δ_0: 1.001763,  β: 1213,  d: 2332,  babai: ≈2^395.5,  babai_op: ≈2^410.6,  repeat:  ≈2^25.2,  ε: ≈2^-23.0
+    dual: rop: ≈2^355.5,  m:     1239,  red: ≈2^355.5,  δ_0: 1.001884,  β: 1113,  repeat: ≈2^307.0,  d: 2263,  c:        1
+```
+
+
 ### 攻击RLWE的复杂度估算
