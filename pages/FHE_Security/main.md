@@ -33,4 +33,4 @@ Dual attack的攻击思路是寻找这样的短向量 <img src="https://latex.co
 在实际应用中，人们常常使用RLWE而不是LWE来构造密码系统。这主要是因为效率问题，RLWE的计算量更小，密钥长度也更短。RLWE问题已经被成功规约到若干理想格(ideal lattice)的困难问题，这些问题被认为是困难的，因此人们有理由相信RLWE问题是困难的。 具体攻击基于RLWE的密码系统时，通常将RLWE instance拆解成若干LWE instance，再调用LWE-solver求解。也就是说实践中就是用攻击LWE的方法来攻击RLWE。
 
 ## LWE问题困难程度评估器(LWE Estimator)
-这里介绍一款目前最流行的评估LWE问题困难的实用方法---LWE Estimator。它是基于SageMath开发的开源软件，基本囊括了LWE问题的各式攻击方式。
+这里介绍一款目前最流行的评估LWE问题困难的实用方法---[LWE Estimator](https://lwe-estimator.readthedocs.io/en/latest/)。它是基于SageMath开发的开源软件，基本囊括了LWE问题的各式攻击方式。
