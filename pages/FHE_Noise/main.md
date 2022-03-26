@@ -103,7 +103,11 @@ TFHE的K.S.思路和FHEW是一致的。区别在于ksK不夹带 <img src="https:
 <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}(m)\xrightarrow[]{KeySwitch(\cdot)}&space;RLWE_s(m)" title="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}(m)\xrightarrow[]{KeySwitch(\cdot)} RLWE_s(m)" />
 </p>
 
-<div>类似的，可以定义KSKey为<img src="https://latex.codecogs.com/svg.image?ksk_{i,j}=RLWE_{s}^{q/q}(z_iB_{ks}^j)" title="https://latex.codecogs.com/svg.image?ksk_{i,j}=RLWE_{s}^{q/q}(z_iB_{ks}^j)" /> ，并对LWE密文的a向量做扁平化操作得 <img src="https://latex.codecogs.com/svg.image?a_i=\sum_ja_{ij}B_{ks}^j" title="https://latex.codecogs.com/svg.image?a_i=\sum_ja_{ij}B_{ks}^j" /> </div>
+<div>类似的，可以定义KSKey为<img src="https://latex.codecogs.com/svg.image?ksk_{i,j}=RLWE_{s}^{q/q}(z_iB_{ks}^j)" title="https://latex.codecogs.com/svg.image?ksk_{i,j}=RLWE_{s}^{q/q}(z_iB_{ks}^j)" /> ，并对LWE密文的a向量做扁平化操作得 <img src="https://latex.codecogs.com/svg.image?a_i=\sum_ja_{ij}B_{ks}^j" title="https://latex.codecogs.com/svg.image?a_i=\sum_ja_{ij}B_{ks}^j" /> 。KeySwitch操作可定义成：</div>
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?KeySwitch((\mathbf{a},b),\{ksk_{i,j}\})=(0,b)-\sum_{i,j}a_{ij}\cdot&space;ksk_{i,j}" title="https://latex.codecogs.com/svg.image?KeySwitch((\mathbf{a},b),\{ksk_{i,j}\})=(0,b)-\sum_{i,j}a_{ij}\cdot ksk_{i,j}" />
+</p>
 
 
 ## Blind Rotation 对FHEW/TFHE密文噪声的影响
