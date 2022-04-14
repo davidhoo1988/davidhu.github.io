@@ -22,7 +22,7 @@
    </p>   
    
   ## 通过OPRF构造PSI
-  
+  理解了OPRF，PSI的构造就容易了。
    <p align="center">
   <img src="fig/PSI_oprf.png" alt="animated" />
    </p>
