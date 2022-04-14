@@ -15,3 +15,8 @@
    <p align="center">
   <img src="fig/PSI_oprf.png" alt="animated" />
    </p>
+   
+   
+  PSI的构造有很多，大致上可以分成DH-based, circuit-based, OT-based。 本篇文章介绍DH-based，也就是基于Diffie-Hellman假设的群结构。该方法首先于1986年被提出。我们按这里的讲座视频来详细介绍这种方法。大致上，需要进行两步。首先需要基于DH构造OPRF(oblivious pseudo-random function);接着利用OPRF最终构造PSI。
+  
+  ## Oblivious Pseudo-Random Function (OPRF) 
