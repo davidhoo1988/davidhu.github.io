@@ -24,9 +24,10 @@
     3. NewHope
 
 - 多方安全计算(Secure Multi-Party Computation)
-    1. [Standard Private Set Intersection](./pages/std_PSI/main.md)
-    2. [Threshold Private Set Intersection](./pages/PSI/main.md)
-    3. Private Information Retrieval
+    1. [Standard Private Set Intersection （基于Diffie-Hellman）](./pages/std_PSI/main.md)
+    2. [Standard Private Set Intersection （基于FHE）]
+    3. [Threshold Private Set Intersection](./pages/PSI/main.md)
+    4. Private Information Retrieval
 
 <!---```markdown
 Syntax highlighted code block
