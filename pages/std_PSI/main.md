@@ -7,13 +7,16 @@
 
 
    
-  PSI的构造有很多，大致上可以分成DH-based, circuit-based, OT-based。 本篇文章介绍DH-based，也就是基于Diffie-Hellman假设的群结构。该方法首先于1986年被提出。我们按这里的讲座视频来详细介绍这种方法。大致上，需要进行两步。首先需要基于DH构造OPRF(oblivious pseudo-random function);接着利用OPRF最终构造PSI。
+  PSI的构造有很多，大致上可以分成DH-based, circuit-based, OT-based。 本篇文章介绍DH-based，也就是基于Diffie-Hellman假设的群结构。该方法首先于1986年被提出。我们按这里的讲座视频来详细介绍这种方法。大致上，需要进行两步。首先需要基于DH构造OPRF(oblivious pseudo-random function); 接着利用OPRF最终构造PSI。
   
   ## Oblivious Pseudo-Random Function (OPRF) 
   我们知道PRF是伪随机函数，它的输出和真随机分布在多项式时间内不可区分；在此基础上引入OPRF。OPRF和PRF的主要区别是需要两方参与PRF的计算。Alice拥有函数的输入x, Bob拥有密钥K，Alice和Bob合作得到 <img src="https://latex.codecogs.com/svg.image?F_K(x)" title="https://latex.codecogs.com/svg.image?F_K(x)" />，但是Alice不会向Bob泄露自己的x，同样地，Bob也不会向Alice泄露自己的K。整个OPRF计算流程可以用下图表示：
    <p align="center">
   <img src="fig/OPRF.png" alt="animated" />
    </p>
+   
+  OPRF的具体实现途径很多，这里介绍一种基于Diffie-Hellman的经典构造。对于Alice的输入x，首先需要一个特别的哈希函数H将x编码到乘法群的一个元素，即 <img src="https://latex.codecogs.com/svg.image?H(x)\in&space;\mathbb{G}" title="https://latex.codecogs.com/svg.image?H(x)\in \mathbb{G}" />。为了不让Bob知道x， Alice生成一个随机数r，接着计算并发出 <img src="https://latex.codecogs.com/svg.image?H(x)^r" title="https://latex.codecogs.com/svg.image?H(x)^r" />。注意Alice发出的 <img src="https://latex.codecogs.com/svg.image?H(x)^r" title="https://latex.codecogs.com/svg.image?H(x)^r" /> 服从均匀分布，因此Bob得不到任何信息； Bob拿到 <img src="https://latex.codecogs.com/svg.image?H(x)^r" title="https://latex.codecogs.com/svg.image?H(x)^r" /> 后计算 <img src="https://latex.codecogs.com/svg.image?(H(x)^r)^k=H(x)^{rk}&space;" title="https://latex.codecogs.com/svg.image?(H(x)^r)^k=H(x)^{rk} " />并返回给Alice。注意 <img src="https://latex.codecogs.com/svg.image?F_K(H(x))=H(x)^K&space;" title="https://latex.codecogs.com/svg.image?F_K(H(x))=H(x)^K " /> 实际上是一个PRF，因此 <img src="https://latex.codecogs.com/svg.image?H(x)^{rK}&space;" title="https://latex.codecogs.com/svg.image?H(x)^{rK} " /> 和均匀分布不可区分。最后Alice做一次r逆运算恢复出 <img src="https://latex.codecogs.com/svg.image?H(x)^{K}&space;" title="https://latex.codecogs.com/svg.image?H(x)^{K} " /> 。
+上述过程可由下图表达。  
    <p align="center">
   <img src="fig/OPRF_dh.png" alt="animated" />
    </p>   
