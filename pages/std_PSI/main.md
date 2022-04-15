@@ -29,6 +29,7 @@
    
    
    ## 通讯复杂度优化
+   为了降低通讯复杂度，Bob可以不用发送PRF值 <img src="https://latex.codecogs.com/svg.image?\{F_k(y_1),&space;\cdots,&space;F_k(y_n)\}" title="https://latex.codecogs.com/svg.image?\{F_k(y_1), \cdots, F_k(y_n)\}" />， 而是利用字典编码D(比如bloom filter，Cuckoo filter等)，输出更短的 <img src="https://latex.codecogs.com/svg.image?D(F_K(y_1),&space;\cdots,&space;F_K(y_n))" title="https://latex.codecogs.com/svg.image?D(F_K(y_1), \cdots, F_K(y_n))" /> 。这样Alice拿到Bob发给她的经过字典编码的PRF值后，只需查询Alice自己的PRF值是否在字典中即可算得交集部分。
    
    ## 代码实现
    
