@@ -25,7 +25,7 @@
 
 - 多方安全计算(Secure Multi-Party Computation)
     1. [Standard Private Set Intersection （基于Diffie-Hellman）](./pages/std_PSI/main.md)
-    2. [Standard Private Set Intersection （基于FHE）]
+    2. [Standard Private Set Intersection （基于Oblivious Polynomial Evaluation）](./pages/std_ope_PSI/main.md)
     3. [Threshold Private Set Intersection](./pages/PSI/main.md)
     4. Private Information Retrieval
 
