@@ -7,3 +7,5 @@
   <p align="center">
   <img src="fig/membership_test_ope.png" alt="animated" />
   </p>
+  
+  注意这里Bob得到的结果：如果 <img src="https://latex.codecogs.com/svg.image?y\in&space;X" title="https://latex.codecogs.com/svg.image?y\in X" />，那么Bob得到0；如果 <img src="https://latex.codecogs.com/svg.image?y\notin&space;X" title="https://latex.codecogs.com/svg.image?y\notin X" />, 那么Bob得到一个随机数，因此不会泄露集合X内其他元素的信息。
