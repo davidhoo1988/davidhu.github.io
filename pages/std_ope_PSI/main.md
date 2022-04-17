@@ -9,3 +9,5 @@
   </p>
   
   注意这里Bob得到的结果：如果 <img src="https://latex.codecogs.com/svg.image?y\in&space;X" title="https://latex.codecogs.com/svg.image?y\in X" />，那么Bob得到0；如果 <img src="https://latex.codecogs.com/svg.image?y\notin&space;X" title="https://latex.codecogs.com/svg.image?y\notin X" />, 那么Bob得到一个随机数，因此不会泄露集合X内其他元素的信息。
+  
+ 另一方面，上述方法最大的挑战是如何计算[z]。因为FHE支持的乘法次数总是有限的(为了保障FHE的运算速度足够快，在实际应用里常常不考虑使用bootstrap.。FHE乘法深度的典型值为6)，而计算[z]需要的乘法深度为 <img src="https://latex.codecogs.com/svg.image?log|X|=logN" title="https://latex.codecogs.com/svg.image?log|X|=logN" /> 。
