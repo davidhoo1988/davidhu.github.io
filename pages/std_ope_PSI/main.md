@@ -23,3 +23,6 @@
  
 至此，我们利用方法三例化Private Membership Test, 如下图所示:
 
+  <p align="center">
+  <img src="fig/membership_test_ope2.png" alt="animated" width: "50%" />
+  </p>
