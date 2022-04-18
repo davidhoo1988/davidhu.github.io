@@ -21,3 +21,5 @@
  
  方法三: 给定所有的2的幂次项，即 <img src="https://latex.codecogs.com/svg.image?[y],[y^2],[y^4],\cdots,[y^{2^i}],\cdots,[y^{2^{logN}}]" title="https://latex.codecogs.com/svg.image?[y],[y^2],[y^4],\cdots,[y^{2^i}],\cdots,[y^{2^{logN}}]" /> 。容易推出计算[z]需要的计算深度为 <img src="https://latex.codecogs.com/svg.image?loglogN" title="https://latex.codecogs.com/svg.image?loglogN" /> ，通讯代价为 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(logN)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(logN)" /> 。
  
+至此，我们利用方法三例化Private Membership Test, 如下图所示:
+
