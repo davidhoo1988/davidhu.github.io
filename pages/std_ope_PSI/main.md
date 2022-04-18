@@ -17,5 +17,7 @@
  
  方法一：给定唯一的[y]，计算 <img src="https://latex.codecogs.com/svg.image?[y^2]=[y][y],&space;[y^4]=[y^2][y^2],&space;\cdots" title="https://latex.codecogs.com/svg.image?[y^2]=[y][y], [y^4]=[y^2][y^2], \cdots" /> 。按此方法，容易得出算乘法深度为 <img src="https://latex.codecogs.com/svg.image?logN" title="https://latex.codecogs.com/svg.image?logN" /> 。
  
- 方法二：给定所有的 <img src="https://latex.codecogs.com/svg.image?[y],[y^2],\cdots,[y^N]" title="https://latex.codecogs.com/svg.image?[y],[y^2],\cdots,[y^N]" /> 。按此方法，可知无需做乘法即可算得[z], 其乘法深度为0。
+ 方法二：给定所有的 <img src="https://latex.codecogs.com/svg.image?[y],[y^2],\cdots,[y^N]" title="https://latex.codecogs.com/svg.image?[y],[y^2],\cdots,[y^N]" /> 。按此方法，可知无需做乘法即可算得[z], 其乘法深度为0。方法二的主要问题是通讯代价很大，需要 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(n)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(N)" /> 。
+ 
+ 方法三: 给定所有的2的幂次项，即 <img src="https://latex.codecogs.com/svg.image?[y],[y^2],[y^4],\cdots,[y^{2^i}],\cdots,[y^{2^{logN}}]" title="https://latex.codecogs.com/svg.image?[y],[y^2],[y^4],\cdots,[y^{2^i}],\cdots,[y^{2^{logN}}]" /> 。容易推出计算[z]需要的计算深度为 <img src="https://latex.codecogs.com/svg.image?loglogN" title="https://latex.codecogs.com/svg.image?loglogN" /> ，通讯代价为 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(N)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(logN)" /> 。
  
