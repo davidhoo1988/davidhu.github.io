@@ -31,3 +31,6 @@
   <p align="center">
   <img src="fig/membership_test_ope2.png" alt="animated" width: "50%" />
   </p>
+  
+ ## Private Set Intersection （PSI）
+ 至此，我们终于可以讨论如何构造PSI。
