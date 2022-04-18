@@ -17,3 +17,5 @@
  
  方法一：给定唯一的[y]，计算 <img src="https://latex.codecogs.com/svg.image?[y^2]=[y][y],&space;[y^4]=[y^2][y^2],&space;\cdots" title="https://latex.codecogs.com/svg.image?[y^2]=[y][y], [y^4]=[y^2][y^2], \cdots" /> 。按此方法，容易得出算乘法深度为 <img src="https://latex.codecogs.com/svg.image?logN" title="https://latex.codecogs.com/svg.image?logN" /> 。
  
+ 方法二：给定所有的 <img src="https://latex.codecogs.com/svg.image?[y],[y^2],\cdots,[y^N]" title="https://latex.codecogs.com/svg.image?[y],[y^2],\cdots,[y^N]" /> 。按此方法，可知无需做乘法即可算得[z], 其乘法深度为0。
+ 
