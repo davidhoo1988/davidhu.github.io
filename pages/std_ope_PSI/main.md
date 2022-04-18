@@ -33,4 +33,4 @@
   </p>
   
  ## Private Set Intersection （PSI）
- 至此，我们终于可以讨论如何构造PSI。
+ 至此，我们终于可以讨论如何构造PSI。最直接的思路是对于Bob集合中的每一个元素 <img src="https://latex.codecogs.com/svg.image?y\in&space;Y" title="https://latex.codecogs.com/svg.image?y\in Y" /> 做一次Oblivious Membership Test，因此整个PSI一共做N次Membership test （假定|Y|=N）。
