@@ -150,4 +150,7 @@ TFHE的K.S.思路和FHEW是一致的。区别在于ksK不夹带 <img src="https:
   </p>
 
 ## Bootstrapping的噪声分析
-最后，我们试着分析 Bootstrapping的噪声增长。容易知道Bootstrap对噪声有影响的操作是KeySwtich, ModSwitch, BlindRotate。
+最后，我们试着分析 Bootstrapping的噪声增长。容易知道Bootstrap对噪声有影响的操作是KeySwitch, ModSwitch, BlindRotate。其中KeySwitch和BlindRotate增加噪声，ModSwitch减少噪声，用公式表示，总噪声记为
+ <p align="center">
+   <img src="https://latex.codecogs.com/svg.image?\sigma_{Bootstrap}^2\leq&space;\frac{Q^2}{q^2}\left(\sigma_{BR}^2&plus;\sigma_{KS}^2\right)&plus;\frac{||\mathbf{s}||^2&plus;1}{12}" title="https://latex.codecogs.com/svg.image?\sigma_{Bootstrap}^2\leq \frac{Q^2}{q^2}\left(\sigma_{BR}^2+\sigma_{KS}^2\right)+\frac{||\mathbf{s}||^2+1}{12}" />
+ </p>
