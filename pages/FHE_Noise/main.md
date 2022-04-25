@@ -138,6 +138,7 @@ TFHE的K.S.思路和FHEW是一致的。区别在于ksK不夹带 <img src="https:
 
 
 举例说明当 <img src="https://latex.codecogs.com/svg.image?s_i\in\{0,1,-1\}" title="https://latex.codecogs.com/svg.image?s_i\in\{0,1,-1\}" />，如何计算 <img src="https://latex.codecogs.com/svg.image?\mathbf{acc}\cdot&space;X^{-a_is_i}&space;" title="https://latex.codecogs.com/svg.image?\mathbf{acc}\cdot X^{-a_is_i} " /> 。
+将+1和-1视为‘基底’，那么 <img src="https://latex.codecogs.com/svg.image?s_i=&space;1\cdot&space;s_{i,1}&plus;(-1)\cdot&space;s_{i,-1}" title="https://latex.codecogs.com/svg.image?s_i= 1\cdot s_{i,1}+(-1)\cdot s_{i,-1}" />，这里 <img src="https://latex.codecogs.com/svg.image?s_{i,1}\in\{0,1\},s_{i,-1}\in\{0,1\}" title="https://latex.codecogs.com/svg.image?s_{i,1}\in\{0,1\},s_{i,-1}\in\{0,1\}" /> 。因此需要做两次Cmux运算得到 <img src="https://latex.codecogs.com/svg.image?\mathbf{acc}\cdot&space;X^{-a_is_i}&space;" title="https://latex.codecogs.com/svg.image?\mathbf{acc}\cdot X^{-a_is_i} " /> 。
 
 完整的blind rotation操作需要做|U|n次Cmux，如下图所示
  <p align="center">
