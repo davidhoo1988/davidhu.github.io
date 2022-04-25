@@ -136,6 +136,9 @@ TFHE的K.S.思路和FHEW是一致的。区别在于ksK不夹带 <img src="https:
  </p>
 <div>注意到 <img src="https://latex.codecogs.com/svg.image?\textbf{acc}&plus;(X^{u\cdot&space;c}-1)(\textbf{acc}\diamond&space;\mathbf{Z}_u)=CMux(\mathbf{Z}_u,&space;X^{u\cdot&space;c}\cdot&space;\textbf{acc},&space;\textbf{acc})" title="https://latex.codecogs.com/svg.image?\textbf{acc}+(X^{u\cdot c}-1)(\textbf{acc}\diamond \mathbf{Z}_u)=CMux(\mathbf{Z}_u, X^{u\cdot c}\cdot \textbf{acc}, \textbf{acc})" /> 因此单次blind rotation就是一次Cmux操作。</div>
 
+
+举例说明当 <img src="https://latex.codecogs.com/svg.image?s_i\in\{0,1,-1\}" title="https://latex.codecogs.com/svg.image?s_i\in\{0,1,-1\}" />，如何计算 <img src="https://latex.codecogs.com/svg.image?\mathbf{acc}\cdot&space;X^{-a_is_i}&space;" title="https://latex.codecogs.com/svg.image?\mathbf{acc}\cdot X^{-a_is_i} " />
+
 完整的blind rotation操作需要做|U|n次Cmux，如下图所示
  <p align="center">
   <img src="./fig/blind_rotate2.PNG" alt="animated" />
