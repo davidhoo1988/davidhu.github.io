@@ -22,4 +22,10 @@ Oblivious Transfer (OT,透明传输) 是一种特殊的多方安全计算。OT�
 有了上述Equality Test的构造，容易进一步构造Membership Test: Alice拥有N-bit 字符串 <img src="https://latex.codecogs.com/svg.image?x=\{x_i\}_{i=0,\cdots,N-1}" title="https://latex.codecogs.com/svg.image?x=\{x_i\}_{i=0,\cdots,N-1}" /> ，Bob 拥有 <img src="https://latex.codecogs.com/svg.image?\ell" title="https://latex.codecogs.com/svg.image?\ell" /> 个N-bit字符串 <img src="https://latex.codecogs.com/svg.image?Y=\{y_0,\cdots,y_{\ell-1}\}&space;\text{&space;with&space;}&space;y_i=\{y_{i,j}\}_{i=0,\cdots,\ell-1;j=0,\cdots,N-1}" title="https://latex.codecogs.com/svg.image?Y=\{y_0,\cdots,y_{\ell-1}\} \text{ with } y_i=\{y_{i,j}\}_{i=0,\cdots,\ell-1;j=0,\cdots,N-1}" /> 。现在要求判断 <img src="https://latex.codecogs.com/svg.image?x\in&space;Y" title="https://latex.codecogs.com/svg.image?x\in Y" /> 且不泄露 <img src="https://latex.codecogs.com/svg.image?x,&space;Y" title="https://latex.codecogs.com/svg.image?x, Y" /> 。
 
 具体构造如下：
+1. 对所有的 <img src="https://latex.codecogs.com/svg.image?y_i" title="https://latex.codecogs.com/svg.image?y_i" /> 都做一遍Equality Test，这样共计做 <img src="https://latex.codecogs.com/svg.image?\lambda" title="https://latex.codecogs.com/svg.image?\lambda" /> 次Equality Test。
+2. 若发现这 <img src="https://latex.codecogs.com/svg.image?\lambda" title="https://latex.codecogs.com/svg.image?\lambda" /> 次Equality Test出现元素相等的情况，说明 <img src="https://latex.codecogs.com/svg.image?x\in&space;Y" title="https://latex.codecogs.com/svg.image?x\in Y" /> ； 否则说明 <img src="https://latex.codecogs.com/svg.image?x\notin&space;Y" title="https://latex.codecogs.com/svg.image?x\notin Y" /> 。
+
+### Set Intersection
+最后介绍求交运算 (Private Set Intersection)
+
 
