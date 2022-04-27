@@ -1,7 +1,7 @@
 # 基于Oblivious Transfer构造PSI
 
 ## 预备知识 Oblivious Transfer
-Oblivious Transfer (OT,透明传输) 是一种特殊的多方安全计算。OT设定存在计算双方Alice和Bob，Bob拥有2个字符串s1和s2。Bob需要“秘密”地传输其中一个字符串给Alice。
+Oblivious Transfer (OT,透明传输) 是一种特殊的多方安全计算。OT设定存在计算双方Alice和Bob，Alice拥有一个选择比特c, Bob拥有2个字符串s1和s2。Bob需要根据Alice的选择比特c“秘密”地传输其中一个字符串，即<img src="https://latex.codecogs.com/svg.image?s_c" title="https://latex.codecogs.com/svg.image?s_c" /> ， 给Alice。
 
 下图描述了整个思路：
    <p align="center">
