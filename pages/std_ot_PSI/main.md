@@ -26,7 +26,7 @@ Oblivious Transfer (OT,透明传输) 是一种特殊的多方安全计算。OT�
 2. 若发现这 <img src="https://latex.codecogs.com/svg.image?\lambda" title="https://latex.codecogs.com/svg.image?\lambda" /> 次Equality Test出现元素相等的情况，说明 <img src="https://latex.codecogs.com/svg.image?x\in&space;Y" title="https://latex.codecogs.com/svg.image?x\in Y" /> ； 否则说明 <img src="https://latex.codecogs.com/svg.image?x\notin&space;Y" title="https://latex.codecogs.com/svg.image?x\notin Y" /> 。
 
 ## Set Intersection
-最后介绍求交运算 (Private Set Intersection)
+最后介绍求交运算 (Private Set Intersection)。这里设定Alice拥有集合 <img src="https://latex.codecogs.com/svg.image?X&space;=&space;\{x_0,\cdots,x_{n-1}\}" title="https://latex.codecogs.com/svg.image?X = \{x_0,\cdots,x_{n-1}\}" />， Bob拥有集合 <img src="https://latex.codecogs.com/svg.image?Y&space;=&space;\{y_0,\cdots,y_{n-1}\}" title="https://latex.codecogs.com/svg.image?Y = \{y_0,\cdots,y_{n-1}\}" />。
 
 
 ## 进一步优化
