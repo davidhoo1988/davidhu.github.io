@@ -28,5 +28,8 @@ Oblivious Transfer (OT,透明传输) 是一种特殊的多方安全计算。OT�
 ## Set Intersection
 最后介绍求交运算 (Private Set Intersection)。这里设定Alice拥有集合 <img src="https://latex.codecogs.com/svg.image?X&space;=&space;\{x_0,\cdots,x_{n-1}\}" title="https://latex.codecogs.com/svg.image?X = \{x_0,\cdots,x_{n-1}\}" />， Bob拥有集合 <img src="https://latex.codecogs.com/svg.image?Y&space;=&space;\{y_0,\cdots,y_{n-1}\}" title="https://latex.codecogs.com/svg.image?Y = \{y_0,\cdots,y_{n-1}\}" />； 现在要求Alice和Bob协同计算 <img src="https://latex.codecogs.com/svg.image?X\cap&space;Y" title="https://latex.codecogs.com/svg.image?X\cap Y" /> 但不向对方泄露自己的集合。
 
+利用上述Membership Test容易构造Private Set Intersection如下：
+1. 对Alice的集合X中的每一个元素做一次Membership Test, 共计做n次Membership Test （等价于做 <img src="https://latex.codecogs.com/svg.image?n^2" title="https://latex.codecogs.com/svg.image?n^2" /> 次Equality Test）。
+2. n次Membership Test返回n次判断结果，即可得到Alice的集合X中从属集合Y中的元素，即 <img src="https://latex.codecogs.com/svg.image?X\cap&space;Y" title="https://latex.codecogs.com/svg.image?X\cap Y" /> 。
 
 ## 进一步优化
