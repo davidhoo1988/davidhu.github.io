@@ -3,6 +3,11 @@
 ## 预备知识 Oblivious Transfer
 Oblivious Transfer (OT,透明传输) 是一种特殊的多方安全计算。OT设定存在计算双方Alice和Bob，Bob拥有2个字符串s1和s2。Bob需要“秘密”地传输其中一个字符串给Alice。
 
+下图描述了整个思路：
+   <p align="center">
+  <img src="fig/OT.png" alt="animated" />
+   </p>
+   
 ## (Oblivious) Equality Test
 这里的问题是这样的：Alice有N-bit 字符串 <img src="https://latex.codecogs.com/svg.image?x=\{x_i\}_{i=0,\cdots,N-1}" title="https://latex.codecogs.com/svg.image?x=\{x_i\}_{i=0,\cdots,N-1}" /> ，Bob有N-bit 字符串 <img src="https://latex.codecogs.com/svg.image?y=\{y_i\}_{i=0,\cdots,N-1}" title="https://latex.codecogs.com/svg.image?y=\{y_i\}_{i=0,\cdots,N-1}" />，现在比较x是否等于y，但是不泄露x，y本身(也就是说，当x不等于y时，Alice不能获取关于y的任何信息，Bob也不能获得关于x的任何信息)。
 
