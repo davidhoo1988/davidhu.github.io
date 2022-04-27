@@ -1,7 +1,7 @@
 # 基于Oblivious Transfer构造PSI
 
 ## 预备知识 Oblivious Transfer
-Oblivious Transfer (OT,透明传输) 是一种特殊的多方安全计算。OT设定存在计算双方Alice和Bob，Alice拥有一个选择比特c, Bob拥有2个字符串<img src="https://latex.codecogs.com/svg.image?s_0" title="https://latex.codecogs.com/svg.image?s_0" /> 和<img src="https://latex.codecogs.com/svg.image?s_1" title="https://latex.codecogs.com/svg.image?s_1" /> 。Bob需要根据Alice的选择比特c“秘密”地传输其中一个字符串，即<img src="https://latex.codecogs.com/svg.image?s_c" title="https://latex.codecogs.com/svg.image?s_c" /> ， 给Alice。传输过程需要保证Alice只了解<img src="https://latex.codecogs.com/svg.image?s_c" title="https://latex.codecogs.com/svg.image?s_c" /> 而不了解 <img src="https://latex.codecogs.com/svg.image?s_{1-c}" title="https://latex.codecogs.com/svg.image?s_{1-c}" /> 。
+Oblivious Transfer (OT,透明传输) 是一种特殊的多方安全计算。OT设定存在计算双方Alice和Bob，Alice拥有一个选择比特<img src="https://latex.codecogs.com/svg.image?c\in\{0,1\}" title="https://latex.codecogs.com/svg.image?c\in\{0,1\}" /> , Bob拥有2个字符串<img src="https://latex.codecogs.com/svg.image?s_0" title="https://latex.codecogs.com/svg.image?s_0" /> 和<img src="https://latex.codecogs.com/svg.image?s_1" title="https://latex.codecogs.com/svg.image?s_1" /> 。Bob需要根据Alice的选择比特<img src="https://latex.codecogs.com/svg.image?c" title="https://latex.codecogs.com/svg.image?c" /> “秘密”地传输其中一个字符串，即<img src="https://latex.codecogs.com/svg.image?s_c" title="https://latex.codecogs.com/svg.image?s_c" /> ， 给Alice。传输过程需要保证Alice只了解<img src="https://latex.codecogs.com/svg.image?s_c" title="https://latex.codecogs.com/svg.image?s_c" /> 而不了解 <img src="https://latex.codecogs.com/svg.image?s_{1-c}" title="https://latex.codecogs.com/svg.image?s_{1-c}" /> 。
 
 下图描述了整个思路：
    <p align="center">
