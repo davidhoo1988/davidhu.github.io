@@ -33,3 +33,8 @@ Oblivious Transfer (OT,透明传输) 是一种特殊的多方安全计算。OT�
 2. n次Membership Test返回n次判断结果，即可得到Alice的集合X中从属集合Y中的元素，即 <img src="https://latex.codecogs.com/svg.image?X\cap&space;Y" title="https://latex.codecogs.com/svg.image?X\cap Y" /> 。
 
 ## 进一步优化
+注意到上面描述的Private Set Intersection算法需要进行 <img src="https://latex.codecogs.com/svg.image?n^2" title="https://latex.codecogs.com/svg.image?n^2" /> 次比较(Equality Test)。 如果集合很大时，比较数量是巨大的。那么问题来了，有没有可能减少PSI当中的比较次数呢？ 答案是利用哈希(Hashing)。
+
+使用Hash，可以将比较次数降至 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(nlogn)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(nlogn)" /> 。
+
+
