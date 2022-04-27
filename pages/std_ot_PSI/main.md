@@ -19,4 +19,7 @@ Oblivious Transfer (OT,透明传输) 是一种特殊的多方安全计算。OT�
    </p>
    
 ### Membership Test
-有了上述Equality Test的构造，容易进一步构造Membership Test: Alice 拥有 <img src="https://latex.codecogs.com/svg.image?\ell" title="https://latex.codecogs.com/svg.image?\ell" /> 个N-bit字符串 <img src="https://latex.codecogs.com/svg.image?x=\{x_i\}_{i=0,\cdots,N-1}" title="https://latex.codecogs.com/svg.image?x=\{x_i\}_{i=0,\cdots,N-1}" />
+有了上述Equality Test的构造，容易进一步构造Membership Test: Alice拥有N-bit 字符串 <img src="https://latex.codecogs.com/svg.image?x=\{x_i\}_{i=0,\cdots,N-1}" title="https://latex.codecogs.com/svg.image?x=\{x_i\}_{i=0,\cdots,N-1}" /> ，Bob 拥有 <img src="https://latex.codecogs.com/svg.image?\ell" title="https://latex.codecogs.com/svg.image?\ell" /> 个N-bit字符串 <img src="https://latex.codecogs.com/svg.image?Y=\{y_0,\cdots,y_{\ell-1}\}&space;\text{&space;with&space;}&space;y_i=\{y_{i,j}\}_{i=0,\cdots,\ell-1;j=0,\cdots,N-1}" title="https://latex.codecogs.com/svg.image?Y=\{y_0,\cdots,y_{\ell-1}\} \text{ with } y_i=\{y_{i,j}\}_{i=0,\cdots,\ell-1;j=0,\cdots,N-1}" /> 。现在要求判断 <img src="https://latex.codecogs.com/svg.image?x\in&space;Y" title="https://latex.codecogs.com/svg.image?x\in Y" /> 且不泄露 <img src="https://latex.codecogs.com/svg.image?x,&space;Y" title="https://latex.codecogs.com/svg.image?x, Y" /> 。
+
+具体构造如下：
+
