@@ -35,6 +35,11 @@ Oblivious Transfer (OT,透明传输) 是一种特殊的多方安全计算。OT�
 ## 进一步优化
 注意到上面描述的Private Set Intersection算法需要进行 <img src="https://latex.codecogs.com/svg.image?n^2" title="https://latex.codecogs.com/svg.image?n^2" /> 次比较(Equality Test)。 如果集合很大时，比较数量是巨大的。那么问题来了，有没有可能减少PSI当中的比较次数呢？ 答案是利用哈希(Hashing)。
 
-使用Hash，可以将比较次数降至 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(nlogn)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(nlogn)" /> 。
+Alice和Bob分别对自己集合中的元素进行Hash操作，假设|X|=|Y|=n, 哈希函数的个数为m。那么该哈希操作相当于将n个球随机地放入m个桶中，如下图所示：
+   <p align="center">
+  <img src="fig/HASH.png" alt="animated" />
+   </p>
+   
+这样只需要对Alice和Bob相对应的桶求交集(共计求m次交集)即得X和Y的交集。可以证明，该方法将比较次数降至 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(nlogn)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(nlogn)" /> 。
 
 
