@@ -12,7 +12,7 @@
 -   1. [GSW](./pages/GSW/main.md)
     2. [FHEW](./pages/FHEW/main.md)
     3. [TFHE](./pages/TFHE/main.md)
-    4. BGV
+    4. [BGV](./pages/BGV/main.md)
     5. (B)FV
     6. CKKS
     7. [FHE噪声增长分析](./pages/FHE_Noise/main.md)
