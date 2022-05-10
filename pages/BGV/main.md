@@ -41,3 +41,4 @@ BGV可以支持的运算包括加（减）法，乘法。乘法运算中的密�
 同态乘法就要困难多了。BGV的思路是对密文向量做tensor product。
 
 ## BGV Bootstrapping
+Bootstrapping使得BGV从leveled FHE变换成FHE。它的技术细节很复杂，不在这里描述。
