@@ -27,4 +27,9 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 
 ## BGV同态运算
 
+### 同态加法
+
+
+### 同态乘法
+
 ## BGV Bootstrapping
