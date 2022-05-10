@@ -18,7 +18,8 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 <p align="center">
   <img src="fig/BGV_construct.png" alt="animated"/>
 </p>
-下面简单论述BGV构造的正确性。
+下面简单论述BGV构造的正确性：
+关于密钥生成KeyGen部分，最重要的保持关系式 <img src="https://latex.codecogs.com/svg.image?\mathbf{A}\cdot&space;\mathbf{s}&plus;2\mathbf{e}=\mathbf{b}" title="https://latex.codecogs.com/svg.image?\mathbf{A}\cdot \mathbf{s}+2\mathbf{e}=\mathbf{b}" />, 这样就可以保持pk和均匀分布不可区分。
 
 ## BGV同态运算
 
