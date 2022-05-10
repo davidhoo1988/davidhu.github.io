@@ -26,10 +26,14 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 <div>关于解密Decrypt部分，它的正确性可用下式表示 <img src="https://latex.codecogs.com/svg.image?\left<&space;\mathbf{c},\mathbf{s}\right>=\left<&space;\mathbf{m}&plus;\mathbf{A}^T\mathbf{r},&space;\mathbf{s}\right>=m&plus;2\mathbf{r}^T\cdot&space;\mathbf{e}\equiv&space;m&space;(\bmod&space;2)" title="https://latex.codecogs.com/svg.image?\left< \mathbf{c},\mathbf{s}\right>=\left< \mathbf{m}+\mathbf{A}^T\mathbf{r}, \mathbf{s}\right>=m+2\mathbf{r}^T\cdot \mathbf{e}\equiv m (\bmod 2)" /> </div>
 
 ## BGV同态运算
+BGV可以支持的运算包括加（减）法，乘法。乘法运算中的密文噪声增长很快，因此限制了BGV的运算深度。
 
 ### 同态加法
 同态加法很容易做到，只需要将BGV密文视为向量，然后做相应的向量加法即可。也就是说，
 
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\mathbf{c_0}&plus;\mathbf{c_1}=\mathbf{m_0}&plus;\mathbf{A}^T\mathbf{r_0}&plus;\mathbf{m_1}&plus;\mathbf{A}^T\mathbf{r_1}=(\mathbf{m_0}&plus;\mathbf{m_1})&plus;\mathbf{A}^T(\mathbf{r_0}&plus;\mathbf{r_1})" title="https://latex.codecogs.com/svg.image?\mathbf{c_0}+\mathbf{c_1}=\mathbf{m_0}+\mathbf{A}^T\mathbf{r_0}+\mathbf{m_1}+\mathbf{A}^T\mathbf{r_1}=(\mathbf{m_0}+\mathbf{m_1})+\mathbf{A}^T(\mathbf{r_0}+\mathbf{r_1})" />
+</p>
 
 ### 同态乘法
 同态乘法就要困难多了。
