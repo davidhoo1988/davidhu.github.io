@@ -38,7 +38,18 @@ BGV可以支持的运算包括加（减）法，乘法。乘法运算中的密�
 </p>
 
 ### 同态乘法
-同态乘法就要困难多了。BGV的思路是对密文向量做tensor product。
+同态乘法就要困难多了。BGV的思路是对密文向量做张量乘法(tensor product)。
+
+首先回忆张量乘法的定义:
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\mathbf{s}\otimes&space;\mathbf{t}=\begin{bmatrix}&space;s_0\\&space;\vdots\\s_{n-1}\end{bmatrix}&space;\otimes\begin{bmatrix}&space;t_0\\&space;\vdots\\t_{n-1}\end{bmatrix}&space;=&space;\begin{vmatrix}\begin{bmatrix}&space;s_0\\&space;\vdots&space;\\&space;s_{-1}\end{bmatrix}\cdot&space;t_0&space;&&space;\hdots&space;&&space;\begin{bmatrix}&space;s_0\\&space;\vdots&space;\\&space;s_{-1}\end{bmatrix}\cdot&space;t_{n-1}\\\end{vmatrix}&space;=&space;\begin{vmatrix}s_0t_0&space;&&space;\cdots&space;&&space;s_0t_{n-1}&space;\\\vdots&space;&&space;\ddots&space;&&space;\vdots&space;\\s_{n-1}t_0&space;&&space;\cdots&space;&&space;s_{n-1}t_{n-1}&space;\\\end{vmatrix}_{n\times&space;n}" title="https://latex.codecogs.com/svg.image?\mathbf{s}\otimes \mathbf{t}=\begin{bmatrix} s_0\\ \vdots\\s_{n-1}\end{bmatrix} \otimes\begin{bmatrix} t_0\\ \vdots\\t_{n-1}\end{bmatrix} = \begin{vmatrix}\begin{bmatrix} s_0\\ \vdots \\ s_{-1}\end{bmatrix}\cdot t_0 & \hdots & \begin{bmatrix} s_0\\ \vdots \\ s_{-1}\end{bmatrix}\cdot t_{n-1}\\\end{vmatrix} = \begin{vmatrix}s_0t_0 & \cdots & s_0t_{n-1} \\\vdots & \ddots & \vdots \\s_{n-1}t_0 & \cdots & s_{n-1}t_{n-1} \\\end{vmatrix}_{n\times n}" />
+</p>
+
+依靠张量乘法，我们定义同态乘法如下:
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\mathbf{c_{\times}}\gets\mathbf{c_0}\otimes&space;\mathbf{c_1}&space;s.t.&space;\left||\left<&space;\mathbf{c_{\times}},&space;\mathbf{s}\otimes\mathbf{s}\right>|_q\right|_2&space;=&space;m_0\cdot&space;m_1" title="https://latex.codecogs.com/svg.image?\mathbf{c_{\times}}\gets\mathbf{c_0}\otimes \mathbf{c_1} s.t. \left||\left< \mathbf{c_{\times}}, \mathbf{s}\otimes\mathbf{s}\right>|_q\right|_2 = m_0\cdot m_1" />
+</p>
 
 ## BGV Bootstrapping
 Bootstrapping使得BGV从leveled FHE变换成FHE。它的技术细节很复杂，不在这里描述。
