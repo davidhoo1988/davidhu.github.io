@@ -57,6 +57,8 @@ BGV可以支持的运算包括加（减）法，乘法。乘法运算中的密�
 
 ## 重线性化 （Re-linearization）
 
+上述利用张量乘法实现同态乘有一个重大缺陷：密文长度翻倍！在做乘法之前密文长度是<img src="https://latex.codecogs.com/svg.image?\left|&space;\mathbf{c_i}\right|=2\cdot\lceil&space;log_2q\rceil&space;~bits" title="https://latex.codecogs.com/svg.image?\left| \mathbf{c_i}\right|=2\cdot\lceil log_2q\rceil ~bits" />， 乘法之后密文长度是 <img src="https://latex.codecogs.com/svg.image?\left|&space;\mathbf{c_{\times}}\right|=2\cdot\lceil&space;log_4q\rceil&space;~bits" title="https://latex.codecogs.com/svg.image?\left| \mathbf{c_{\times}}\right|=2\cdot\lceil log_4q\rceil ~bits" /> 。
+
 ## 噪声控制
 
 
