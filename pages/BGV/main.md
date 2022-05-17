@@ -57,7 +57,12 @@ BGV可以支持的运算包括加（减）法，乘法。乘法运算中的密�
 
 ## 重线性化 （Re-linearization）
 
-上述利用张量乘法实现同态乘有一个重大缺陷：密文长度翻倍！在做乘法之前密文长度是<img src="https://latex.codecogs.com/svg.image?\left|&space;\mathbf{c_i}\right|=2\cdot\lceil&space;log_2q\rceil&space;~bits" title="https://latex.codecogs.com/svg.image?\left| \mathbf{c_i}\right|=2\cdot\lceil log_2q\rceil ~bits" />， 乘法之后密文长度是 <img src="https://latex.codecogs.com/svg.image?\left|&space;\mathbf{c_{\times}}\right|=4\cdot\lceil&space;log_2q\rceil&space;~bits" title="https://latex.codecogs.com/svg.image?\left| \mathbf{c_{\times}}\right|=4\cdot\lceil log_2q\rceil ~bits" /> 。
+上述利用张量乘法实现同态乘有一个重大缺陷：密文长度翻倍！在做乘法之前密文长度是<img src="https://latex.codecogs.com/svg.image?\left|&space;\mathbf{c_i}\right|=2\cdot\lceil&space;log_2q\rceil&space;~bits" title="https://latex.codecogs.com/svg.image?\left| \mathbf{c_i}\right|=2\cdot\lceil log_2q\rceil ~bits" />， 乘法之后密文长度是 <img src="https://latex.codecogs.com/svg.image?\left|&space;\mathbf{c_{\times}}\right|=4\cdot\lceil&space;log_2q\rceil&space;~bits" title="https://latex.codecogs.com/svg.image?\left| \mathbf{c_{\times}}\right|=4\cdot\lceil log_2q\rceil ~bits" /> 。为了将同态乘得到密文长度变的和同态乘前的密文长度一致，我们希望有下面的同态运算:
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\left<\mathbf{c_0},\mathbf{s}&space;\right>&space;\cdot&space;\left<&space;\mathbf{c_1},\mathbf{s}\right>=\sum_i\sum_j\mathbf{c_{0,i}c_{1,j}}\cdot&space;\mathbf{s_is_j}\xrightarrow[]{re-linearize}&space;\sum_{k=0}^{k=1}c_k\cdot&space;s_k'" title="https://latex.codecogs.com/svg.image?\left<\mathbf{c_0},\mathbf{s} \right> \cdot \left< \mathbf{c_1},\mathbf{s}\right>=\sum_i\sum_j\mathbf{c_{0,i}c_{1,j}}\cdot \mathbf{s_is_j}\xrightarrow[]{re-linearize} \sum_{k=0}^{k=1}c_k\cdot s_k'" />
+</p>
+
 
 ## 噪声控制
 
