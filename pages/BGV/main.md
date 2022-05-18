@@ -38,7 +38,7 @@ BGV可以支持的运算包括加（减）法，乘法。乘法运算中的密�
 </p>
 
 ### 同态乘法
-同态乘法就要困难多了。BGV的思路是对密文向量做张量乘法(tensor product)。
+同态乘法( <img src="https://latex.codecogs.com/svg.image?\mathbf{c}_{\times}\gets&space;BGV.Mul(\mathbf{c_0},\mathbf{c_1})&space;~s.t.~&space;BGV.Decrypt(\mathbf{c}_{\times})=m_0\cdot&space;m_1" title="https://latex.codecogs.com/svg.image?\mathbf{c}_{\times}\gets BGV.Mul(\mathbf{c_0},\mathbf{c_1}) ~s.t.~ BGV.Decrypt(\mathbf{c}_{\times})=m_0\cdot m_1" /> )就要困难多了。BGV的思路是对密文向量做张量乘法(tensor product)。
 
 首先回忆张量乘法的定义:
 <p align="center">
