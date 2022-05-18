@@ -53,7 +53,13 @@ BGV可以支持的运算包括加（减）法，乘法。乘法运算中的密�
 
 证明：一方面有 <img src="https://latex.codecogs.com/svg.image?\left<\mathbf{c_0},\mathbf{s}&space;\right>&space;\cdot&space;\left<&space;\mathbf{c_1},\mathbf{s}\right>=(\sum_{i=0}^{i=1}\mathbf{c_{0,i}}\cdot\mathbf{s_i})\cdot&space;(\sum_{j=0}^{j=1}\mathbf{c_{1,j}}\cdot\mathbf{s_j})=\sum_i\sum_j\mathbf{c_{0,i}c_{1,j}}\cdot&space;\mathbf{s_is_j}" title="https://latex.codecogs.com/svg.image?\left<\mathbf{c_0},\mathbf{s} \right> \cdot \left< \mathbf{c_1},\mathbf{s}\right>=(\sum_{i=0}^{i=1}\mathbf{c_{0,i}}\cdot\mathbf{s_i})\cdot (\sum_{j=0}^{j=1}\mathbf{c_{1,j}}\cdot\mathbf{s_j})=\sum_i\sum_j\mathbf{c_{0,i}c_{1,j}}\cdot \mathbf{s_is_j}" />
 
-另一方面有 <img src="https://latex.codecogs.com/svg.image?\left<\mathbf{c_0},\mathbf{s}&space;\right>&space;\cdot&space;\left<&space;\mathbf{c_1},\mathbf{s}\right>=(m_0&plus;2\cdot&space;noise_0)\cdot&space;(m_1&plus;2\cdot&space;noise_1)=m_0m_1&plus;2\cdot&space;noise" title="https://latex.codecogs.com/svg.image?\left<\mathbf{c_0},\mathbf{s} \right> \cdot \left< \mathbf{c_1},\mathbf{s}\right>=(m_0+2\cdot noise_0)\cdot (m_1+2\cdot noise_1)=m_0m_1+2\cdot noise" />
+另一方面有 <img src="https://latex.codecogs.com/svg.image?\left<\mathbf{c_0},\mathbf{s}&space;\right>&space;\cdot&space;\left<&space;\mathbf{c_1},\mathbf{s}\right>=(m_0&plus;2\cdot&space;noise_0)\cdot&space;(m_1&plus;2\cdot&space;noise_1)=m_0m_1&plus;2\cdot&space;noise" title="https://latex.codecogs.com/svg.image?\left<\mathbf{c_0},\mathbf{s} \right> \cdot \left< \mathbf{c_1},\mathbf{s}\right>=(m_0+2\cdot noise_0)\cdot (m_1+2\cdot noise_1)=m_0m_1+2\cdot noise" /> 。综合两个方面得证。
+
+这里引入新的符号系统方便表述BGV方案:
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?BGV_{\mathbf{s}}(m)=BGV_{(1,s')}(m)=\mathbf{c}=(m,0)&plus;\mathbf{A}^T\cdot&space;\mathbf{r}=\mathbf{m}&plus;[\mathbf{A'}s'&plus;2\mathbf{e}|-\mathbf{A'}]" title="https://latex.codecogs.com/svg.image?BGV_{\mathbf{s}}(m)=BGV_{(1,s')}(m)=\mathbf{c}=(m,0)+\mathbf{A}^T\cdot \mathbf{r}=\mathbf{m}+[\mathbf{A'}s'+2\mathbf{e}|-\mathbf{A'}]" />
+</p>
 
 ## 重线性化 （Re-linearization）
 
