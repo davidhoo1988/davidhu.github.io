@@ -22,6 +22,8 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 <img src="https://latex.codecogs.com/svg.image?ModSwitch(a,b)=(a',b')=(\lfloor&space;a\cdot&space;q/Q\rceil,&space;\lfloor&space;b\cdot&space;q/Q\rceil)" title="https://latex.codecogs.com/svg.image?ModSwitch(a,b)=(a',b')=(\lfloor a\cdot q/Q\rceil, \lfloor b\cdot q/Q\rceil)" />
 </p>
 
+正确性证明：
+
 ## BGV基本构造
 <p align="center">
   <img src="fig/BGV_construct.png" alt="animated"/>
