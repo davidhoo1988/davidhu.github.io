@@ -86,7 +86,7 @@ BGV可以支持的运算包括加（减）法，乘法。乘法运算中的密�
 BGV控制噪声的方式是构造一个模数'梯子'(ladder of moduli)。这个梯子是有一系列从大到小排列的模数构成的数组 <img src="https://latex.codecogs.com/svg.image?\{q_i\}_{i=0,\cdots,L}" title="https://latex.codecogs.com/svg.image?\{q_i\}_{i=0,\cdots,L}" /> 。每做一次同态乘法，使用模数变换(Modulus Switching)将定义在较大模数
 <img src="https://latex.codecogs.com/svg.image?R_{q_i}" title="https://latex.codecogs.com/svg.image?R_{q_i}" /> 上的密文变换成较小模数 <img src="https://latex.codecogs.com/svg.image?R_{q_{i-1}}" title="https://latex.codecogs.com/svg.image?R_{q_{i-1}}" /> 上的密文。因为模数变换可以减小噪声，因此同态乘法中的噪声得以控制。这个过程可以用‘[油箱加油](./fig/ladder_of_moduli.png)’加以说明。BGV初始化使用的最大模数为 <img src="https://latex.codecogs.com/svg.image?q_0" title="https://latex.codecogs.com/svg.image?q_0" />, 接着做了一次同态乘法BGV.mul,噪声显著变大，应用模数变换将BGV密文变换到较小的 <img src="https://latex.codecogs.com/svg.image?q_1" title="https://latex.codecogs.com/svg.image?q_1" /> 从而抑制噪声增长，但无论如何抑制，噪声一定会相应增加（只是相对的缓慢增加）。形象地说明，相当于油箱的油量从刻度 <img src="https://latex.codecogs.com/svg.image?q_0" title="https://latex.codecogs.com/svg.image?q_0" /> 下降到 <img src="https://latex.codecogs.com/svg.image?q_1" title="https://latex.codecogs.com/svg.image?q_1" /> 。注意到使用模数变换控制噪声的手段只能使用有限次，为了保证BGV方案解密的正确性，模数不能无限制一直变小下去。假定允许的最小模数记为 <img src="https://latex.codecogs.com/svg.image?q_L" title="https://latex.codecogs.com/svg.image?q_L" /> ，也就是说最多做L次乘法，油箱的油就耗尽了，无法继续再做同态乘法操作。这种给定乘法次数(深度)的同态加密形式通常称之为leveled FHE。
 
-更具体地，
+更具体地，假定BGV最开始的噪声幅值大约为x,即 <img src="https://latex.codecogs.com/svg.image?noise\approx&space;x" title="https://latex.codecogs.com/svg.image?noise\approx x" /> 。
 
 ## 小结
 这里总结BGV同态乘法算法。
