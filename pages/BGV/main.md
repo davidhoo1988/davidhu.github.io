@@ -69,10 +69,15 @@ BGV可以支持的运算包括加（减）法，乘法。乘法运算中的密�
 <img src="https://latex.codecogs.com/svg.image?\left<\mathbf{c_0},\mathbf{s}&space;\right>&space;\cdot&space;\left<&space;\mathbf{c_1},\mathbf{s}\right>=\sum_i\sum_j\mathbf{c_{0,i}c_{1,j}}\cdot&space;\mathbf{s_is_j}\xrightarrow[]{re-linearize}&space;\sum_{k=0}^{k=1}c_k\cdot&space;s_k'" title="https://latex.codecogs.com/svg.image?\left<\mathbf{c_0},\mathbf{s} \right> \cdot \left< \mathbf{c_1},\mathbf{s}\right>=\sum_i\sum_j\mathbf{c_{0,i}c_{1,j}}\cdot \mathbf{s_is_j}\xrightarrow[]{re-linearize} \sum_{k=0}^{k=1}c_k\cdot s_k'" />
 </p>
 
-注意到对应的密文是二次结构，而目标密文对应的密钥是线性结构。所以称之为重线性化。换句话，我们希望可以同态地变换密钥，即
+注意到对应的密文是二次结构，而目标密文对应的密钥是线性结构。所以称之为重线性化。换句话，我们希望可以同态地变换密钥，借着密钥变换算法(Key Swithcing),容易做到：
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?BGV_{\mathbf{s}\otimes&space;\mathbf{s}}(m)\xrightarrow[]{KeySwitch}BGV_{\mathbf{s}}(m)" title="https://latex.codecogs.com/svg.image?BGV_{\mathbf{s}\otimes \mathbf{s}}(m)\xrightarrow[]{KeySwitch}BGV_{\mathbf{s}}(m)" />
+</p>
+
 
 ## 噪声控制
-
+接下来讨论BGV同态运算的噪声增长。
 
 ## BGV Bootstrapping
 Bootstrapping使得BGV从leveled FHE变换成FHE。它的技术细节很复杂，不在这里描述。
