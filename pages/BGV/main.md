@@ -13,9 +13,14 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 
 证明如下：依据RLWE假设，有 <img src="https://latex.codecogs.com/svg.image?(a,as&plus;e)\approx_c(a,b)" title="https://latex.codecogs.com/svg.image?(a,as+e)\approx_c(a,b)" /> 。又因为2和素数p互质，因此 <img src="https://latex.codecogs.com/svg.image?(2a,2as&plus;2e)=(a',a's&plus;2e)\approx_c&space;\left(Unif(R_q),&space;Unif(R_q)\right)" title="https://latex.codecogs.com/svg.image?(2a,2as+2e)=(a',a's+2e)\approx_c \left(Unif(R_q), Unif(R_q)\right)" />
 
-综上说述，我们定义新的RLWE加密为 <img src="https://latex.codecogs.com/svg.image?RLWE(m)=(a,b)=(a,as&plus;2e&plus;m)" title="https://latex.codecogs.com/svg.image?RLWE(m)=(a,b)=(a,as+2e+m)" /> 。
+综上说述，我们定义新的RLWE加密为 <img src="https://latex.codecogs.com/svg.image?RLWE_s^q(m)=(a,b)=(a,as&plus;2e&plus;m)" title="https://latex.codecogs.com/svg.image?RLWE_s^q(m)=(a,b)=(a,as+2e+m)" /> 。
 
 ### 模数变换(Modular Switching)
+给定一个RLWE密文 <img src="https://latex.codecogs.com/svg.image?RLWE_s^Q(m)=(a,b)" title="https://latex.codecogs.com/svg.image?RLWE_s^Q(m)=(a,b)" />，定义模数变化如下: 
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?ModSwitch(a,b)=(a',b')=(\lfloor&space;a\cdot&space;q/Q\rceil,&space;\lfloor&space;b\cdot&space;q/Q\rceil)" title="https://latex.codecogs.com/svg.image?ModSwitch(a,b)=(a',b')=(\lfloor a\cdot q/Q\rceil, \lfloor b\cdot q/Q\rceil)" />
+</p>
 
 ## BGV基本构造
 <p align="center">
