@@ -89,7 +89,11 @@ BGV控制噪声的方式是构造一个模数'梯子'(ladder of moduli)。这个
 更具体地，假定BGV最开始的噪声（比如此时BGV工作在模数 <img src="https://latex.codecogs.com/svg.image?q_i" title="https://latex.codecogs.com/svg.image?q_i" /> 上）幅值大约为x, 即 <img src="https://latex.codecogs.com/svg.image?Err(\mathbf{c_i})=Err(BGV_\mathbf{s}(m_i))\approx&space;x" title="https://latex.codecogs.com/svg.image?Err(\mathbf{c_i})=Err(BGV_\mathbf{s}(m_i))\approx x" /> 。准备模数梯子 <img src="https://latex.codecogs.com/svg.image?\{q_i\approx&space;q/x^i\}" title="https://latex.codecogs.com/svg.image?\{q_i\approx q/x^i\}" /> , 现在做一次同态乘法得到 <img src="https://latex.codecogs.com/svg.image?\mathbf{c}_{\times}\gets&space;BGV.mul(\mathbf{c_0},\mathbf{c_1})&space;~s.t.~&space;Err(\mathbf{c}_{\times})=&space;\mathcal{O}(x^2)" title="https://latex.codecogs.com/svg.image?\mathbf{c}_{\times}\gets BGV.mul(\mathbf{c_0},\mathbf{c_1}) ~s.t.~ Err(\mathbf{c}_{\times})= \mathcal{O}(x^2)" />，最后做一次模数变换使得 <img src="https://latex.codecogs.com/svg.image?\mathbf{c}_{\times}\in&space;R_{q_i}\times&space;R_{q_i}\xrightarrow[]{Mod-Switch}&space;\mathbf{c'}_{\times}\in&space;R_{q_{i&plus;1}}\times&space;R_{q_{i&plus;1}}&space;~s.t.~&space;Err(\mathbf{c'}_{\times})=\mathcal{O}(x)&space;" title="https://latex.codecogs.com/svg.image?\mathbf{c}_{\times}\in R_{q_i}\times R_{q_i}\xrightarrow[]{Mod-Switch} \mathbf{c'}_{\times}\in R_{q_{i+1}}\times R_{q_{i+1}} ~s.t.~ Err(\mathbf{c'}_{\times})=\mathcal{O}(x) " /> 。
 
 ## 小结
-这里总结BGV同态乘法算法。
+这里总结BGV同态乘法最终算法如下：
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?(BGV_{\mathbf{s}}(m_0),BGV_{\mathbf{s}}(m_1))\xrightarrow[]{Tensor-Product}BGV_{\mathbf{s}\otimes&space;\mathbf{s}}(m_0m_1)\in&space;R_{q_i}^4\xrightarrow[]{Key-Switch}&space;BGV_{\mathbf{s}}(m_0m_1)\in&space;R_{q_{i}}\times&space;R_{q_{i}}&space;\xrightarrow[]{Mod-Switch}&space;BGV_{\mathbf{s}}(m_0m_1)\in&space;R_{q_{i&plus;1}}\times&space;R_{q_{i&plus;1}}&space;" title="https://latex.codecogs.com/svg.image?(BGV_{\mathbf{s}}(m_0),BGV_{\mathbf{s}}(m_1))\xrightarrow[]{Tensor-Product}BGV_{\mathbf{s}\otimes \mathbf{s}}(m_0m_1)\in R_{q_i}^4\xrightarrow[]{Key-Switch} BGV_{\mathbf{s}}(m_0m_1)\in R_{q_{i}}\times R_{q_{i}} \xrightarrow[]{Mod-Switch} BGV_{\mathbf{s}}(m_0m_1)\in R_{q_{i+1}}\times R_{q_{i+1}} " />
+</p>
 
 ## BGV Bootstrapping
 Bootstrapping使得BGV从leveled FHE变换成FHE。它可以将一个较小模数定义下的密文同态转换成一个较大模数定义下的密文，相当于给油箱又‘加了油’。它的技术细节很复杂，不在这里描述。
