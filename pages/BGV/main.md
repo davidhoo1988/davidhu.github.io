@@ -83,5 +83,9 @@ BGV可以支持的运算包括加（减）法，乘法。乘法运算中的密�
   <img src="fig/ladder_of_moduli.png" alt="animated"/>
 </p>
 
+BGV控制噪声的方式是构造一个模数'梯子'(ladder of moduli)。这个梯子是有一系列从大到小排列的模数构成的数组 <img src="https://latex.codecogs.com/svg.image?\{q_i\}_{i=0,\cdots,L}" title="https://latex.codecogs.com/svg.image?\{q_i\}_{i=0,\cdots,L}" /> 。每做一次同态乘法，使用模数变换(Modulus Switching)将定义在较大模数
+<img src="https://latex.codecogs.com/svg.image?R_{q_i}" title="https://latex.codecogs.com/svg.image?R_{q_i}" /> 上的密文变换成较小模数 <img src="https://latex.codecogs.com/svg.image?R_{q_i}" title="https://latex.codecogs.com/svg.image?R_{q_i}" /> 上的密文。
+
+
 ## BGV Bootstrapping
 Bootstrapping使得BGV从leveled FHE变换成FHE。它的技术细节很复杂，不在这里描述。
