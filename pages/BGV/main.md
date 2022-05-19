@@ -48,7 +48,10 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
   <img src="fig/keyswitch.png" alt="animated"/>
 </p>
 
-正确性证明：
+正确性证明：首先观察到矩阵A本质上是一系列的RLWE(0)，即：
+<img src="https://latex.codecogs.com/svg.image?\mathbf{A}=\begin{vmatrix}RLWE_{\mathbf{s_2}}(0)\\\vdots&space;\\RLWE_{\mathbf{s_2}}(0)&space;\\\end{vmatrix}" title="https://latex.codecogs.com/svg.image?\mathbf{A}=\begin{vmatrix}RLWE_{\mathbf{s_2}}(0)\\\vdots \\RLWE_{\mathbf{s_2}}(0) \\\end{vmatrix}" />, 相应地，矩阵B可以看成对power_of_2(s)进行加密。
+
+
 
 ## BGV基本构造
 <p align="center">
