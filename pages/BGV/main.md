@@ -38,6 +38,12 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 不失一般性地，假设 <img src="https://latex.codecogs.com/svg.image?\mathbf{c}=RLWE_s^Q(0),&space;Err(\mathbf{c})=2\cdot&space;e\sim&space;\mathcal{N}(0,\sigma^2)" title="https://latex.codecogs.com/svg.image?\mathbf{c}=RLWE_s^Q(0), Err(\mathbf{c})=2\cdot e\sim \mathcal{N}(0,\sigma^2)" /> 。容易推出 <img src="https://latex.codecogs.com/svg.image?\frac{q}{Q}|\left<\mathbf{c},&space;\mathbf{s}\right>|_q\sim&space;\mathcal{N}(0,\frac{q^2}{Q^2}\cdot&space;\sigma^2)" title="https://latex.codecogs.com/svg.image?\frac{q}{Q}|\left<\mathbf{c}, \mathbf{s}\right>|_q\sim \mathcal{N}(0,\frac{q^2}{Q^2}\cdot \sigma^2)" /> 且 <img src="https://latex.codecogs.com/svg.image?\left<\mathbf{c'}-\frac{q}{Q}\mathbf{c},&space;\mathbf{s}\right>\sim&space;\mathcal{N}(0,&space;\frac{(\ell_2(\mathbf{s}))^2}{12})" title="https://latex.codecogs.com/svg.image?\left<\mathbf{c'}-\frac{q}{Q}\mathbf{c}, \mathbf{s}\right>\sim \mathcal{N}(0, \frac{(\ell_2(\mathbf{s}))^2}{12})" /> ；那么有 <img src="https://latex.codecogs.com/svg.image?e_q\sim&space;\mathcal{N}(0,&space;\frac{(\ell_2(\mathbf{s}))^2}{12}&plus;\frac{q^2}{Q^2}\sigma^2)" title="https://latex.codecogs.com/svg.image?e_q\sim \mathcal{N}(0, \frac{(\ell_2(\mathbf{s}))^2}{12}+\frac{q^2}{Q^2}\sigma^2)" /> 。注意到，通常Q远大于q，因此近似有 <img src="https://latex.codecogs.com/svg.image?e_q\sim&space;\mathcal{N}(0,&space;\frac{(\ell_2(\mathbf{s}))^2}{12})" title="https://latex.codecogs.com/svg.image?e_q\sim \mathcal{N}(0, \frac{(\ell_2(\mathbf{s}))^2}{12})" /> 。也就是说，如果密钥s服从某个'小'分布（实践上通常是{0,1}或者{0,1，-1}上的均匀分布），那么 <img src="https://latex.codecogs.com/svg.image?e_q" title="https://latex.codecogs.com/svg.image?e_q" /> 的幅值很小，得证。
 
 ### 密钥变换（Key Switching）
+密钥变换的作用是同态的变换密钥而不改变被加密的信息本身，即
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\mathbf{c_1}=BGV_{\mathbf{s_1}}(m)\xrightarrow[]{KeySwitch}&space;\mathbf{c_2}=BGV_{\mathbf{s_2}}(m)" title="https://latex.codecogs.com/svg.image?\mathbf{c_1}=BGV_{\mathbf{s_1}}(m)\xrightarrow[]{KeySwitch} \mathbf{c_2}=BGV_{\mathbf{s_2}}(m)" />
+ </p>
+ 
+密钥变换具体构造如下：
 <p align="center">
   <img src="fig/keyswitch.png" alt="animated"/>
 </p>
