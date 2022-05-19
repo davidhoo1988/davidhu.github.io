@@ -49,9 +49,12 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 </p>
 
 正确性证明：首先观察到矩阵A本质上是一系列的RLWE(0)，即：
-<img src="https://latex.codecogs.com/svg.image?\mathbf{A}=\begin{vmatrix}RLWE_{\mathbf{s_2}}(0)\\\vdots&space;\\RLWE_{\mathbf{s_2}}(0)&space;\\\end{vmatrix}" title="https://latex.codecogs.com/svg.image?\mathbf{A}=\begin{vmatrix}RLWE_{\mathbf{s_2}}(0)\\\vdots \\RLWE_{\mathbf{s_2}}(0) \\\end{vmatrix}" />, 相应地，矩阵B可以看成对power_of_2(s)进行加密。
+<img src="https://latex.codecogs.com/svg.image?\mathbf{A}=\begin{vmatrix}RLWE_{\mathbf{s_2}}(0)\\\vdots&space;\\RLWE_{\mathbf{s_2}}(0)&space;\\\end{vmatrix}" title="https://latex.codecogs.com/svg.image?\mathbf{A}=\begin{vmatrix}RLWE_{\mathbf{s_2}}(0)\\\vdots \\RLWE_{\mathbf{s_2}}(0) \\\end{vmatrix}" />, 相应地，矩阵B可以看成对power_of_2(s)进行加密,因此有 <img src="https://latex.codecogs.com/svg.image?\mathbf{B}\cdot&space;\mathbf{s_2}=2\mathbf{e}&plus;PowerOf2(\mathbf{s_1})" title="https://latex.codecogs.com/svg.image?\mathbf{B}\cdot \mathbf{s_2}=2\mathbf{e}+PowerOf2(\mathbf{s_1})" /> 。
 
-
+最终可以建立如下关系式：
+<p align="center">
+  <img src="fig/keyswitch2.png" alt="animated"/>
+</p>
 
 ## BGV基本构造
 <p align="center">
