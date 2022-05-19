@@ -22,7 +22,14 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 <img src="https://latex.codecogs.com/svg.image?ModSwitch(a,b)=(a',b')=(\lfloor&space;a\cdot&space;q/Q\rceil,&space;\lfloor&space;b\cdot&space;q/Q\rceil)" title="https://latex.codecogs.com/svg.image?ModSwitch(a,b)=(a',b')=(\lfloor a\cdot q/Q\rceil, \lfloor b\cdot q/Q\rceil)" />
 </p>
 
-正确性证明：需要证明的最终目标是 <img src="https://latex.codecogs.com/svg.image?(a',b')=RLWE_{s}^{q}(m)" title="https://latex.codecogs.com/svg.image?(a',b')=RLWE_{s}^{q}(m)" /> 。为了证明这个最终目标需要证明两个小目标：
+正确性证明：首先引入一些证明需要的符号。令 <img src="https://latex.codecogs.com/svg.image?|\left<\mathbf{c},\mathbf{s}\right>|_Q=\left<\mathbf{c},\mathbf{s}\right>-kQ&space;" title="https://latex.codecogs.com/svg.image?|\left<\mathbf{c},\mathbf{s}\right>|_Q=\left<\mathbf{c},\mathbf{s}\right>-kQ " /> ，对于同一个k，定义 <img src="https://latex.codecogs.com/svg.image?e_q=\left<\mathbf{c'},\mathbf{s}\right>-kq" title="https://latex.codecogs.com/svg.image?e_q=\left<\mathbf{c'},\mathbf{s}\right>-kq" /> 。 需要证明的最终目标是 <img src="https://latex.codecogs.com/svg.image?(a',b')=RLWE_{s}^{q}(m)" title="https://latex.codecogs.com/svg.image?(a',b')=RLWE_{s}^{q}(m)" /> 。为了证明这个最终目标需要证明两个小目标：
+
+1.<img src="https://latex.codecogs.com/svg.image?|e_q|_2=||\left<\mathbf{c},\mathbf{s}\right>|_Q|_2" title="https://latex.codecogs.com/svg.image?|e_q|_2=||\left<\mathbf{c},\mathbf{s}\right>|_Q|_2" />
+证明: <img src="https://latex.codecogs.com/svg.image?|e_q|_2=|\left<\mathbf{c'},\mathbf{s}\right>-kq|_2=|\left<\mathbf{c},\mathbf{s}\right>-kQ|_2=||\left<\mathbf{c},\mathbf{s}\right>|_Q|_2" title="https://latex.codecogs.com/svg.image?|e_q|_2=|\left<\mathbf{c'},\mathbf{s}\right>-kq|_2=|\left<\mathbf{c},\mathbf{s}\right>-kQ|_2=||\left<\mathbf{c},\mathbf{s}\right>|_Q|_2" />
+
+
+2. <img src="https://latex.codecogs.com/svg.image?|e_q|<q/2~s.t.~e_q&space;=&space;|\left<\mathbf{c'},\mathbf{s}\right>|_q" title="https://latex.codecogs.com/svg.image?|e_q|<q/2~s.t.~e_q = |\left<\mathbf{c'},\mathbf{s}\right>|_q" />
+证明：
 
 ## BGV基本构造
 <p align="center">
