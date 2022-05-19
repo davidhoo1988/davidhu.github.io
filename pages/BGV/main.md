@@ -29,7 +29,7 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 
 
 2. <img src="https://latex.codecogs.com/svg.image?|e_q|<q/2~s.t.~e_q&space;=&space;|\left<\mathbf{c'},\mathbf{s}\right>|_q" title="https://latex.codecogs.com/svg.image?|e_q|<q/2~s.t.~e_q = |\left<\mathbf{c'},\mathbf{s}\right>|_q" />
-证明：
+证明：注意这里 <img src="https://latex.codecogs.com/svg.image?e_q" title="https://latex.codecogs.com/svg.image?e_q" /> 是多项式，所以需要证明 <img src="https://latex.codecogs.com/svg.image?e_q" title="https://latex.codecogs.com/svg.image?e_q" /> 这个多项式的每一个系数都比较小(<img src="https://latex.codecogs.com/svg.image?<q/2" title="https://latex.codecogs.com/svg.image?<q/2" />)。
 
 ## BGV基本构造
 <p align="center">
