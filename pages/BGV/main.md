@@ -21,13 +21,13 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 <img src="https://latex.codecogs.com/svg.image?\mathbf{c}=BGV_{\mathbf{s}}^Q(m)\xrightarrow[]{ModSwitch}&space;\mathbf{c'}=BGV_{\mathbf{s}}^q(m)" title="https://latex.codecogs.com/svg.image?\mathbf{c}=BGV_{\mathbf{s}}^Q(m)\xrightarrow[]{ModSwitch} \mathbf{c'}=BGV_{\mathbf{s}}^q(m)" />
  </p>
  
-给定一个RLWE密文 <img src="https://latex.codecogs.com/svg.image?RLWE_s^Q(m)=(a,b)" title="https://latex.codecogs.com/svg.image?RLWE_s^Q(m)=(a,b)" />，定义模数变化如下: 
+给定一个BGV密文 <img src="https://latex.codecogs.com/svg.image?BGV_s^Q(m)=(a,b)" title="https://latex.codecogs.com/svg.image?BGV_s^Q(m)=(a,b)" />，定义模数变化如下: 
 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?ModSwitch(a,b)=(a',b')=(\lfloor&space;a\cdot&space;q/Q\rceil,&space;\lfloor&space;b\cdot&space;q/Q\rceil)&space;~w.r.t.~&space;Q\equiv&space;q&space;(\bmod&space;2),&space;&space;a\equiv&space;a'&space;(\bmod&space;2),&space;b\equiv&space;b'&space;(\bmod&space;2)." title="https://latex.codecogs.com/svg.image?ModSwitch(a,b)=(a',b')=(\lfloor a\cdot q/Q\rceil, \lfloor b\cdot q/Q\rceil) ~w.r.t.~ Q\equiv q (\bmod 2), a\equiv a' (\bmod 2), b\equiv b' (\bmod 2)." />
 </p>
 
-正确性证明：首先引入一些证明需要的符号。令 <img src="https://latex.codecogs.com/svg.image?|\left<\mathbf{c},\mathbf{s}\right>|_Q=\left<\mathbf{c},\mathbf{s}\right>-kQ&space;" title="https://latex.codecogs.com/svg.image?|\left<\mathbf{c},\mathbf{s}\right>|_Q=\left<\mathbf{c},\mathbf{s}\right>-kQ " /> ，对于同一个k，定义 <img src="https://latex.codecogs.com/svg.image?e_q=\left<\mathbf{c'},\mathbf{s}\right>-kq" title="https://latex.codecogs.com/svg.image?e_q=\left<\mathbf{c'},\mathbf{s}\right>-kq" /> 。 需要证明的最终目标是 <img src="https://latex.codecogs.com/svg.image?(a',b')=RLWE_{s}^{q}(m)" title="https://latex.codecogs.com/svg.image?(a',b')=RLWE_{s}^{q}(m)" /> 。为了证明这个最终目标需要证明两个小目标：
+正确性证明：首先引入一些证明需要的符号。令 <img src="https://latex.codecogs.com/svg.image?|\left<\mathbf{c},\mathbf{s}\right>|_Q=\left<\mathbf{c},\mathbf{s}\right>-kQ&space;" title="https://latex.codecogs.com/svg.image?|\left<\mathbf{c},\mathbf{s}\right>|_Q=\left<\mathbf{c},\mathbf{s}\right>-kQ " /> ，对于同一个k，定义 <img src="https://latex.codecogs.com/svg.image?e_q=\left<\mathbf{c'},\mathbf{s}\right>-kq" title="https://latex.codecogs.com/svg.image?e_q=\left<\mathbf{c'},\mathbf{s}\right>-kq" /> 。 需要证明的最终目标是 <img src="https://latex.codecogs.com/svg.image?(a',b')=BGV_{s}^{q}(m)" title="https://latex.codecogs.com/svg.image?(a',b')=BGV_{s}^{q}(m)" /> 。为了证明这个最终目标需要证明两个小目标：
 
 1.<img src="https://latex.codecogs.com/svg.image?|e_q|_2=||\left<\mathbf{c},\mathbf{s}\right>|_Q|_2" title="https://latex.codecogs.com/svg.image?|e_q|_2=||\left<\mathbf{c},\mathbf{s}\right>|_Q|_2" />
 证明: <img src="https://latex.codecogs.com/svg.image?|e_q|_2=|\left<\mathbf{c'},\mathbf{s}\right>-kq|_2=|\left<\mathbf{c},\mathbf{s}\right>-kQ|_2=||\left<\mathbf{c},\mathbf{s}\right>|_Q|_2" title="https://latex.codecogs.com/svg.image?|e_q|_2=|\left<\mathbf{c'},\mathbf{s}\right>-kq|_2=|\left<\mathbf{c},\mathbf{s}\right>-kQ|_2=||\left<\mathbf{c},\mathbf{s}\right>|_Q|_2" />
