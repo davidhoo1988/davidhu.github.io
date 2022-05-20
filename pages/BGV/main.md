@@ -15,6 +15,9 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 
 综上说述，我们定义新的RLWE加密为 <img src="https://latex.codecogs.com/svg.image?RLWE_s^q(m)=(a,b)=(a,as&plus;2e&plus;m)" title="https://latex.codecogs.com/svg.image?RLWE_s^q(m)=(a,b)=(a,as+2e+m)" /> 。
 
+### 基础运算 BitDecompose 和 Powerof2
+
+
 ### 模数变换(Modular Switching)
 抽象地说，模数变换的作用是同态地变换密文作用的模数而不改变被加密的信息本身，即
 <p align="center">
