@@ -68,7 +68,7 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 下面简单论述BGV构造的正确性：
 <div>关于密钥生成KeyGen部分，最重要的是保持关系式 <img src="https://latex.codecogs.com/svg.image?\mathbf{A}\cdot&space;\mathbf{s}&plus;2\mathbf{e}=\mathbf{b}" title="https://latex.codecogs.com/svg.image?\mathbf{A}\cdot \mathbf{s}+2\mathbf{e}=\mathbf{b}" />, 这样就可以保持pk和均匀分布不可区分。</div>
 
-<div>关于加密Encrypt部分， 依据Left-Over Hash Lemma (LHL)可知 <img src="https://latex.codecogs.com/svg.image?\mathbf{A}^T\cdot&space;\mathbf{r}\approx_s&space;\text{Uniform}" title="https://latex.codecogs.com/svg.image?\mathbf{A}^T\cdot \mathbf{r}\approx_s \text{Uniform}" />， 最终可得 <img src="https://latex.codecogs.com/svg.image?\mathbf{c}\approx_c&space;\text{Uniform}" title="https://latex.codecogs.com/svg.image?\mathbf{c}\approx_c \text{Uniform}" /> 。</div>
+<div>关于加密Encrypt部分， 依据Left-Over Hash Lemma (LHL)可知 <img src="https://latex.codecogs.com/svg.image?\mathbf{A}^T\cdot&space;\mathbf{r}=RLWE_s(0)&space;\approx_s&space;\text{Uniform}" title="https://latex.codecogs.com/svg.image?\mathbf{A}^T\cdot \mathbf{r}=RLWE_s(0) \approx_s \text{Uniform}" /> 。</div>
 
 <div>关于解密Decrypt部分，它的正确性可用 <img src="https://latex.codecogs.com/svg.image?\left<&space;\mathbf{c},\mathbf{s}\right>=\left<&space;\mathbf{m}&plus;\mathbf{A}^T\mathbf{r},&space;\mathbf{s}\right>=m&plus;2\mathbf{r}^T\cdot&space;\mathbf{e}\equiv&space;m&space;(\bmod&space;2)" /> 表示。</div>
 
