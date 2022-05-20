@@ -13,7 +13,7 @@
     2. [FHEW](./pages/FHEW/main.md)
     3. [TFHE](./pages/TFHE/main.md)
     4. [BGV](./pages/BGV/main.md)
-    5. (B)FV
+    5. [(B)FV](./pages/BFV/main.md)
     6. CKKS
     7. [FHE噪声增长分析](./pages/FHE_Noise/main.md)
     8. [FHE的安全性](./pages/FHE_Security/main.md)
