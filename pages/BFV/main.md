@@ -27,5 +27,10 @@ BFV最重要的贡献是在标准RLWE加密技术之上直接构造了FHE。
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\mathbf{ct_0}\times&space;\mathbf{ct_1}=(\mathbf{ct_0}[0]\cdot&space;\mathbf{ct_1}[0],&space;\mathbf{ct_0}[0]\cdot&space;\mathbf{ct_1}[1]&plus;\mathbf{ct_0}[1]\cdot&space;\mathbf{ct_1}[0],\mathbf{ct_0}[1]\cdot&space;\mathbf{ct_1}[1])" title="https://latex.codecogs.com/svg.image?\mathbf{ct_0}\times \mathbf{ct_1}=(\mathbf{ct_0}[0]\cdot \mathbf{ct_1}[0], \mathbf{ct_0}[0]\cdot \mathbf{ct_1}[1]+\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[0],\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[1])" />
 </p>
+这个乘法定义借助多项式乘法就很好理解: 
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\mathbf{ct_0}\times&space;\mathbf{ct_1}=(\mathbf{ct_0}[0]&plus;\mathbf{ct_0}[1]x)\cdot&space;(\mathbf{ct_1}[0]&plus;\mathbf{ct_1}[1]x)&space;=&space;\mathbf{ct_0}[0]\cdot&space;\mathbf{ct_1}[0]&plus;(\mathbf{ct_0}[0]\cdot&space;\mathbf{ct_1}[1]&plus;\mathbf{ct_0}[1]\cdot&space;\mathbf{ct_1}[0])x&plus;\mathbf{ct_0}[1]\cdot&space;\mathbf{ct_1}[1]x^2" title="https://latex.codecogs.com/svg.image?\mathbf{ct_0}\times \mathbf{ct_1}=(\mathbf{ct_0}[0]+\mathbf{ct_0}[1]x)\cdot (\mathbf{ct_1}[0]+\mathbf{ct_1}[1]x) = \mathbf{ct_0}[0]\cdot \mathbf{ct_1}[0]+(\mathbf{ct_0}[0]\cdot \mathbf{ct_1}[1]+\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[0])x+\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[1]x^2" />
+</p>
+也就是说，BFV同态乘法的结果就是取相应密文多项式乘法结果的系数。
 
 引理：
