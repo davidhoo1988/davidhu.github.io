@@ -51,3 +51,7 @@ BFV最重要的贡献是在标准RLWE加密技术之上直接构造了FHE。
 </p>
 
 引理：<img src="https://latex.codecogs.com/svg.image?RLWE.Decrypt(rescale(\mathbf{ct_{\times}}))=\Delta\cdot&space;m_0m_1&plus;noise" title="https://latex.codecogs.com/svg.image?RLWE.Decrypt(rescale(\mathbf{ct_{\times}}))=\Delta\cdot m_0m_1+noise" />
+
+证明：首先我们有 <img src="https://latex.codecogs.com/svg.image?\sum_{i=0}^{2}\lfloor\frac{t}{q}\cdot\mathbf{ct_{\times}}[i]x^i\rceil=\frac{t}{q}\sum_i&space;\mathbf{ct_{\times}}[i]x^i&plus;\sum_ir_ix^i\approx&space;\frac{t}{q}\sum_i&space;\mathbf{ct_{\times}}[i]x^i" title="https://latex.codecogs.com/svg.image?\sum_{i=0}^{2}\lfloor\frac{t}{q}\cdot\mathbf{ct_{\times}}[i]x^i\rceil=\frac{t}{q}\sum_i \mathbf{ct_{\times}}[i]x^i+\sum_ir_ix^i\approx \frac{t}{q}\sum_i \mathbf{ct_{\times}}[i]x^i" />, 这里 <img src="https://latex.codecogs.com/svg.image?r_i\sim&space;Unif(-1/2,1/2)" title="https://latex.codecogs.com/svg.image?r_i\sim Unif(-1/2,1/2)" /> 。
+
+
