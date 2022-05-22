@@ -40,4 +40,4 @@ BFV最重要的贡献是在标准RLWE加密技术之上直接构造了FHE。
 1. BFV同态乘法得到的结果进行解密得到的是<img src="https://latex.codecogs.com/svg.image?\Delta^2m_0m_1&plus;noise" title="https://latex.codecogs.com/svg.image?\Delta^2m_0m_1+noise" />，而我们想要的是 <img src="https://latex.codecogs.com/svg.image?\Delta&space;m_0m_1&plus;noise" title="https://latex.codecogs.com/svg.image?\Delta m_0m_1+noise" /> 。
 2. 和BGV乘法类似的情况，需要做key-switch将三维的密文向量降到二维。
 
-引理：
+先讨论第一个问题。具体地，对BFV乘法结果解密得到 <img src="https://latex.codecogs.com/svg.image?(\mathbf{ct_0}[0]&plus;\mathbf{ct_0}[1]s)\cdot&space;(\mathbf{ct_1}[0]&plus;\mathbf{ct_1}[1]s)=(\Delta&space;m_0&plus;noise_0)\cdot&space;(\Delta&space;m_1&plus;noise_1)=\Delta^2m_0m_1&plus;\Delta(m_0noise_1&plus;m_1noise_0)&plus;noise_0\cdot&space;noise_1" title="https://latex.codecogs.com/svg.image?(\mathbf{ct_0}[0]+\mathbf{ct_0}[1]s)\cdot (\mathbf{ct_1}[0]+\mathbf{ct_1}[1]s)=(\Delta m_0+noise_0)\cdot (\Delta m_1+noise_1)=\Delta^2m_0m_1+\Delta(m_0noise_1+m_1noise_0)+noise_0\cdot noise_1" />
