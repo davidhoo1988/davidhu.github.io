@@ -49,3 +49,5 @@ BFV最重要的贡献是在标准RLWE加密技术之上直接构造了FHE。
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?Rescale(\mathbf{ct_{\times}})\overset{\underset{\mathrm{def}}{}}{=}(\lfloor&space;\frac{q}{t}\cdot\mathbf{ct_{\times}}[0]\rceil,&space;\lfloor&space;\frac{q}{t}\cdot\mathbf{ct_{\times}}[1]\rceil,&space;\lfloor&space;\frac{q}{t}\cdot\mathbf{ct_{\times}}[2]\rceil)" title="https://latex.codecogs.com/svg.image?Rescale(\mathbf{ct_{\times}})\overset{\underset{\mathrm{def}}{}}{=}(\lfloor \frac{q}{t}\cdot\mathbf{ct_{\times}}[0]\rceil, \lfloor \frac{q}{t}\cdot\mathbf{ct_{\times}}[1]\rceil, \lfloor \frac{q}{t}\cdot\mathbf{ct_{\times}}[2]\rceil)" />
 </p>
+
+引理：<img src="https://latex.codecogs.com/svg.image?RLWE.Decrypt(rescale(\mathbf{ct_{\times}}))=\Delta\cdot&space;m_0m_1&plus;noise" title="https://latex.codecogs.com/svg.image?RLWE.Decrypt(rescale(\mathbf{ct_{\times}}))=\Delta\cdot m_0m_1+noise" />
