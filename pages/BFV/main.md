@@ -2,6 +2,9 @@
 BGV属于第二代FHE。最早有Junfeng Fan and Frederik Vercauteren于2012年在[这篇文章](https://eprint.iacr.org/2012/144)首次提出。
 BFV最重要的贡献是在标准RLWE加密技术之上直接构造了FHE。
 
+## 标准RLWE加密
+在正式介绍BFV构造之前，回忆一遍标准RLWE加密的细节。
+
 
 ## BFV基本构造
  不同于BGV自己构造了一种新的RLWE变种，BFV构造直接建立在标准RLWE加密基础之上。整个密钥生成，加解密过程可用下图表示：
@@ -32,5 +35,9 @@ BFV最重要的贡献是在标准RLWE加密技术之上直接构造了FHE。
 <img src="https://latex.codecogs.com/svg.image?\mathbf{ct_0}\times&space;\mathbf{ct_1}=(\mathbf{ct_0}[0]&plus;\mathbf{ct_0}[1]x)\cdot&space;(\mathbf{ct_1}[0]&plus;\mathbf{ct_1}[1]x)&space;=&space;\mathbf{ct_0}[0]\cdot&space;\mathbf{ct_1}[0]&plus;(\mathbf{ct_0}[0]\cdot&space;\mathbf{ct_1}[1]&plus;\mathbf{ct_0}[1]\cdot&space;\mathbf{ct_1}[0])x&plus;\mathbf{ct_0}[1]\cdot&space;\mathbf{ct_1}[1]x^2" title="https://latex.codecogs.com/svg.image?\mathbf{ct_0}\times \mathbf{ct_1}=(\mathbf{ct_0}[0]+\mathbf{ct_0}[1]x)\cdot (\mathbf{ct_1}[0]+\mathbf{ct_1}[1]x) = \mathbf{ct_0}[0]\cdot \mathbf{ct_1}[0]+(\mathbf{ct_0}[0]\cdot \mathbf{ct_1}[1]+\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[0])x+\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[1]x^2" />
 </p>
 也就是说，BFV同态乘法的结果就是取相应密文多项式乘法结果的系数。
+
+现在，有两个新问题要解决
+1. BFV同态乘法得到的结果进行解密得到的是<img src="https://latex.codecogs.com/svg.image?\Delta^2m_0m_1&plus;noise" title="https://latex.codecogs.com/svg.image?\Delta^2m_0m_1+noise" />，而我们想要的是 <img src="https://latex.codecogs.com/svg.image?\Delta&space;m_0m_1&plus;noise" title="https://latex.codecogs.com/svg.image?\Delta m_0m_1+noise" /> 。
+2. 和BGV乘法类似的情况，需要做key-switch将三维的密文向量降到二维。
 
 引理：
