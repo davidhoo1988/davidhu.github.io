@@ -24,7 +24,7 @@ BFV最重要的贡献是在标准RLWE加密技术之上直接构造了FHE。
 加法很容易做到。只需要对相应的密文向量进行向量加法即可（另一种理解方法，将密文向量理解成degree-2 polynomial的系数向量，因此做多项式加法），噪声增长是加性的。
 
 ### 同态乘法
-重点讨论乘法。首先将BFV密文向量理解成degree-2 polynomial, 即 <img src="https://latex.codecogs.com/svg.image?\mathbf{ct_i}\cong&space;ct_i[0]&plus;ct_i[1]x" title="https://latex.codecogs.com/svg.image?\mathbf{ct_i}\cong ct_i[0]+ct_i[1]x" /> 。
+重点讨论乘法。首先将RLWE密文向量理解成degree-1 polynomial, 即 <img src="https://latex.codecogs.com/svg.image?\mathbf{ct_i}\cong&space;ct_i[0]&plus;ct_i[1]x" title="https://latex.codecogs.com/svg.image?\mathbf{ct_i}\cong ct_i[0]+ct_i[1]x" /> 。
 
 那么定义两个BFV密文的同态乘法运算如下：
 <p align="center">
