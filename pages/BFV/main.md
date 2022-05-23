@@ -91,7 +91,9 @@ BFV设计了两种形式的re-linearization。第一种形式和BGV-FHE介绍的
 ## Single Instruction Multiple Data 编码方式 (SIMD)
 第二代FHE最强大的特性就是SIMD。以BFV方案为例，这意味着一个BFV密文可以对一个向量进行加密 (相当于加密多个数据构成的数组，而不是仅仅对一个数据进行加密）。 之所以能支持这个特性，是因为Number Theoretic Transform (NTT)的缘故。注意到BFV加密的明文是一个多项式 <img src="https://latex.codecogs.com/svg.image?m(x)\in&space;\mathbb{Z}_q/(X^n&plus;1)" title="https://latex.codecogs.com/svg.image?m(x)\in \mathbb{Z}_q/(X^n+1)" />, NTT的本质是对m(X)在特定n个点上的估值，具体定义如下：
 
+<p align="center">
 <img src="https://latex.codecogs.com/svg.image?NTT_n(m(x))\overset{\underset{\mathrm{def}}{}}{=}\{m(\zeta^i)\}_{i=1,3,\cdots,2n-1}=(m(\zeta),m(\zeta^3),\cdots,m(\zeta^{2n-1}))" title="https://latex.codecogs.com/svg.image?NTT_n(m(x))\overset{\underset{\mathrm{def}}{}}{=}\{m(\zeta^i)\}_{i=1,3,\cdots,2n-1}=(m(\zeta),m(\zeta^3),\cdots,m(\zeta^{2n-1}))" />
+</p>
 
 
 ## 比较BFV和BGV
