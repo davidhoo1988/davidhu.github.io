@@ -66,7 +66,7 @@ BFV设计了两种形式的re-linearization。第一种形式和BGV-FHE介绍的
   <img src="fig/relinearize_v1.png" alt="animated"/>
 </p>
 
-下面证明re-linearization第一种形式的正确性
+下面证明re-linearization第一种形式的正确性。首先注意到 <img src="https://latex.codecogs.com/svg.image?c_2'[i]\cdot&space;(rlk_i[0],&space;rlk_i[1])=RLWE_s(c_2'[i]\cdot&space;s^2T^i)&space;~with~&space;Err(RLWE_s(c_2'[i]\cdot&space;s^2))\sim&space;\mathcal{N}(0,\frac{T^2}{12}\cdot&space;\sigma_{rlk}^2)" title="https://latex.codecogs.com/svg.image?c_2'[i]\cdot (rlk_i[0], rlk_i[1])=RLWE_s(c_2'[i]\cdot s^2T^i) ~with~ Err(RLWE_s(c_2'[i]\cdot s^2))\sim \mathcal{N}(0,\frac{T^2}{12}\cdot \sigma_{rlk}^2)" />，因此
 
 第二种形式的re-linearization借助了rescale思想：
  <p align="center">
