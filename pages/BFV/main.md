@@ -62,5 +62,10 @@ BFV最重要的贡献是在标准RLWE加密技术之上直接构造了FHE。
 </p>
 
 BFV设计了两种形式的re-linearization。第一种形式和BGV-FHE介绍的一样：
+下面证明re-linearization第一种形式的正确性
+
+第二种形式的re-linearization借助了rescale思想：
+下面证明re-linearization第二种形式的正确性
+
 
 ## Single Instruction Multiple Data 编码方式 (SIMD)
