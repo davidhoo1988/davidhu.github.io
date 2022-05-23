@@ -47,7 +47,7 @@ BFV最重要的贡献是在标准RLWE加密技术之上直接构造了FHE。
 <div>那么对密文向量做‘rounding/rescale’(类似于Mod-Switch)就可以化简得到 <img src="https://latex.codecogs.com/svg.image?\Delta&space;m_0m_1&plus;noise'" title="https://latex.codecogs.com/svg.image?\Delta m_0m_1+noise'" /> 。具体地，定义rounding/rescale 操作如下:</div>
 
 <p align="center">
-<img src="https://latex.codecogs.com/svg.image?Rescale(\mathbf{ct_{\times}})\overset{\underset{\mathrm{def}}{}}{=}(\lfloor&space;\frac{q}{t}\cdot\mathbf{ct_{\times}}[0]\rceil,&space;\lfloor&space;\frac{q}{t}\cdot\mathbf{ct_{\times}}[1]\rceil,&space;\lfloor&space;\frac{q}{t}\cdot\mathbf{ct_{\times}}[2]\rceil)" title="https://latex.codecogs.com/svg.image?Rescale(\mathbf{ct_{\times}})\overset{\underset{\mathrm{def}}{}}{=}(\lfloor \frac{q}{t}\cdot\mathbf{ct_{\times}}[0]\rceil, \lfloor \frac{q}{t}\cdot\mathbf{ct_{\times}}[1]\rceil, \lfloor \frac{q}{t}\cdot\mathbf{ct_{\times}}[2]\rceil)" />
+<img src="https://latex.codecogs.com/svg.image?Rescale(\mathbf{ct_{\times}})\overset{\underset{\mathrm{def}}{}}{=}(\lfloor&space;\frac{t}{q}\cdot\mathbf{ct_{\times}}[0]\rceil,&space;\lfloor&space;\frac{t}{q}\cdot\mathbf{ct_{\times}}[1]\rceil,&space;\lfloor&space;\frac{t}{q}\cdot\mathbf{ct_{\times}}[2]\rceil)" title="https://latex.codecogs.com/svg.image?Rescale(\mathbf{ct_{\times}})\overset{\underset{\mathrm{def}}{}}{=}(\lfloor \frac{t}{q}\cdot\mathbf{ct_{\times}}[0]\rceil, \lfloor \frac{t}{q}\cdot\mathbf{ct_{\times}}[1]\rceil, \lfloor \frac{t}{q}\cdot\mathbf{ct_{\times}}[2]\rceil)" />
 </p>
 
 引理：<img src="https://latex.codecogs.com/svg.image?RLWE.Decrypt(rescale(\mathbf{ct_{\times}}))=\Delta\cdot&space;m_0m_1&plus;noise" title="https://latex.codecogs.com/svg.image?RLWE.Decrypt(rescale(\mathbf{ct_{\times}}))=\Delta\cdot m_0m_1+noise" />
@@ -82,8 +82,9 @@ BFV设计了两种形式的re-linearization。第一种形式和BGV-FHE介绍的
 
 下面证明re-linearization第二种形式的正确性。 这里需要利用关系式 <img src="https://latex.codecogs.com/svg.image?\lfloor&space;\frac{a}{p}\rceil=\frac{a}{p}&plus;r&space;~with~&space;r\sim&space;Unif(-\frac{1}{2},\frac{1}{2})" title="https://latex.codecogs.com/svg.image?\lfloor \frac{a}{p}\rceil=\frac{a}{p}+r ~with~ r\sim Unif(-\frac{1}{2},\frac{1}{2})" /> 。首先容易证明 <img src="https://latex.codecogs.com/svg.image?c_2'\cdot&space;(rlk[0],&space;rlk[1])=RLWE_s^{pq}(pc_2'\cdot&space;s)~with~&space;Err\sim&space;\mathcal{N}(0,c_2'^2\cdot&space;\sigma_{rlk}^2)" title="https://latex.codecogs.com/svg.image?c_2'\cdot (rlk[0], rlk[1])=RLWE_s^{pq}(pc_2'\cdot s)~with~ Err\sim \mathcal{N}(0,c_2'^2\cdot \sigma_{rlk}^2)" /> ；接着做rescale得到 <img src="https://latex.codecogs.com/svg.image?(\lfloor\frac{c_2'\cdot&space;rlk[0]}{p}\rceil&space;,&space;\lfloor\frac{c_2'\cdot&space;rlk[1]}{p}\rceil)&space;=RLWE_s^{p}(c_2'\cdot&space;s)~with~&space;Err\sim&space;\mathcal{N}(0,\frac{c_2'^2\cdot&space;\sigma_{rlk}^2}{p^2}&plus;\frac{n\sigma_s^2}{12}&plus;\frac{1}{12})" title="https://latex.codecogs.com/svg.image?(\lfloor\frac{c_2'\cdot rlk[0]}{p}\rceil , \lfloor\frac{c_2'\cdot rlk[1]}{p}\rceil) =RLWE_s^{p}(c_2'\cdot s)~with~ Err\sim \mathcal{N}(0,\frac{c_2'^2\cdot \sigma_{rlk}^2}{p^2}+\frac{n\sigma_s^2}{12}+\frac{1}{12})" /> 。
 
-综上所述，完全形态的BFV同态乘法算法如下：
-
+综上所述，完全形态的BFV同态乘法算法(输入 <img src="https://latex.codecogs.com/svg.image?\mathbf{ct_0}=RLWE(m_0),\mathbf{ct_1}=RLWE(m_1)" title="https://latex.codecogs.com/svg.image?\mathbf{ct_0}=RLWE(m_0),\mathbf{ct_1}=RLWE(m_1)" /> )如下：
+1. 计算 <img src="https://latex.codecogs.com/svg.image?\mathbf{ct_{\times}}\overset{\underset{\mathrm{def}}{}}{=}\mathbf{ct_0}\times&space;\mathbf{ct_1}=(\mathbf{ct_0}[0]\cdot&space;\mathbf{ct_1}[0],&space;\mathbf{ct_0}[0]\cdot&space;\mathbf{ct_1}[1]&plus;\mathbf{ct_0}[1]\cdot&space;\mathbf{ct_1}[0],\mathbf{ct_0}[1]\cdot&space;\mathbf{ct_1}[1])" title="https://latex.codecogs.com/svg.image?\mathbf{ct_{\times}}\overset{\underset{\mathrm{def}}{}}{=}\mathbf{ct_0}\times \mathbf{ct_1}=(\mathbf{ct_0}[0]\cdot \mathbf{ct_1}[0], \mathbf{ct_0}[0]\cdot \mathbf{ct_1}[1]+\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[0],\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[1])" /> 
+2. 做Rescale操作得 
 
 
 ## Single Instruction Multiple Data 编码方式 (SIMD)
