@@ -80,7 +80,9 @@ BFV设计了两种形式的re-linearization。第一种形式和BGV-FHE介绍的
   <img src="fig/relinearize_v2.png" alt="animated"/>
 </p>
 
-下面证明re-linearization第二种形式的正确性。 这里需要利用关系式 <img src="https://latex.codecogs.com/svg.image?\lfloor&space;\frac{a}{p}\rceil=\frac{a}{p}&plus;r&space;~with~&space;r\sim&space;Unif(-\frac{1}{2},\frac{1}{2})" title="https://latex.codecogs.com/svg.image?\lfloor \frac{a}{p}\rceil=\frac{a}{p}+r ~with~ r\sim Unif(-\frac{1}{2},\frac{1}{2})" />
+下面证明re-linearization第二种形式的正确性。 这里需要利用关系式 <img src="https://latex.codecogs.com/svg.image?\lfloor&space;\frac{a}{p}\rceil=\frac{a}{p}&plus;r&space;~with~&space;r\sim&space;Unif(-\frac{1}{2},\frac{1}{2})" title="https://latex.codecogs.com/svg.image?\lfloor \frac{a}{p}\rceil=\frac{a}{p}+r ~with~ r\sim Unif(-\frac{1}{2},\frac{1}{2})" /> 。首先容易证明 <img src="https://latex.codecogs.com/svg.image?c_2'\cdot&space;(rlk[0],&space;rlk[1])=RLWE_s^{pq}(pc_2'\cdot&space;s)~with~&space;Err\sim&space;\mathcal{N}(0,c_2'^2\cdot&space;\sigma_{rlk}^2)" title="https://latex.codecogs.com/svg.image?c_2'\cdot (rlk[0], rlk[1])=RLWE_s^{pq}(pc_2'\cdot s)~with~ Err\sim \mathcal{N}(0,c_2'^2\cdot \sigma_{rlk}^2)" /> ；接着做rescale得到 <img src="https://latex.codecogs.com/svg.image?(\lfloor\frac{c_2'\cdot&space;rlk[0]}{p}\rceil&space;,&space;\lfloor\frac{c_2'\cdot&space;rlk[1]}{p}\rceil)&space;=RLWE_s^{p}(c_2'\cdot&space;s)~with~&space;Err\sim&space;\mathcal{N}(0,\frac{c_2'^2\cdot&space;\sigma_{rlk}^2}{p^2}&plus;\frac{n\sigma_s^2}{12}&plus;\frac{1}{12})" title="https://latex.codecogs.com/svg.image?(\lfloor\frac{c_2'\cdot rlk[0]}{p}\rceil , \lfloor\frac{c_2'\cdot rlk[1]}{p}\rceil) =RLWE_s^{p}(c_2'\cdot s)~with~ Err\sim \mathcal{N}(0,\frac{c_2'^2\cdot \sigma_{rlk}^2}{p^2}+\frac{n\sigma_s^2}{12}+\frac{1}{12})" /> 。
+
+
 
 
 ## Single Instruction Multiple Data 编码方式 (SIMD)
