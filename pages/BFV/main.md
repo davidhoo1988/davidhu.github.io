@@ -80,7 +80,7 @@ BFV设计了两种形式的re-linearization。第一种形式和BGV-FHE介绍的
   <img src="fig/relinearize_v2.png" alt="animated"/>
 </p>
 
-下面证明re-linearization第二种形式的正确性
+下面证明re-linearization第二种形式的正确性。 这里需要利用关系式 <img src="https://latex.codecogs.com/svg.image?\lfloor&space;\frac{a}{p}\rceil=\frac{a}{p}&plus;r&space;~with~&space;r\sim&space;Unif(-\frac{1}{2},\frac{1}{2})" title="https://latex.codecogs.com/svg.image?\lfloor \frac{a}{p}\rceil=\frac{a}{p}+r ~with~ r\sim Unif(-\frac{1}{2},\frac{1}{2})" />
 
 
 ## Single Instruction Multiple Data 编码方式 (SIMD)
