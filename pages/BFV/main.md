@@ -56,5 +56,6 @@ BFV最重要的贡献是在标准RLWE加密技术之上直接构造了FHE。
 接着考虑 <img src="https://latex.codecogs.com/svg.image?\frac{t}{q}\sum_i\mathbf{ct_i}[i]x^i=(1-\frac{t}{q}r)\Delta&space;m_0m_1&plus;(1-\frac{t}{q}r)(m_0e_1&plus;m_1e_0)&plus;\frac{t}{q}e_0e_1=\Delta&space;m_0m_1&plus;noise" title="https://latex.codecogs.com/svg.image?\frac{t}{q}\sum_i\mathbf{ct_i}[i]x^i=(1-\frac{t}{q}r)\Delta m_0m_1+(1-\frac{t}{q}r)(m_0e_1+m_1e_0)+\frac{t}{q}e_0e_1=\Delta m_0m_1+noise" />, 更进一步分析噪声分量有 <img src="https://latex.codecogs.com/svg.image?noise\approx&space;m_0e_1&plus;m_1e_0&plus;rm_0m_1\sim&space;(0,&space;2n\cdot&space;t^2\sigma^2)" title="https://latex.codecogs.com/svg.image?noise\approx m_0e_1+m_1e_0+rm_0m_1\sim (0, 2n\cdot t^2\sigma^2)" /> 
 综上所述，总噪声的分布方差上限一定是一个小数目，具体数值为 <img src="https://latex.codecogs.com/svg.image?n\cdot&space;\sigma_s^2\cdot&space;\frac{1}{12}&plus;n\cdot&space;\sigma_s^4\cdot&space;\frac{1}{12}&plus;2n\cdot&space;t^2\sigma^2" title="https://latex.codecogs.com/svg.image?n\cdot \sigma_s^2\cdot \frac{1}{12}+n\cdot \sigma_s^4\cdot \frac{1}{12}+2n\cdot t^2\sigma^2" /> 。
 
+现在讨论第二个问题 re-linearization。
 
 
