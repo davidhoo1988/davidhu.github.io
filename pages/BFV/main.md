@@ -6,6 +6,11 @@ BFV最重要的贡献是在标准RLWE加密技术之上直接构造了FHE。
 在正式介绍BFV构造之前，回忆一遍标准RLWE加密的细节。
 $$\text{引理： Let } a\in R_q, b\in R_q, e\in R_q, \text{ and } a\gets Unif(-\frac{q}{2},\frac{q}{2}), s\gets \mathcal{N}(0,\sigma_s^2), e\gets \mathcal{N}(0,\sigma^2), \text{ then } (a,as+e)\approx_c (a,b) \text{ where } b\gets Unif(-\frac{q}{2},\frac{q}{2})$$ 
  基于引理，容易证明 $(a,-as-e)\approx_c (a,b) \text{ where } b\gets Unif(-\frac{q}{2},\frac{q}{2})$
+ 
+现在定义RLWE加密如下：
+$$RLWE(m)\overset{\underset{\mathrm{def}}{}}{=}(a,as+e+\lfloor q/t\rfloor\cdot m)\approx_c (a,b) \text{ where } b\gets Unif(-\frac{q}{2},\frac{q}{2})$$
+
+注意符号系统$e=\sum_i e_iX^i\gets \mathcal{N}(0,\sigma^2)$具体含义指的是 $|e|_{\infty}=e_i\sim \mathcal{N}(0,\sigma^2)$
 
 ## BFV基本构造
  不同于BGV自己构造了一种新的RLWE变种，BFV构造直接建立在标准RLWE加密基础之上。整个密钥生成，加解密过程可用下图表示：
