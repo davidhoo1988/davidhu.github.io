@@ -112,6 +112,7 @@ NTT是一个线性运算，容易得到NTT的逆运算使得 <img src="https://l
 最后给出SIMD编解码的一个python例子程序演示这小结的内容。
 <details><summary>CLICK ME</summary>
 <p>
+	
 ```python
 # -*- coding: utf-8 -*-
 
@@ -303,6 +304,7 @@ if __name__ == "__main__":
 	print ("message polynomial(after BFV encoding, coefficient list of the polynomial):")
 	print (m0_poly)
 ```
+			 
 </p>
 </details>
 	
