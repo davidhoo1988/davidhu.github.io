@@ -100,5 +100,9 @@ NTT是一个线性运算，容易得到NTT的逆运算使得 <img src="https://l
 <img src="https://latex.codecogs.com/svg.image?\{m(\zeta^i)\}_{i=1,3,\cdots,2n-1}\xrightarrow[]{Encode/NNT^{-1}}&space;m(X)\in&space;R_q" title="https://latex.codecogs.com/svg.image?\{m(\zeta^i)\}_{i=1,3,\cdots,2n-1}\xrightarrow[]{Encode/NNT^{-1}} m(X)\in R_q" />
 </p>
 
+注意NTT蕴含了一个同构：两个换上多项式加法和乘法对应于NTT向量的对应点加法(component-wise addition)和对应点乘法(component-wise multiplication),即
+
+最后给出SIMD编解码的一个例子程序演示这小结的内容。
+
 ## 比较BFV和BGV
 
