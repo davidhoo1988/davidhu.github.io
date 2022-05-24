@@ -101,6 +101,10 @@ NTT是一个线性运算，容易得到NTT的逆运算使得 <img src="https://l
 </p>
 
 注意NTT蕴含了一个同构：两个换上多项式加法和乘法对应于NTT向量的对应点加法(component-wise addition)和对应点乘法(component-wise multiplication),即
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?m_0(X)&plus;m_1(X)\overset{NTT(\cdot)}{\longleftrightarrow}&space;(m_0(\zeta)&plus;m_1(\zeta),\cdots,m_0(\zeta^{2n-1})&plus;m_1(\zeta^{2n-1}))" title="https://latex.codecogs.com/svg.image?m_0(X)+m_1(X)\overset{NTT(\cdot)}{\longleftrightarrow} (m_0(\zeta)+m_1(\zeta),\cdots,m_0(\zeta^{2n-1})+m_1(\zeta^{2n-1}))" />
+</p>
+换句话说利用SIMD编码，单次FHE的加/乘运算相当于对明文向量做对应点加法/乘法（同时做n次模p加/乘法）， 这也是SIMD原本的含义。
 
 最后给出SIMD编解码的一个例子程序演示这小结的内容。
 
