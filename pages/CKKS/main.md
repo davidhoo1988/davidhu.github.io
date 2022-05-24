@@ -8,3 +8,8 @@ CKKS SIMD编解码过程可以用下面表示:
   <img src="fig/simd.png" alt="animated"/>
 </p>
 
+对CKKS SIMD编码特征的一些解读
+1. CKKS-SIMD沟通的是浮点型向量和整型多项式，也就是CKKS-SIMD的目的是将浮点型向量编码成整型多项式
+2. CKKS明文多项式的度为N，CKKS-SIMD只能编码N/2个数，而不是像BFV那样可以编码N个数
+3. CKKS的编码是近似的，存在误差的，即 $\{m(\xi^i)\}_{i=1,3,\cdots,N-1}\approx \Delta(z_0,\cdots,z_{N/2})=\Delta\cdot \mathbf{z}$
+
