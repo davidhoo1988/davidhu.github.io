@@ -65,7 +65,7 @@ $$RLWE(m)\overset{\underset{\mathrm{def}}{}}{=}(a,as+e+\lfloor q/t\rfloor\cdot m
 
 接着考虑 $$\frac{t}{q}\sum_i\mathbf{ct_i}[i]x^i=(1-\frac{t}{q}r)\Delta m_0m_1+(1-\frac{t}{q}r)(m_0e_1+m_1e_0)+\frac{t}{q}e_0e_1=\Delta m_0m_1+noise$$, 更进一步分析噪声分量有 $noise\approx m_0e_1+m_1e_0+rm_0m_1\sim \mathcal{N}(0, 2n\cdot t^2\sigma^2)$。
 
-综上所述，同态乘法的总噪声分布方差上限一定是一个小数目，具体数值为$n\cdot \sigma_s^2\cdot \frac{1}{12}+n\cdot \sigma_s^4\cdot \frac{1}{12}+2n\cdot t^2\sigma^2$ 。
+综上所述，同态乘法的总噪声分布方差上限一定是一个小数目，具体数值为$n\cdot \sigma_s^2\cdot \frac{1}{12}+n\cdot 2\sigma_s^4\cdot \frac{1}{12}+2n\cdot t^2\sigma^2$ 。
 
 现在讨论第二个问题 re-linearization, 即给定三维的密文向量，如何同态地约减到二维：
  <p align="center">
@@ -111,7 +111,7 @@ NTT是一个线性运算，容易得到NTT的逆运算使得 <img src="https://l
 <img src="https://latex.codecogs.com/svg.image?\{m(\zeta^i)\}_{i=1,3,\cdots,2n-1}\xrightarrow[]{Encode/NNT^{-1}}&space;m(X)\in&space;R_q" title="https://latex.codecogs.com/svg.image?\{m(\zeta^i)\}_{i=1,3,\cdots,2n-1}\xrightarrow[]{Encode/NNT^{-1}} m(X)\in R_q" />
 </p>
 
-注意NTT蕴含了一个同构：两个换上多项式加法和乘法对应于NTT向量的对应点加法(component-wise addition)和对应点乘法(component-wise multiplication),即
+注意NTT蕴含了一个同构：两个环上多项式加法和乘法对应于NTT向量的对应点加法(component-wise addition)和对应点乘法(component-wise multiplication),即
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?m_0(X)&plus;m_1(X)\overset{NTT(\cdot)}{\longleftrightarrow}&space;(m_0(\zeta)&plus;m_1(\zeta),\cdots,m_0(\zeta^{2n-1})&plus;m_1(\zeta^{2n-1}))" title="https://latex.codecogs.com/svg.image?m_0(X)+m_1(X)\overset{NTT(\cdot)}{\longleftrightarrow} (m_0(\zeta)+m_1(\zeta),\cdots,m_0(\zeta^{2n-1})+m_1(\zeta^{2n-1}))" />
 
