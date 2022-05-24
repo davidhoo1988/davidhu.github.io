@@ -37,9 +37,8 @@ $$RLWE(m)\overset{\underset{\mathrm{def}}{}}{=}(a,as+e+\lfloor q/t\rfloor\cdot m
 <img src="https://latex.codecogs.com/svg.image?\mathbf{ct_{\times}}\overset{\underset{\mathrm{def}}{}}{=}\mathbf{ct_0}\times&space;\mathbf{ct_1}=(\mathbf{ct_0}[0]\cdot&space;\mathbf{ct_1}[0],&space;\mathbf{ct_0}[0]\cdot&space;\mathbf{ct_1}[1]&plus;\mathbf{ct_0}[1]\cdot&space;\mathbf{ct_1}[0],\mathbf{ct_0}[1]\cdot&space;\mathbf{ct_1}[1])" title="https://latex.codecogs.com/svg.image?\mathbf{ct_{\times}}\overset{\underset{\mathrm{def}}{}}{=}\mathbf{ct_0}\times \mathbf{ct_1}=(\mathbf{ct_0}[0]\cdot \mathbf{ct_1}[0], \mathbf{ct_0}[0]\cdot \mathbf{ct_1}[1]+\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[0],\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[1])" />
 </p>
 这个乘法定义借助多项式乘法就很好理解: 
-<p align="center">
-<img src="https://latex.codecogs.com/svg.image?\mathbf{ct_0}\times&space;\mathbf{ct_1}=(\mathbf{ct_0}[0]&plus;\mathbf{ct_0}[1]x)\cdot&space;(\mathbf{ct_1}[0]&plus;\mathbf{ct_1}[1]x)&space;=&space;\mathbf{ct_0}[0]\cdot&space;\mathbf{ct_1}[0]&plus;(\mathbf{ct_0}[0]\cdot&space;\mathbf{ct_1}[1]&plus;\mathbf{ct_0}[1]\cdot&space;\mathbf{ct_1}[0])x&plus;\mathbf{ct_0}[1]\cdot&space;\mathbf{ct_1}[1]x^2" title="https://latex.codecogs.com/svg.image?\mathbf{ct_0}\times \mathbf{ct_1}=(\mathbf{ct_0}[0]+\mathbf{ct_0}[1]x)\cdot (\mathbf{ct_1}[0]+\mathbf{ct_1}[1]x) = \mathbf{ct_0}[0]\cdot \mathbf{ct_1}[0]+(\mathbf{ct_0}[0]\cdot \mathbf{ct_1}[1]+\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[0])x+\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[1]x^2" />
-</p>
+$$\mathbf{ct_0}\times \mathbf{ct_1}=(\mathbf{ct_0}[0]+\mathbf{ct_0}[1]x)\cdot (\mathbf{ct_1}[0]+\mathbf{ct_1}[1]x) = \mathbf{ct_0}[0]\cdot \mathbf{ct_1}[0]+(\mathbf{ct_0}[0]\cdot \mathbf{ct_1}[1]+\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[0])x+\mathbf{ct_0}[1]\cdot \mathbf{ct_1}[1]x^2$$
+
 也就是说，BFV同态乘法的结果就是取相应密文多项式乘法结果的系数。
 
 现在，有两个新问题要解决
@@ -47,14 +46,11 @@ $$RLWE(m)\overset{\underset{\mathrm{def}}{}}{=}(a,as+e+\lfloor q/t\rfloor\cdot m
 2. 和BGV乘法类似的情况，需要做key-switch将三维的密文向量降到二维。
 
 先讨论第一个问题。具体地，对BFV乘法结果解密得到 
-<p align="center">
-<img src="https://latex.codecogs.com/svg.image?(\mathbf{ct_0}[0]&plus;\mathbf{ct_0}[1]s)\cdot&space;(\mathbf{ct_1}[0]&plus;\mathbf{ct_1}[1]s)=(\Delta&space;m_0&plus;noise_0)\cdot&space;(\Delta&space;m_1&plus;noise_1)=\Delta^2m_0m_1&plus;\Delta(m_0noise_1&plus;m_1noise_0)&plus;noise_0\cdot&space;noise_1" title="https://latex.codecogs.com/svg.image?(\mathbf{ct_0}[0]+\mathbf{ct_0}[1]s)\cdot (\mathbf{ct_1}[0]+\mathbf{ct_1}[1]s)=(\Delta m_0+noise_0)\cdot (\Delta m_1+noise_1)=\Delta^2m_0m_1+\Delta(m_0noise_1+m_1noise_0)+noise_0\cdot noise_1" />
-</p>
+$$(\mathbf{ct_0}[0]+\mathbf{ct_0}[1]s)\cdot (\mathbf{ct_1}[0]+\mathbf{ct_1}[1]s)=(\Delta m_0+noise_0)\cdot (\Delta m_1+noise_1)=\Delta^2m_0m_1+\Delta(m_0noise_1+m_1noise_0)+noise_0\cdot noise_1$$
+
 <div>那么对密文向量做‘rounding/rescale’(类似于Mod-Switch)就可以化简得到 <img src="https://latex.codecogs.com/svg.image?\Delta&space;m_0m_1&plus;noise'" title="https://latex.codecogs.com/svg.image?\Delta m_0m_1+noise'" /> 。具体地，定义rounding/rescale 操作如下:</div>
 
-<p align="center">
-<img src="https://latex.codecogs.com/svg.image?Rescale(\mathbf{ct_{\times}})\overset{\underset{\mathrm{def}}{}}{=}(\lfloor&space;\frac{t}{q}\cdot\mathbf{ct_{\times}}[0]\rceil,&space;\lfloor&space;\frac{t}{q}\cdot\mathbf{ct_{\times}}[1]\rceil,&space;\lfloor&space;\frac{t}{q}\cdot\mathbf{ct_{\times}}[2]\rceil)" title="https://latex.codecogs.com/svg.image?Rescale(\mathbf{ct_{\times}})\overset{\underset{\mathrm{def}}{}}{=}(\lfloor \frac{t}{q}\cdot\mathbf{ct_{\times}}[0]\rceil, \lfloor \frac{t}{q}\cdot\mathbf{ct_{\times}}[1]\rceil, \lfloor \frac{t}{q}\cdot\mathbf{ct_{\times}}[2]\rceil)" />
-</p>
+$$Rescale(\mathbf{ct_{\times}})\overset{\underset{\mathrm{def}}{}}{=}(\lfloor \frac{t}{q}\cdot\mathbf{ct_{\times}}[0]\rceil, \lfloor \frac{t}{q}\cdot\mathbf{ct_{\times}}[1]\rceil, \lfloor \frac{t}{q}\cdot\mathbf{ct_{\times}}[2]\rceil)$$
 
 引理：<img src="https://latex.codecogs.com/svg.image?RLWE.Decrypt(rescale(\mathbf{ct_{\times}}))=\Delta\cdot&space;m_0m_1&plus;noise" title="https://latex.codecogs.com/svg.image?RLWE.Decrypt(rescale(\mathbf{ct_{\times}}))=\Delta\cdot m_0m_1+noise" />
 
