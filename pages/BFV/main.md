@@ -58,12 +58,14 @@ $$RLWE(m)\overset{\underset{\mathrm{def}}{}}{=}(a,as+e+\lfloor q/t\rfloor\cdot m
 
 引理：<img src="https://latex.codecogs.com/svg.image?RLWE.Decrypt(rescale(\mathbf{ct_{\times}}))=\Delta\cdot&space;m_0m_1&plus;noise" title="https://latex.codecogs.com/svg.image?RLWE.Decrypt(rescale(\mathbf{ct_{\times}}))=\Delta\cdot m_0m_1+noise" />
 
-证明：首先我们有 $\sum_{i=0}^{2}\lfloor\frac{t}{q}\cdot\mathbf{ct_{\times}}[i]x^i\rceil=\frac{t}{q}\sum_i \mathbf{ct_{\times}}[i]x^i+\sum_ir_ix^i\approx \frac{t}{q}\sum_i \mathbf{ct_{\times}}[i]x^i$, 这里 $r_i\sim Unif(-1/2,1/2)$。令 $s\sim \mathcal{N}(0,\sigma_s^2)$， 特别注意有 $\sum_i r_is^i\sim \mathcal{N}(0, \frac{1}{12}+ n\cdot \sigma_s^2\cdot \frac{1}{12}+2n\cdot \sigma_s^4\cdot \frac{1}{12})$。
+证明：首先我们有 $$\sum_{i=0}^{2} \lfloor\frac{t}{q}\cdot\mathbf{ct_{\times}}[i]x^i\rceil=\frac{t}{q}\sum_i \mathbf{ct_{\times}}[i]x^i+\sum_ir_ix^i\approx \frac{t}{q}\sum_i \mathbf{ct_{\times}}[i]x^i$$
+这里 $r_i\sim Unif(-1/2,1/2)$。令 $s\sim \mathcal{N}(0,\sigma_s^2)$， 特别注意有 $\sum_i r_is^i\sim \mathcal{N}(0, \frac{1}{12}+ n\cdot \sigma_s^2\cdot \frac{1}{12}+2n\cdot \sigma_s^4\cdot \frac{1}{12})$。
 
 
 
-接着考虑 <img src="https://latex.codecogs.com/svg.image?\frac{t}{q}\sum_i\mathbf{ct_i}[i]x^i=(1-\frac{t}{q}r)\Delta&space;m_0m_1&plus;(1-\frac{t}{q}r)(m_0e_1&plus;m_1e_0)&plus;\frac{t}{q}e_0e_1=\Delta&space;m_0m_1&plus;noise" title="https://latex.codecogs.com/svg.image?\frac{t}{q}\sum_i\mathbf{ct_i}[i]x^i=(1-\frac{t}{q}r)\Delta m_0m_1+(1-\frac{t}{q}r)(m_0e_1+m_1e_0)+\frac{t}{q}e_0e_1=\Delta m_0m_1+noise" />, 更进一步分析噪声分量有 <img src="https://latex.codecogs.com/svg.image?noise\approx&space;m_0e_1&plus;m_1e_0&plus;rm_0m_1\sim&space;(0,&space;2n\cdot&space;t^2\sigma^2)" title="https://latex.codecogs.com/svg.image?noise\approx m_0e_1+m_1e_0+rm_0m_1\sim (0, 2n\cdot t^2\sigma^2)" /> 
-综上所述，总噪声的分布方差上限一定是一个小数目，具体数值为 <img src="https://latex.codecogs.com/svg.image?n\cdot&space;\sigma_s^2\cdot&space;\frac{1}{12}&plus;n\cdot&space;\sigma_s^4\cdot&space;\frac{1}{12}&plus;2n\cdot&space;t^2\sigma^2" title="https://latex.codecogs.com/svg.image?n\cdot \sigma_s^2\cdot \frac{1}{12}+n\cdot \sigma_s^4\cdot \frac{1}{12}+2n\cdot t^2\sigma^2" /> 。
+接着考虑 $$\frac{t}{q}\sum_i\mathbf{ct_i}[i]x^i=(1-\frac{t}{q}r)\Delta m_0m_1+(1-\frac{t}{q}r)(m_0e_1+m_1e_0)+\frac{t}{q}e_0e_1=\Delta m_0m_1+noise$$, 更进一步分析噪声分量有 $noise\approx m_0e_1+m_1e_0+rm_0m_1\sim \mathcal{N}(0, 2n\cdot t^2\sigma^2)$。
+
+综上所述，同态乘法的总噪声分布方差上限一定是一个小数目，具体数值为$n\cdot \sigma_s^2\cdot \frac{1}{12}+n\cdot \sigma_s^4\cdot \frac{1}{12}+2n\cdot t^2\sigma^2$ 。
 
 现在讨论第二个问题 re-linearization, 即给定三维的密文向量，如何同态地约减到二维：
  <p align="center">
