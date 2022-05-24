@@ -110,7 +110,7 @@ NTT是一个线性运算，容易得到NTT的逆运算使得 <img src="https://l
 换句话说利用SIMD编码，单次FHE的加/乘运算相当于对明文向量做对应点加法/乘法（同时做n次模p加/乘法）， 这也是SIMD原本的含义。
 
 最后给出SIMD编解码的一个python例子程序演示这小结的内容。
-<details><summary>CLICK ME</summary>
+<details><summary>点击这里展示代码</summary>
 <p>
 	
 ```python
