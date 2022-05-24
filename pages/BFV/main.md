@@ -302,6 +302,5 @@ if __name__ == "__main__":
 	print (m0_poly)
 ```
 
-## 比较[BFV_encode.txt](https://github.com/davidhoo1988/davidhu.github.io/files/8760168/BFV_encode.txt)
-BFV和BGV
+## 比较BFV和BGV
 
