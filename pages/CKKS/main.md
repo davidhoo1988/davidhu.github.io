@@ -28,7 +28,7 @@ CKKS论文解决这个问题的思路是利用rounding，rounding造成的额外
 2. 对多项式m'(X)做rounding输出最终的整型多项式m(X), 即 <img src="https://latex.codecogs.com/svg.image?m(X)\overset{\underset{\mathrm{def}}{}}{=}\lfloor\Delta&space;\cdot&space;&space;m'(X)\rceil&space;~s.t.~&space;m(\xi^{2i&plus;1})\approx&space;\Delta&space;z_i" title="https://latex.codecogs.com/svg.image?m(X)\overset{\underset{\mathrm{def}}{}}{=}\lfloor\Delta \cdot m'(X)\rceil ~s.t.~ m(\xi^{2i+1})\approx \Delta z_i" /> 。
 
 对encoding的一些解读：
-1. 注意到第一步中使用 <img src="https://latex.codecogs.com/svg.image?\pi^{-1}(\cdot)" title="https://latex.codecogs.com/svg.image?\pi^{-1}(\cdot)" /> 扩展明文多项式，这是因为FFT计算的共轭对称性特决定的。
+1. 注意到第一步中使用 <img src="https://latex.codecogs.com/svg.image?\pi^{-1}(\cdot)" title="https://latex.codecogs.com/svg.image?\pi^{-1}(\cdot)" /> 扩展明文多项式，这是因为FFT计算的共轭对称性特决定的,即 <img src="https://latex.codecogs.com/svg.image?m'(\xi^{2i&plus;1})=conjugate(m'(\xi^{2(N-1-i)&plus;1}))" title="https://latex.codecogs.com/svg.image?m'(\xi^{2i+1})=conjugate(m'(\xi^{2(N-1-i)+1}))" /> 。
 2. 
 
 最后给出SIMD编解码的一个python例子程序演示这小结的内容。
