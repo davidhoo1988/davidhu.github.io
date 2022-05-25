@@ -31,4 +31,73 @@ CKKS论文解决这个问题的思路是利用rounding，rounding造成的额外
 1. 注意到第一步中使用 <img src="https://latex.codecogs.com/svg.image?\pi^{-1}(\cdot)" title="https://latex.codecogs.com/svg.image?\pi^{-1}(\cdot)" /> 扩展明文多项式，这是因为FFT计算的共轭对称性特决定的,即 <img src="https://latex.codecogs.com/svg.image?m'(\xi^{2i&plus;1})=conjugate(m'(\xi^{2(N-1-i)&plus;1}))" title="https://latex.codecogs.com/svg.image?m'(\xi^{2i+1})=conjugate(m'(\xi^{2(N-1-i)+1}))" /> 。
 2. 第二步的rounding存在这样的关系式：<img src="https://latex.codecogs.com/svg.image?m(X)=\Delta\cdot&space;m'(X)&plus;r(X)&space;~with~&space;r(X)\sim&space;Unif(-\frac{1}{2},\frac{1}{2})" title="https://latex.codecogs.com/svg.image?m(X)=\Delta\cdot m'(X)+r(X) ~with~ r(X)\sim Unif(-\frac{1}{2},\frac{1}{2})" />，将r(X)视为RLWE Error的一部分。
 
-最后给出SIMD编解码的一个python例子程序演示这小结的内容。
+最后给出SIMD编解码的一个python例子程序（需要在[SageMath](https://www.sagemath.org/)中运行）演示这小结的内容。
+
+<details><summary>点击这里展示代码</summary>
+<p>
+  ```python
+# -*- coding: utf-8 -*-
+  reset() # clear all variables
+
+R = PolynomialRing(CC, 'x')
+M = 8
+N = M/2
+Delta = 1024
+
+###############################################################
+# the encoding&decoding method used in the original CKKS paper
+# evaluate at the 2N-th primitive roots of X^N + 1 (N roots in total)
+###############################################################
+
+root1 = exp(-2*pi*i/8)
+root3 = exp(-2*pi*i*3/8)
+root5 = exp(-2*pi*i*5/8)
+root7 = exp(-2*pi*i*7/8)
+root = [root1, root3, root5, root7]
+
+# z = [3-4*i,2+i,2-i,3+4*i]
+z = [3.14, 2.718, 2.718, 3.14]
+
+# Lagrange interpolate the polynomial testpoly, i.e., the mapping sigma^{-1}
+# testpoly = R.lagrange_polynomial([(root1,z[0]),(root3,z[1]),(root5,z[2]),(root7,z[3])]); 
+sigma = Matrix([[root[0]^0,root[0]^1,root[0]^2,root[0]^3], [root[1]^0,root[1]^1,root[1]^2,root[1]^3], [root[2]^0,root[2]^1,root[2]^2,root[2]^3], [root[3]^0,root[3]^1,root[3]^2,root[3]^3]])
+sigma_inv = sigma.inverse()
+m1_vec = sigma_inv*Matrix(z).transpose()
+m1_list = m1_vec.list()
+m1_list = [m1_list[i].real_part() for i in range(len(m1_list))]
+testpoly = R(m1_list) 
+
+# Multiplied by Delta
+m = Delta*testpoly
+
+# Rounding a real-number polynomial to integer polynomial over R
+m_list = m.list()
+for i in range(len(m_list)):
+	m_list[i] = ZZ(round(m_list[i].real_part()))
+m = R(m_list)
+######Encoding function ends######
+
+######Decoding function begins######
+# multiplied by 1/Delta
+testpoly = m/Delta
+
+# evaluate testpoly at roots of unity, i.e., the mapping sigma
+zz = [0]*4
+for i in range(len(zz)):
+	zz[i] = CC(testpoly(x=root[i]))
+
+
+######Decoding function ends######
+
+print ("input vector before encoding: ")
+print (z)
+
+print ("output vector after encoding")
+print (zz)
+
+print ("difference between before-encoding and after-encoding")
+print ([z[i] - zz[i] for i in range(len(z))])
+  ```	 
+  
+</p>
+</details>
