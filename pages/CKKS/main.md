@@ -21,3 +21,5 @@ $$(z_0,\cdots,z_{\frac{N}{2}-1})\overset{\pi^{-1}(\cdot)}{\longrightarrow} (z_0,
 $\sigma^{-1}(\cdot)$本质上是做一次类似FFT的操作，使得 $m'(\xi^{2i+1})=z_{i}$ 这里$\xi=e^{\frac{2\pi j}{2N}} \text{ is a 2N-th primitive root of unity }$
 
 注意这里会碰到一个问题：$\sigma^{-1}(\cdot)$将一个定义在复数上的向量变换成一个定义在实数上的多项式，而CKKS的基本操作对象是定义在整数上的多项式，因此不能直接操作$\sigma^{-1}(\cdot)$编码后得到的实数多项式，需要提出额外的方法来解决这个问题。
+
+最后给出SIMD编解码的一个python例子程序演示这小结的内容。
