@@ -56,6 +56,7 @@ root5 = exp(-2*pi*i*5/8)
 root7 = exp(-2*pi*i*7/8)
 root = [root1, root3, root5, root7]
 
+# apply pi_inverse transform to keep conjugation preserved
 # z = [3-4*i,2+i,2-i,3+4*i]
 z = [3.14, 2.718, 2.718, 3.14]
 
