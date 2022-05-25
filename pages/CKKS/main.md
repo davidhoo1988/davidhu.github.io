@@ -35,7 +35,8 @@ CKKS论文解决这个问题的思路是利用rounding，rounding造成的额外
 
 <details><summary>点击这里展示代码</summary>
 <p>
-  ```python
+	
+```python
 # -*- coding: utf-8 -*-
   reset() # clear all variables
 
