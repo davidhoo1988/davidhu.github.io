@@ -23,9 +23,9 @@ $\sigma^{-1}(\cdot)$本质上是做一次类似FFT的操作，使得 $m'(\xi^{2i
 注意这里会碰到一个问题：$\sigma^{-1}(\cdot)$将一个定义在复数上的向量变换成一个定义在实数上的多项式，而CKKS的基本操作对象是定义在整数上的多项式，因此不能直接操作$\sigma^{-1}(\cdot)$编码后得到的实数多项式，需要提出额外的方法来解决这个问题。
 
 CKKS论文解决这个问题的思路是利用rounding，rounding造成的额外误差可以视作RLWE密文噪声的一部分，只要噪声幅度控制合适，就不会影响编码和加解密的正确性。
-编码算法分两步进行：$\mathbf{z}\in \mathbb{C}^{\frac{N}{2}}$
-1. 对明文向量做一次FFT逆运算得到多项式m'(x)，<img src="https://latex.codecogs.com/svg.image?\mathbf{z}\in&space;\mathbb{C}^{\frac{N}{2}}\overset{\pi^{-1}}{\longrightarrow}\mathbf{z'}\in&space;\mathbb{C}^{N}\overset{\sigma^{-1}}{\longrightarrow}&space;m'(X)&space;~s.t.~&space;m'(\xi^{2i&plus;1})=z_i" title="https://latex.codecogs.com/svg.image?\mathbf{z}\in \mathbb{C}^{\frac{N}{2}}\overset{\pi^{-1}}{\longrightarrow}\mathbf{z'}\in \mathbb{C}^{N}\overset{\sigma^{-1}}{\longrightarrow} m'(X) ~s.t.~ m'(\xi^{2i+1})=z_i" />
-2. 
+编码算法分两步进行：
+1. 对明文向量做一次FFT逆运算得到多项式m'(X)，<img src="https://latex.codecogs.com/svg.image?\mathbf{z}\in&space;\mathbb{C}^{\frac{N}{2}}\overset{\pi^{-1}}{\longrightarrow}\mathbf{z'}\in&space;\mathbb{C}^{N}\overset{\sigma^{-1}}{\longrightarrow}&space;m'(X)&space;~s.t.~&space;m'(\xi^{2i&plus;1})=z_i" title="https://latex.codecogs.com/svg.image?\mathbf{z}\in \mathbb{C}^{\frac{N}{2}}\overset{\pi^{-1}}{\longrightarrow}\mathbf{z'}\in \mathbb{C}^{N}\overset{\sigma^{-1}}{\longrightarrow} m'(X) ~s.t.~ m'(\xi^{2i+1})=z_i" />
+2. 对多项式m'(X)做rounding输出最终的整型多项式m(X), 即 <img src="https://latex.codecogs.com/svg.image?m(X)\overset{\underset{\mathrm{def}}{}}{=}\lfloor\Delta&space;\cdot&space;&space;m'(X)\rceil&space;~s.t.~&space;m(\xi^{2i&plus;1})\approx&space;\Delta&space;z_i" title="https://latex.codecogs.com/svg.image?m(X)\overset{\underset{\mathrm{def}}{}}{=}\lfloor\Delta \cdot m'(X)\rceil ~s.t.~ m(\xi^{2i+1})\approx \Delta z_i" /> 。
 
 
 最后给出SIMD编解码的一个python例子程序演示这小结的内容。
