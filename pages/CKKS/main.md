@@ -27,5 +27,8 @@ CKKS论文解决这个问题的思路是利用rounding，rounding造成的额外
 1. 对明文向量做一次FFT逆运算得到多项式m'(X)，<img src="https://latex.codecogs.com/svg.image?\mathbf{z}\in&space;\mathbb{C}^{\frac{N}{2}}\overset{\pi^{-1}}{\longrightarrow}\mathbf{z'}\in&space;\mathbb{C}^{N}\overset{\sigma^{-1}}{\longrightarrow}&space;m'(X)&space;~s.t.~&space;m'(\xi^{2i&plus;1})=z_i" title="https://latex.codecogs.com/svg.image?\mathbf{z}\in \mathbb{C}^{\frac{N}{2}}\overset{\pi^{-1}}{\longrightarrow}\mathbf{z'}\in \mathbb{C}^{N}\overset{\sigma^{-1}}{\longrightarrow} m'(X) ~s.t.~ m'(\xi^{2i+1})=z_i" />
 2. 对多项式m'(X)做rounding输出最终的整型多项式m(X), 即 <img src="https://latex.codecogs.com/svg.image?m(X)\overset{\underset{\mathrm{def}}{}}{=}\lfloor\Delta&space;\cdot&space;&space;m'(X)\rceil&space;~s.t.~&space;m(\xi^{2i&plus;1})\approx&space;\Delta&space;z_i" title="https://latex.codecogs.com/svg.image?m(X)\overset{\underset{\mathrm{def}}{}}{=}\lfloor\Delta \cdot m'(X)\rceil ~s.t.~ m(\xi^{2i+1})\approx \Delta z_i" /> 。
 
+对encoding的一些解读：
+1. 注意到第一步中使用 <img src="https://latex.codecogs.com/svg.image?\pi^{-1}(\cdot)" title="https://latex.codecogs.com/svg.image?\pi^{-1}(\cdot)" /> 扩展明文多项式，这是因为FFT的计算特点决定的。
+2. 
 
 最后给出SIMD编解码的一个python例子程序演示这小结的内容。
