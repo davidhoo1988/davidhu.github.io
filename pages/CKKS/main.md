@@ -107,9 +107,12 @@ print ([z[i] - zz[i] for i in range(len(z))])
 
 ## CKKS 密钥生成和加解密
 
+密钥生成和加解密算法如下：
 <p align="center">
   <img src="fig/CKKS_encrypt.png" alt="animated"/>
 </p>
-
+一些解读
+1. 密钥生成器KeyGen输出的pk其实是RLWE(0); 另外同态乘法需要额外的re-linearization操作。该操作需要生成evk(rlk)，可以简单理解成对s平方的加密，即 <img src="https://latex.codecogs.com/svg.image?RLWE_s(s^2)" title="https://latex.codecogs.com/svg.image?RLWE_s(s^2)" /> 。
+2. 
 
 ## CKKS 同态运算
