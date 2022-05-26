@@ -112,7 +112,9 @@ print ([z[i] - zz[i] for i in range(len(z))])
   <img src="fig/CKKS_encrypt.png" alt="animated"/>
 </p>
 一些解读
-1. <div>密钥生成器KeyGen输出的pk其实是RLWE(0); 另外同态乘法需要额外的re-linearization操作。该操作需要生成evk(rlk)，可以简单理解成对s平方的加密，即 <img src="https://latex.codecogs.com/svg.image?RLWE_s(s^2)" title="https://latex.codecogs.com/svg.image?RLWE_s(s^2)" /> 。</div>
+<div>
+1. 密钥生成器KeyGen输出的pk其实是RLWE(0); 另外同态乘法需要额外的re-linearization操作。该操作需要生成evk(rlk)，可以简单理解成对s平方的加密，即 <img src="https://latex.codecogs.com/svg.image?RLWE_s(s^2)" title="https://latex.codecogs.com/svg.image?RLWE_s(s^2)" /> 。
 2. Ecd部分没什么好说的，已经在上一小节介绍； Dcd做的实际上是 <img src="https://latex.codecogs.com/svg.image?\Delta^{-1}\cdot&space;m(\xi_M^j)=\Delta^{-1}\cdot&space;(\Delta&space;m'(\xi_M^j)&plus;r(\xi_M^j))=m'(\xi_M^j)&plus;\Delta^{-1}r(\xi_M^j)" title="https://latex.codecogs.com/svg.image?\Delta^{-1}\cdot m(\xi_M^j)=\Delta^{-1}\cdot (\Delta m'(\xi_M^j)+r(\xi_M^j))=m'(\xi_M^j)+\Delta^{-1}r(\xi_M^j)" />, 容易知道 <img src="https://latex.codecogs.com/svg.image?\Delta^{-1}r(\xi_M^j)\sim&space;\mathcal{N}(0,\frac{N\sigma^2}{12\Delta^2})" title="https://latex.codecogs.com/svg.image?\Delta^{-1}r(\xi_M^j)\sim \mathcal{N}(0,\frac{N\sigma^2}{12\Delta^2})" />, 通过合理设置参数使得 <img src="https://latex.codecogs.com/svg.image?\Delta^{-1}r(\xi_M^j)" title="https://latex.codecogs.com/svg.image?\Delta^{-1}r(\xi_M^j)" /> 非常小，从而保证 <img src="https://latex.codecogs.com/svg.image?m(\xi_M^j)&plus;\Delta^{-1}r(\xi_M^j)\approx&space;m(\xi_M^j)" title="https://latex.codecogs.com/svg.image?m(\xi_M^j)+\Delta^{-1}r(\xi_M^j)\approx m(\xi_M^j)" /> 。
+</div>
 
 ## CKKS 同态运算
