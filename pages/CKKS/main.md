@@ -107,4 +107,9 @@ print ([z[i] - zz[i] for i in range(len(z))])
 
 ## CKKS 密钥生成和加解密
 
+<p align="center">
+  <img src="fig/CKKS_encrypt.png" alt="animated"/>
+</p>
+
+
 ## CKKS 同态运算
