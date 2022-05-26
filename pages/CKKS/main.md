@@ -30,6 +30,7 @@ CKKS论文解决这个问题的思路是利用rounding，rounding造成的额外
 对encoding的一些解读：
 1. 注意到第一步中使用 <img src="https://latex.codecogs.com/svg.image?\pi^{-1}(\cdot)" title="https://latex.codecogs.com/svg.image?\pi^{-1}(\cdot)" /> 扩展明文多项式，这是因为FFT计算的共轭对称性特决定的,即 <img src="https://latex.codecogs.com/svg.image?m'(\xi^{2i&plus;1})=conjugate(m'(\xi^{2(N-1-i)&plus;1}))" title="https://latex.codecogs.com/svg.image?m'(\xi^{2i+1})=conjugate(m'(\xi^{2(N-1-i)+1}))" /> 。
 2. 第二步的rounding存在这样的关系式：<img src="https://latex.codecogs.com/svg.image?m(X)=\Delta\cdot&space;m'(X)&plus;r(X)&space;~with~&space;r(X)\sim&space;Unif(-\frac{1}{2},\frac{1}{2})" title="https://latex.codecogs.com/svg.image?m(X)=\Delta\cdot m'(X)+r(X) ~with~ r(X)\sim Unif(-\frac{1}{2},\frac{1}{2})" />，将r(X)视为RLWE Error的一部分。
+3. $\Delta$的目的主要是保持编码的精度。比如$\Delta=1024$意味着输入明文的高10bit位是精确的，其他低位因为rounding操作被截取，因此低位部分是不精确的。
 
 最后给出SIMD编解码的一个python例子程序（需要在[SageMath](https://www.sagemath.org/)中运行）演示这小结的内容。
 
