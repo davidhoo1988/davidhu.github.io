@@ -111,7 +111,8 @@ print ([z[i] - zz[i] for i in range(len(z))])
 <p align="center">
   <img src="fig/CKKS_encrypt.png" alt="animated"/>
 </p>
-一些解读
+
+对密钥生成和加解密的一些解读
 <div>
 1. 密钥生成器KeyGen输出的pk其实是RLWE(0); 另外同态乘法需要额外的re-linearization操作。该操作需要生成evk(rlk)，可以简单理解成对s平方的加密，即 <img src="https://latex.codecogs.com/svg.image?RLWE_s(s^2)" title="https://latex.codecogs.com/svg.image?RLWE_s(s^2)" /> 。</div>
 <div>
@@ -127,4 +128,11 @@ CKKS的主要同态操作包括加法，乘法，缩放(rescale), 和循环移�
   <img src="fig/CKKS_homo_op2.PNG" alt="animated"/>
 </p>
 
+对同态运算的一些解读
+<div>
+1. 同态加法和BFV加法一致，都是对应密文向量加法。
+</div>
+<div>
+2. 同态乘法和BFV乘法一致，这里用的是BFV的第二种重线性化方法，即。
+</div>
 
