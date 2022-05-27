@@ -135,8 +135,9 @@ CKKS的主要同态操作包括加法，乘法，缩放(rescale), 和循环移�
 <div>
 2. 同态乘法和BFV乘法一致，这里用的是BFV的第二种重线性化方法，即 <img src="https://latex.codecogs.com/svg.image?d_2\cdot&space;evk&space;=&space;RLWE_{s}^{Pq_{\ell}}(Ps^2\cdot&space;d_2)\overset{Mod-Switch}{\longrightarrow}&space;RLWE_s^{q_\ell}(s^2\cdot&space;d_2)" title="https://latex.codecogs.com/svg.image?d_2\cdot evk = RLWE_{s}^{Pq_{\ell}}(Ps^2\cdot d_2)\overset{Mod-Switch}{\longrightarrow} RLWE_s^{q_\ell}(s^2\cdot d_2)" /> 。
 </div>
-
-3. rescale是CKKS的一个独有的同态操作，其本质就是Mod-Switch。但是在CKKS里它有独特的意义：
+<div>
+3. rescale是CKKS的一个独有的同态操作，其本质就是Mod-Switch。但是在CKKS里它有独特的意义：<img src="https://latex.codecogs.com/svg.image?RLWE_s(m_1\cdot&space;m_2)=RLWE_s(\lfloor\Delta&space;m'_1\rceil\cdot&space;\lfloor\Delta&space;m'_2\rceil)\overset{Rescale(\cdot)}{\longrightarrow}&space;RLWE_s(\lfloor\Delta&space;m'_1m'_2\rceil)" title="https://latex.codecogs.com/svg.image?RLWE_s(m_1\cdot m_2)=RLWE_s(\lfloor\Delta m'_1\rceil\cdot \lfloor\Delta m'_2\rceil)\overset{Rescale(\cdot)}{\longrightarrow} RLWE_s(\lfloor\Delta m'_1m'_2\rceil)" />
+</div>
 
 ## CKKS同态运算噪声分析
 
