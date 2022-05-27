@@ -141,4 +141,5 @@ CKKS的主要同态操作包括加法，乘法，缩放(rescale), 和循环移�
 
 ## CKKS同态运算噪声分析
 
+加法的噪声容易分析，为 $Err(\mathbf{c_{add}})\sim N(0,2\sigma_{\ell}^2)$, 这里用$\sigma_{\ell}^2$表示Level-$\ell$的密文噪声方差。
 
