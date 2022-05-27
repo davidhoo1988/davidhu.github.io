@@ -120,3 +120,5 @@ print ([z[i] - zz[i] for i in range(len(z))])
 
 
 ## CKKS 同态运算
+
+CKKS的主要同态操作包括加法，乘法，缩放(rescale), 和循环移位。
