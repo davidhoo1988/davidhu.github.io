@@ -148,3 +148,5 @@ $$Err(\lfloor \frac{d_2\cdot evk}{P}\rceil)=Err(\lfloor  P^{-1}\cdot(d_2a',d_2b'
 这里令 $r_a =\lfloor\frac{d_2a}{P}\rceil - \frac{d_2a}{P}, r_b =\lfloor\frac{d_2b}{P}\rceil - \frac{d_2b}{P}$。综合这两部分可得总噪声为:
 
 $$m_1e_2+m_2e_1+e_1e_2+\frac{d_2e'}{P}+r_as+r_b$$
+
+Rescale的噪声分析和BFV Mod-Switch的分析方法是一致的。
