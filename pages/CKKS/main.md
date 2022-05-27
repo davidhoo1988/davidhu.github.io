@@ -120,7 +120,7 @@ print ([z[i] - zz[i] for i in range(len(z))])
 
 
 
-## CKKS 同态运算
+## CKKS同态运算
 
 CKKS的主要同态操作包括加法，乘法，缩放(rescale), 和循环移位。
 <p align="center">
@@ -137,4 +137,7 @@ CKKS的主要同态操作包括加法，乘法，缩放(rescale), 和循环移�
 </div>
 
 3. rescale是CKKS的一个独有的同态操作，其本质就是Mod-Switch。但是在CKKS里它有独特的意义：
+
+## CKKS同态运算噪声分析
+
 
