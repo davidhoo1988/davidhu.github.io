@@ -123,8 +123,8 @@ print ([z[i] - zz[i] for i in range(len(z))])
 
 CKKS的主要同态操作包括加法，乘法，缩放(rescale), 和循环移位。
 <p align="center">
-  <img src="fig/CKKS_homo_op.png" alt="animated"/>
-  <img src="fig/CKKS_homo_op2.png" alt="animated"/>
+  <img src="fig/CKKS_homo_op.PNG" alt="animated"/>
+  <img src="fig/CKKS_homo_op2.PNG" alt="animated"/>
 </p>
 
 
