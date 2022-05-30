@@ -6,7 +6,8 @@ CKKS区别于BFV最突出的地方就在于SIMD编码。BFV利用SIMD加密的�
 首先了解若 $a(X)\in \mathbb{Z}[X]/\phi_M(X)$ 且 $\sum_{i=0}^{N-1}\xi_M^{2i}=N$, $a(\xi_M)$的概率分布：
 1. 若 <img src="https://latex.codecogs.com/svg.image?a_i\sim&space;\mathcal{N}(0,\sigma^2)&space;" title="https://latex.codecogs.com/svg.image?a_i\sim \mathcal{N}(0,\sigma^2) " />, 则 <img src="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim&space;\mathcal{N}(0,N\sigma^2)&space;" title="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim \mathcal{N}(0,N\sigma^2) " />
 2. 若 <img src="https://latex.codecogs.com/svg.image?a_i\sim&space;\mathcal{U}(-\frac{q}{2},\frac{q}{2})&space;" title="https://latex.codecogs.com/svg.image?a_i\sim \mathcal{U}(-\frac{q}{2},\frac{q}{2}) " />, 则 <img src="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim&space;\mathcal{N}(0,N\frac{q^2}{12})" title="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim \mathcal{N}(0,N\frac{q^2}{12})" />
-3. 若 <img src="https://latex.codecogs.com/svg.image?HW(a)=h" title="https://latex.codecogs.com/svg.image?HW(a)=h" />, 则 <img src="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim&space;\mathcal{N}(0,Nh)" title="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim \mathcal{N}(0,Nh)" />
+3. 若 <img src="https://latex.codecogs.com/svg.image?a_i\sim&space;\mathcal{ZO}(\rho)" title="https://latex.codecogs.com/svg.image?a_i\sim \mathcal{ZO}(\rho)" /> 则 <img src="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim&space;\mathcal{N}(0,N\rho)" title="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim \mathcal{N}(0,N\rho)" /> 
+4. 若 <img src="https://latex.codecogs.com/svg.image?HW(a)=h" title="https://latex.codecogs.com/svg.image?HW(a)=h" />, 则 <img src="https://latex.codecogs.com/svg.image?a_i\sim&space;\mathcal{ZO}(\frac{h}{N})" title="https://latex.codecogs.com/svg.image?a_i\sim \mathcal{ZO}(\frac{h}{N})" /> 因此 <img src="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim&space;\mathcal{N}(0,h)" title="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim \mathcal{N}(0,h)" /> 
 
 ### Cononical Embedding
 令 $\mathbb{Z}_M^{*}=\{x\in \mathbb{Z}_M:gcd(x,M)=1\}$, 且 $\xi_M=exp(-2\pi i/M)$， $a\in \mathbb{R}[X]/\Phi_M(X)$ 定义 $\sigma$ 变换如下
@@ -175,6 +176,6 @@ $$m_1e_2+m_2e_1+e_1e_2+\frac{d_2e'}{P}+r_as+r_b$$
 Rescale的噪声分析和BFV Mod-Switch的分析方法是一致的。注意Rescale的输入是CKKS的乘法结果，即$RLWE(m_1m_2)$， $r_1,r_2$表示rounding带来的误差。 Rescale的目的是同态地乘上$\Delta^{-1}$最终放缩到$RLWE(\Delta^{-1}m_1m_2)= RLWE(\Delta m_1'm_2'+e_{round})$，更具体地有，
 
 $$(a,as+e+m_1m_2)\overset{rescale(\cdot)}{\longrightarrow} (\lfloor\Delta^{-1}a\rceil ,\lfloor\Delta^{-1}(as+e+m_1m_2)\rceil)=(\Delta^{-1}a+r_a,\Delta^{-1}as+\Delta^{-1}e+\Delta^{-1}m_1m_2+r_b)$$
-容易分析这部分的噪声为 $\Delta^{-1}e+r_b-r_as$。
+容易分析这部分的噪声为 $\Delta^{-1}e+r_b-r_as$。借用cononical embeding norm可得 
 
 
