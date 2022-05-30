@@ -176,6 +176,6 @@ $$m_1e_2+m_2e_1+e_1e_2+\frac{d_2e'}{P}+r_as+r_b$$
 Rescale的噪声分析和BFV Mod-Switch的分析方法是一致的。注意Rescale的输入是CKKS的乘法结果，即$RLWE(m_1m_2)$， $r_1,r_2$表示rounding带来的误差。 Rescale的目的是同态地乘上$\Delta^{-1}$最终放缩到$RLWE(\Delta^{-1}m_1m_2)= RLWE(\Delta m_1'm_2'+e_{round})$，更具体地有，
 
 $$(a,as+e+m_1m_2)\overset{rescale(\cdot)}{\longrightarrow} (\lfloor\Delta^{-1}a\rceil ,\lfloor\Delta^{-1}(as+e+m_1m_2)\rceil)=(\Delta^{-1}a+r_a,\Delta^{-1}as+\Delta^{-1}e+\Delta^{-1}m_1m_2+r_b)$$
-容易分析这部分的噪声为 $\Delta^{-1}e+r_b-r_as$。借用cononical embeding norm可得 
+容易分析这部分的噪声为 $\Delta^{-1}e+r_b-r_as$。借用cononical embedding norm可得 $||\Delta^{-1}e+r_b-r_as||_{\infty}^{can}\sim \mathcal{N}(0, \frac{N}{12}+\frac{hN}{12})$
 
 
