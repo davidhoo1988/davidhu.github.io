@@ -32,6 +32,9 @@ CKKS论文解决这个问题的思路是利用rounding，rounding造成的额外
 2. 第二步的rounding存在这样的关系式：<img src="https://latex.codecogs.com/svg.image?m(X)=\Delta\cdot&space;m'(X)&plus;r(X)&space;~with~&space;r(X)\sim&space;Unif(-\frac{1}{2},\frac{1}{2})" title="https://latex.codecogs.com/svg.image?m(X)=\Delta\cdot m'(X)+r(X) ~with~ r(X)\sim Unif(-\frac{1}{2},\frac{1}{2})" />，将r(X)视为RLWE Error的一部分。
 3. $\Delta$的目的主要是保持编码的精度。比如$\Delta=1024$意味着输入明文的高10bit位是精确的，其他低位因为rounding操作被截取，因此低位部分是不精确的。
 
+类似地，可以分析decoding, 第一步先放缩得到$m(X)$, 第二部做$\sigma$和$\pi$变换恢复明文向量$\mathbf{z}$:
+$$m\overset{\Delta^{-1}}{\longrightarrow} \Delta^{-1}m=\Delta^{-1}\lfloor \Delta\cdot m'\rceil=\Delta^{-1}(\Delta m'+r)\approx m'\overset{\pi\circ\sigma}{\longrightarrow}\mathbf{z}\in \mathbb{C}^{\frac{N}{2}}$$
+
 最后给出SIMD编解码的一个python例子程序（需要在[SageMath](https://www.sagemath.org/)中运行）演示这小结的内容。
 
 <details><summary>点击这里展示代码</summary>
