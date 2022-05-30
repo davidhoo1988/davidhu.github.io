@@ -8,6 +8,10 @@ CKKS区别于BFV最突出的地方就在于SIMD编码。BFV利用SIMD加密的�
 2. 若 <img src="https://latex.codecogs.com/svg.image?a_i\sim&space;\mathcal{U}(-\frac{q}{2},\frac{q}{2})&space;" title="https://latex.codecogs.com/svg.image?a_i\sim \mathcal{U}(-\frac{q}{2},\frac{q}{2}) " />, 则 <img src="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim&space;\mathcal{N}(0,N\frac{q^2}{12})" title="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim \mathcal{N}(0,N\frac{q^2}{12})" />
 3. 若 <img src="https://latex.codecogs.com/svg.image?HW(a)=h" title="https://latex.codecogs.com/svg.image?HW(a)=h" />, 则 <img src="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim&space;\mathcal{N}(0,Nh)" title="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim \mathcal{N}(0,Nh)" />
 
+### Cononical Embedding
+令 $\mathbb{Z}_M^*=\{x\in \mathbb{Z}_M:gcd(x,M)=1\}$, 且 $\xi_M=exp(-2\pi i/M)$, $a\in \mathbb{R}[X]/\Phi_M(X)$, 定义 $\sigma$ 变换如下：
+$$\{a(\xi_M^j)\}_{j\in Z_M^*}$$
+
 ## SIMD编码
 CKKS SIMD编解码过程可以用下面表示:
 
