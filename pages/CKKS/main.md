@@ -149,4 +149,8 @@ $$Err(\lfloor \frac{d_2\cdot evk}{P}\rceil)=Err(\lfloor  P^{-1}\cdot(d_2a',d_2b'
 
 $$m_1e_2+m_2e_1+e_1e_2+\frac{d_2e'}{P}+r_as+r_b$$
 
-Rescale的噪声分析和BFV Mod-Switch的分析方法是一致的。注意Rescale的输入是CKKS的乘法结果，即$RLWE(\lfloor\Delta m_1\rceil\cdot \lfloor\Delta m_2\rceil)=RLWE(\Delta^2m_1'm_2'+\Delta(m_1'r_2+m2'r_1)+r_1r_2)$ 。 Rescale的目的是同态地乘上$\Delta^{-1}$最终放缩到$RLWE(\Delta m_1m_2)$。
+Rescale的噪声分析和BFV Mod-Switch的分析方法是一致的。注意Rescale的输入是CKKS的乘法结果，即$RLWE(\lfloor\Delta m_1\rceil\cdot \lfloor\Delta m_2\rceil)=RLWE(\Delta^2m_1'm_2'+\Delta(m_1'r_2+m2'r_1)+r_1r_2)$， $r_1,r_2$表示rounding带来的误差。 Rescale的目的是同态地乘上$\Delta^{-1}$最终放缩到$RLWE(\Delta m_1m_2)$，更具体地有，
+
+$$RLWE(\Delta^2m_1'm_2'+\Delta(m_1'r_2+m2'r_1)+r_1r_2) \overset{rescale(\cdot)}{\longrightarrow} \Delta^{-1}(\Delta^2m_1'm_2'+\Delta(m_1'r_2+m2'r_1)+r_1r_2)+e_{rescale}\approx \Delta m_1'm_2'$$
+
+
