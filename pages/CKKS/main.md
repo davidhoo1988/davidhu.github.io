@@ -3,7 +3,7 @@ CKKS区别于BFV最突出的地方就在于SIMD编码。BFV利用SIMD加密的�
 
 ## 预备知识
 ### 一些重要随机变量的方差
-首先了解若 $a(X)\in \mathbb{Z}[X]/\phi_M(X)$ 且 $\sum_{i=0}^{N-1}\xi_M^{2i}$, $a(\xi_M)$的概率分布：
+首先了解若 $a(X)\in \mathbb{Z}[X]/\phi_M(X)$ 且 $\sum_{i=0}^{N-1}\xi_M^{2i}=N$, $a(\xi_M)$的概率分布：
 1. 若 <img src="https://latex.codecogs.com/svg.image?a_i\sim&space;\mathcal{N}(0,\sigma^2)&space;" title="https://latex.codecogs.com/svg.image?a_i\sim \mathcal{N}(0,\sigma^2) " />, 则 <img src="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim&space;\mathcal{N}(0,N\sigma^2)&space;" title="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim \mathcal{N}(0,N\sigma^2) " />
 2. 若 <img src="https://latex.codecogs.com/svg.image?a_i\sim&space;\mathcal{U}(-\frac{q}{2},\frac{q}{2})&space;" title="https://latex.codecogs.com/svg.image?a_i\sim \mathcal{U}(-\frac{q}{2},\frac{q}{2}) " />, 则 <img src="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim&space;\mathcal{N}(0,N\frac{q^2}{12})" title="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim \mathcal{N}(0,N\frac{q^2}{12})" />
 3. 若 <img src="https://latex.codecogs.com/svg.image?HW(a)=h" title="https://latex.codecogs.com/svg.image?HW(a)=h" />, 则 <img src="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim&space;\mathcal{N}(0,Nh)" title="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim \mathcal{N}(0,Nh)" />
