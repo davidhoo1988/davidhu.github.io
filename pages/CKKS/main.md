@@ -9,8 +9,17 @@ CKKS区别于BFV最突出的地方就在于SIMD编码。BFV利用SIMD加密的�
 3. 若 <img src="https://latex.codecogs.com/svg.image?HW(a)=h" title="https://latex.codecogs.com/svg.image?HW(a)=h" />, 则 <img src="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim&space;\mathcal{N}(0,Nh)" title="https://latex.codecogs.com/svg.image?a(\xi_M)=\sum_ia_i\xi_M^i\sim \mathcal{N}(0,Nh)" />
 
 ### Cononical Embedding
-令 $\mathbb{Z}_M^*=\{x\in \mathbb{Z}_M:gcd(x,M)=1\}$, 且 $\xi_M=exp(-2\pi i/M)$, $a\in \mathbb{R}[X]/\Phi_M(X)$, 定义 $\sigma$ 变换如下：
+令 $\mathbb{Z}_M^{*}=\{x\in \mathbb{Z}_M:gcd(x,M)=1\}$, 且 $\xi_M=exp(-2\pi i/M)$， $a\in \mathbb{R}[X]/\Phi_M(X)$ 定义 $\sigma$ 变换如下
+
 $$\{a(\xi_M^j)\}_{j\in Z_M^*}$$
+
+定义Cononical Embedding Norm如下:
+$$||a||_{\infty}^{can}=||\sigma(a)||_{\infty}$$
+
+容易证明cononical ebmedding norm的三个性质：
+1. <img src="https://latex.codecogs.com/svg.image?||a\cdot&space;b||_{\infty}^{can}\leq&space;||a||_{\infty}^{can}\cdot&space;||b||_{\infty}^{can}" title="https://latex.codecogs.com/svg.image?||a\cdot b||_{\infty}^{can}\leq ||a||_{\infty}^{can}\cdot ||b||_{\infty}^{can}" />
+2. <img src="https://latex.codecogs.com/svg.image?||a||_{\infty}^{can}\leq&space;||a||_1" title="https://latex.codecogs.com/svg.image?||a||_{\infty}^{can}\leq ||a||_1" />
+3. 存在某个只和M相关的常数 <img src="https://latex.codecogs.com/svg.image?c_M" title="https://latex.codecogs.com/svg.image?c_M" /> 使得 <img src="https://latex.codecogs.com/svg.image?||a||_{\infty}\leq&space;c_M\cdot&space;||a||_{\infty}^{can}" title="https://latex.codecogs.com/svg.image?||a||_{\infty}\leq c_M\cdot ||a||_{\infty}^{can}" />
 
 ## SIMD编码
 CKKS SIMD编解码过程可以用下面表示:
