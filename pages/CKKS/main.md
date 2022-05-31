@@ -172,7 +172,7 @@ $$Err(\lfloor \frac{d_2\cdot evk}{P}\rceil)=Err(\lfloor  P^{-1}\cdot(d_2a',d_2b'
 
 $$m_1e_2+m_2e_1+e_1e_2+\frac{d_2e'}{P}+r_as+r_b$$
 
-借用cononical embedding norm可以得到下面的界限：
+<div>令 <img src="https://latex.codecogs.com/svg.image?||m_i||_{\infty}^{can}=&space;B,&space;HW(s)=h" title="https://latex.codecogs.com/svg.image?||m_i||_{\infty}^{can}= B, HW(s)=h" />, 借用cononical embedding norm可以得到下面的界限：</div>
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?||m_1e_2&plus;m_2e_1&plus;e_1e_2&plus;\frac{d_2e'}{P}&plus;r_as&plus;r_b||_{\infty}^{can}\leq&space;B||e_2||_{\infty}^{can}&plus;B||e_1||_{\infty}^{can}&plus;||e_1||_{\infty}^{can}\cdot&space;||e_2||_{\infty}^{can}&plus;\frac{||d_2||_{\infty}^{can}\cdot&space;||e'||_{\infty}^{can}}{P}&plus;||r_a||_{\infty}^{can}\cdot&space;||s||_{\infty}^{can}&space;&plus;&space;||r_b||_{\infty}^{can}\sim&space;\mathcal{N}(0,&space;2B^2N\sigma^2&plus;N^2\sigma^4&plus;\frac{1}{P^2}(\frac{q_{\ell}^2}{12}N\sigma^2)&plus;\frac{N}{12}&plus;\frac{hN}{12})" title="https://latex.codecogs.com/svg.image?||m_1e_2+m_2e_1+e_1e_2+\frac{d_2e'}{P}+r_as+r_b||_{\infty}^{can}\leq B||e_2||_{\infty}^{can}+B||e_1||_{\infty}^{can}+||e_1||_{\infty}^{can}\cdot ||e_2||_{\infty}^{can}+\frac{||d_2||_{\infty}^{can}\cdot ||e'||_{\infty}^{can}}{P}+||r_a||_{\infty}^{can}\cdot ||s||_{\infty}^{can} + ||r_b||_{\infty}^{can}\sim \mathcal{N}(0, 2B^2N\sigma^2+N^2\sigma^4+\frac{1}{P^2}(\frac{q_{\ell}^2}{12}N\sigma^2)+\frac{N}{12}+\frac{hN}{12})" />
 </p>
