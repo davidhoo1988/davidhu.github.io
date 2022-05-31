@@ -14,8 +14,7 @@ CKKS区别于BFV最突出的地方就在于SIMD编码。BFV利用SIMD加密的�
 
 $$\{a(\xi_M^j)\}_{j\in Z_M^*}$$
 
-定义Cononical Embedding Norm如下:
-$$||a||_{\infty}^{can}=||\sigma(a)||_{\infty}$$
+定义Cononical Embedding Norm <img src="https://latex.codecogs.com/svg.image?||a||_{\infty}^{can}=||\sigma(a)||_{\infty}" title="https://latex.codecogs.com/svg.image?||a||_{\infty}^{can}=||\sigma(a)||_{\infty}" />。
 
 容易证明cononical ebmedding norm的三个性质：
 1. <img src="https://latex.codecogs.com/svg.image?||a\cdot&space;b||_{\infty}^{can}\leq&space;||a||_{\infty}^{can}\cdot&space;||b||_{\infty}^{can}" title="https://latex.codecogs.com/svg.image?||a\cdot b||_{\infty}^{can}\leq ||a||_{\infty}^{can}\cdot ||b||_{\infty}^{can}" />
@@ -174,7 +173,7 @@ $$Err(\lfloor \frac{d_2\cdot evk}{P}\rceil)=Err(\lfloor  P^{-1}\cdot(d_2a',d_2b'
 $$m_1e_2+m_2e_1+e_1e_2+\frac{d_2e'}{P}+r_as+r_b$$
 
 借用cononical embedding norm可以得到下面的界限：
-$$||m_1e_2+m_2e_1+e_1e_2+\frac{d_2e'}{P}+r_as+r_b||_{\infty}^{can}\leq B||e_2||_{\infty}^{can}+B||e_1||_{\infty}^{can}+||e_1||_{\infty}^{can}\cdot ||e_2||_{\infty}^{can}+\frac{||d_2||_{\infty}^{can}\cdot ||e'||_{\infty}^{can}}{P}+||r_a||_{\infty}^{can}\cdot ||s||_{\infty}^{can} + ||r_b||_{\infty}^{can}\sim \mathcal{N}(0, 2B^2N\sigma^2+N^2\sigma^4+\frac{1}{P^2}(\frac{q_{\ell}^2}{12}N\sigma^2)+\frac{N}{12}+\frac{hN}{12})$$
+<img src="https://latex.codecogs.com/svg.image?||m_1e_2&plus;m_2e_1&plus;e_1e_2&plus;\frac{d_2e'}{P}&plus;r_as&plus;r_b||_{\infty}^{can}\leq&space;B||e_2||_{\infty}^{can}&plus;B||e_1||_{\infty}^{can}&plus;||e_1||_{\infty}^{can}\cdot&space;||e_2||_{\infty}^{can}&plus;\frac{||d_2||_{\infty}^{can}\cdot&space;||e'||_{\infty}^{can}}{P}&plus;||r_a||_{\infty}^{can}\cdot&space;||s||_{\infty}^{can}&space;&plus;&space;||r_b||_{\infty}^{can}\sim&space;\mathcal{N}(0,&space;2B^2N\sigma^2&plus;N^2\sigma^4&plus;\frac{1}{P^2}(\frac{q_{\ell}^2}{12}N\sigma^2)&plus;\frac{N}{12}&plus;\frac{hN}{12})" title="https://latex.codecogs.com/svg.image?||m_1e_2+m_2e_1+e_1e_2+\frac{d_2e'}{P}+r_as+r_b||_{\infty}^{can}\leq B||e_2||_{\infty}^{can}+B||e_1||_{\infty}^{can}+||e_1||_{\infty}^{can}\cdot ||e_2||_{\infty}^{can}+\frac{||d_2||_{\infty}^{can}\cdot ||e'||_{\infty}^{can}}{P}+||r_a||_{\infty}^{can}\cdot ||s||_{\infty}^{can} + ||r_b||_{\infty}^{can}\sim \mathcal{N}(0, 2B^2N\sigma^2+N^2\sigma^4+\frac{1}{P^2}(\frac{q_{\ell}^2}{12}N\sigma^2)+\frac{N}{12}+\frac{hN}{12})" />
 
 
 Rescale的噪声分析和BFV Mod-Switch的分析方法是一致的。注意Rescale的输入是CKKS的乘法结果，即$RLWE(m_1m_2)$， $r_1,r_2$表示rounding带来的误差。 Rescale的目的是同态地乘上$\Delta^{-1}$最终放缩到$RLWE(\Delta^{-1}m_1m_2)= RLWE(\Delta m_1'm_2'+e_{round})$，更具体地有，
