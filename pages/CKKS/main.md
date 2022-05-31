@@ -173,6 +173,10 @@ $$Err(\lfloor \frac{d_2\cdot evk}{P}\rceil)=Err(\lfloor  P^{-1}\cdot(d_2a',d_2b'
 
 $$m_1e_2+m_2e_1+e_1e_2+\frac{d_2e'}{P}+r_as+r_b$$
 
+借用cononical embedding norm可以得到下面的界限：
+$$||m_1e_2+m_2e_1+e_1e_2+\frac{d_2e'}{P}+r_as+r_b||_{\infty}^{can}\leq B||e_2||_{\infty}^{can}+B||e_1||_{\infty}^{can}+||e_1||_{\infty}^{can}\cdot ||e_2||_{\infty}^{can}+\frac{||d_2||_{\infty}^{can}\cdot ||e'||_{\infty}^{can}}{P}+||r_a||_{\infty}^{can}\cdot ||s||_{\infty}^{can} + ||r_b||_{\infty}^{can}\sim \mathcal{N}(0, 2B^2N\sigma^2+N^2\sigma^4+\frac{1}{P^2}(\frac{q_{\ell}^2}{12}N\sigma^2)+\frac{N}{12}+\frac{hN}{12})$$
+
+
 Rescale的噪声分析和BFV Mod-Switch的分析方法是一致的。注意Rescale的输入是CKKS的乘法结果，即$RLWE(m_1m_2)$， $r_1,r_2$表示rounding带来的误差。 Rescale的目的是同态地乘上$\Delta^{-1}$最终放缩到$RLWE(\Delta^{-1}m_1m_2)= RLWE(\Delta m_1'm_2'+e_{round})$，更具体地有，
 
 $$(a,as+e+m_1m_2)\overset{rescale(\cdot)}{\longrightarrow} (\lfloor\Delta^{-1}a\rceil ,\lfloor\Delta^{-1}(as+e+m_1m_2)\rceil)=(\Delta^{-1}a+r_a,\Delta^{-1}as+\Delta^{-1}e+\Delta^{-1}m_1m_2+r_b)$$
