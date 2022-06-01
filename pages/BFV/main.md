@@ -61,7 +61,7 @@ $$Rescale(\mathbf{ct_{\times}})\overset{\underset{\mathrm{def}}{}}{=}(\lfloor \f
 
 
 
-接着考虑 $$\frac{t}{q}\sum_i\mathbf{ct_i}[i]x^i=(1-\frac{t}{q}r)\Delta m_0m_1+(1-\frac{t}{q}r)(m_0e_1+m_1e_0)+\frac{t}{q}e_0e_1=\Delta m_0m_1+noise$$, 更进一步分析噪声分量有 $noise\approx m_0e_1+m_1e_0+rm_0m_1\sim \mathcal{N}(0, 2n\cdot t^2\sigma^2)$。
+接着考虑 $$\frac{t}{q}\sum_i\mathbf{ct_i}[i]x^i=(1-\frac{t}{q}r)\Delta m_0m_1+(1-\frac{t}{q}r)(m_0e_1+m_1e_0)+\frac{t}{q}e_0e_1=\Delta m_0m_1+noise$$, 更进一步分析噪声分量(假设$m_i\sim \mathcal{U}(-t/2,t/2)$)有 $noise\approx m_0e_1+m_1e_0+rm_0m_1\sim \mathcal{N}(0, 2n\cdot \frac{t^2}{12}\sigma^2+r^2\cdot n\cdot\frac{t^4}{12^2})$。
 
 综上所述，同态乘法的总噪声分布方差上限一定是一个小数目，具体数值为$n\cdot \sigma_s^2\cdot \frac{1}{12}+n\cdot 2\sigma_s^4\cdot \frac{1}{12}+2n\cdot t^2\sigma^2$ 。
 
