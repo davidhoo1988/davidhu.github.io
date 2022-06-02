@@ -17,6 +17,7 @@
     6. [CKKS](./pages/CKKS/main.md)
     7. [FHE噪声增长分析](./pages/FHE_Noise/main.md)
     8. [FHE的安全性](./pages/FHE_Security/main.md)
+    9. BFV(RNS版本)(./pages/BFV_RNS/main.md)
    
 - 后量子密码(Post Quantum Cryptography)
     1. ROLLO
