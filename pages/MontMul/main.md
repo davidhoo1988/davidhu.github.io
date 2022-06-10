@@ -36,7 +36,7 @@ end function
 
 
 最后我们正式地证明REDC算法的正确性。容易分析出证明REDC是正确的，只需证明下面三个性质成立
-1. $T+mN$ 被R整除 
+1. $T+mN$ 被R整除  证明: $T+mN \equiv T + ||T|_RN'|_R\cdot N\equiv T+TN'N \equiv T-T \equiv 0 \bmod R$
 
 ## 代码实现
 最后给出一个蒙哥马利模乘的Python实现以供参考。
