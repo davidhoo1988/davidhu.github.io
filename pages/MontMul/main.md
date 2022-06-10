@@ -29,3 +29,4 @@ function REDC is
     end if
 end function
 ```
+一般地，想做模约减运算，需要做一次试除，即 $a \bmod N = a-\lfloor a/N\rfloor$。 REDC的核心思想是避免做除法$\lfloor a/N\rfloor$,但是仍能求得模约减的结果。
