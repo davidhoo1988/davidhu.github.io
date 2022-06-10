@@ -4,6 +4,7 @@
 现在定义一个整数$a\in \mathbb{Z}_{N}$ 的蒙哥马利形式为 <img src="https://latex.codecogs.com/svg.image?aR\in&space;\mathbb{Z}_N" title="https://latex.codecogs.com/svg.image?aR\in \mathbb{Z}_N" /> 。显然，一个整数$a$的蒙哥马利形式可以先算一次乘法$a\cdot R^2$ 最后算一次REDC得到，即:
 $$aR = REDC(aR^2)$$
 
+现在考虑如何计算两个整数$a$和$b$的模乘，即$ab\bmod N$。
 
 # 蒙哥马利模约减
 现在讨论蒙哥马利模乘最重要的部分。
