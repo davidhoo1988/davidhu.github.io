@@ -30,3 +30,4 @@ function REDC is
 end function
 ```
 一般地，想做模约减运算，需要做一次试除，即 $a \bmod N = a-N\cdot \lfloor a/N\rfloor$。 REDC的核心思想是避免做除法$\lfloor a/N\rfloor$,但是仍能求得模约减的结果。
+作为代价, REDC算的模约减结果包含了一个'尾巴' $R^{-1}$。这也是为什么蒙哥马利模乘算法当中反复强调要在蒙哥马利形式下进行的根本原因。
