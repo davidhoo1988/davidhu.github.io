@@ -13,4 +13,19 @@ $$aR = REDC(aR^2)$$
 
 # 蒙哥马利模约减
 现在讨论蒙哥马利模乘最重要的部分REDC。下面给出REDC的算法描述
+```python
+function REDC is
+    input: Integers R and N with gcd(R, N) = 1,
+           Integer N′ in [0, R − 1] such that NN′ ≡ −1 mod R,
+           Integer T in the range [0, RN − 1].
+    output: Integer S in the range [0, N − 1] such that S ≡ TR−1 mod N
 
+    m ← ((T mod R)N′) mod R
+    t ← (T + mN) / R
+    if t ≥ N then
+        return t − N
+    else
+        return t
+    end if
+end function
+```
