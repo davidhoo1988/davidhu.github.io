@@ -45,4 +45,68 @@ end function
 3. $(T+mN)/R<2N$。 证明: 易知$m\leq R-1$, $T\leq RN-1$, 所以 $T+mN\leq 2RN-N-1<2RN$
 
 ## 代码实现
-最后给出一个蒙哥马利模乘的Python实现以供参考。
+最后给出一个蒙哥马利模乘的Python实现以供参考。注意程序里面取$R=2^64$, 所以 $\bmod R$相当于取低64bit；$/R$相当于右移64bit。
+
+```python
+import math
+
+class MontMul:
+    """docstring for ClassName"""
+    def __init__(self, R, N):
+        self.N = N
+        self.R = R
+        self.logR = int(math.log(R, 2))
+        N_inv = MontMul.modinv(N, R)
+        self.N_inv_neg = R - N_inv
+        self.R2 = (R*R)%N
+
+    @staticmethod        
+    def egcd(a, b):
+        if a == 0:
+            return (b, 0, 1)
+        else:
+            g, y, x = MontMul.egcd(b % a, a)
+            return (g, x - (b // a) * y, y)
+
+    @staticmethod
+    def modinv(a, m):
+        g, x, y = MontMul.egcd(a, m)
+        if g != 1:
+            raise Exception('modular inverse does not exist')
+        else:
+            return x % m
+
+    def REDC(self, T):
+        N, R, logR, N_inv_neg = self.N, self.R, self.logR, self.N_inv_neg
+
+        m = ((T&int('1'*logR, 2)) * N_inv_neg)&int('1'*logR, 2) # m = (T%R * N_inv_neg)%R        
+        t = (T+m*N) >> logR # t = int((T+m*N)/R)
+        if t >= N:
+            return t-N
+        else:
+            return t
+
+    def ModMul(self, a, b):
+        if a >= self.N or b >= self.N:
+            raise Exception('input integer must be smaller than the modulus N')
+
+        R2 = self.R2
+        aR = self.REDC(a*R2) # convert a to Montgomery form
+        bR = self.REDC(b*R2) # convert b to Montgomery form
+        T = aR*bR # standard multiplication
+        abR = self.REDC(T) # Montgomery reduction
+        return self.REDC(abR) # covnert abR to normal ab
+
+if __name__ == '__main__':
+    N = 123456789
+    R = 2**64 # assume here we are working on 64-bit integer multiplication
+    g, x, y = MontMul.egcd(N,R)
+    if R<=N or g !=1: 
+        raise Exception('N must be larger than R and gcd(N,R) == 1')
+    inst = MontMul(R, N)
+
+    input1, input2 = 23456789, 12345678
+    mul = inst.ModMul(input1, input2)
+    if mul == (input1*input2)%N:
+        print ('({input1}*{input2})%{N} is {mul}'.format(input1 = input1, input2 = input2, N = N, mul = mul))
+```
