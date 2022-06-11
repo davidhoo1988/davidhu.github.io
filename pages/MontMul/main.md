@@ -47,6 +47,8 @@ end function
 ## 代码实现
 最后给出一个蒙哥马利模乘的Python实现以供参考。注意程序里面取$R=2^{64}$, 所以 $\bmod R$相当于取低64bit；$/R$相当于右移64bit。
 
+<details><summary>CLICK ME</summary>
+<p>
 ```python
 import math
 
@@ -110,3 +112,5 @@ if __name__ == '__main__':
     if mul == (input1*input2)%N:
         print ('({input1}*{input2})%{N} is {mul}'.format(input1 = input1, input2 = input2, N = N, mul = mul))
 ```
+</p>
+</details>
