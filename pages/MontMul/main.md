@@ -45,7 +45,7 @@ end function
 3. $(T+mN)/R<2N$。 证明: 易知$m\leq R-1$, $T\leq RN-1$, 所以 $T+mN\leq 2RN-N-1<2RN$
 
 ## 代码实现
-最后给出一个蒙哥马利模乘的Python实现以供参考。注意程序里面取$R=2^64$, 所以 $\bmod R$相当于取低64bit；$/R$相当于右移64bit。
+最后给出一个蒙哥马利模乘的Python实现以供参考。注意程序里面取$R=2^{64}$, 所以 $\bmod R$相当于取低64bit；$/R$相当于右移64bit。
 
 ```python
 import math
