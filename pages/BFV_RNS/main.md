@@ -17,7 +17,9 @@
  <p align="center">
   <img src="fig/BFV_basic.PNG" alt="animated"/>
 </p>
-注意这里的公钥$()$
+
+注意这里的公钥 $pk=(\mathbf{p}_0, \mathbf{p}_1)=([-(\mathbf{as}+\mathbf{e})]_q, \mathbf{a})$, 且 $\mathbf{p}_0+\mathbf{p}_1\mathbf{s}=-\mathbf{e}\approx 0$
+
 更详尽的介绍可以参考[这篇博文](https://github.com/davidhoo1988/davidhu.github.io/edit/gh-pages/pages/BFV/main.md)
 
 ## RNS版本下的 BFV-Decryption
