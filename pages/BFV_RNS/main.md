@@ -12,7 +12,13 @@
 自然地，中国剩余定理可以推广到多项式环 <img src="https://latex.codecogs.com/svg.image?R_q&space;&space;\simeq&space;\prod_{i=1}^k&space;R_{q_i}" title="https://latex.codecogs.com/svg.image?R_q \simeq \prod_{i=1}^k R_{q_i}" />
 
 ### BFV方案
+简单回顾BFV方案如下:
 
+ <p align="center">
+  <img src="fig/BFV_basic.PNG" alt="animated"/>
+</p>
+
+更详尽的介绍可以参考[这篇博文](https://github.com/davidhoo1988/davidhu.github.io/edit/gh-pages/pages/BFV/main.md)
 
 ## RNS版本下的 BFV-Decryption
 
