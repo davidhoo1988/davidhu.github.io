@@ -13,6 +13,7 @@ $$a\bmod p = |a|_p=a-\lfloor \frac{a}{p}\rfloor \cdot p$$
  <p align="center">
 <img src="https://latex.codecogs.com/svg.image?[a]_p=\begin{cases}&space;&&space;|a|_p\text{&space;if&space;}&space;|a|_p\leq\lfloor\frac{p-1}{2}\rfloor&space;\\&space;&&space;|a|_p&space;-&space;p&space;\text{&space;otherwise&space;}&space;&space;\end{cases}" title="https://latex.codecogs.com/svg.image?[a]_p=\begin{cases} & |a|_p\text{ if } |a|_p\leq\lfloor\frac{p-1}{2}\rfloor \\ & |a|_p - p \text{ otherwise } \end{cases}" />
 </p>
+
 注意中心化的模运算的计算范围是 $[a]_p \in [-\lfloor\frac{p}{2}\rfloor , \lfloor\frac{p-1}{2}\rfloor]$
 
 ### 中国剩余定理 Chinese Remainder Theorem
