@@ -6,6 +6,10 @@
 
 ## 预备知识
 ### 模运算 Modular Arithemtic
+模运算是定义在整数上的一类运算，定义如下
+$$a\bmod p = |a|_p=a-\lfloor \frac{a}{p}\rfloor \cdot p$$
+
+注意$|a|_p\in [0,\cdots,p-1]$， 在LWE/FHE里，还会采用中心化的模运算定义如下
 
 ### 中国剩余定理 Chinese Remainder Theorem
 中国剩余定理CRT阐述了一个整数环的自同构的存在，即 <img src="https://latex.codecogs.com/svg.image?\mathbb{Z}_q&space;&space;\simeq&space;\prod_{i=1}^k\mathbb{Z}_{q_i}" title="https://latex.codecogs.com/svg.image?\mathbb{Z}_q \simeq \prod_{i=1}^k\mathbb{Z}_{q_i}" />。 CRT蕴含着一个非进位的数制系统(non-positional number system)，现在一般称之为余数系统(Residue Number System, RNS)。在RNS下，一个大整数(mod q)的模运算可以被拆分成k个小整数的模运算。通常每个小整数的模运算可以被绝大多数编程语言直接支持，因此大整数的模运算也可以被支持。
@@ -17,7 +21,7 @@
 
  <p align="center">
   <img src="fig/BFV_basic.PNG" alt="animated"/>
-<
+</p>
 
 注意这里的公钥 $pk=(\mathbf{p}_0, \mathbf{p}_1)=([-(\mathbf{as}+\mathbf{e})]_q, \mathbf{a})$, 且 $\mathbf{p}_0+\mathbf{p}_1\mathbf{s}=-\mathbf{e}\approx 0$ 。据此，容易证明 $[ct(\mathbf{s})]_q = [ct[0]+ct[1]\mathbf{s}]_q = [\Delta [\mathbf{m}]_t + \mathbf{v}]_q$。 这里 $\mathbf{v}$ 是密文 $ct$ 的内置噪声。
 
