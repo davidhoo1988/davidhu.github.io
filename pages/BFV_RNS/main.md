@@ -72,10 +72,11 @@ $$a= \sum_{i=1}^k|a_i\cdot \frac{q_i}{q}|_{q_i}\cdot \frac{q}{q_i} \bmod q $$
 <img src="https://latex.codecogs.com/svg.image?\left[\lfloor\frac{t}{q}[ct(\mathbf{s})]_q\rfloor\right&space;]_t&space;=&space;-|q^{-1}|_t\cdot&space;|t\cdot&space;ct(\mathbf{s})|_q&space;\bmod&space;t" title="https://latex.codecogs.com/svg.image?\left[\lfloor\frac{t}{q}[ct(\mathbf{s})]_q\rfloor\right ]_t = -|q^{-1}|_t\cdot |t\cdot ct(\mathbf{s})|_q \bmod t" />
 </p>
 
-这里不加证明的引入引理1，通过FastBconv计算$\left\lfloor \gamma\frac{t}{q}[ct(\mathbf{s})]_q\right \rceil$
+这里不加证明的引入引理1，通过FastBconv近似计算$\left\lfloor \gamma\frac{t}{q}[ct(\mathbf{s})]_q\right \rceil$
 <p align="center">
   <img src="fig/BFV_lemma1.PNG" alt="animated"/>
 </p>
 
+对引理1做一些重要诠释。首先明确引理1实际上算的是$\left\lfloor \gamma\frac{t}{q}[ct(\mathbf{s})]_q\right \rceil$的近似值 $\left\lfloor \gamma\frac{t}{q}[ct(\mathbf{s})]_q\right \rceil - \mathbf{e}$
 
 ## RNS版本下的 BFV-Multiplication
