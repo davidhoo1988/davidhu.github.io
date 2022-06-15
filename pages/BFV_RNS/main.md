@@ -23,6 +23,15 @@ $$a= \sum_{i=1}^k|a_i\cdot \frac{q_i}{q}|_{q_i}\cdot \frac{q}{q_i} \bmod q $$
 
 自然地，中国剩余定理可以推广到多项式环 <img src="https://latex.codecogs.com/svg.image?R_q&space;&space;\simeq&space;\prod_{i=1}^k&space;R_{q_i}" title="https://latex.codecogs.com/svg.image?R_q \simeq \prod_{i=1}^k R_{q_i}" />
 
+### RNS工具
+这里引入若干RNS下的计算工具，它们和BFV方案的基本操作密切相关。
+
+在很多计算应用中，需要处理rounding操作，然而RNS并不支持rounding。 因此只能转而先求flooring，然后用flooring的结果近似rounding，即 
+
+<p align="center">
+  <img src="fig/RNS_floor.PNG" alt="animated"/>
+</p>
+
 ### BFV方案
 简单回顾BFV方案如下:
 
