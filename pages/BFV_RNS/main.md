@@ -97,6 +97,7 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 <div>也就是说，如果取合适大小的 <img src="https://latex.codecogs.com/svg.image?\gamma" title="https://latex.codecogs.com/svg.image?\gamma" /> 使得 <img src="https://latex.codecogs.com/svg.image?\gamma&space;\sim&space;k(\frac{1}{2}-\frac{||\mathbf{v_c}||_{\infty}}{q})^{-1}" title="https://latex.codecogs.com/svg.image?\gamma \sim k(\frac{1}{2}-\frac{||\mathbf{v_c}||_{\infty}}{q})^{-1}" /> , 那么消去误差是可能的。</div>
 
+### RNS版本下的BFV-Decryption小结
 
 ## RNS版本下的 BFV-Multiplication
 
