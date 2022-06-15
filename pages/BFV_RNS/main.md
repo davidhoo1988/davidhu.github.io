@@ -64,6 +64,6 @@ $$a= \sum_{i=1}^k|a_i\cdot \frac{q_i}{q}|_{q_i}\cdot \frac{q}{q_i} \bmod q $$
   <img src="fig/BFV_dr.PNG" alt="animated"/>
 </p>
 
-所以，这里的难度主要是如何在RNS下做DR操作。
+所以，这里的难度主要是如何在RNS下做DR操作。首先观察到 $\lfloor \frac{t}{q}[ct(\mathbf{s})]_q\rceil = \lfloor \frac{t}{q}|ct(\mathbf{s})|_q\rceil$
 
 ## RNS版本下的 BFV-Multiplication
