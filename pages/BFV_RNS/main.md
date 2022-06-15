@@ -35,6 +35,9 @@ $$a= \sum_{i=1}^k|a_i\cdot \frac{q_i}{q}|_{q_i}\cdot \frac{q}{q_i} \bmod q $$
 更详尽的介绍可以参考[这篇博文](https://github.com/davidhoo1988/davidhu.github.io/edit/gh-pages/pages/BFV/main.md)
 
 ## RNS版本下的 BFV-Decryption
-
+简单回顾BFV的解密算法如下:
+ <p align="center">
+  <img src="fig/BFV_decrypt.PNG" alt="animated"/>
+</p>
 
 ## RNS版本下的 BFV-Multiplication
