@@ -77,7 +77,7 @@ $$a= \sum_{i=1}^k|a_i\cdot \frac{q_i}{q}|_{q_i}\cdot \frac{q}{q_i} \bmod q $$
   <img src="fig/BFV_lemma1.PNG" alt="animated"/>
 </p>
 
-对引理1做一些重要诠释。首先明确引理1实际上算的是$\left\lfloor \gamma\frac{t}{q}[ct(\mathbf{s})]_q\right \rceil$的近似值 $\left\lfloor \gamma\frac{t}{q}[ct(\mathbf{s})]_q\right \rceil - \mathbf{e}$, 这是由于FastBconv
+对引理1做一些重要诠释。首先明确引理1实际上算的是$\left\lfloor \gamma\frac{t}{q}[ct(\mathbf{s})]_q\right \rceil$的近似值 $\left\lfloor \gamma\frac{t}{q}[ct(\mathbf{s})]_q\right \rceil - \mathbf{e}$, 这是由于FastBconv夹带的$\alpha_xq, \alpha_x\in[0,k-1]$造成的。
 
 ## RNS版本下的 BFV-Multiplication
 
