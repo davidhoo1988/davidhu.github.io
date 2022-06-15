@@ -28,9 +28,12 @@ $$a= \sum_{i=1}^k|a_i\cdot \frac{q_i}{q}|_{q_i}\cdot \frac{q}{q_i} \bmod q $$
 
 首先引入快速基转换的概念。一个大整数在不同基下的RNS表示显然是不同的。现在需要从某组基q(这里基q指的是$\{q_i\}_{i=1,\cdots,k}$构成的一组基) 转换成另外一组基$\mathcal{B}=\{m_i\}_{i=1,\cdots,\ell}$。定义快速基转换如下:
 
+
 <p align="center">
   <img src="fig/RNS_fastBconv.PNG" alt="animated"/>
 </p>
+
+
 注意这里的“快速”指的是不需要做mod q的操作（思考一下可知如果在FastBconv中使用mod q，其实就是中国剩余定理的形式）。作为代价，FastBconv算出来的是$x+\alpha_xq, \alpha_x\in[0,k-1]$ 而不是$x$
 
 在很多计算应用中，需要处理rounding操作，然而RNS并不支持rounding。 因此只能转而先求flooring，然后用flooring的结果近似rounding，即 
