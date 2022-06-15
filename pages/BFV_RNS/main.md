@@ -88,8 +88,9 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 ### 修正RNS rounding近似算法中的误差
 对引理1的结果直接做一次中心化模$\gamma$的操作就能直接得到 $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}$， 
-消去这部分误差就可以得到精确地division&rounding的结果即 $\left\lfloor \gamma([\mathbf{m}]_t+t\mathbf{r})$ 。
+消去这部分误差就可以得到精确地division&rounding的结果即 $\gamma([\mathbf{m}]_t+t\mathbf{r})$ 。
 
+中心化模$\gamma$的操作的正确性来源于引理2：
 <p align="center">
   <img src="fig/BFV_lemma2.PNG" alt="animated"/>
 </p>
