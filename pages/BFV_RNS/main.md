@@ -40,4 +40,7 @@ $$a= \sum_{i=1}^k|a_i\cdot \frac{q_i}{q}|_{q_i}\cdot \frac{q}{q_i} \bmod q $$
   <img src="fig/BFV_decrypt.PNG" alt="animated"/>
 </p>
 
+这里引入新的记号DR来表示‘division & rounding’的操作:
+
+
 ## RNS版本下的 BFV-Multiplication
