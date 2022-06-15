@@ -87,6 +87,8 @@ $\mathbf{p}_0+\mathbf{p}_1\mathbf{s}=-\mathbf{e}\approx 0$ 。
 $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor\frac{\gamma}{2}\rfloor , \lfloor\frac{\gamma-1}{2}\rfloor]$ 。方便下一小节引入修正方法最终去除掉 $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}$
 
 ### 修正RNS rounding近似算法中的误差
+对引理1的结果直接做一次中心化模$\gamma$的操作就能直接得到 $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}$， 消去这部分误差就可以得到精确地division&rounding的结果 $\left\lfloor \gamma\frac{t}{q}[ct(\mathbf{s})]_q\right \rceil$
+
 <p align="center">
   <img src="fig/BFV_lemma2.PNG" alt="animated"/>
 </p>
