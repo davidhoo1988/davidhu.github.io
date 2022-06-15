@@ -26,7 +26,12 @@ $$a= \sum_{i=1}^k|a_i\cdot \frac{q_i}{q}|_{q_i}\cdot \frac{q}{q_i} \bmod q $$
 ### RNS工具
 这里引入若干RNS下的计算工具，它们和BFV方案的基本操作密切相关。
 
-首先引入快速基转换的概念。一个大整数在不同基下的RNS表示显然是不同的。现在需要从某个基q(这里基q值得是${a_i}$构成的一组基) 转换成
+首先引入快速基转换的概念。一个大整数在不同基下的RNS表示显然是不同的。现在需要从某组基q(这里基q值得是$\{q_i\}_{i=1,\cdots,k}$构成的一组基) 转换成另外一组基$\mathcal{B}=\{m_i\}_{i=1,\cdots,\ell}$。定义快速基转换如下:
+
+<p align="center">
+  <img src="fig/RNS_fastBconv.PNG" alt="animated"/>
+</p>
+
 
 在很多计算应用中，需要处理rounding操作，然而RNS并不支持rounding。 因此只能转而先求flooring，然后用flooring的结果近似rounding，即 
 
