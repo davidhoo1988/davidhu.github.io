@@ -67,6 +67,7 @@ $$a= \sum_{i=1}^k|a_i\cdot \frac{q_i}{q}|_{q_i}\cdot \frac{q}{q_i} \bmod q $$
   <img src="fig/RNS_floor.PNG" alt="animated"/>
 </p>
 
-首先观察到 $\lfloor \frac{t}{q}[ct(\mathbf{s})]_q\rceil = \lfloor \frac{t}{q}|ct(\mathbf{s})|_q\rceil$
+首先观察到 $\lfloor \frac{t}{q}[ct(\mathbf{s})]_q\rceil = \lfloor \frac{t}{q}|ct(\mathbf{s})|_q\rceil$, 因此有
+$$[\lfloor\frac{t}{q}[ct(\mathbf{s})]_q\rfloor]_t = -|q^{-1}|_t\cdot |t\cdot ct(\mathbf{s})|_q \bmod t$$
 
 ## RNS版本下的 BFV-Multiplication
