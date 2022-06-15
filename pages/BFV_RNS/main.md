@@ -86,6 +86,11 @@ $\mathbf{p}_0+\mathbf{p}_1\mathbf{s}=-\mathbf{e}\approx 0$ 。
 其次参数$\gamma$的引入是为了控制 $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil$ 的大小，使得 
 $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor\frac{\gamma}{2}\rfloor , \lfloor\frac{\gamma-1}{2}\rfloor]$ 。方便下一小节引入修正方法最终去除掉 $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}$
 
+### 修正RNS rounding近似算法中的误差
+<p align="center">
+  <img src="fig/BFV_lemma2.PNG" alt="animated"/>
+</p>
+
 ## RNS版本下的 BFV-Multiplication
 
 
