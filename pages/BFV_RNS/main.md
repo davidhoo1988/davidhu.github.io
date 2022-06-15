@@ -94,6 +94,8 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 <p align="center">
   <img src="fig/BFV_lemma2.PNG" alt="animated"/>
 </p>
+也就是说，如果取合适大小的$\gamma$ 使得 $\gamma \sim k(\frac{1}{2}-\frac{||\mathbf{v_c}||_{\infty}}{q})^{-1}$
+
 
 ## RNS版本下的 BFV-Multiplication
 
