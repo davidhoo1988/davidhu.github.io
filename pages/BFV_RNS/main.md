@@ -110,7 +110,7 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 第五行最终消去误差恢复出 $[\mathbf{m}]_t$ 。
 
-最后，注意算法1正确返回 $[\mathbf{m}]_t$ 的前提是 <img src="https://latex.codecogs.com/svg.image?\gamma,&space;||\mathbf{v}||_{\infty}" title="https://latex.codecogs.com/svg.image?\gamma, ||\mathbf{v}||_{\infty}" /> 满足一些bound:
+最后，注意算法1正确返回 <img src="https://latex.codecogs.com/svg.image?[\mathbf{m}]_t" title="https://latex.codecogs.com/svg.image?[\mathbf{m}]_t" /> 的前提是 <img src="https://latex.codecogs.com/svg.image?\gamma,&space;||\mathbf{v}||_{\infty}" title="https://latex.codecogs.com/svg.image?\gamma, ||\mathbf{v}||_{\infty}" /> 满足一些bound:
 
 <p align="center">
   <img src="fig/BFV_rns_decrypt_bound.PNG" alt="animated"/>
