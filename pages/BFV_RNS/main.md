@@ -110,11 +110,14 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 第五行最终消去误差恢复出 $[\mathbf{m}]_t$ 。
 
-最后，注意算法1正确返回 $[\mathbf{m}]_t$ 的前提是 $\gamma, ||\mathbf{v}||_{\infty}$ 满足一些bound:
+最后，注意算法1正确返回 $[\mathbf{m}]_t \gamma, ||\mathbf{v}||_{\infty}$ 满足一些bound:
 
+<p align="center">
+  <img src="fig/BFV_rns_decrypt_bound.PNG" alt="animated"/>
+</p>
 
 
 ## RNS版本下的 BFV-Multiplication
-
+现在讨论一个比 RNS BFV-Decryption更困难的问题。
 
 ## 一些重要的证明
