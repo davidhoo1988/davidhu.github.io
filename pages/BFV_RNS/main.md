@@ -99,6 +99,11 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 ### RNS版本下的BFV-Decryption小结
 
+<p align="center">
+  <img src="fig/BFV_rns_decrypt.PNG" alt="animated"/>
+</p>
+
+
 ## RNS版本下的 BFV-Multiplication
 
 
