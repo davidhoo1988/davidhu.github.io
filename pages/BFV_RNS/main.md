@@ -120,4 +120,7 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 ## RNS版本下的 BFV-Multiplication
 现在讨论一个比 RNS BFV-Decryption更困难的问题。
 
+### 修改第二步 bit_decompose
+
+
 ## 一些重要的证明
