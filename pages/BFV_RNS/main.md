@@ -104,7 +104,7 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
   <img src="fig/BFV_rns_decrypt.PNG" alt="animated"/>
 </p>
 
-对算法1做一些解释。第1-3行代码算出 $\mathbf{s}^{t}=\gamma[\mathbf{m}]_t+\lfloor\gamma\frac{\mathbf{v_c}}{q}\rceil -\mathbf{e} \bmod t, \mathbf{s}^{\gamma}= \lfloor\gamma\frac{\mathbf{v_c}}{q}\rceil -\mathbf{e}\bmod \gamma$
+对算法1做一些解释。第1-3行代码算出 $\mathbf{s}^{(t)}=\gamma[\mathbf{m}]_t+\lfloor\gamma\frac{\mathbf{v_c}}{q}\rceil -\mathbf{e} \bmod t, \mathbf{s}^{(\gamma)}= \lfloor\gamma\frac{\mathbf{v_c}}{q}\rceil -\mathbf{e}\bmod \gamma$
 
 ## RNS版本下的 BFV-Multiplication
 
