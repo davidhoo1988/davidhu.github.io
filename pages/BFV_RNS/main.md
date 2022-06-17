@@ -141,4 +141,7 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 借助引理7，可以阐述CRT版本的重线性化(relinearzation)算法。首先定义relinearzation key为 <img src="https://latex.codecogs.com/svg.image?rlk_i&space;=(rlk_i[0],&space;rlk_i[1])\overset{\underset{\mathrm{def}}{}}{=}&space;RLWE_\mathbf{s}(|s^2\frac{q}{q_i}|_q)" title="https://latex.codecogs.com/svg.image?rlk_i =(rlk_i[0], rlk_i[1])\overset{\underset{\mathrm{def}}{}}{=} RLWE_\mathbf{s}(|s^2\frac{q}{q_i}|_q)" />
  
+回忆relinearzation的作用是将输入 <img src="https://latex.codecogs.com/svg.image?\widetilde{ct}_{mult}&plus;b=&space;(\overline{c_0},&space;\overline{c_1},&space;\overline{c_2})" title="https://latex.codecogs.com/svg.image?\widetilde{ct}_{mult}+b= (\overline{c_0}, \overline{c_1}, \overline{c_2})" /> 变换成 <img src="https://latex.codecogs.com/svg.image?{ct}_{mult}=&space;(\overline{c'_0},&space;\overline{c'_1})" title="https://latex.codecogs.com/svg.image?{ct}_{mult}= (\overline{c'_0}, \overline{c'_1})" /> 且保证 <img src="https://latex.codecogs.com/svg.image?\overline{c_0}&plus;\overline{c_1}s&plus;\overline{c_2}s^2&space;\approx&space;\overline{c'_0}&plus;\overline{c'_1}s" title="https://latex.codecogs.com/svg.image?\overline{c_0}+\overline{c_1}s+\overline{c_2}s^2 \approx \overline{c'_0}+\overline{c'_1}s" /> 。
+
+
 ## 一些重要的证明
