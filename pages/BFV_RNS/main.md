@@ -145,6 +145,6 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 那么，relinearzation算法分两步进行。
 第一步，对 <img src="https://latex.codecogs.com/svg.image?\mathbf{c_{2}}" title="https://latex.codecogs.com/svg.image?\mathbf{c_{2}}" /> 做decompose得 <img src="https://latex.codecogs.com/svg.image?\xi_q(\mathbf{c_2})=(\mathbf{c_{2,1}},\cdots,&space;\mathbf{c_{2,k}})" title="https://latex.codecogs.com/svg.image?\xi_q(\mathbf{c_2})=(\mathbf{c_{2,1}},\cdots, \mathbf{c_{2,k}})" /> 。
-这里有 <img src="https://latex.codecogs.com/svg.image?\mathbf{c_{2}}=|\mathbf{c_2}\frac{q_i}{q}|_{q_i}" title="https://latex.codecogs.com/svg.image?\mathbf{c_{2}}=|\mathbf{c_2}\frac{q_i}{q}|_{q_i}" /> 。
+这里有 <img src="https://latex.codecogs.com/svg.image?\mathbf{c_{2,i}}=|\mathbf{c_2}\frac{q_i}{q}|_{q_i}" title="https://latex.codecogs.com/svg.image?\mathbf{c_{2,i}}=|\mathbf{c_2}\frac{q_i}{q}|_{q_i}" /> 。
 
 ## 一些重要的证明
