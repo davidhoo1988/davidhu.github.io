@@ -127,4 +127,17 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 <img src="https://latex.codecogs.com/svg.image?\mathbf{c}\xrightarrow[]{\xi&space;_q(\cdot)&space;(bit-decompose)}&space;(|\mathbf{c}\frac{q_1}{q}|_{q_1},\cdots,&space;|\mathbf{c}\frac{q_k}{q}|_{q_k})" title="https://latex.codecogs.com/svg.image?\mathbf{c}\xrightarrow[]{\xi _q(\cdot) (bit-decompose)} (|\mathbf{c}\frac{q_1}{q}|_{q_1},\cdots, |\mathbf{c}\frac{q_k}{q}|_{q_k})" />
 </p>
 
+接着定义power_expand如下
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\mathbf{s}^2\xrightarrow[]{\mathcal{P}&space;_{RNS,q}(\cdot)&space;(power-expand)}&space;(|\mathbf{s}^2\frac{q}{q_1}|_{q},\cdots,&space;|\mathbf{s}^2\frac{q}{q_k}|_{q})" title="https://latex.codecogs.com/svg.image?\mathbf{s}^2\xrightarrow[]{\mathcal{P} _{RNS,q}(\cdot) (power-expand)} (|\mathbf{s}^2\frac{q}{q_1}|_{q},\cdots, |\mathbf{s}^2\frac{q}{q_k}|_{q})" />
+</p>
+
+有了bit_decompose和power_expand的新定义，容易证明下面的引理:
+
+<p align="center">
+  <img src="fig/BFV_rns_lemma8.PNG" alt="animated"/>
+</p>
+
+ 
 ## 一些重要的证明
