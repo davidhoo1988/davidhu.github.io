@@ -154,4 +154,6 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 那么relinearzation第一步decompose应调整为 <img src="https://latex.codecogs.com/svg.image?\overline{\mathbf{c}_{2,i}}=(|\overline{\mathbf{c}_{2,i}}|_{q_1},\cdots,|\overline{\mathbf{c}_{2,i}}|_{q_k})&space;" title="https://latex.codecogs.com/svg.image?\overline{\mathbf{c}_{2,i}}=(|\overline{\mathbf{c}_{2,i}}|_{q_1},\cdots,|\overline{\mathbf{c}_{2,i}}|_{q_k}) " />
 
+第二步直接按RNS加法和乘法(也就是向量加法，和向量对应点乘法)计算即可。
+
 ## 一些重要的证明
