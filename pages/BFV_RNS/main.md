@@ -145,10 +145,10 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 那么，relinearzation算法分两步进行：
 
-第一步，对 <img src="https://latex.codecogs.com/svg.image?\mathbf{c_{2}}" title="https://latex.codecogs.com/svg.image?\mathbf{c_{2}}" /> 做decompose得 <img src="https://latex.codecogs.com/svg.image?\xi_q(\mathbf{c_2})=(\mathbf{c_{2,1}},\cdots,&space;\mathbf{c_{2,k}})" title="https://latex.codecogs.com/svg.image?\xi_q(\mathbf{c_2})=(\mathbf{c_{2,1}},\cdots, \mathbf{c_{2,k}})" /> 。
+1. 第一步，对 <img src="https://latex.codecogs.com/svg.image?\mathbf{c_{2}}" title="https://latex.codecogs.com/svg.image?\mathbf{c_{2}}" /> 做decompose得 <img src="https://latex.codecogs.com/svg.image?\xi_q(\mathbf{c_2})=(\mathbf{c_{2,1}},\cdots,&space;\mathbf{c_{2,k}})" title="https://latex.codecogs.com/svg.image?\xi_q(\mathbf{c_2})=(\mathbf{c_{2,1}},\cdots, \mathbf{c_{2,k}})" /> 。
 这里有 <img src="https://latex.codecogs.com/svg.image?\mathbf{c_{2,i}}=|\mathbf{c_2}\frac{q_i}{q}|_{q_i}" title="https://latex.codecogs.com/svg.image?\mathbf{c_{2,i}}=|\mathbf{c_2}\frac{q_i}{q}|_{q_i}" /> 。
 
-第二步，计算 <img src="https://latex.codecogs.com/svg.image?(\overline{\mathbf{c}_0},&space;\overline{\mathbf{c}_1})&space;&plus;&space;\sum_i&space;\mathbf{c}_{2,i}\cdot(rlk_i[0],&space;rlk_i[1])" title="https://latex.codecogs.com/svg.image?(\overline{\mathbf{c}_0}, \overline{\mathbf{c}_1}) + \sum_i \mathbf{c}_{2,i}\cdot(rlk_i[0], rlk_i[1])" />
+2. 第二步，计算 <img src="https://latex.codecogs.com/svg.image?(\overline{\mathbf{c}_0},&space;\overline{\mathbf{c}_1})&space;&plus;&space;\sum_i&space;\mathbf{c}_{2,i}\cdot(rlk_i[0],&space;rlk_i[1])" title="https://latex.codecogs.com/svg.image?(\overline{\mathbf{c}_0}, \overline{\mathbf{c}_1}) + \sum_i \mathbf{c}_{2,i}\cdot(rlk_i[0], rlk_i[1])" />
 
 最后描述RNS下的relinearization新算法。注意算法的输入需要调整为RNS数制下的 <img src="https://latex.codecogs.com/svg.image?(\overline{\mathbf{c}_0},&space;\overline{\mathbf{c}_1},&space;\overline{\mathbf{c}_2})&space;" title="https://latex.codecogs.com/svg.image?(\overline{\mathbf{c}_0}, \overline{\mathbf{c}_1}, \overline{\mathbf{c}_2}) " />，即 <img src="https://latex.codecogs.com/svg.image?\overline{\mathbf{c}_i}&space;=&space;(|\overline{\mathbf{c}_i}|_{q_1},\cdots,|\overline{\mathbf{c}_i}|_{q_k})" title="https://latex.codecogs.com/svg.image?\overline{\mathbf{c}_i} = (|\overline{\mathbf{c}_i}|_{q_1},\cdots,|\overline{\mathbf{c}_i}|_{q_k})" /> 。
 
