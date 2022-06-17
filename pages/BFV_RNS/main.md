@@ -121,6 +121,10 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 现在讨论一个比 RNS BFV-Decryption更困难的问题。
 
 ### 修改第二步 bit_decompose
+现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
 
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\mathbf{c}\xrightarrow[]{\xi&space;_q(\cdot)&space;(bit-decompose)}&space;(|\mathbf{c}\frac{q_1}{q}|_{q_1},\cdots,&space;|\mathbf{c}\frac{q_k}{q}|_{q_k})" title="https://latex.codecogs.com/svg.image?\mathbf{c}\xrightarrow[]{\xi _q(\cdot) (bit-decompose)} (|\mathbf{c}\frac{q_1}{q}|_{q_1},\cdots, |\mathbf{c}\frac{q_k}{q}|_{q_k})" />
+</p>
 
 ## 一些重要的证明
