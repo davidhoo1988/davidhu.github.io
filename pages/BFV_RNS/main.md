@@ -136,7 +136,7 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 有了bit_decompose和power_expand的新定义，容易证明下面的引理:
 
 <p align="center">
-  <img src="fig/BFV_rns_lemma8.PNG" alt="animated"/>
+  <img src="fig/BFV_rns_lemma7.PNG" alt="animated"/>
 </p>
 
  
