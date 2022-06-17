@@ -139,5 +139,6 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
   <img src="fig/BFV_rns_lemma7.PNG" alt="animated"/>
 </p>
 
+借助引理7，可以阐述CRT版本的重线性化(relinearzation)算法。首先定义relinearzation key为 <img src="https://latex.codecogs.com/svg.image?rlk_i&space;=(rlk_i[0],&space;rlk_i[1])\overset{\underset{\mathrm{def}}{}}{=}&space;RLWE_\mathbf{s}(|s^2\frac{q}{q_i}|_q)" title="https://latex.codecogs.com/svg.image?rlk_i =(rlk_i[0], rlk_i[1])\overset{\underset{\mathrm{def}}{}}{=} RLWE_\mathbf{s}(|s^2\frac{q}{q_i}|_q)" />
  
 ## 一些重要的证明
