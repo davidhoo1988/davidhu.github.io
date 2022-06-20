@@ -118,7 +118,16 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 
 ## RNS版本下的 BFV-Multiplication
-现在讨论一个比 RNS BFV-Decryption更困难的问题。
+现在讨论一个比 RNS BFV-Decryption更困难的问题，即在RNS下完成BFV-Multiplication的问题。
+
+### 回顾 BFV-Multiplication算法
+首先回顾bit_decompose相关操作：
+
+<p align="center">
+  <img src="fig/BFV_bitdecompose.PNG" alt="animated"/>
+</p>
+
+<div>注意这里取的基为 <img src="https://latex.codecogs.com/svg.image?\omega" title="https://latex.codecogs.com/svg.image?\omega" /> 且 <img src="https://latex.codecogs.com/svg.image?\mathcal{D}_{\omega,q}(\mathbf{a})=&space;(\mathbf{a}_0,\cdots,\mathbf{a}_{k-1})~s.t.~\sum_i\mathbf{a}_i{\omega}^i=\mathbf{a}\bmod&space;q" title="https://latex.codecogs.com/svg.image?\mathcal{D}_{\omega,q}(\mathbf{a})= (\mathbf{a}_0,\cdots,\mathbf{a}_{k-1})~s.t.~\sum_i\mathbf{a}_i{\omega}^i=\mathbf{a}\bmod q" /> </div>
 
 ### 修改第二步 bit_decompose
 现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
