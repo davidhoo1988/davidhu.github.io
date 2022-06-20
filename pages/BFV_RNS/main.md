@@ -155,11 +155,12 @@ RNS下不能直接做 division & rounding, 但可以直接做 division & floorin
   <img src="fig/RNS_floor.PNG" alt="animated"/>
 </p>
 
-我们不加证明的使用引理5，即RNS flooring确实可以用来近似 division & rounding
+我们不加证明地使用引理5，即RNS flooring确实可以用来近似 division & rounding
 <p align="center">
   <img src="fig/Lemma 5.PNG" alt="animated"/>
 </p>
-
+ 
+但是RNS flooring存在两个小问题。 第一，事实上我们只知道基q下的 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" />， 怎么才能将基q下的<img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" /> 转换成相应的基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> ？第二，RNS flooring输出的是基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> 下的 <img src="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil&plus;\mathbf{b}_j" title="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil+\mathbf{b}_j" />，最终怎么才能把这个结果转换回基q下的表示？
 
 ### 修改第二步 bit_decompose
 现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
