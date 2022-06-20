@@ -140,9 +140,14 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 BFV乘法分两步进行。第一步做正常的多项式乘法，接着做DR操作； 第二步做重线性化re-linearization。注意relinearization key其实是一串key而不是单个key,即 <img src="https://latex.codecogs.com/svg.image?rlk_{FV}=\{RLWE_{\mathbf{s}}(\mathbf{a}\cdot\omega^i)\}_{i=0,\cdots,k-1}" title="https://latex.codecogs.com/svg.image?rlk_{FV}=\{RLWE_{\mathbf{s}}(\mathbf{a}\cdot\omega^i)\}_{i=0,\cdots,k-1}" /> 。因此 <img src="https://latex.codecogs.com/svg.image?Relin_{FV}(\cdot)" title="https://latex.codecogs.com/svg.image?Relin_{FV}(\cdot)" /> 算的实际上是 <img src="https://latex.codecogs.com/svg.image?(\mathbf{c}_0,\mathbf{c}_1)&plus;\sum_j&space;\mathbf{c}_{2,j}\cdot(rlk_{FV}[0],&space;rlk_{FV}[1])" title="https://latex.codecogs.com/svg.image?(\mathbf{c}_0,\mathbf{c}_1)+\sum_j \mathbf{c}_{2,j}\cdot(rlk_{FV}[0], rlk_{FV}[1])" /> 。
 
-现在考虑如何将原始的BFV乘法改装成RNS形式。这里主要有两个难点。第一，算法第一步的Division&Rounding与RNS天然不兼容； 第二，算法第二步的decopose使用了除法和想下取整，同样和RNS不兼容。
+现在考虑如何将原始的BFV乘法改装成RNS形式。这里主要有两个难点。第一，算法第一步的Division&Rounding与RNS天然不兼容； 第二，算法第二步的decompose使用了除法和想下取整，同样和RNS不兼容。
 
-### 修改第一步
+### 修改第一步 division & rounding
+RNS下不能直接做 division & rounding, 但可以直接做 division & flooring 。因此我们的基本思路是用flooring近似rounding，误差部分可以看作RLWE的噪声分量的一部分。即
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil\approx&space;\lfloor\frac{t}{q}ct_{\star}[j]\rfloor=&space;\frac{t\cdot&space;ct_{\star}[j]-|t\cdot&space;ct_{\star}[j]|_q}{q}" title="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil\approx \lfloor\frac{t}{q}ct_{\star}[j]\rfloor= \frac{t\cdot ct_{\star}[j]-|t\cdot ct_{\star}[j]|_q}{q}" />
+</p>
+
 
 ### 修改第二步 bit_decompose
 现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
@@ -167,7 +172,7 @@ BFV乘法分两步进行。第一步做正常的多项式乘法，接着做DR操
  
 回忆relinearization的作用是将输入 <img src="https://latex.codecogs.com/svg.image?\widetilde{ct}_{mult}&plus;b=&space;(\overline{c_0},&space;\overline{c_1},&space;\overline{c_2})" title="https://latex.codecogs.com/svg.image?\widetilde{ct}_{mult}+b= (\overline{c_0}, \overline{c_1}, \overline{c_2})" /> 变换成 <img src="https://latex.codecogs.com/svg.image?{ct}_{mult}=&space;(\overline{c'_0},&space;\overline{c'_1})" title="https://latex.codecogs.com/svg.image?{ct}_{mult}= (\overline{c'_0}, \overline{c'_1})" /> 且保证 <img src="https://latex.codecogs.com/svg.image?\overline{c_0}&plus;\overline{c_1}s&plus;\overline{c_2}s^2&space;\approx&space;\overline{c'_0}&plus;\overline{c'_1}s" title="https://latex.codecogs.com/svg.image?\overline{c_0}+\overline{c_1}s+\overline{c_2}s^2 \approx \overline{c'_0}+\overline{c'_1}s" /> 。
 
-那么，relinearzation算法分两步进行：
+那么，relinearization算法分两步进行：
 
 1. 第一步，对 <img src="https://latex.codecogs.com/svg.image?\mathbf{c_{2}}" title="https://latex.codecogs.com/svg.image?\mathbf{c_{2}}" /> 做decompose得 <img src="https://latex.codecogs.com/svg.image?\xi_q(\mathbf{c_2})=(\mathbf{c_{2,1}},\cdots,&space;\mathbf{c_{2,k}})" title="https://latex.codecogs.com/svg.image?\xi_q(\mathbf{c_2})=(\mathbf{c_{2,1}},\cdots, \mathbf{c_{2,k}})" /> 。
 这里有 <img src="https://latex.codecogs.com/svg.image?\mathbf{c_{2,i}}=|\mathbf{c_2}\frac{q_i}{q}|_{q_i}" title="https://latex.codecogs.com/svg.image?\mathbf{c_{2,i}}=|\mathbf{c_2}\frac{q_i}{q}|_{q_i}" /> 。
