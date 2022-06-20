@@ -129,6 +129,9 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 <div>注意这里取的基为 <img src="https://latex.codecogs.com/svg.image?\omega" title="https://latex.codecogs.com/svg.image?\omega" /> 且 <img src="https://latex.codecogs.com/svg.image?\mathcal{D}_{\omega,q}(\mathbf{a})=&space;(\mathbf{a}_0,\cdots,\mathbf{a}_{k-1})~s.t.~\sum_i\mathbf{a}_i{\omega}^i=\mathbf{a}\bmod&space;q" title="https://latex.codecogs.com/svg.image?\mathcal{D}_{\omega,q}(\mathbf{a})= (\mathbf{a}_0,\cdots,\mathbf{a}_{k-1})~s.t.~\sum_i\mathbf{a}_i{\omega}^i=\mathbf{a}\bmod q" /> </div>
 
+容易证明 <img src="https://latex.codecogs.com/svg.image?\left<\mathcal{D}_{\omega,q}(\mathbf{a}),&space;\mathcal{P}_{\omega,q}(\mathbf{s})\right>\equiv&space;\mathbf{a}\cdot\mathbf{s}&space;\bmod&space;q" title="https://latex.codecogs.com/svg.image?\left<\mathcal{D}_{\omega,q}(\mathbf{a}), \mathcal{P}_{\omega,q}(\mathbf{s})\right>\equiv \mathbf{a}\cdot\mathbf{s} \bmod q" /> 成立。
+
+
 ### 修改第二步 bit_decompose
 现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
 
