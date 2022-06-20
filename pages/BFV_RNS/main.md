@@ -148,6 +148,7 @@ RNS下不能直接做 division & rounding, 但可以直接做 division & floorin
 <img src="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil\approx&space;\lfloor\frac{t}{q}ct_{\star}[j]\rfloor=&space;\frac{t\cdot&space;ct_{\star}[j]-|t\cdot&space;ct_{\star}[j]|_q}{q}" title="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil\approx \lfloor\frac{t}{q}ct_{\star}[j]\rfloor= \frac{t\cdot ct_{\star}[j]-|t\cdot ct_{\star}[j]|_q}{q}" />
 </p>
 
+现在考虑如何在RNS数制下表示上式。现在假定 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]&space;<&space;\prod_{i=1}^{\ell}m_i" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j] < \prod_{i=1}^{\ell}m_i" /> , 那么我们可以在基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}=\{m_i\}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}=\{m_i\}" /> 表示 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" />
 
 ### 修改第二步 bit_decompose
 现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
