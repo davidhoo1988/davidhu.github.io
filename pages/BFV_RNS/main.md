@@ -148,7 +148,18 @@ RNS下不能直接做 division & rounding, 但可以直接做 division & floorin
 <img src="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil\approx&space;\lfloor\frac{t}{q}ct_{\star}[j]\rfloor=&space;\frac{t\cdot&space;ct_{\star}[j]-|t\cdot&space;ct_{\star}[j]|_q}{q}" title="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil\approx \lfloor\frac{t}{q}ct_{\star}[j]\rfloor= \frac{t\cdot ct_{\star}[j]-|t\cdot ct_{\star}[j]|_q}{q}" />
 </p>
 
-现在考虑如何在RNS数制下表示上式。现在假定 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]&space;<&space;\prod_{i=1}^{\ell}m_i" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j] < \prod_{i=1}^{\ell}m_i" /> , 那么我们可以在基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}=\{m_i\}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}=\{m_i\}" /> 表示 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" />
+现在考虑如何在RNS数制下表示上式。现在假定 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]&space;<&space;\prod_{i=1}^{\ell}m_i" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j] < \prod_{i=1}^{\ell}m_i" /> , 那么我们可以在基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}=\{m_i\}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}=\{m_i\}" /> 表示 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" /> 。显然 <img src="https://latex.codecogs.com/svg.image?|{t}\cdot&space;ct_{\star}[j]|_q" title="https://latex.codecogs.com/svg.image?|{t}\cdot ct_{\star}[j]|_q" />可以直接在基 <img src="https://latex.codecogs.com/svg.image?q=\{q_i\}_{i=1,\cdots,k}" title="https://latex.codecogs.com/svg.image?q=\{q_i\}_{i=1,\cdots,k}" /> 。换句话说，如果有 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" /> 在基 <img src="https://latex.codecogs.com/svg.image?q" title="https://latex.codecogs.com/svg.image?q" /> 和 基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> 下的表示，就能做division & rounding。
+
+具体地，定义RNS flooring如下：
+<p align="center">
+  <img src="fig/RNS_floor.PNG" alt="animated"/>
+</p>
+
+我们不加证明的使用引理5，即RNS flooring确实可以用来近似 division & rounding
+<p align="center">
+  <img src="fig/Lemma 5.PNG" alt="animated"/>
+</p>
+
 
 ### 修改第二步 bit_decompose
 现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
