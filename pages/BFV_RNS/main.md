@@ -19,6 +19,7 @@ $$a\bmod p = |a|_p=a-\lfloor \frac{a}{p}\rfloor \cdot p$$
 注意中心化的模运算的计算范围是 $[a]_p \in [-\lfloor\frac{p}{2}\rfloor , \lfloor\frac{p-1}{2}\rfloor]$
 
 ### 中国剩余定理 Chinese Remainder Theorem
+
 中国剩余定理CRT阐述了一个整数环的自同构的存在，即 <img src="https://latex.codecogs.com/svg.image?\mathbb{Z}_q&space;&space;\simeq&space;\prod_{i=1}^k\mathbb{Z}_{q_i}" title="https://latex.codecogs.com/svg.image?\mathbb{Z}_q \simeq \prod_{i=1}^k\mathbb{Z}_{q_i}" />。 CRT蕴含着一个非进位的数制系统(non-positional number system)，现在一般称之为余数系统(Residue Number System, RNS)。在RNS下，一个大整数(mod q)的模运算可以被拆分成k个小整数的模运算,即 <img src="https://latex.codecogs.com/svg.image?a\bmod&space;q&space;\simeq&space;(|a|_{q_1},\cdots,|a|_{q_k})" title="https://latex.codecogs.com/svg.image?a\bmod q \simeq (|a|_{q_1},\cdots,|a|_{q_k})" /> 。通常每个小整数的模运算可以被绝大多数编程语言直接支持，因此大整数的模运算也可以被支持。RNS表示的数 $(a_1,\cdots,a_k)$ 可借由中国剩余定理恢复成原始大数 $a$，即
 
 $$a= \sum_{i=1}^k|a_i\cdot \frac{q_i}{q}|_{q_i}\cdot \frac{q}{q_i} \bmod q $$
@@ -97,6 +98,7 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 <div>也就是说，如果取合适大小的 <img src="https://latex.codecogs.com/svg.image?\gamma" title="https://latex.codecogs.com/svg.image?\gamma" /> 使得 <img src="https://latex.codecogs.com/svg.image?\gamma&space;\sim&space;k(\frac{1}{2}-\frac{||\mathbf{v_c}||_{\infty}}{q})^{-1}" title="https://latex.codecogs.com/svg.image?\gamma \sim k(\frac{1}{2}-\frac{||\mathbf{v_c}||_{\infty}}{q})^{-1}" /> , 那么消去误差是可能的。</div>
 
+
 ### RNS版本下的BFV-Decryption小结
 至此，我们在算法1中描述完整的RNS版本的BFV-decryption方法:
 
@@ -129,7 +131,14 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 <div>注意这里取的基为 <img src="https://latex.codecogs.com/svg.image?\omega" title="https://latex.codecogs.com/svg.image?\omega" /> 且 <img src="https://latex.codecogs.com/svg.image?\mathcal{D}_{\omega,q}(\mathbf{a})=&space;(\mathbf{a}_0,\cdots,\mathbf{a}_{k-1})~s.t.~\sum_i\mathbf{a}_i{\omega}^i=\mathbf{a}\bmod&space;q" title="https://latex.codecogs.com/svg.image?\mathcal{D}_{\omega,q}(\mathbf{a})= (\mathbf{a}_0,\cdots,\mathbf{a}_{k-1})~s.t.~\sum_i\mathbf{a}_i{\omega}^i=\mathbf{a}\bmod q" /> </div>
 
-容易证明 <img src="https://latex.codecogs.com/svg.image?\left<\mathcal{D}_{\omega,q}(\mathbf{a}),&space;\mathcal{P}_{\omega,q}(\mathbf{s})\right>\equiv&space;\mathbf{a}\cdot\mathbf{s}&space;\bmod&space;q" title="https://latex.codecogs.com/svg.image?\left<\mathcal{D}_{\omega,q}(\mathbf{a}), \mathcal{P}_{\omega,q}(\mathbf{s})\right>\equiv \mathbf{a}\cdot\mathbf{s} \bmod q" /> 成立。
+<div>容易证明 <img src="https://latex.codecogs.com/svg.image?\left<\mathcal{D}_{\omega,q}(\mathbf{a}),&space;\mathcal{P}_{\omega,q}(\mathbf{s})\right>\equiv&space;\mathbf{a}\cdot\mathbf{s}&space;\bmod&space;q" title="https://latex.codecogs.com/svg.image?\left<\mathcal{D}_{\omega,q}(\mathbf{a}), \mathcal{P}_{\omega,q}(\mathbf{s})\right>\equiv \mathbf{a}\cdot\mathbf{s} \bmod q" /> 成立。</div>
+
+利用bit_decompose可以描述BFV乘法算法如下：
+<p align="center">
+  <img src="fig/BFV_mul.PNG" alt="animated"/>
+</p>
+
+BFV乘法分两步进行。第一步做正常的多项式乘法，接着做DR操作； 第二步做重线性化re-linearization。
 
 
 ### 修改第二步 bit_decompose
