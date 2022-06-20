@@ -140,6 +140,7 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 
 BFV乘法分两步进行。第一步做正常的多项式乘法，接着做DR操作； 第二步做重线性化re-linearization。注意relinearization key其实是一串key而不是单个key,即 <img src="https://latex.codecogs.com/svg.image?rlk_{FV}=\{RLWE_{\mathbf{s}}(\mathbf{a}\cdot\omega^i)\}_{i=0,\cdots,k-1}" title="https://latex.codecogs.com/svg.image?rlk_{FV}=\{RLWE_{\mathbf{s}}(\mathbf{a}\cdot\omega^i)\}_{i=0,\cdots,k-1}" /> 。因此 <img src="https://latex.codecogs.com/svg.image?Relin_{FV}(\cdot)" title="https://latex.codecogs.com/svg.image?Relin_{FV}(\cdot)" /> 算的实际上是 <img src="https://latex.codecogs.com/svg.image?(\mathbf{c}_0,\mathbf{c}_1)&plus;\sum_j&space;\mathbf{c}_{2,j}\cdot(rlk_{FV}[0],&space;rlk_{FV}[1])" title="https://latex.codecogs.com/svg.image?(\mathbf{c}_0,\mathbf{c}_1)+\sum_j \mathbf{c}_{2,j}\cdot(rlk_{FV}[0], rlk_{FV}[1])" /> 。
 
+现在考虑如何将原始的BFV乘法改装成RNS形式。这里主要有两个难点。
 
 ### 修改第二步 bit_decompose
 现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
