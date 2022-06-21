@@ -197,6 +197,7 @@ RNS下不能直接做 division & rounding, 但可以直接做 division & floorin
   <img src="fig/FastBconvSK.PNG" alt="animated"/>
 </p>
 
+最后在本小节抛出一个这样的思考题：为什么从基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> 到基q的转换功能不考虑使用我们解决第一个小问题(基q到基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> )中的思路，即借助蒙哥马利模约减呢？
 
 ### 修改第二步 bit_decompose
 现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
