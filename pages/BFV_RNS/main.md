@@ -169,7 +169,15 @@ RNS下不能直接做 division & rounding, 但可以直接做 division & floorin
 <p align="center">
   <img src="fig/RNS_Montgomery.PNG" alt="animated"/>
 </p>
-蒙哥马利模约减的原理可以参考[这篇博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/MontMul/main.md)
+
+蒙哥马利模约减的原理可以参考[这篇博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/MontMul/main.md)。这里设定的蒙哥马利'尾巴'为 <img src="https://latex.codecogs.com/svg.image?R=\widetilde{m}" title="https://latex.codecogs.com/svg.image?R=\widetilde{m}" /> 。
+
+同时，因为蒙哥马利算的模约减结果带有 <img src="https://latex.codecogs.com/svg.image?R^{-1}" title="https://latex.codecogs.com/svg.image?R^{-1}" />, 因此需要相应修改基转换公式FastBconv使得：
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?fastBconv'((\mathbf{c}_m)_{m\in&space;q})=(\sum_{i=1}^{k}|\mathbf{c}_i\frac{\widetilde{m}q_i}{q}|_{q_i}\times\frac{q}{q_i}\bmod&space;m)_{m\in&space;\mathbf{B}_{sk}\cup\{\widetilde{m}\}}=(\mathbf{c''}_m)_{m\in&space;\mathbf{B}_{sk}\cup\{\widetilde{m}\}}" title="https://latex.codecogs.com/svg.image?fastBconv'((\mathbf{c}_m)_{m\in q})=(\sum_{i=1}^{k}|\mathbf{c}_i\frac{\widetilde{m}q_i}{q}|_{q_i}\times\frac{q}{q_i}\bmod m)_{m\in \mathbf{B}_{sk}\cup\{\widetilde{m}\}}=(\mathbf{c''}_m)_{m\in \mathbf{B}_{sk}\cup\{\widetilde{m}\}}" />
+</p>
+
+这样算出基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}\cup\{\widetilde{m}\}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}\cup\{\widetilde{m}\}" /> 下的蒙哥马利形式的 <img src="https://latex.codecogs.com/svg.image?\mathbf{c''}=&space;[\widetilde{m}\mathbf{c}]_q&plus;q\mathbf{u}" title="https://latex.codecogs.com/svg.image?\mathbf{c''}= [\widetilde{m}\mathbf{c}]_q+q\mathbf{u}" /> 。
 
 ### 修改第二步 bit_decompose
 现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
