@@ -20,16 +20,18 @@ $$a\bmod p = |a|_p=a-\lfloor \frac{a}{p}\rfloor \cdot p$$
 
 ### 中国剩余定理 Chinese Remainder Theorem
 
-中国剩余定理CRT阐述了一个整数环的自同构的存在，即 <img src="https://latex.codecogs.com/svg.image?\mathbb{Z}_q&space;&space;\simeq&space;\prod_{i=1}^k\mathbb{Z}_{q_i}" title="https://latex.codecogs.com/svg.image?\mathbb{Z}_q \simeq \prod_{i=1}^k\mathbb{Z}_{q_i}" />。 CRT蕴含着一个非进位的数制系统(non-positional number system)，现在一般称之为余数系统(Residue Number System, RNS)。在RNS下，一个大整数(mod q)的模运算可以被拆分成k个小整数的模运算,即 <img src="https://latex.codecogs.com/svg.image?a\bmod&space;q&space;\simeq&space;(|a|_{q_1},\cdots,|a|_{q_k})" title="https://latex.codecogs.com/svg.image?a\bmod q \simeq (|a|_{q_1},\cdots,|a|_{q_k})" /> 。通常每个小整数的模运算可以被绝大多数编程语言直接支持，因此大整数的模运算也可以被支持。RNS表示的数 $(a_1,\cdots,a_k)$ 可借由中国剩余定理恢复成原始大数 $a$，即
+中国剩余定理CRT阐述了一个整数环的自同构的存在，即 <img src="https://latex.codecogs.com/svg.image?\mathbb{Z}_q&space;&space;\simeq&space;\prod_{i=1}^k\mathbb{Z}_{q_i}" title="https://latex.codecogs.com/svg.image?\mathbb{Z}_q \simeq \prod_{i=1}^k\mathbb{Z}_{q_i}" />。 CRT蕴含着一个非进位的数制系统(non-positional number system)，现在一般称之为余数系统(Residue Number System, RNS)。在RNS下，一个大整数(mod q)的模运算可以被拆分成k个小整数的模运算,即 <img src="https://latex.codecogs.com/svg.image?a\bmod&space;q&space;\simeq&space;(|a|_{q_1},\cdots,|a|_{q_k})" title="https://latex.codecogs.com/svg.image?a\bmod q \simeq (|a|_{q_1},\cdots,|a|_{q_k})" /> 。通常每个小整数的模运算可以被绝大多数编程语言直接支持，因此大整数的模运算也可以被支持。RNS表示的数 <img src="https://latex.codecogs.com/svg.image?(a_1,\cdots,a_k)" title="https://latex.codecogs.com/svg.image?(a_1,\cdots,a_k)" /> 可借由中国剩余定理恢复成原始大数a，即
 
-$$a= \sum_{i=1}^k|a_i\cdot \frac{q_i}{q}|_{q_i}\cdot \frac{q}{q_i} \bmod q $$
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?a=&space;\sum_{i=1}^k|a_i\cdot&space;\frac{q_i}{q}|_{q_i}\cdot&space;\frac{q}{q_i}&space;\bmod&space;q" title="https://latex.codecogs.com/svg.image?a= \sum_{i=1}^k|a_i\cdot \frac{q_i}{q}|_{q_i}\cdot \frac{q}{q_i} \bmod q" />
+</p>
 
 自然地，中国剩余定理可以推广到多项式环 <img src="https://latex.codecogs.com/svg.image?R_q&space;&space;\simeq&space;\prod_{i=1}^k&space;R_{q_i}" title="https://latex.codecogs.com/svg.image?R_q \simeq \prod_{i=1}^k R_{q_i}" />
 
 ### RNS基转换
 这里引入若干RNS下的计算工具，它们和BFV方案的基本操作密切相关。
 
-首先引入快速基转换的概念。一个大整数在不同基下的RNS表示显然是不同的。现在需要从某组基q(这里基q指的是$\{q_i\}_{i=1,\cdots,k}$构成的一组基) 转换成另外一组基$\mathcal{B}=\{m_i\}_{i=1,\cdots,\ell}$。定义快速基转换如下:
+首先引入快速基转换的概念。一个大整数在不同基下的RNS表示显然是不同的。现在需要从某组基q(这里基q指的是构成的一组基 <img src="https://latex.codecogs.com/svg.image?\{q_i\}_{i=1,\cdots,k}" title="https://latex.codecogs.com/svg.image?\{q_i\}_{i=1,\cdots,k}" /> ) 转换成另外一组基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}=\{m_i\}_{i=1,\cdots,\ell}" title="https://latex.codecogs.com/svg.image?\mathcal{B}=\{m_i\}_{i=1,\cdots,\ell}" />。定义快速基转换如下:
 
 
 <p align="center">
@@ -91,7 +93,7 @@ $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}\in [-\lfloor
 对引理1的结果直接做一次中心化模$\gamma$的操作就能直接得到 $\left\lfloor \gamma\frac{\mathbf{v_c}}{q}\right \rceil -\mathbf{e}$， 
 消去这部分误差就可以得到精确地division&rounding的结果即 $\gamma([\mathbf{m}]_t+t\mathbf{r})$ 。
 
-中心化模$\gamma$的操作的正确性来源于引理2：
+中心化模$\gamma$操作的正确性来源于引理2：
 <p align="center">
   <img src="fig/BFV_lemma2.PNG" alt="animated"/>
 </p>
@@ -143,13 +145,13 @@ BFV乘法分两步进行。第一步做正常的多项式乘法，接着做DR操
 现在考虑如何将原始的BFV乘法改装成RNS形式。这里主要有两个难点。第一，算法第一步的Division&Rounding与RNS天然不兼容； 第二，算法第二步的decompose使用了除法和想下取整，同样和RNS不兼容。
 
 ### 修改第一步 division & rounding
-RNS下不能直接做 division & rounding, 但可以直接做 division & flooring 。因此我们的基本思路是用flooring近似rounding，误差部分可以看作RLWE的噪声分量的一部分。即
+RNS下不能直接做 division & rounding, 但可以直接做 division & flooring 。因此我们的基本思路是用flooring近似rounding，误差部分可以看作RLWE噪声分量的一部分。即
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil\approx&space;\lfloor\frac{t}{q}ct_{\star}[j]\rfloor=&space;\frac{t\cdot&space;ct_{\star}[j]-|t\cdot&space;ct_{\star}[j]|_q}{q}" title="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil\approx \lfloor\frac{t}{q}ct_{\star}[j]\rfloor= \frac{t\cdot ct_{\star}[j]-|t\cdot ct_{\star}[j]|_q}{q}" />
 </p>
 
 #### RNS flooring
-现在考虑如何在RNS数制下表示上式。现在假定 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]&space;<&space;\prod_{i=1}^{\ell}m_i" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j] < \prod_{i=1}^{\ell}m_i" /> , 那么我们可以在基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}=\{m_i\}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}=\{m_i\}" /> 表示 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" /> 。显然 <img src="https://latex.codecogs.com/svg.image?|{t}\cdot&space;ct_{\star}[j]|_q" title="https://latex.codecogs.com/svg.image?|{t}\cdot ct_{\star}[j]|_q" />可以直接在基 <img src="https://latex.codecogs.com/svg.image?q=\{q_i\}_{i=1,\cdots,k}" title="https://latex.codecogs.com/svg.image?q=\{q_i\}_{i=1,\cdots,k}" /> 。换句话说，如果有 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" /> 在基 <img src="https://latex.codecogs.com/svg.image?q" title="https://latex.codecogs.com/svg.image?q" /> 和 基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> 下的表示，就能做division & rounding。
+现在考虑如何在RNS数制下表示上式。现在假定 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]&space;<&space;\prod_{i=1}^{\ell}m_i" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j] < \prod_{i=1}^{\ell}m_i" /> , 那么我们可以在基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}=\{m_i\}_{i=1,\cdots,\ell}\cup&space;m_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}=\{m_i\}_{i=1,\cdots,\ell}\cup m_{sk}" /> 表示 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" /> 。显然 <img src="https://latex.codecogs.com/svg.image?|{t}\cdot&space;ct_{\star}[j]|_q" title="https://latex.codecogs.com/svg.image?|{t}\cdot ct_{\star}[j]|_q" />可以直接在基 <img src="https://latex.codecogs.com/svg.image?q=\{q_i\}_{i=1,\cdots,k}" title="https://latex.codecogs.com/svg.image?q=\{q_i\}_{i=1,\cdots,k}" /> 。换句话说，如果有 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" /> 在基 <img src="https://latex.codecogs.com/svg.image?q" title="https://latex.codecogs.com/svg.image?q" /> 和 基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> 下的表示，就能做division & rounding。
 
 具体地，定义RNS flooring如下：
 <p align="center">
