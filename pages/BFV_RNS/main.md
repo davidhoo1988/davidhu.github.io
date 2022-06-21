@@ -163,7 +163,7 @@ RNS下不能直接做 division & rounding, 但可以直接做 division & floorin
  
 但是RNS flooring存在两个小问题。 第一，事实上我们只知道基q下的 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" />， 怎么才能将基q下的<img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" /> 转换成相应的基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> 下的表示？第二，RNS flooring输出的是基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> 下的 <img src="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil&plus;\mathbf{b}_j" title="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil+\mathbf{b}_j" />，最终怎么才能把这个结果转换回基q下的表示？
 
-#### 利用辅助基完成基转换
+#### 利用蒙哥马利模约减完成基转换
 现在讨论第一个小问题。注意不能使用FastBconv做基转换，因为FastBconv(x)算的不是精确x, 而是带有q-溢出 (q-overflow): <img src="https://latex.codecogs.com/svg.image?FastBconv(x,\mathcal{B}_{sk})=x&plus;\alpha_xq&space;" title="https://latex.codecogs.com/svg.image?FastBconv(x,\mathcal{B}_{sk})=x+\alpha_xq " /> 。因此需要在RNS数制下引入模q操作消去q-溢出。这里采纳的是RNS蒙哥马利模约减算法：
 
 <p align="center">
@@ -180,6 +180,16 @@ RNS下不能直接做 division & rounding, 但可以直接做 division & floorin
 这样算出基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}\cup\{\widetilde{m}\}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}\cup\{\widetilde{m}\}" /> 下的蒙哥马利形式的 <img src="https://latex.codecogs.com/svg.image?\mathbf{c''}=&space;[\widetilde{m}\mathbf{c}]_q&plus;q\mathbf{u}" title="https://latex.codecogs.com/svg.image?\mathbf{c''}= [\widetilde{m}\mathbf{c}]_q+q\mathbf{u}" /> 。接着做RNS蒙哥马利模约减刚好得到 <img src="https://latex.codecogs.com/svg.image?(\mathbf{c}_{m})_{m\in&space;\mathcal{B}_{sk}}" title="https://latex.codecogs.com/svg.image?(\mathbf{c}_{m})_{m\in \mathcal{B}_{sk}}" /> ，即基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> 表示的
 <img src="https://latex.codecogs.com/svg.image?\mathbf{c}" title="https://latex.codecogs.com/svg.image?\mathbf{c}" /> 。
 
+#### 利用Shenoy-Kumaresan完成基转换
+现在讨论第二个小问题。已知 <img src="https://latex.codecogs.com/svg.image?x=DR_2(ct'_{\star})&plus;b" title="https://latex.codecogs.com/svg.image?x=DR_2(ct'_{\star})+b" /> 在基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> 的表示，我们首先使用 <img src="https://latex.codecogs.com/svg.image?FastBconv(x,\mathcal{B},m_{sk})" title="https://latex.codecogs.com/svg.image?FastBconv(x,\mathcal{B},m_{sk})" /> 得到
+<img src="https://latex.codecogs.com/svg.image?x&plus;\alpha_{sk,x}M~w.r.t.~M=\prod_{m\in\mathcal{B}}m&space;" title="https://latex.codecogs.com/svg.image?x+\alpha_{sk,x}M~w.r.t.~M=\prod_{m\in\mathcal{B}}m " /> 在模 <img src="https://latex.codecogs.com/svg.image?m_{sk}" title="https://latex.codecogs.com/svg.image?m_{sk}" /> 下的表示。又因为已知x在模 <img src="https://latex.codecogs.com/svg.image?m_{sk}" title="https://latex.codecogs.com/svg.image?m_{sk}" /> 下的表示(即 <img src="https://latex.codecogs.com/svg.image?x_{sk}\overset{\underset{\mathrm{def}}{}}{=}|x|_{m_{sk}}" title="https://latex.codecogs.com/svg.image?x_{sk}\overset{\underset{\mathrm{def}}{}}{=}|x|_{m_{sk}}" /> ), 且可以预计算 <img src="https://latex.codecogs.com/svg.image?|M^{-1}|_{m_{sk}}" title="https://latex.codecogs.com/svg.image?|M^{-1}|_{m_{sk}}" /> , 所以可以算得 <img src="https://latex.codecogs.com/svg.image?|\alpha_{sk,x}|_{m_{sk}}=|(x&plus;\alpha_{sk,x}M-x_{sk})\times&space;M^{-1}|_{m_{sk}}" title="https://latex.codecogs.com/svg.image?|\alpha_{sk,x}|_{m_{sk}}=|(x+\alpha_{sk,x}M-x_{sk})\times M^{-1}|_{m_{sk}}" />。更进一步，如果模 <img src="https://latex.codecogs.com/svg.image?{m_{sk}}" title="https://latex.codecogs.com/svg.image?{m_{sk}}" /> 设置的合理，有
+<img src="https://latex.codecogs.com/svg.image?|\alpha_{sk,x}|_{m_{sk}}=\alpha_{sk,x}" title="https://latex.codecogs.com/svg.image?|\alpha_{sk,x}|_{m_{sk}}=\alpha_{sk,x}" />。
+
+整理一下，整个思路可用下式概括：
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?x&space;\xrightarrow[]{FastBconv(x,\mathcal{B},m_{sk})}&space;|x&plus;\alpha_{sk,x}&space;M|_{m_{sk}}&space;\xrightarrow[\times&space;|M^{-1}|_{m_{sk}}]{-x_{sk}}&space;|\alpha_{sk,x}|_{m_{sk}" title="https://latex.codecogs.com/svg.image?x \xrightarrow[]{FastBconv(x,\mathcal{B},m_{sk})} |x+\alpha_{sk,x} M|_{m_{sk}} \xrightarrow[\times |M^{-1}|_{m_{sk}}]{-x_{sk}} |\alpha_{sk,x}|_{m_{sk}" />
+</p>
 
 ### 修改第二步 bit_decompose
 现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
