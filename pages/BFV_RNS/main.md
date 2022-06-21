@@ -164,7 +164,12 @@ RNS下不能直接做 division & rounding, 但可以直接做 division & floorin
 但是RNS flooring存在两个小问题。 第一，事实上我们只知道基q下的 <img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" />， 怎么才能将基q下的<img src="https://latex.codecogs.com/svg.image?{t}\cdot&space;ct_{\star}[j]" title="https://latex.codecogs.com/svg.image?{t}\cdot ct_{\star}[j]" /> 转换成相应的基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> 下的表示？第二，RNS flooring输出的是基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> 下的 <img src="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil&plus;\mathbf{b}_j" title="https://latex.codecogs.com/svg.image?\lfloor\frac{t}{q}ct_{\star}[j]\rceil+\mathbf{b}_j" />，最终怎么才能把这个结果转换回基q下的表示？
 
 ### 利用辅助基完成基转换
-现在讨论第一个小问题。注意不能使用FastBconv做基转换，因为FastBconv(x)算的不是精确x, 而是带有q-溢出 (q-overflow): <img src="https://latex.codecogs.com/svg.image?FastBconv(x,\mathcal{B}_{sk})=x&plus;\alpha_xq&space;" title="https://latex.codecogs.com/svg.image?FastBconv(x,\mathcal{B}_{sk})=x+\alpha_xq " />
+现在讨论第一个小问题。注意不能使用FastBconv做基转换，因为FastBconv(x)算的不是精确x, 而是带有q-溢出 (q-overflow): <img src="https://latex.codecogs.com/svg.image?FastBconv(x,\mathcal{B}_{sk})=x&plus;\alpha_xq&space;" title="https://latex.codecogs.com/svg.image?FastBconv(x,\mathcal{B}_{sk})=x+\alpha_xq " /> 。因此需要在RNS数制下引入模q操作消去q-溢出。这里采纳的是RNS蒙哥马利模约减算法：
+
+<p align="center">
+  <img src="fig/RNS_Montgomery.PNG" alt="animated"/>
+</p>
+
 
 ### 修改第二步 bit_decompose
 现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
