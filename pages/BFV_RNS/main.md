@@ -191,6 +191,13 @@ RNS下不能直接做 division & rounding, 但可以直接做 division & floorin
 <img src="https://latex.codecogs.com/svg.image?x&space;\xrightarrow[]{FastBconv(x,\mathcal{B},m_{sk})}&space;|x&plus;\alpha_{sk,x}&space;M|_{m_{sk}}&space;\xrightarrow[\times&space;|M^{-1}|_{m_{sk}}]{-x_{sk}}&space;|\alpha_{sk,x}|_{m_{sk}" title="https://latex.codecogs.com/svg.image?x \xrightarrow[]{FastBconv(x,\mathcal{B},m_{sk})} |x+\alpha_{sk,x} M|_{m_{sk}} \xrightarrow[\times |M^{-1}|_{m_{sk}}]{-x_{sk}} |\alpha_{sk,x}|_{m_{sk}" />
 </p>
 
+具体地，引理6描述了FastBconvSK操作，用来完成从较大的基 <img src="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" title="https://latex.codecogs.com/svg.image?\mathcal{B}_{sk}" /> 到较小基q的转换功能：
+
+<p align="center">
+  <img src="fig/FastBconvSK.PNG" alt="animated"/>
+</p>
+
+
 ### 修改第二步 bit_decompose
 现在讨论另外一种借助中国剩余定理CRT的bit_decompose方法。首先定义新的bit_decompose如下
 
