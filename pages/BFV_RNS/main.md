@@ -237,4 +237,11 @@ RNS下不能直接做 division & rounding, 但可以直接做 division & floorin
 
 第二步直接按RNS加法和乘法(也就是向量加法，和向量对应点乘法)计算即可。
 
+### 完整描述 RNS-FV-multiplication算法
+
+现在从整体上描述RNS版本的BFV同态乘法算法（算法3）：
+<p align="center">
+  <img src="fig/RNS_fv_alg3.PNG" alt="animated"/>
+</p>
+
 ## 一些重要的证明
