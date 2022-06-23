@@ -16,5 +16,11 @@ python build.py
 
 ## 运行libPSI的frontend.exe
 
-现在运行libPSI编译生成的前端frontend.exe。
+现在运行libPSI编译生成的前端frontend.exe：
 
+```
+./out/build/linux/frontend/frontend.exe
+```
+此时frontend.exe会打印自己支持的PSI协议(包括 dcwr,ff16,rr17a,rr17a-sm,rr17b,grr,dkt,ecdh,kkrt) ，文件相关参数，和benchmark参数。
+
+这里以最经典的ecdh协议(ecdh based PSI原理可以参考[这篇博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/std_PSI/main.md))为例,
