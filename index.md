@@ -30,6 +30,7 @@
     3. [Standard Private Set Intersection （基于Oblivious Transfer）](./pages/std_ot_PSI/main.md)
     4. [Threshold Private Set Intersection](./pages/PSI/main.md)
     5. Private Information Retrieval
+    6. [PSI Lib 读书笔记](./pages/psi_lib/main.md)
     
  - 与密码相关的算术
     1. [蒙哥马利模乘 (Montgomery Multiplication)](./pages/MontMul/main.md)
