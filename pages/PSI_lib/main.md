@@ -27,10 +27,16 @@ python build.py
 
 首先开启PSI_lib的PRINT宏定义，这样./libPSI/PSI/ECDH/EcdhPSISender.cpp和EcdhPSIReceiver.cpp的和额外信息打印相关的代码被激活。具体地，在./libPSI/config.h.in添加下面一行代码：
 
-'''
+```
 // build the library with PRINT enabled
 #cmakedefine PRINT  @PRINT@
-'''
+```
+
+接着使用build.py重新配置和编译cmake：
+
+```
+python3 build.py --debug -DLIBPSI_ENABLE_X=ON -DPRINT=ON
+```
 
 ```
 ./out/build/linux/frontend/frontend.exe -ecdh
