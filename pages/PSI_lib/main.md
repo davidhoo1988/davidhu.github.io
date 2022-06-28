@@ -12,7 +12,14 @@ cd libPSI
 python build.py
 ```
 
-更详尽的编译指导可以参考libPSI的README.md。
+更详尽的编译指导可以参考libPSI的README.md。这里最关键的是build.py，它实现了cmake配置和编译的命令，具体有下面三条命令组成：
+
+```
+mkdir -p out/build/linux
+cmake   -S . -B out/build/linux  -DSUDO_FETCH=OFF -DENABLE_ALL_PSI=ON -DFETCH_AUTO=ON -DPARALLEL_FETCH=8 -DCMAKE_BUILD_TYPE=Release 
+cmake --build out/build/linux   --parallel 8 
+```
+
 
 ## 运行libPSI的frontend.exe
 
