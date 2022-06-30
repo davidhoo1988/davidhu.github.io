@@ -59,10 +59,12 @@ benchmark函数的主逻辑(./frontend/main.cpp第271-281行)是Server执行数�
 
 sendProtol和recvProtol的原型是std::function类型，并在这个例子中具体指向./frontend/ecdhMain.cpp中的EcdhSend和EcdhRecv:
 
-<details><summary>./frontend/ecdhMain.cpp 代码细节</summary>
+<details><summary>代码细节</summary>
 <p>
     
 ```cpp
+./frontend/ecdhMain.cpp
+	
 void EcdhSend(LaunchParams& params)
 {
     PRNG prng(_mm_set_epi32(4253465, 3434565, 234435, 23987045));
@@ -107,11 +109,12 @@ void EcdhRecv(LaunchParams& params)
 </details>
     
 容易看出最核心的代码是sendPSIs.sendInput(set, sendChls)和recvPSIs.sendInput(set, chls)，即sender(server)向对方发送自己集合set，以及receiver向对方放自己集合set。这里的集合set是随机生成的，集合的每一个元素(集合一共有N个元素)是block类型的变量，block类型可以简单理解为两个64bit的拼起来的128bit数据，即
-<details><summary>./thirdparty/libOTe/cryptoTools/cryptoTools/Common/block.h 代码细节</summary>
+<details><summary>代码细节</summary>
 <p>
     
 ```cpp
-
+./thirdparty/libOTe/cryptoTools/cryptoTools/Common/block.h
+	
 namespace osuCrypto
 {
     struct alignas(16) block
@@ -189,10 +192,12 @@ namespace osuCrypto
 
  那么问题来了，sendPSIs.sendInput(set, sendChls)和recvPSIs.sendInput(set, chls)的内部逻辑又是什么呢？可以在./libPSI/PSI/ECDH/EcdhPsiSender.cpp和EcdhPsiReceiver.cpp查到:
 
-<details><summary>./libPSI/PSI/ECDH/EcdhPsiSender.cpp 代码细节</summary>
+<details><summary>代码细节</summary>
 <p>
     
 ```cpp
+./libPSI/PSI/ECDH/EcdhPsiSender.cpp
+	
 void EcdhPsiSender::sendInput(std::vector<block>& inputs, span<Channel> chls)
 {
 
