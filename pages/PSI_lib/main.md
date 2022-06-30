@@ -189,7 +189,7 @@ namespace osuCrypto
 
  那么问题来了，sendPSIs.sendInput(set, sendChls)和recvPSIs.sendInput(set, chls)的内部逻辑又是什么呢？可以在./libPSI/PSI/ECDH/EcdhPsiSender.cpp和EcdhPsiReceiver.cpp查到:
 
-<details><summary>./thirdparty/libOTe/cryptoTools/cryptoTools/Common/block.h 代码细节</summary>
+<details><summary>./libPSI/PSI/ECDH/EcdhPsiSender.cpp 代码细节</summary>
 <p>
     
 ```cpp
@@ -315,3 +315,4 @@ void EcdhPsiSender::sendInput(std::vector<block>& inputs, span<Channel> chls)
     
 </p>
 </details>
+对EcdhPsiSender.cpp的一些解读。首先sender做运算$H(x)^a$: 这里x是sender集合中的任意一个元素，H(x)的部分是通过RandomOracle inputHasher实现的，最终输出point=H(x);
