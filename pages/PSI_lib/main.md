@@ -315,4 +315,181 @@ void EcdhPsiSender::sendInput(std::vector<block>& inputs, span<Channel> chls)
     
 </p>
 </details>
-对EcdhPsiSender.cpp的一些解读。第一步，sender做运算$H(x)^a$并借由Channel发送给receiver: 这里x是sender集合中的任意一个元素，a是一个随机数，H(x)是通过RandomOracle inputHasher实现的，最终输出point=H(x)和 xa=H(x)^a; 第二布，sender借由channel收到来自receiver的$H(y)^b$并计算$H(y)^{ba}$
+对EcdhPsiSender.cpp的一些解读。第一步，sender做运算 $H(x)^a$ 并借由Channel发送给receiver: 这里x是sender集合中的任意一个元素，a是一个随机数，H(x)是通过Random Oracle inputHasher实现的，最终输出point=H(x)和 xa=H(x)^a; 第二步，sender借由channel收到来自receiver的 $H(y)^b$ 并计算 $H(y)^{ba}$：注意代码中yba=H(y)^ba,yba最终通过Random Oracle ro哈希成128bit的blk并通过chl.asyncSend(）发送给receiver。
+	
+<details><summary>./libPSI/PSI/ECDH/EcdhPsiSender.cpp 代码细节</summary>
+<p>
+    
+```cpp	
+void EcdhPsiReceiver::sendInput(
+    span<block> inputs,
+    span<Channel> chls)
+{
+    //std::vector<PRNG> thrdPrng(chls.size());
+    //for (u64 i = 0; i < thrdPrng.size(); i++)
+    //    thrdPrng[i].SetSeed(mPrng.get<block>());
+
+
+	std::vector<block> thrdPrngBlock(chls.size());
+	std::vector<std::vector<u64>> localIntersections(chls.size() - 1);
+
+	u64 maskSizeByte = u64(40 + 2*log2(inputs.size()) + 7) / 8;
+
+    auto RcSeed = mPrng.get<block>();
+
+	std::unordered_map<u32, block> mapXab;
+	mapXab.reserve(inputs.size());
+
+
+	auto routine = [&](u64 t)
+	{
+		u64 inputStartIdx = inputs.size() * t / chls.size();
+		u64 inputEndIdx = inputs.size() * (t + 1) / chls.size();
+		u64 subsetInputSize = inputEndIdx - inputStartIdx;
+
+
+		auto& chl = chls[t];
+		//auto& prng = thrdPrng[t];
+		u8 hashOut[RandomOracle::HashSize];
+        RandomOracle inputHasher;
+
+		std::vector<u8> sendBuff(yb.sizeBytes() * subsetInputSize);
+		auto sendIter = sendBuff.data();
+
+		std::vector<u8> recvBuff(xa.sizeBytes() * subsetInputSize);
+		std::vector<u8> recvBuff2(xab.sizeBytes() * subsetInputSize);
+
+	//	std::cout << "send H(y)^b" << std::endl;
+
+		//send H(y)^b
+		for (u64 i = inputStartIdx; i < inputEndIdx; ++i)
+		{
+
+			inputHasher.Reset();
+			inputHasher.Update(inputs[i]);
+			inputHasher.Final(hashOut);
+
+			point.randomize(toBlock(hashOut));
+			//std::cout << "sp  " << point << "  " << toBlock(hashOut) << std::endl;
+
+			yb = (point * b);
+
+			yb.toBytes(sendIter);
+			sendIter += yb.sizeBytes();
+		}
+		chl.asyncSend(std::move(sendBuff));
+
+
+		//recv H(x)^a
+		//std::cout << "recv H(x)^a" << std::endl;
+
+		chl.recv(recvBuff);
+		auto recvIter = recvBuff.data();
+
+		//compute H(x)^a^b as map
+		//std::cout << "compute H(x)^a^b " << std::endl;
+
+		for (u64 i = inputStartIdx; i < inputEndIdx;i++)
+		{
+			xa.fromBytes(recvIter); recvIter += xa.sizeBytes();
+			xab = xa*b;
+			
+			xab.toBytes(temp.data());
+
+            RandomOracle ro(sizeof(block));
+            ro.Update(temp.data(), temp.size());
+            block blk;
+            ro.Final(blk);
+			auto idx = blk.as<u32>()[0];
+
+            mapXab.insert({ idx, blk });
+
+		}
+	};
+
+
+    std::vector<std::thread> thrds(chls.size());
+    for (u64 i = 0; i < u64(chls.size()); ++i)
+    {
+        thrds[i] = std::thread([=] {
+            routine(i);
+        });
+    }
+
+
+	for (auto& thrd : thrds)
+		thrd.join();
+
+	auto routine2 = [&](u64 t)
+	{
+		u64 inputStartIdx = inputs.size() * t / chls.size();
+		u64 inputEndIdx = inputs.size() * (t + 1) / chls.size();
+		u64 subsetInputSize = inputEndIdx - inputStartIdx;
+
+
+		auto& chl = chls[t];
+
+
+		std::vector<u8> recvBuff2(maskSizeByte * subsetInputSize);
+
+		//recv H(y)^b^a
+		chl.recv(recvBuff2);
+		auto recvIter2 = recvBuff2.data();
+
+		for (u64 i = inputStartIdx; i < inputEndIdx; i++)
+		{
+
+			auto& idx_yba = *(u32*)(recvIter2);
+
+			auto id = mapXab.find(idx_yba);
+			if (id != mapXab.end()) {
+
+				//std::cout << "id->first[" << i << "] " << toBlock(id->first) << std::endl;
+
+				if (memcmp(recvIter2, &id->second, maskSizeByte) == 0)
+				{
+					//std::cout << "intersection item----------" << i << std::endl;
+					if (t == 0)
+						mIntersection.emplace_back(i);
+					else
+						localIntersections[t - 1].emplace_back(i);
+				}
+			}
+			recvIter2 += maskSizeByte;
+
+		}
+		//std::cout << "done" << std::endl;
+
+	};
+
+
+	for (u64 i = 0; i < u64(chls.size()); ++i)
+	{
+		thrds[i] = std::thread([=] {
+			routine2(i);
+		});
+	}
+
+	for (auto& thrd : thrds)
+		thrd.join();
+
+	u64 extraSize = 0;
+
+	for (u64 i = 0; i < thrds.size()-1; ++i)
+		extraSize += localIntersections[i].size();
+
+	mIntersection.reserve(mIntersection.size() + extraSize);
+	for (u64 i = 0; i < thrds.size()-1; ++i)
+	{
+		mIntersection.insert(mIntersection.end(), localIntersections[i].begin(), localIntersections[i].end());
+	}
+
+
+}
+	
+``` 
+    
+</p>
+</details>	
+
+对ecdhPsiReceiver.cpp的一些解读。
