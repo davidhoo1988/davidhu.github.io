@@ -500,4 +500,15 @@ void EcdhPsiReceiver::sendInput(
 </p>
 </details>	
 
-对ecdhPsiReceiver.cpp的一些解读。
+对ecdhPsiReceiver.cpp的一些解读。Receiver的逻辑比Sender要复杂些，额外增加的工作量主要是求交集的运算。
+第一步，在线程routine内进行三个子操作：发送 $H(y)^b$ ， 接收 $H(x)^a$ 并计算 $H(x)^{ab}$, $H(x)^{ab}$ 最终以哈希表unordered_map mapXab的形式存储,核心代码为
+	
+```cpp 
+xab.toBytes(temp.data());
+RandomOracle ro(sizeof(block));
+ro.Update(temp.data(), temp.size());
+block blk;
+ro.Final(blk);
+auto idx = blk.as<u32>()[0];
+ mapXab.insert({ idx, blk });
+``` 
