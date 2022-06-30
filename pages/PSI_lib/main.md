@@ -79,5 +79,24 @@ void EcdhSend(LaunchParams& params)
         }
     }
 }
-void EcdhReceive(LaunchParams& params);
+
+void EcdhRecv(LaunchParams& params)
+{
+    PRNG prng(_mm_set_epi32(4253465, 3434565, 234435, 23987045));
+    for (auto setSize : params.mNumItems)
+    {
+        for (auto numThreads : params.mNumThreads)
+        {
+            auto chls = params.getChannels(numThreads);
+            std::vector<block> set(setSize);
+            prng.get(set.data(), set.size());
+
+            EcdhPsiReceiver recvPSIs;
+
+            ...
+
+            recvPSIs.sendInput(set, chls);
+        }
+    }
+}
 ```
