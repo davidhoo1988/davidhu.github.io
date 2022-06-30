@@ -321,6 +321,7 @@ void EcdhPsiSender::sendInput(std::vector<block>& inputs, span<Channel> chls)
 </p>
 </details>
 对EcdhPsiSender.cpp的一些解读。第一步，sender做运算 $H(x)^a$ 并借由Channel发送给receiver: 这里x是sender集合中的任意一个元素，a是一个随机数，H(x)是通过Random Oracle inputHasher实现的，最终输出point=H(x)和 xa=H(x)^a; 第二步，sender借由channel收到来自receiver的 $H(y)^b$ 并计算 $H(y)^{ba}$：注意代码中yba=H(y)^ba,yba最终通过Random Oracle ro哈希成128bit的blk并通过chl.asyncSend(）发送给receiver。
+
 	
 <details><summary>代码细节</summary>
 <p>
