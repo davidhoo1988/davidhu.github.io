@@ -60,6 +60,24 @@ benchmark函数的主逻辑(./frontend/main.cpp第271-281行)是Server执行数�
 sendProtol和recvProtol的原型是std::function类型，并在这个例子中具体指向./frontend/ecdhMain.cpp中的
 
 ```cpp
-void EcdhSend(LaunchParams& params);
+void EcdhSend(LaunchParams& params)
+{
+    PRNG prng(_mm_set_epi32(4253465, 3434565, 234435, 23987045));
+
+    for (auto setSize : params.mNumItems)
+    {
+        for (auto numThreads : params.mNumThreads)
+        {
+            auto sendChls = params.getChannels(numThreads);
+            std::vector<block> set(setSize);
+            prng.get(set.data(), set.size());
+            EcdhPsiSender sendPSIs;
+
+            ...
+            
+            sendPSIs.sendInput(set, sendChls);
+        }
+    }
+}
 void EcdhReceive(LaunchParams& params);
 ```
