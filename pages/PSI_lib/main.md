@@ -90,7 +90,6 @@ void EcdhRecv(LaunchParams& params)
             auto chls = params.getChannels(numThreads);
             std::vector<block> set(setSize);
             prng.get(set.data(), set.size());
-
             EcdhPsiReceiver recvPSIs;
 
             ...
@@ -100,3 +99,83 @@ void EcdhRecv(LaunchParams& params)
     }
 }
 ```
+
+容易看出最核心的代码是sendPSIs.sendInput(set, sendChls)和recvPSIs.sendInput(set, chls)，即sender(server)向对方发送自己集合set，以及receiver向对方放自己集合set。这里的集合set是随机生成的，集合的每一个元素(集合一共有N个元素)是block类型的变量，block类型可以简单理解为2两个64bit的拼起来的128bit数据，即
+<details><summary>CLICK ME</summary>
+<p>
+    
+```cpp
+namespace osuCrypto
+{
+    struct alignas(16) block
+    {
+
+        std::uint64_t mData[2];
+
+        block() = default;
+        block(const block&) = default;
+        block(uint64_t x1, uint64_t x0)
+        {
+
+            as<uint64_t>()[0] = x0;
+            as<uint64_t>()[1] = x1;
+        };
+
+        block(char e15, char e14, char e13, char e12, char e11, char e10, char e9, char e8, char e7, char e6, char e5, char e4, char e3, char e2, char e1, char e0)
+        {
+
+
+            as<char>()[0] = e0;
+            as<char>()[1] = e1;
+            as<char>()[2] = e2;
+            as<char>()[3] = e3;
+            as<char>()[4] = e4;
+            as<char>()[5] = e5;
+            as<char>()[6] = e6;
+            as<char>()[7] = e7;
+            as<char>()[8] = e8;
+            as<char>()[9] = e9;
+            as<char>()[10] = e10;
+            as<char>()[11] = e11;
+            as<char>()[12] = e12;
+            as<char>()[13] = e13;
+            as<char>()[14] = e14;
+            as<char>()[15] = e15;
+
+        }
+
+
+        template<typename T>
+        typename std::enable_if<
+            std::is_standard_layout<T>::value&&
+            std::is_trivial<T>::value &&
+            (sizeof(T) <= 16) &&
+            (16 % sizeof(T) == 0)
+            ,
+            std::array<T, 16 / sizeof(T)>&
+        >::type as()
+        {
+            return *(std::array<T, 16 / sizeof(T)>*)this;
+        }
+
+        template<typename T>
+        typename std::enable_if<
+            std::is_standard_layout<T>::value&&
+            std::is_trivial<T>::value &&
+            (sizeof(T) <= 16) &&
+            (16 % sizeof(T) == 0)
+            ,
+            const std::array<T, 16 / sizeof(T)>&
+        >::type as() const
+        {
+            return *(const std::array<T, 16 / sizeof(T)>*)this;
+        }
+
+        ...
+
+    }
+}
+```
+
+ </p>
+</details>
