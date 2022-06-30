@@ -315,4 +315,4 @@ void EcdhPsiSender::sendInput(std::vector<block>& inputs, span<Channel> chls)
     
 </p>
 </details>
-对EcdhPsiSender.cpp的一些解读。第一步，sender做运算$H(x)^a$并借由Channel发送给receiver: 这里x是sender集合中的任意一个元素，a是一个随机数，H(x)是通过RandomOracle inputHasher实现的，最终输出point=H(x)和 xa=H(x)^a;
+对EcdhPsiSender.cpp的一些解读。第一步，sender做运算$H(x)^a$并借由Channel发送给receiver: 这里x是sender集合中的任意一个元素，a是一个随机数，H(x)是通过RandomOracle inputHasher实现的，最终输出point=H(x)和 xa=H(x)^a; 第二布，sender借由channel收到来自receiver的$H(y)^b$并计算$H(y)^{ba}$
