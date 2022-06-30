@@ -504,11 +504,20 @@ void EcdhPsiReceiver::sendInput(
 第一步，在线程routine内进行三个子操作：发送 $H(y)^b$ ， 接收 $H(x)^a$ 并计算 $H(x)^{ab}$, $H(x)^{ab}$ 最终以哈希表unordered_map mapXab的形式存储,核心代码为
 	
 ```cpp 
+// convert EC point xab to byte-array temp
 xab.toBytes(temp.data());
 RandomOracle ro(sizeof(block));
 ro.Update(temp.data(), temp.size());
 block blk;
+// covert the byte-array temp to block blk
 ro.Final(blk);
+// set the first 32 bits of blk as key
 auto idx = blk.as<u32>()[0];
- mapXab.insert({ idx, blk });
+// set the entire blk as the value
+mapXab.insert({ idx, blk });
 ``` 
+
+第二步，在线程routine2内进行两个自操作，即接收来自sender的$H(y)^{ba}$ (以block的格式存储)并和线程routine内计算好的 $H(x)^{ab}$ (以哈希表mapXab格式存储)求交集。求交的方法是以$H(y)^{ba}$ 的首32bit数据为key，在mapXab查找是否有对应的value存在。若value值存在，说明该$H(y)^{ba}$处于交集内（注意代码最终记录的是处于交集的$H(y)^{ab}$的位置索引i）。
+
+	
+	
