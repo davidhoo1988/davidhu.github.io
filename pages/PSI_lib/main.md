@@ -57,8 +57,10 @@ benchmark(ecdhTags, cmd, EcdhRecv, EcdhSend)
 
 benchmark函数的主逻辑(./frontend/main.cpp第271-281行)是Server执行数据发送协议sendProtol(params)，接着Client执行数据接收协议recvProtol(params)。下面重点介绍这两个数据协议:
 
-sendProtol和recvProtol的原型是std::function类型，并在这个例子中具体指向./frontend/ecdhMain.cpp中的
+sendProtol和recvProtol的原型是std::function类型，并在这个例子中具体指向./frontend/ecdhMain.cpp中的EcdhSend和EcdhRecv:
 
+<details><summary>./frontend/ecdhMain.cpp 代码细节</summary>
+<p>
 ```cpp
 void EcdhSend(LaunchParams& params)
 {
@@ -99,7 +101,9 @@ void EcdhRecv(LaunchParams& params)
     }
 }
 ```
-
+</p>
+</details>
+    
 容易看出最核心的代码是sendPSIs.sendInput(set, sendChls)和recvPSIs.sendInput(set, chls)，即sender(server)向对方发送自己集合set，以及receiver向对方放自己集合set。这里的集合set是随机生成的，集合的每一个元素(集合一共有N个元素)是block类型的变量，block类型可以简单理解为2两个64bit的拼起来的128bit数据，即
 <details><summary>./thirdparty/libOTe/cryptoTools/cryptoTools/Common/block.h 代码细节</summary>
 <p>
