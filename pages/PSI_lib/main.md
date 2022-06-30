@@ -48,3 +48,11 @@ python3 build.py --debug -DLIBPSI_ENABLE_X=ON -DPRINT=ON
 ```
 ./out/build/linux/frontend/frontend.exe -ecdh
 ```
+
+现在重点讨论上面一行ECDH-based PSI的代码逻辑。事实上，frontend.exe -ecdh启动的是./frontend/main.cpp第450行代码
+
+```cpp
+benchmark(ecdhTags, cmd, EcdhRecv, EcdhSend)
+```
+
+
