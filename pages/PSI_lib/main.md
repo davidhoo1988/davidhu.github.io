@@ -55,4 +55,11 @@ python3 build.py --debug -DLIBPSI_ENABLE_X=ON -DPRINT=ON
 benchmark(ecdhTags, cmd, EcdhRecv, EcdhSend)
 ```
 
+benchmark函数的主逻辑(./frontend/main.cpp第271-281行)是Server执行数据发送协议sendProtol(params)，接着Client执行数据接收协议recvProtol(params)。下面重点介绍这两个数据协议:
 
+sendProtol和recvProtol的原型是std::function类型，并在这个例子中具体指向./frontend/ecdhMain.cpp中的
+
+```cpp
+void EcdhSend(LaunchParams& params);
+void EcdhReceive(LaunchParams& params);
+```
