@@ -546,3 +546,85 @@ if (cmd.isSet("in"))
 	doFilePSI(cmd);
 }
 ```	
+
+核心代码是./libPSI/Tools/fileBased.cpp中的doFilePSI函数：
+
+<details><summary>代码细节</summary>
+<p>
+    
+```cpp	
+./libPSI/Tools/fileBased.cpp
+
+void doFilePSI(const CLP& cmd)
+{
+	try {
+		auto path = cmd.get<std::string>("in");
+		auto outPath = cmd.getOr<std::string>("out", path + ".out");
+		bool debug = cmd.isSet("debug");
+
+		FileType ft = FileType::Unspecified;
+		if (cmd.isSet("csv")) ft = FileType::Csv;
+		if (ft == FileType::Unspecified)
+		{
+			if (hasSuffix(path, ".csv"))
+				ft = FileType::Csv;
+		}
+
+
+		std::vector<block> set = readSet(path, ft, debug);
+
+		u64 statSetParam = cmd.getOr("ssp", 40);
+		auto ip = cmd.getOr<std::string>("ip", "localhost:1212");
+		auto r = (Role)cmd.getOr<int>("r", 2);
+
+		auto isServer = cmd.getOr<int>("server", (int)r);
+
+
+		auto mode = isServer ? SessionMode::Server : SessionMode::Client;
+		IOService ios;
+		Session ses(ios, ip, mode);
+		Channel chl = ses.addChannel();
+
+		...
+
+		if (cmd.isSet("ecdh"))
+		{
+#ifdef ENABLE_ECDH_PSI
+			padSmallSet(set, theirSize, cmd);
+
+			if (r == Role::Sender)
+			{
+				EcdhPsiSender sender;
+				sender.init(set.size(), statSetParam, sysRandomSeed());
+				sender.sendInput(set, span<Channel>{&chl, 1});
+			}
+			else
+			{
+				EcdhPsiReceiver recver;
+				recver.init(set.size(), statSetParam, sysRandomSeed());
+				recver.sendInput(set, span<Channel>{&chl, 1});
+				writeOutput(outPath, ft, recver.mIntersection);
+			}
+#else 
+			throw std::runtime_error("ENABLE_ECDH_PSI not defined.");
+#endif
+		}
+		else
+		{
+			throw std::runtime_error("Please add one of the protocol flags, -kkrt, -rr17a, -ecdh");
+		}
+
+	}
+	catch (std::exception& e)
+	{
+		std::cout << Color::Red << "Exception: " << e.what() << std::endl << Color::Default;
+
+		std::cout << "Try adding command line argument -debug" << std::endl;
+	}
+}
+
+``` 
+    
+</p>
+</details>	
+	
