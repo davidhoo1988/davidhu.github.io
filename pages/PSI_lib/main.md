@@ -528,4 +528,21 @@ mapXab.insert({ idx, blk });
 第二步，在线程routine2内进行两个自操作，即接收来自sender的$H(y)^{ba}$ (以block的格式存储)并和线程routine内计算好的 $H(x)^{ab}$ (以哈希表mapXab格式存储)求交集。求交的方法是以$H(y)^{ba}$ 的首32bit数据为key，在mapXab查找是否有对应的value存在。若value值存在，说明该$H(y)^{ba}$处于交集内（注意代码最终记录的是处于交集的$H(y)^{ab}$的位置索引i）。例子程序里设置的是sender 和 receiver的集合是**一模一样的**（集合元素通过PRNG驱动生成，设置PRNG seed一样就可以保证输出一致）。
 
 	
+# 通过外部文件生成集合
+frontend.exe可以通过读取外部文件(比如SenderDat.csv，ReceiverDat.csv)生成相应的sender/receiver集合。运行命令如下:
+
+```cpp
+./frontend.exe -ecdh -in SenderDat.csv -r 0
+./frontend.exe -ecdh -in ReceiverDat.csv -r 1 -out Intersection.csv	
+``` 
+这里r=0表示Sender模式，r=1表示Receiver模式。输出的交集放在Intersection.csv。注意Intersection.csv存储的不是交集元素本身，而是交集元素在ReceiverDat.csv的位置索引。
+
+事实上，当frontend.exe带上参数"-in"后，会触发main.cpp第435-439行代码，进入file-based PSI模式：
 	
+```cpp
+if (cmd.isSet("in"))
+{
+	hasProtocolTag = true;
+	doFilePSI(cmd);
+}
+```	
