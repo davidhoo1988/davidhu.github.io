@@ -49,7 +49,15 @@ python3 build.py --debug -DLIBPSI_ENABLE_X=ON -DPRINT=ON
 ./out/build/linux/frontend/frontend.exe -ecdh
 ```
 
-现在重点讨论上面一行ECDH-based PSI的代码逻辑。事实上，frontend.exe -ecdh启动的是./frontend/main.cpp第450行代码
+### 随机生成集合
+
+现在重点讨论上面一行ECDH-based PSI的代码逻辑，这里sender和receiver的集合是通过指定随机数种子再经过随机生成器随机生成的,随机种子通过./frontend/ecdhMain.cpp的一行代码规定：
+
+```cpp
+PRNG prng(_mm_set_epi32(4253465, 3434565, 234435, 23987045));
+```
+
+事实上，frontend.exe -ecdh启动的是./frontend/main.cpp第450行代码
 
 ```cpp
 benchmark(ecdhTags, cmd, EcdhRecv, EcdhSend)
