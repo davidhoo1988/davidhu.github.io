@@ -570,7 +570,7 @@ void doFilePSI(const CLP& cmd)
 				ft = FileType::Csv;
 		}
 
-
+		// read csv file to get set content
 		std::vector<block> set = readSet(path, ft, debug);
 
 		u64 statSetParam = cmd.getOr("ssp", 40);
@@ -592,12 +592,15 @@ void doFilePSI(const CLP& cmd)
 #ifdef ENABLE_ECDH_PSI
 			padSmallSet(set, theirSize, cmd);
 
+			// if it is a sender, performs as sender
 			if (r == Role::Sender)
 			{
 				EcdhPsiSender sender;
 				sender.init(set.size(), statSetParam, sysRandomSeed());
 				sender.sendInput(set, span<Channel>{&chl, 1});
 			}
+			// if it is a receiver, performs as receiver, finanly write
+			// the content of intersection to outPath
 			else
 			{
 				EcdhPsiReceiver recver;
