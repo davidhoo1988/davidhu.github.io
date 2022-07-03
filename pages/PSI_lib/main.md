@@ -547,7 +547,7 @@ if (cmd.isSet("in"))
 }
 ```	
 
-核心代码是./libPSI/Tools/fileBased.cpp中的doFilePSI函数：
+核心代码是./libPSI/Tools/fileBased.cpp中的doFilePSI函数，它读取输入的csv文件并转化成相应的集合set，接着执行Ecdh-based PSI并把交集结果写回"-out"命令指定的文件：
 
 <details><summary>代码细节</summary>
 <p>
