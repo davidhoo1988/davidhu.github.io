@@ -335,7 +335,7 @@ void EcdhPsiSender::sendInput(std::vector<block>& inputs, span<Channel> chls)
 <p>
     
 ```cpp	
-./libPSI/PSI/ECDH/EcdhPsiSender.cpp
+./libPSI/PSI/ECDH/EcdhPsiReceiver.cpp
 	
 void EcdhPsiReceiver::sendInput(
     span<block> inputs,
