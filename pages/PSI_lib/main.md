@@ -328,7 +328,8 @@ void EcdhPsiSender::sendInput(std::vector<block>& inputs, span<Channel> chls)
     
 </p>
 </details>
-对EcdhPsiSender.cpp的一些解读。第一步，sender做运算 $H(x)^a$ 并借由Channel发送给receiver: 这里x是sender集合中的任意一个元素，a是一个随机数，H(x)是通过Random Oracle inputHasher实现的，最终输出point=H(x)和 xa=H(x)^a; 第二步，sender借由channel收到来自receiver的 $H(y)^b$ 并计算 $H(y)^{ba}$：注意代码中yba=H(y)^ba,yba最终通过Random Oracle ro哈希成128bit的blk并通过chl.asyncSend(）发送给receiver。
+	
+对EcdhPsiSender.cpp的一些解读。第一步，sender做运算 $H(x)^a$ 并借由Channel发送给receiver: 这里x是sender集合中的任意一个元素，a是一个随机数，H(x)是通过Random Oracle inputHasher实现的，最终输出point=H(x)和 xa=H(x)^a; 第二步，sender借由channel收到来自receiver的 $H(y)^b$ 并计算 $H(y)^{ba}$：注意代码中yba=H(y)^ba,yba最终通过Random Oracle ro哈希成128bit的blk并通过chl.asyncSend(）发送给receiver。更具体地说, sender并没有完整发送yba对应的16字节的blk,而是发送blk的前7个字节，即发送截断的blk(通过变量maskSizeByte=7调节)给receiver。
 
 	
 <details><summary>代码细节</summary>
@@ -525,7 +526,7 @@ auto idx = blk.as<u32>()[0];
 mapXab.insert({ idx, blk });
 ``` 
 
-第二步，在线程routine2内进行两个自操作，即接收来自sender的$H(y)^{ba}$ (以block的格式存储)并和线程routine内计算好的 $H(x)^{ab}$ (以哈希表mapXab格式存储)求交集。求交的方法是以$H(y)^{ba}$ 的首32bit数据为key，在mapXab查找是否有对应的value存在。若value值存在，说明该$H(y)^{ba}$处于交集内（注意代码最终记录的是处于交集的$H(y)^{ab}$的位置索引i）。例子程序里设置的是sender 和 receiver的集合是**一模一样的**（集合元素通过PRNG驱动生成，设置PRNG seed一样就可以保证输出一致）。
+第二步，在线程routine2内进行两个自操作，即接收来自sender的$H(y)^{ba}$ (以阶段的block的格式存储，即block数据的前7个字节)并和线程routine内计算好的 $H(x)^{ab}$ (以哈希表mapXab格式存储)求交集。求交的方法是以$H(y)^{ba}$ 的首32bit数据为key，在mapXab查找是否有对应的value存在。若value值存在，说明该$H(y)^{ba}$处于交集内（注意代码最终记录的是处于交集的$H(y)^{ab}$的位置索引i）。例子程序里设置的是sender 和 receiver的集合是**一模一样的**（集合元素通过PRNG驱动生成，设置PRNG seed一样就可以保证输出一致）。
 
 	
 # 通过外部文件生成集合
