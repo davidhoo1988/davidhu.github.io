@@ -533,8 +533,8 @@ mapXab.insert({ idx, blk });
 frontend.exe可以通过读取外部文件(比如SenderDat.csv，ReceiverDat.csv)生成相应的sender/receiver集合。运行命令如下:
 
 ```cpp
-./frontend.exe -ecdh -in SenderDat.csv -r 0
 ./frontend.exe -ecdh -in ReceiverDat.csv -r 1 -out Intersection.csv	
+./frontend.exe -ecdh -in SenderDat.csv -r 0
 ``` 
 这里r=0表示Sender模式，r=1表示Receiver模式。输出的交集放在Intersection.csv。注意Intersection.csv存储的不是交集元素本身，而是交集元素在ReceiverDat.csv的位置索引。
 
