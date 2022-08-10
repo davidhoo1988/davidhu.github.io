@@ -669,6 +669,6 @@ void pingTest(CLP& cmd){
 </p>
 </details>
 
-对代码做一些解读。pingTest内部有两个线程，一个主线程充当client，另外一个子线程thrd充当server。
+对代码做一些解读。pingTest内部有两个线程，一个主线程充当client，另外一个子线程thrd充当server。首先需要通过IOService生成一个网络传输服务，即代码中的ios。接着，client线程和server线程分别生成Endpoint和channel。注意这里需要保证主线程和子线程的channel是同一个(代码中的"test" chl)。再接着client线程和server线程分别执行recverGetLatency(chl)和senderGetLatency(chl)， 即借助chl.asyncSend和chl.recv互相收发网络数据包并统计网络的传输带宽。这里需要强调chl.asyncSend和chl.recv一一对应关系, 也就是说，recverGetLatency(chl)中每次asyncSend对应senderGetLatency(chl)中的recv，反之亦然。
 	
 	
