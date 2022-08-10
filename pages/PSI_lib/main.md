@@ -645,6 +645,9 @@ void doFilePSI(const CLP& cmd)
 ```cpp
 void pingTest(CLP& cmd){	
 	IOService ios(0);
+	
+	...
+	
 	auto thrd = std::thread([&]()
 			{
 				Endpoint sendEP(ios, cmd.get<std::string>(hostNameTag), EpMode::Server, "pringTest");
