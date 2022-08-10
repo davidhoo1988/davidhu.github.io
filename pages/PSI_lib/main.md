@@ -638,8 +638,12 @@ void doFilePSI(const CLP& cmd)
 # 网络数据传输
 	
 这里介绍PSI中网络数据传输。我们知道在具体的PSI协议中Client和Server之间需要交换数据。PSIlib实现这部分功能的代码在文件夹./thirdparty/libOTe/cryptoTools/Network下。这里以frontend.exe的void pingTest(CLP& cmd)函数（即./frontend/main.cpp的第287-331行）为例简单介绍这部分的原理。
+
+<details><summary>代码细节</summary>
+<p>
 	
 ```cpp
+void pingTest(CLP& cmd){	
 	IOService ios(0);
 	auto thrd = std::thread([&]()
 			{
@@ -656,5 +660,9 @@ void doFilePSI(const CLP& cmd)
 	chl.close();
 	recvEP.stop();
 	thrd.join();
+}
 ```
+
+</p>
+</details>
 	
