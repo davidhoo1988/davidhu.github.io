@@ -668,4 +668,7 @@ void pingTest(CLP& cmd){
 
 </p>
 </details>
+
+对代码做一些解读。pingTest内部有两个线程，一个主线程充当client，另外一个子线程thrd充当server。
+	
 	
