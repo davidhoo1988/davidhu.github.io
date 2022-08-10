@@ -635,4 +635,26 @@ void doFilePSI(const CLP& cmd)
 这里提一下代码读取csv文件的逻辑，即readSet(...）函数的作用。readSet可以支持两种文件输入格式，二进制文件和csv文件。这里只讨论csv文件，因为csv文件更已读，而且对大数据文件支持更好。
 这里对csv文件的要求是csv的每一个条目都是十六进制数hexdecimal，如果这个hex长度超过128bit，则调用Random Oracle将它压缩为128bit，如果长度不足128bit则直接认定为128bit。最终这个128bit hex会转换成block类型的变量，该变量指代的就是sender/receiver集合中的一个元素。
 	
+# 网络数据传输
+	
+这里介绍PSI中网络数据传输。我们知道在具体的PSI协议中Client和Server之间需要交换数据。PSIlib实现这部分功能的代码在文件夹./thirdparty/libOTe/cryptoTools/Network下。这里以frontend.exe的void pingTest(CLP& cmd)函数（即./frontend/main.cpp的第287-331行）为例简单介绍这部分的原理。
+	
+```cpp
+	IOService ios(0);
+	auto thrd = std::thread([&]()
+			{
+				Endpoint sendEP(ios, cmd.get<std::string>(hostNameTag), EpMode::Server, "pringTest");
+				auto chl = sendEP.addChannel("test");
+				senderGetLatency(chl);
+				chl.close();
+				sendEP.stop();
+			});
+
+	Endpoint recvEP(ios, cmd.get<std::string>(hostNameTag), EpMode::Client, "pringTest");
+	auto chl = recvEP.addChannel("test");
+	recverGetLatency(chl);
+	chl.close();
+	recvEP.stop();
+	thrd.join();
+```
 	
