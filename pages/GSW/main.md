@@ -125,7 +125,7 @@ GSW是公认的第一个第三代FHE方案。Craig Gentry, Amit Sahai 和 Brent 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?Error(RLWE(m_0)\diamond&space;RGSW(m_1))=\sum_{i=0}^{d_g-1}a_ie_i&plus;\sum_{i=0}^{d_g-1}b_ie_i'&space;&plus;&space;m_1e&space;" title="https://latex.codecogs.com/svg.image?Error(RLWE(m_0)\diamond RGSW(m_1))=\sum_{i=0}^{d_g-1}a_ie_i+\sum_{i=0}^{d_g-1}b_ie_i' + m_1e " />
 </p>
-<div>为了方便分析，我们假定统计独立性且利用恒等式 <img src="https://latex.codecogs.com/svg.image?E(XY)=Var(X)\cdot&space;E^2(Y)&plus;&space;Var(Y)\cdot&space;E^2(X)&space;&plus;&space;Var(X)\cdot&space;Var(Y)" title="https://latex.codecogs.com/svg.image?E(XY)=Var(X)\cdot E^2(Y)+ Var(Y)\cdot E^2(X) + Var(X)\cdot Var(Y)" />， 分两种情况讨论噪声方差的上界。</div>
+<div>为了方便分析，我们假定统计独立性且利用恒等式 <img src="https://latex.codecogs.com/svg.image?Var(XY)=Var(X)\cdot&space;E^2(Y)&plus;&space;Var(Y)\cdot&space;E^2(X)&space;&plus;&space;Var(X)\cdot&space;Var(Y)" title="https://latex.codecogs.com/svg.image?Var(XY)=Var(X)\cdot E^2(Y)+ Var(Y)\cdot E^2(X) + Var(X)\cdot Var(Y)" />， 分两种情况讨论噪声方差的上界。</div>
 
 <div>情况1，<img src="https://latex.codecogs.com/svg.image?a_i\sim&space;Unif(-\frac{B_g}{2},\frac{B_g}{2})" title="https://latex.codecogs.com/svg.image?a_i\sim Unif(-\frac{B_g}{2},\frac{B_g}{2})" />：</div>
 <p align="center">
