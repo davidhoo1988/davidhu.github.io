@@ -133,3 +133,13 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
 </p>
 
 这里函数f满足 <img src="https://latex.codecogs.com/svg.image?f:&space;\mathbb{Z}_t^p\to&space;R_q" title="https://latex.codecogs.com/svg.image?f: \mathbb{Z}_t^p\to R_q" />
+
+我们归纳TFHE Private KS算法步骤如下：
+   <p align="center">
+  <img src="fig/PrivKS.PNG" alt="animated" />
+   </p>
+
+为了方便理解我们举一个f的具体例子
+ <img src="https://latex.codecogs.com/svg.image?f(0,\cdots,s_iB^j,\cdots,0)&space;=&space;const\cdot&space;s_iB^j\cdot&space;X^z" title="https://latex.codecogs.com/svg.image?f(0,\cdots,s_iB^j,\cdots,0) = const\cdot s_iB^j\cdot X^z" />
+ 也就是说，f^(k)只有X^z这一项。 容易观察出 <img src="https://latex.codecogs.com/svg.image?\sum_j&space;a^{(k)}_{i,j}\cdot&space;\mathbf{KSK}^{(f)}_{k,i,j}&space;=&space;RLWE_z(f(\cdots,a_i^{(k)}s_i,\cdots))" title="https://latex.codecogs.com/svg.image?\sum_j a^{(k)}_{i,j}\cdot \mathbf{KSK}^{(f)}_{k,i,j} = RLWE_z(f(\cdots,a_i^{(k)}s_i,\cdots))" />。因此,
+ 
