@@ -142,10 +142,18 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
 为了方便理解我们举一个f的具体例子
 <p align="center">
  <img src="https://latex.codecogs.com/svg.image?f(0,\cdots,s_iB^j,\cdots,0)&space;=&space;const\cdot&space;s_iB^j\cdot&space;X^z" title="https://latex.codecogs.com/svg.image?f(0,\cdots,s_iB^j,\cdots,0) = const\cdot s_iB^j\cdot X^z" />
- 也就是说，f^(k)只有X^z这一项。 容易观察出 <img src="https://latex.codecogs.com/svg.image?\sum_j&space;a^{(k)}_{i,j}\cdot&space;\mathbf{KSK}^{(f)}_{k,i,j}&space;=&space;RLWE_z(f(\cdots,a_i^{(k)}s_i,\cdots))" title="https://latex.codecogs.com/svg.image?\sum_j a^{(k)}_{i,j}\cdot \mathbf{KSK}^{(f)}_{k,i,j} = RLWE_z(f(\cdots,a_i^{(k)}s_i,\cdots))" />。
+ 也就是说，f^(k)只有X^z这一项。 容易观察出 <img src="https://latex.codecogs.com/svg.image?\sum_j&space;a^{(k)}_{i,j}\cdot&space;\mathbf{KSK}^{(f)}_{k,i,j}&space;=&space;RLWE_z(f(\cdots,a_i^{(k)}s_i,\cdots))" title="https://latex.codecogs.com/svg.image?\sum_j a^{(k)}_{i,j}\cdot \mathbf{KSK}^{(f)}_{k,i,j} = RLWE_z(f(\cdots,a_i^{(k)}s_i,\cdots))" />
  </p>
  
  因此有，
  <p align="center">
  <img src="https://latex.codecogs.com/svg.image?-\sum_k\sum_i\sum_j&space;a^{(k)}_{i,j}\cdot&space;\mathbf{KSK}^{(f)}_{k,i,j}&space;=&space;RLWE_z(-\sum_k\sum_if(\cdots,a_i^{(k)}s_i,\cdots))=RLWE_z(f(-\sum_ia_i^{(0)}s_i,\cdots,-\sum_ia_i^{(k)}s_i,\cdots))=RLWE(f(m_0,\cdots,m_k,\cdots))" title="https://latex.codecogs.com/svg.image?-\sum_k\sum_i\sum_j a^{(k)}_{i,j}\cdot \mathbf{KSK}^{(f)}_{k,i,j} = RLWE_z(-\sum_k\sum_if(\cdots,a_i^{(k)}s_i,\cdots))=RLWE_z(f(-\sum_ia_i^{(0)}s_i,\cdots,-\sum_ia_i^{(k)}s_i,\cdots))=RLWE(f(m_0,\cdots,m_k,\cdots))" />
  </p>
+ 
+ ## TFHE Circuit Bootstrap
+ Circuit bootstrap的目的是将一个LWE sample转换成相应的RGSW sample。更具体的，circuit bootstrap定义如下:
+ <p align="center">
+ <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)\xrightarrow[]{Circuit&space;Bootstrap}&space;RGSW_z(m)\overset{\underset{\mathrm{def}}{}}{=}&space;(\{RLWE_z(m\cdot&space;B_g^i)\}_i,&space;\{RLWE_z(-z\cdot&space;m\cdot&space;B_g^i)\}_i)" title="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)\xrightarrow[]{Circuit Bootstrap} RGSW_z(m)\overset{\underset{\mathrm{def}}{}}{=} (\{RLWE_z(m\cdot B_g^i)\}_i, \{RLWE_z(-z\cdot m\cdot B_g^i)\}_i)" />
+ </p>
+ 
+ 
