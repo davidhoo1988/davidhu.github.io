@@ -155,5 +155,4 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
  <p align="center">
  <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)\xrightarrow[]{Circuit&space;Bootstrap}&space;RGSW_z(m)\overset{\underset{\mathrm{def}}{}}{=}&space;(\{RLWE_z(m\cdot&space;B_g^i)\}_i,&space;\{RLWE_z(-z\cdot&space;m\cdot&space;B_g^i)\}_i)" title="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)\xrightarrow[]{Circuit Bootstrap} RGSW_z(m)\overset{\underset{\mathrm{def}}{}}{=} (\{RLWE_z(m\cdot B_g^i)\}_i, \{RLWE_z(-z\cdot m\cdot B_g^i)\}_i)" />
  </p>
- 
- 
+ 这里想强调的是circuit bootstrap的输入密钥是$s$, 输出密钥是$z$，他们是不一样的。
