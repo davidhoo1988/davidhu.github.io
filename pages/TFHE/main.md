@@ -140,6 +140,12 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
    </p>
 
 为了方便理解我们举一个f的具体例子
+<p align="center">
  <img src="https://latex.codecogs.com/svg.image?f(0,\cdots,s_iB^j,\cdots,0)&space;=&space;const\cdot&space;s_iB^j\cdot&space;X^z" title="https://latex.codecogs.com/svg.image?f(0,\cdots,s_iB^j,\cdots,0) = const\cdot s_iB^j\cdot X^z" />
- 也就是说，f^(k)只有X^z这一项。 容易观察出 <img src="https://latex.codecogs.com/svg.image?\sum_j&space;a^{(k)}_{i,j}\cdot&space;\mathbf{KSK}^{(f)}_{k,i,j}&space;=&space;RLWE_z(f(\cdots,a_i^{(k)}s_i,\cdots))" title="https://latex.codecogs.com/svg.image?\sum_j a^{(k)}_{i,j}\cdot \mathbf{KSK}^{(f)}_{k,i,j} = RLWE_z(f(\cdots,a_i^{(k)}s_i,\cdots))" />。因此,
+ 也就是说，f^(k)只有X^z这一项。 容易观察出 <img src="https://latex.codecogs.com/svg.image?\sum_j&space;a^{(k)}_{i,j}\cdot&space;\mathbf{KSK}^{(f)}_{k,i,j}&space;=&space;RLWE_z(f(\cdots,a_i^{(k)}s_i,\cdots))" title="https://latex.codecogs.com/svg.image?\sum_j a^{(k)}_{i,j}\cdot \mathbf{KSK}^{(f)}_{k,i,j} = RLWE_z(f(\cdots,a_i^{(k)}s_i,\cdots))" />。
+ </p>
  
+ 因此有，
+ <p align="center">
+ <img src="https://latex.codecogs.com/svg.image?-\sum_k\sum_i\sum_j&space;a^{(k)}_{i,j}\cdot&space;\mathbf{KSK}^{(f)}_{k,i,j}&space;=&space;RLWE_z(-\sum_k\sum_if(\cdots,a_i^{(k)}s_i,\cdots))=RLWE_z(f(-\sum_ia_i^{(0)}s_i,\cdots,-\sum_ia_i^{(k)}s_i,\cdots))=RLWE(f(m_0,\cdots,m_k,\cdots))" title="https://latex.codecogs.com/svg.image?-\sum_k\sum_i\sum_j a^{(k)}_{i,j}\cdot \mathbf{KSK}^{(f)}_{k,i,j} = RLWE_z(-\sum_k\sum_if(\cdots,a_i^{(k)}s_i,\cdots))=RLWE_z(f(-\sum_ia_i^{(0)}s_i,\cdots,-\sum_ia_i^{(k)}s_i,\cdots))=RLWE(f(m_0,\cdots,m_k,\cdots))" />
+ </p>
