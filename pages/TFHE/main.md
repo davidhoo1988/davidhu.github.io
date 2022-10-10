@@ -151,7 +151,7 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
  </p>
  
  ## TFHE Circuit Bootstrap
- Circuit bootstrap的目的是将一个LWE sample转换成相应的RGSW sample。更具体的，circuit bootstrap定义如下:
+ Circuit bootstrap的目的是将一个LWE sample转换成相应的RGSW sample。更具体地，circuit bootstrap定义如下:
  <p align="center">
  <img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)\xrightarrow[]{Circuit&space;Bootstrap}&space;RGSW_z(m)\overset{\underset{\mathrm{def}}{}}{=}&space;(\{RLWE_z(m\cdot&space;B_g^i)\}_i,&space;\{RLWE_z(-z\cdot&space;m\cdot&space;B_g^i)\}_i)" title="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)\xrightarrow[]{Circuit Bootstrap} RGSW_z(m)\overset{\underset{\mathrm{def}}{}}{=} (\{RLWE_z(m\cdot B_g^i)\}_i, \{RLWE_z(-z\cdot m\cdot B_g^i)\}_i)" />
  </p>
@@ -161,4 +161,5 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
  <p align="center">
  <img src="fig/CircuitBootstrap.PNG" alt="animated" />
  </p>
- 注意算法第二行的Bootstrap算法，将<img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)\in&space;\mathbb{Z}_q^n\times\mathbb{Z}_q" title="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)\in \mathbb{Z}_q^n\times\mathbb{Z}_q" /> 转换成<img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}(B_g^im)\in&space;\mathbb{Z}_Q^N\times\mathbb{Z}_Q" title="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}(B_g^im)\in \mathbb{Z}_Q^N\times\mathbb{Z}_Q" />。
+ 
+ <div>注意算法第二行的Bootstrap算法，将<img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)\in&space;\mathbb{Z}_q^n\times\mathbb{Z}_q" title="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)\in \mathbb{Z}_q^n\times\mathbb{Z}_q" /> 转换成<img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}(B_g^im)\in&space;\mathbb{Z}_Q^N\times\mathbb{Z}_Q" title="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}(B_g^im)\in \mathbb{Z}_Q^N\times\mathbb{Z}_Q" />。</div>
