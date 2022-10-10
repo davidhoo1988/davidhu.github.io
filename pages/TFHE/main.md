@@ -161,3 +161,4 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
  <p align="center">
  <img src="fig/CircuitBootstrap.PNG" alt="animated" />
  </p>
+ 注意算法第二行的Bootstrap算法，将<img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)\in&space;\mathbb{Z}_q^n\times\mathbb{Z}_q" title="https://latex.codecogs.com/svg.image?LWE_{\mathbf{s}}(m)\in \mathbb{Z}_q^n\times\mathbb{Z}_q" /> 转换成<img src="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}(B_g^im)\in&space;\mathbb{Z}_Q^N\times\mathbb{Z}_Q" title="https://latex.codecogs.com/svg.image?LWE_{\mathbf{z}}(B_g^im)\in \mathbb{Z}_Q^N\times\mathbb{Z}_Q" />。
