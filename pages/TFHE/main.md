@@ -175,3 +175,6 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\sigma_{Bootstrap}^2\leq&space;\frac{q^2}{Q^2}\left(\frac{1}{6}Nnd_gB_g^2\sigma_{evK}^2&plus;\frac{1}{12}Nnd_{ks}B_{ks}^1\sigma_{ksK}^2\right)&plus;\frac{HW(\mathbf{s})&plus;1}{12}" title="https://latex.codecogs.com/svg.image?\sigma_{Bootstrap}^2\leq \frac{q^2}{Q^2}\left(\frac{1}{6}Nnd_gB_g^2\sigma_{evK}^2+\frac{1}{12}Nnd_{ks}B_{ks}^1\sigma_{ksK}^2\right)+\frac{HW(\mathbf{s})+1}{12}" />
 </p>
+<div>接着做一次private keyswitch得到新的噪声方差记为。结合上文给出的PrivKS噪声分析，最终有</div>
+ 
+
