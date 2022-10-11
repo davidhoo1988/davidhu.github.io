@@ -171,7 +171,7 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
 <div>接着考虑Circuit Bootstrap的计算复杂度。容易知道一共需要做<img src="https://latex.codecogs.com/svg.image?d_g" title="https://latex.codecogs.com/svg.image?d_g" />次bootstrap 和 <img src="https://latex.codecogs.com/svg.image?2d_g" title="https://latex.codecogs.com/svg.image?2d_g" />次 Private KS。单次bootstrap需要<img src="https://latex.codecogs.com/svg.image?\mathcal{O}(d_gN^2logN)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(d_gN^2logN)" />, 单次PrivKS需要 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(N^2d_{ks})" title="https://latex.codecogs.com/svg.image?\mathcal{O}(N^2d_{ks})" />。因此，总的计算复杂度为 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(d_{g}^2N^2logN)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(d_{g}^2N^2logN)" /></div>
 
 
-<div>最后分析Circuit Bootstrap的噪声规律。Circuit Bootstrap的噪声分为两部分，第一部分是做一次普通boostrap得到的密文噪声，记为，由上文分析有，</div>
+<div>最后分析Circuit Bootstrap的噪声规律。Circuit Bootstrap的噪声分为两部分，第一部分是做一次普通boostrap得到的密文噪声，噪声方差记为 <img src="https://latex.codecogs.com/svg.image?\sigma_{Bootstrap}^2" title="https://latex.codecogs.com/svg.image?\sigma_{Bootstrap}^2" />，由上文分析有，</div>
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\sigma_{Bootstrap}^2\leq&space;\frac{q^2}{Q^2}\left(\frac{1}{6}Nnd_gB_g^2\sigma_{evK}^2&plus;\frac{1}{12}Nnd_{ks}B_{ks}^1\sigma_{ksK}^2\right)&plus;\frac{HW(\mathbf{s})&plus;1}{12}" title="https://latex.codecogs.com/svg.image?\sigma_{Bootstrap}^2\leq \frac{q^2}{Q^2}\left(\frac{1}{6}Nnd_gB_g^2\sigma_{evK}^2+\frac{1}{12}Nnd_{ks}B_{ks}^1\sigma_{ksK}^2\right)+\frac{HW(\mathbf{s})+1}{12}" />
 </p>
