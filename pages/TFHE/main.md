@@ -126,7 +126,13 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
 
 
 ## TFHE各式KeySwitch
-### Private Key Switch
+### Public Functional Key Switch
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?(LWE(m_0),\cdots,&space;LWE(m_{p-1}))&space;\xrightarrow[]{\text{Private&space;}&space;KS}&space;RLWE(f(m_0,\cdots,m_{p-1}))" title="https://latex.codecogs.com/svg.image?(LWE(m_0),\cdots, LWE(m_{p-1})) \xrightarrow[]{\text{Private } KS} RLWE(f(m_0,\cdots,m_{p-1}))" />
+</p>
+
+
+### Private Functional Key Switch
 这里介绍一种KeySwitch的变种，将若干(p个)LWE密文变换成一个RLWE密文，即
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?(LWE(m_0),\cdots,&space;LWE(m_{p-1}))&space;\xrightarrow[]{\text{Private&space;}&space;KS}&space;RLWE(f(m_0,\cdots,m_{p-1}))" title="https://latex.codecogs.com/svg.image?(LWE(m_0),\cdots, LWE(m_{p-1})) \xrightarrow[]{\text{Private } KS} RLWE(f(m_0,\cdots,m_{p-1}))" />
