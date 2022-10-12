@@ -127,9 +127,15 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
 
 ## TFHE各式KeySwitch
 ### Public Functional Key Switch
+首先介绍标注KeySwitch的一个直接变种。在这个变种中，我们希望不仅仅改变的是密钥，还希望能做某些简单的函数运算f(R-Lipshitz morphism),即
 <p align="center">
-<img src="https://latex.codecogs.com/svg.image?(LWE(m_0),\cdots,&space;LWE(m_{p-1}))&space;\xrightarrow[]{\text{Private&space;}&space;KS}&space;RLWE(f(m_0,\cdots,m_{p-1}))" title="https://latex.codecogs.com/svg.image?(LWE(m_0),\cdots, LWE(m_{p-1})) \xrightarrow[]{\text{Private } KS} RLWE(f(m_0,\cdots,m_{p-1}))" />
+<img src="https://latex.codecogs.com/svg.image?(LWE_{\mathbf{s}}(m_0),\cdots,&space;LWE_{\mathbf{s}}(m_{p-1}))&space;\xrightarrow[]{\text{Public&space;}&space;KS}&space;RLWE_z(f(m_0,\cdots,m_{p-1}))" title="https://latex.codecogs.com/svg.image?(LWE_{\mathbf{s}}(m_0),\cdots, LWE_{\mathbf{s}}(m_{p-1})) \xrightarrow[]{\text{Public } KS} RLWE_z(f(m_0,\cdots,m_{p-1}))" />
 </p>
+
+我们归纳TFHE Public (Functional) KS算法步骤如下：
+   <p align="center">
+  <img src="fig/PubKS.PNG" alt="animated" />
+   </p>
 
 
 ### Private Functional Key Switch
@@ -182,7 +188,7 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
 <img src="https://latex.codecogs.com/svg.image?\sigma_{Bootstrap}^2\leq&space;\frac{1}{6}Nnd_gB_g^2\sigma_{evK}^2" title="https://latex.codecogs.com/svg.image?\sigma_{Bootstrap}^2\leq \frac{1}{6}Nnd_gB_g^2\sigma_{evK}^2" />
 </p>
 
-<div>接着做一次private keyswitch得到新的噪声方差记为。结合上文给出的PrivKS噪声分析(令 <img src="https://latex.codecogs.com/svg.image?p=1,&space;|z|_{\infty}=1" title="https://latex.codecogs.com/svg.image?p=1, |z|_{\infty}=1" /> )有 <img src="https://latex.codecogs.com/svg.image?\sigma_{PrivKS}^2\leq&space;(N&plus;1)d_{ks}\frac{B_{ks}^2}{12}\sigma_{ksk}^2" title="https://latex.codecogs.com/svg.image?\sigma_{PrivKS}^2\leq (N+1)d_{ks}\frac{B_{ks}^2}{12}\sigma_{ksk}^2" />，最终有</div>
+<div>接着做一次private keyswitch得到新的噪声方差。结合上文给出的PrivKS噪声分析(令 <img src="https://latex.codecogs.com/svg.image?p=1,&space;|z|_{\infty}=1" title="https://latex.codecogs.com/svg.image?p=1, |z|_{\infty}=1" /> )有 <img src="https://latex.codecogs.com/svg.image?\sigma_{PrivKS}^2\leq&space;(N&plus;1)d_{ks}\frac{B_{ks}^2}{12}\sigma_{ksk}^2" title="https://latex.codecogs.com/svg.image?\sigma_{PrivKS}^2\leq (N+1)d_{ks}\frac{B_{ks}^2}{12}\sigma_{ksk}^2" />，最终有</div>
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\sigma_{C-Bootstrap}^2=\sigma_{Bootstrap}^2&plus;\sigma_{PrivKS}^2" title="https://latex.codecogs.com/svg.image?\sigma_{C-Bootstrap}^2=\sigma_{Bootstrap}^2+\sigma_{PrivKS}^2" />
 </p>
