@@ -131,12 +131,21 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?(LWE_{\mathbf{s}}(m_0),\cdots,&space;LWE_{\mathbf{s}}(m_{p-1}))&space;\xrightarrow[]{\text{Public&space;}&space;KS}&space;RLWE_z(f(m_0,\cdots,m_{p-1}))" title="https://latex.codecogs.com/svg.image?(LWE_{\mathbf{s}}(m_0),\cdots, LWE_{\mathbf{s}}(m_{p-1})) \xrightarrow[]{\text{Public } KS} RLWE_z(f(m_0,\cdots,m_{p-1}))" />
 </p>
+注意这里的函数f是公开的，也就是Public Functional Key Switch名称的由来。
 
 我们归纳TFHE Public (Functional) KS算法步骤如下：
    <p align="center">
   <img src="fig/PubKS.PNG" alt="animated" />
    </p>
 
+正确性证明: 首先我们有 <img src="https://latex.codecogs.com/svg.image?(0,b)=RLWE_z(f(b^{(0)},\cdots,b^{(p-1)}))" title="https://latex.codecogs.com/svg.image?(0,b)=RLWE_z(f(b^{(0)},\cdots,b^{(p-1)}))" />， 并且 
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\sum_ja_{i,j}\cdot\mathbf{KSK}_{i,j}=RLWE_z(s_i\cdot&space;f(a_i^{(0)},\cdots,a_i^{(p-1)}))=RLWE_z(f(s_ia_i^{(0)},\cdots,s_ia_i^{(p-1)}))" title="https://latex.codecogs.com/svg.image?\sum_ja_{i,j}\cdot\mathbf{KSK}_{i,j}=RLWE_z(s_i\cdot f(a_i^{(0)},\cdots,a_i^{(p-1)}))=RLWE_z(f(s_ia_i^{(0)},\cdots,s_ia_i^{(p-1)}))" />。
+</p>
+因此可得
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?(0,b)-\sum_i\sum_ja_{i,j}\cdot\mathbf{KSK}_{i,j}=RLWE_z(f(b-\sum_is_ia_i^{(0)},\cdots,b-\sum_is_ia_i^{(p-1)}))=RLWE_z(f(m_0,\cdots,m_{p-1})&plus;f(e_0,\cdots,e_{p-1}))" title="https://latex.codecogs.com/svg.image?(0,b)-\sum_i\sum_ja_{i,j}\cdot\mathbf{KSK}_{i,j}=RLWE_z(f(b-\sum_is_ia_i^{(0)},\cdots,b-\sum_is_ia_i^{(p-1)}))=RLWE_z(f(m_0,\cdots,m_{p-1})+f(e_0,\cdots,e_{p-1}))" />
+</p>
 
 ### Private Functional Key Switch
 这里介绍一种KeySwitch的变种，将若干(p个)LWE密文变换成一个RLWE密文，即
