@@ -147,6 +147,9 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
 <img src="https://latex.codecogs.com/svg.image?(0,b)-\sum_i\sum_ja_{i,j}\cdot\mathbf{KSK}_{i,j}=RLWE_z(f(b-\sum_is_ia_i^{(0)},\cdots,b-\sum_is_ia_i^{(p-1)}))=RLWE_z(f(m_0,\cdots,m_{p-1})&plus;f(e_0,\cdots,e_{p-1}))" title="https://latex.codecogs.com/svg.image?(0,b)-\sum_i\sum_ja_{i,j}\cdot\mathbf{KSK}_{i,j}=RLWE_z(f(b-\sum_is_ia_i^{(0)},\cdots,b-\sum_is_ia_i^{(p-1)}))=RLWE_z(f(m_0,\cdots,m_{p-1})+f(e_0,\cdots,e_{p-1}))" />
 </p>
 
+<div>
+计算复杂度：For循环计算decompose（第1行-第3行）需要 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(nd_{ks}p)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(nd_{ks}p)" />; 计算瓶颈在第5行，需要 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(nd_{ks}\cdot&space;NlogN)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(nd_{ks}\cdot NlogN)" /> 。</div>
+
 ### Private Functional Key Switch
 这里介绍一种KeySwitch的变种，将若干(p个)LWE密文变换成一个RLWE密文，即
 <p align="center">
