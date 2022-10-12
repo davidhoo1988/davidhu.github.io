@@ -150,6 +150,10 @@ bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确
 <div>
 计算复杂度：For循环计算decompose（第1行-第3行）需要 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(nd_{ks}p)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(nd_{ks}p)" />; 计算瓶颈在第5行，需要 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(nd_{ks}\cdot&space;NlogN)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(nd_{ks}\cdot NlogN)" /> 。据此，PubKS算法的复杂度是 <img src="https://latex.codecogs.com/svg.image?\mathcal{O}(nd_{ks}\cdot&space;NlogN)" title="https://latex.codecogs.com/svg.image?\mathcal{O}(nd_{ks}\cdot NlogN)" />。</div>
 
+<div>
+ 噪声分析：
+ </div>
+
 ### Private Functional Key Switch
 这里介绍一种KeySwitch的变种，将若干(p个)LWE密文变换成一个RLWE密文，即
 <p align="center">
