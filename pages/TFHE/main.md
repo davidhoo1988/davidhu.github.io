@@ -100,7 +100,7 @@ Sample Extraction的目的是从RLWE instance里（同态地）提取需要的�
 bootstrap操作本身会引入额外噪声。为了保障TFHE bootstrap的正确性，一个关键的问题是分析bootstrap算法的噪声，使得噪声幅值大小在可控范围。
 观察Bootstrap算法可知BlindRotate和KeySwitch增加噪声；ModSwitch减小噪声。
 
-首先，分析BlindRotate的噪声变化。BlindRotate一共进行了N次CMux，每次CMux的噪声增长上限为 <img src="https://latex.codecogs.com/svg.image?2d_gn\frac{B_g^2}{3}\cdot&space;Var(Err(\mathbf{C_i}))" title="https://latex.codecogs.com/svg.image?2d_gn\frac{B_g^2}{3}\cdot Var(Err(\mathbf{C_i}))" /> （参考这篇[博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/FHE_Noise/main.md)）。因此，BlindRotate带来的噪声上限为：
+首先，分析BlindRotate的噪声变化。BlindRotate一共进行了n次CMux，每次CMux的噪声增长上限为 <img src="https://latex.codecogs.com/svg.image?2d_gN\frac{B_g^2}{3}\cdot&space;Var(Err(\mathbf{C_i}))" title="https://latex.codecogs.com/svg.image?2d_gN\frac{B_g^2}{3}\cdot Var(Err(\mathbf{C_i}))" /> （参考这篇[博文](https://github.com/davidhoo1988/davidhu.github.io/blob/gh-pages/pages/FHE_Noise/main.md)）。因此，BlindRotate带来的噪声上限为：
 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.image?\sigma_{BR}^2\leq&space;N\cdot&space;2d_gn\frac{B_g^2}{3}\cdot&space;Var(Err(\mathbf{C_i}))" title="https://latex.codecogs.com/svg.image?\sigma_{BR}^2\leq N\cdot 2d_gn\frac{B_g^2}{3}\cdot Var(Err(\mathbf{C_i}))" />
