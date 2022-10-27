@@ -18,9 +18,19 @@ BGV最重要的贡献是提出了模数转换(Modular Switching)技术,有效地
 ### 基础运算 BitDecompose 和 Powerof2
 BitDecompose是对输入多项式<img src="https://latex.codecogs.com/svg.image?a\in&space;R_q" title="https://latex.codecogs.com/svg.image?a\in R_q" /> 进行“切片”操作的运算，即
 <p align="center">
-<img src="https://latex.codecogs.com/svg.image?BitDecompose(a)=(a_0,a_1,\cdots,a_{\lceil&space;logq\rceil-1})&space;s.t.&space;a=\sum_{i=0}^{\lceil&space;logq\rceil-1}&space;a_i2^i" title="https://latex.codecogs.com/svg.image?BitDecompose(a)=(a_0,a_1,\cdots,a_{\lceil logq\rceil-1}) s.t. a=\sum_{i=0}^{\lceil logq\rceil-1} a_i2^i" />
+<img src="https://latex.codecogs.com/svg.image?BitDecompose(a)=(a_0,a_1,\cdots,a_{\lceil&space;logq\rceil-1})&space;\text{&space;s.t.&space;}&space;a=\sum_{i=0}^{\lceil&space;logq\rceil-1}&space;a_i2^i" title="https://latex.codecogs.com/svg.image?BitDecompose(a)=(a_0,a_1,\cdots,a_{\lceil logq\rceil-1}) \text{ s.t. } a=\sum_{i=0}^{\lceil logq\rceil-1} a_i2^i" />
 </p>
- 
+
+Powerof2是和BitDecompose相对应的运算，对输入多项式a进行某种幂扩展：
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?Powerof2(a)=(a,a\cdot2,\cdots,a\cdot&space;2^{\lceil&space;log_2q\rceil-1})" title="https://latex.codecogs.com/svg.image?Powerof2(a)=(a,a\cdot2,\cdots,a\cdot 2^{\lceil log_2q\rceil-1})" />
+</p>
+
+这里点明关于Bitdecompose和Powerof2的一个重要性质。该性质对BGV同态运算噪声控制非常重要：
+<p align="center">
+<img src="https://latex.codecogs.com/svg.image?\langle&space;BitDecompose(a),Powerof2(s)\rangle&space;=&space;a\cdot&space;s" title="https://latex.codecogs.com/svg.image?\langle BitDecompose(a),Powerof2(s)\rangle = a\cdot s" />
+</p>
+
 ### 模数变换(Modular Switching)
 抽象地说，模数变换的作用是同态地变换密文作用的模数而不改变被加密的信息本身，即
 <p align="center">
